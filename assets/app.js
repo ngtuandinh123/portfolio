@@ -13,7 +13,7 @@
   var CONTACT = {
     email:    "ngtuandinh2004@gmail.com",
     phone:    "",   // e.g. "0869 159 656"  — leave "" to hide the phone line
-    linkedin: "",   // full URL, e.g. "https://www.linkedin.com/in/your-handle"
+    linkedin: "https://www.linkedin.com/in/định-nguyễn-tuấn-1a7004431/",   // full URL, e.g. "https://www.linkedin.com/in/your-handle"
     github:   "https://github.com/ngtuandinh123",
     cv:       ""    // link to your CV PDF, e.g. "assets/cv.pdf"
   };
