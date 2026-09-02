@@ -256,7 +256,7 @@ details.readme p:first-of-type{margin-top:1rem}
 .cs-toc{position:sticky; top:64px; font-family:var(--fm); font-size:.74rem; line-height:1.9; color:var(--ink-soft)}
 .cs-toc a{display:block; text-decoration:none}
 .cs-toc a:hover{color:var(--accent)}
-@media (max-width:1180px){ .cs-toc{display:none} }
+@media (max-width:1179px){ .cs-toc{display:none} }
 .cs-layout{display:grid; grid-template-columns:1fr; gap:2rem}
 @media (min-width:1180px){
   .cs-layout{grid-template-columns:180px minmax(0,1fr); gap:2.5rem; max-width:1010px; margin:0 auto}
