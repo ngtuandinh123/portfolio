@@ -1,0 +1,120 @@
+/* Nguyen Tuan Dinh — BA Portfolio · shared behaviour
+   Theme + language applied to <html> before body renders (script is in <head>),
+   persisted per-viewer in localStorage. Wiring runs on DOMContentLoaded. */
+(function () {
+  'use strict';
+
+  /* ===========================================================
+     EDIT YOUR CONTACT DETAILS HERE  ↓↓↓
+     Leave a value as "" to hide that item everywhere on the site.
+     These are injected by JavaScript, so they do NOT sit in the
+     raw page source (a mild anti-scraping measure).
+     =========================================================== */
+  var CONTACT = {
+    email:    "ngtuandinh2004@gmail.com",
+    phone:    "",   // e.g. "0869 159 656"  — leave "" to hide the phone line
+    linkedin: "",   // full URL, e.g. "https://www.linkedin.com/in/your-handle"
+    github:   "https://github.com/ngtuandinh123",
+    cv:       ""    // link to your CV PDF, e.g. "assets/cv.pdf"
+  };
+  /* =========================================================== */
+
+  var root = document.documentElement;
+  var LS = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+
+  // ---- apply stored (or system) preferences immediately ----
+  var theme = LS.get('pf-theme');
+  if (theme !== 'light' && theme !== 'dark') {
+    theme = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  root.setAttribute('data-theme', theme);
+
+  var lang = LS.get('pf-lang');
+  if (lang !== 'en' && lang !== 'vi') lang = 'en';
+  root.setAttribute('data-lang', lang);
+  root.lang = lang;
+
+  function sync() {
+    var t = root.getAttribute('data-theme');
+    var l = root.getAttribute('data-lang');
+    document.querySelectorAll('[data-toggle-theme]').forEach(function (b) {
+      b.textContent = t === 'dark' ? '☾' : '☀';
+      b.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    });
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === l));
+    });
+  }
+
+  function fillContacts() {
+    // hide any item whose value is empty
+    document.querySelectorAll('[data-contact-item]').forEach(function (el) {
+      var key = el.getAttribute('data-contact-item');
+      if (!CONTACT[key]) el.style.display = 'none';
+    });
+    // fill links / text
+    document.querySelectorAll('[data-contact]').forEach(function (el) {
+      var key = el.getAttribute('data-contact');
+      var val = CONTACT[key];
+      if (!val) { return; }
+      var leaf = el.children.length === 0; // no child elements → safe to set text
+      if (key === 'email') {
+        if (el.tagName === 'A') el.setAttribute('href', 'mailto:' + val);
+        if (leaf) el.textContent = val;
+      } else if (key === 'phone') {
+        el.textContent = val;
+      } else { // linkedin, github, cv
+        if (el.tagName === 'A') {
+          el.setAttribute('href', val);
+          if (key !== 'cv') { el.setAttribute('target', '_blank'); el.setAttribute('rel', 'noopener'); }
+        }
+      }
+    });
+  }
+
+  function wire() {
+    fillContacts();
+
+    document.querySelectorAll('[data-toggle-theme]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        LS.set('pf-theme', theme);
+        sync();
+      });
+    });
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        lang = b.getAttribute('data-set-lang');
+        root.setAttribute('data-lang', lang);
+        root.lang = lang;
+        LS.set('pf-lang', lang);
+        sync();
+      });
+    });
+    sync();
+
+    // scroll reveal
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(function (e) { e.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      els.forEach(function (e) { io.observe(e); });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', wire);
+  } else {
+    wire();
+  }
+})();

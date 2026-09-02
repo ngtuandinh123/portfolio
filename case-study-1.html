@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Access Control &amp; Approval Workflow — Case Study</title>
+<meta name="description" content="Case study: a per-project PBAC permission model and a configurable multi-level approval workflow for a construction ERP on Odoo. Reconstruction based on real work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/styles.css?v=6">
+<script src="assets/app.js?v=6"></script>
+<style>
+  figure.diagram text{font-family:var(--fm); font-size:11px}
+  figure.diagram .dg-lbl{font-size:10px}
+  figure.diagram .dg-title{font-size:12px; font-weight:600}
+  .erd{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.9rem; margin-top:1.3rem}
+  .erd .ent{border:1px solid var(--line); border-radius:10px; background:var(--surface); overflow:hidden}
+  .erd .ent h5{font-family:var(--fm); font-size:.74rem; margin:0; padding:.5rem .7rem; background:var(--surface-2); border-bottom:1px solid var(--line); color:var(--accent)}
+  .erd .ent ul{margin:0; padding:.5rem .7rem .6rem 1.2rem; font-size:.82rem; color:var(--ink-soft)}
+  .rel{font-family:var(--fm); font-size:.8rem; color:var(--ink-soft); margin-top:1rem; line-height:1.9}
+  .subsec{margin-top:2.2rem}
+  .subsec > h3{margin-top:0}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="mark" href="index.html">NTD&nbsp;·&nbsp;BA</a>
+  <span class="links">
+    <a href="index.html#work"><span data-lang="en">All case studies</span><span data-lang="vi">Tất cả case study</span></a>
+    <a href="index.html#about"><span data-lang="en">About</span><span data-lang="vi">Giới thiệu</span></a>
+    <a href="index.html#contact"><span data-lang="en">Contact</span><span data-lang="vi">Liên hệ</span></a>
+  </span>
+  <span class="seg" role="group" aria-label="Language">
+    <button type="button" data-set-lang="en">EN</button>
+    <button type="button" data-set-lang="vi">VI</button>
+  </span>
+  <button class="tgl" type="button" data-toggle-theme aria-label="Toggle theme">☀</button>
+</nav>
+
+<main>
+<div class="wrap wide">
+  <a class="backlink" href="index.html">← <span data-lang="en">Back to portfolio</span><span data-lang="vi">Về trang chính</span></a>
+
+  <div class="cs-layout">
+
+    <nav class="cs-toc" aria-label="On this page">
+      <a href="#tldr">TL;DR</a>
+      <a href="#overview"><span data-lang="en">1 · Overview</span><span data-lang="vi">1 · Tổng quan</span></a>
+      <a href="#problem"><span data-lang="en">2 · The problem</span><span data-lang="vi">2 · Vấn đề</span></a>
+      <a href="#stakeholders"><span data-lang="en">3 · Stakeholders &amp; RACI</span><span data-lang="vi">3 · Stakeholder &amp; RACI</span></a>
+      <a href="#approach"><span data-lang="en">4 · Approach</span><span data-lang="vi">4 · Cách tiếp cận</span></a>
+      <a href="#asis"><span data-lang="en">5 · AS-IS process</span><span data-lang="vi">5 · Quy trình AS-IS</span></a>
+      <a href="#tobe"><span data-lang="en">6 · TO-BE solution</span><span data-lang="vi">6 · Giải pháp TO-BE</span></a>
+      <a href="#deliverables"><span data-lang="en">7 · Deliverables</span><span data-lang="vi">7 · Sản phẩm BA</span></a>
+      <a href="#catches"><span data-lang="en">8 · Consistency catches</span><span data-lang="vi">8 · Điểm không nhất quán</span></a>
+      <a href="#outcome"><span data-lang="en">9 · Outcome</span><span data-lang="vi">9 · Kết quả</span></a>
+      <a href="#open"><span data-lang="en">10 · Open questions</span><span data-lang="vi">10 · Câu hỏi mở</span></a>
+      <a href="#lessons"><span data-lang="en">11 · Lessons</span><span data-lang="vi">11 · Bài học</span></a>
+    </nav>
+
+    <div class="cs-body">
+
+      <p class="kicker"><span data-lang="en">Case study 01 · Construction ERP</span><span data-lang="vi">Case study 01 · ERP xây dựng</span></p>
+      <h1><span data-lang="en">Access Control &amp; Approval Workflow</span><span data-lang="vi">Phân quyền &amp; Luồng phê duyệt đề trình</span></h1>
+      <p class="lead" style="margin-top:.8rem">
+        <span data-lang="en">A per-project PBAC permission model and a configurable multi-level submission / approval engine for a multi-discipline construction company rolling out an ERP on Odoo.</span>
+        <span data-lang="vi">Mô hình phân quyền PBAC theo từng dự án và workflow phê duyệt đề trình nhiều cấp, cấu hình được, cho một doanh nghiệp xây dựng đa lĩnh vực triển khai ERP nền Odoo.</span>
+      </p>
+
+      <div class="callout" style="margin-top:1.4rem">
+        <span class="ic" aria-hidden="true">✷</span>
+        <span>
+          <span data-lang="en">Representative reconstruction based on real work. Client, product and vendor names, pricing and confidential material have been removed or fictionalised. Outcome figures are design targets, tagged <em>(target)</em>; problem-side figures are interview estimates, not measurements.</span>
+          <span data-lang="vi">Bản dựng lại mang tính đại diện dựa trên dự án thật. Tên khách hàng, sản phẩm, nhà cung cấp, giá và tài liệu mật đã được lược bỏ hoặc hư cấu hoá. Con số kết quả là mục tiêu thiết kế, đánh dấu <em>(target)</em>; con số mô tả hiện trạng là ước lượng từ phỏng vấn, không phải số đo.</span>
+        </span>
+      </div>
+
+      <!-- ===================== TL;DR ===================== -->
+      <section class="sec" id="tldr">
+        <div class="tldr">
+          <p class="kicker" style="margin-bottom:.3rem">TL;DR</p>
+          <ul>
+            <li><b><span data-lang="en">Context</span><span data-lang="vi">Bối cảnh</span>:</b>
+              <span data-lang="en"> a multi-discipline construction contractor in Vietnam rolling out an in-house ERP (Odoo 17 CE + OCA). Records move between site and office on Word/Excel + Zalo + printed signatures.</span>
+              <span data-lang="vi"> một nhà thầu xây dựng đa lĩnh vực tại VN triển khai ERP nội bộ (Odoo 17 CE + OCA). Hồ sơ luân chuyển công trường ↔ văn phòng trên Word/Excel + Zalo + bản in ký tay.</span></li>
+            <li><b><span data-lang="en">My scope</span><span data-lang="vi">Scope của tôi</span>:</b>
+              <span data-lang="en"> full specification of two modules under Senior BA review — (1) User Management &amp; Permissions (PBAC) and (2) Submission records / approval workflow.</span>
+              <span data-lang="vi"> đặc tả trọn vẹn 2 phân hệ dưới rà soát của Senior BA — (1) Quản trị Người dùng &amp; Phân quyền (PBAC) và (2) Hồ sơ Đề trình / luồng phê duyệt.</span></li>
+            <li><b><span data-lang="en">Three design decisions that mattered most</span><span data-lang="vi">3 quyết định thiết kế quan trọng nhất</span>:</b>
+              <span data-lang="en"> per-project PBAC instead of hard job titles · a configurable workflow engine (no hard-coded approvers) · Separation of Duties enforced at system level.</span>
+              <span data-lang="vi"> phân quyền PBAC theo từng dự án thay cho chức danh cứng · workflow engine cấu hình được · Separation of Duties cứng ở tầng hệ thống.</span></li>
+            <li><b><span data-lang="en">Deliverables</span><span data-lang="vi">Sản phẩm</span>:</b>
+              <span data-lang="en"> BRD/SRS extract · User–Role–Permission matrix · BPMN AS-IS/TO-BE · state diagram · ERD · 22 user stories + AC (Gherkin) · use case specification · business rules catalogue (29 rules) · wireframes (6 screens) · UAT test cases + requirement traceability matrix.</span>
+              <span data-lang="vi"> BRD/SRS extract · ma trận User–Role–Permission · BPMN AS-IS/TO-BE · state diagram · ERD · 22 user story + AC (Gherkin) · use case specification · business rules catalogue (29 rule) · wireframes (6 màn) · UAT test cases + ma trận truy vết.</span></li>
+            <li><b><span data-lang="en">Status</span><span data-lang="vi">Trạng thái</span>:</b>
+              <span data-lang="en"> ready-for-development, handed to the developers.</span>
+              <span data-lang="vi"> ready-for-development, đã bàn giao cho đội Developer.</span></li>
+          </ul>
+          <p class="read-one">
+            <span data-lang="en">If you read one section, read <a href="#catches">§8 — Consistency catches</a>: four inconsistencies I caught by cross-checking requirements ↔ wireframes ↔ the permission model.</span>
+            <span data-lang="vi">Nếu chỉ đọc một mục: đọc <a href="#catches">§8 — Consistency catches</a> (bốn điểm không nhất quán tôi phát hiện khi rà soát chéo yêu cầu ↔ wireframe ↔ mô hình phân quyền).</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 1. OVERVIEW ===================== -->
+      <section class="sec" id="overview">
+        <p class="kicker">1</p>
+        <h2><span data-lang="en">Overview</span><span data-lang="vi">Tổng quan</span></h2>
+        <dl class="dl">
+          <dt><span data-lang="en">Context</span><span data-lang="vi">Bối cảnh</span></dt>
+          <dd><span data-lang="en">A multi-discipline construction contractor in Vietnam (residential, apartment, villa, office, road &amp; bridge, plus materials trading) rolling out an in-house ERP on <b>Odoo 17 Community + OCA</b>.</span><span data-lang="vi">Một nhà thầu xây dựng đa lĩnh vực tại Việt Nam (dân dụng, chung cư, biệt thự, văn phòng, cầu đường + kinh doanh vật liệu), triển khai ERP nội bộ nền <b>Odoo 17 Community + OCA</b>.</span></dd>
+          <dt><span data-lang="en">My role</span><span data-lang="vi">Vai trò của tôi</span></dt>
+          <dd><span data-lang="en">Business Analyst (freelance), owning two modules end to end <b>under Senior BA review</b>: User Management &amp; Permissions, and Submission records / approval workflow.</span><span data-lang="vi">Business Analyst (freelance), phụ trách trọn vẹn 2 phân hệ <b>dưới sự rà soát của Senior BA</b>: Quản trị Người dùng &amp; Phân quyền, và Hồ sơ Đề trình / luồng phê duyệt.</span></dd>
+          <dt><span data-lang="en">Target customer scale</span><span data-lang="vi">Quy mô KH mục tiêu</span></dt>
+          <dd><span data-lang="en">A firm running many concurrent sites; hundreds of user accounts, a few dozen with approval-handling roles. 5 submission types; per-type SLA of 3–14 working days (typical client requirement).</span><span data-lang="vi">Doanh nghiệp vận hành nhiều công trường song song; hàng trăm tài khoản, vài chục có vai trò xử lý đề trình. 5 nhóm loại đề trình; SLA mỗi loại 3–14 ngày làm việc (yêu cầu chủ đầu tư điển hình).</span></dd>
+          <dt><span data-lang="en">Phase &amp; duration</span><span data-lang="vi">Giai đoạn &amp; thời lượng</span></dt>
+          <dd><span data-lang="en">Discovery → ready-for-development specification for the two assigned modules; ~6–8 weeks for this scope.</span><span data-lang="vi">Discovery → đặc tả ready-for-development cho 2 phân hệ được giao; ~6–8 tuần cho phần scope này.</span></dd>
+          <dt><span data-lang="en">Team</span><span data-lang="vi">Team</span></dt>
+          <dd><span data-lang="en">1 Senior BA (review &amp; sign-off), 1 PM, 1–2 Developers. I did the wireframes (Figma) and supported UAT.</span><span data-lang="vi">1 Senior BA (rà soát &amp; duyệt tài liệu), 1 PM, 1–2 Developer. Tôi tự làm wireframe (Figma) và hỗ trợ UAT.</span></dd>
+          <dt><span data-lang="en">Tools</span><span data-lang="vi">Công cụ</span></dt>
+          <dd>draw.io / Lucidchart, Figma, Jira, Confluence / Markdown.</dd>
+        </dl>
+
+        <h3><span data-lang="en">Scope boundary</span><span data-lang="vi">Ranh giới scope</span></h3>
+        <div class="tbl-scroll">
+          <table>
+            <thead><tr>
+              <th><span data-lang="en">In scope</span><span data-lang="vi">Trong scope</span></th>
+              <th><span data-lang="en">Out of scope</span><span data-lang="vi">Ngoài scope</span></th>
+              <th><span data-lang="en">Deferred to phase 2</span><span data-lang="vi">Hoãn sang phase 2</span></th>
+            </tr></thead>
+            <tbody>
+              <tr>
+                <td><span data-lang="en">PBAC model (User / Permission Group / Department / Project), permission calculation, submission-module permission matrix</span><span data-lang="vi">Mô hình PBAC (User / Nhóm quyền / Phòng ban / Dự án), công thức tính quyền, ma trận quyền phân hệ Đề trình</span></td>
+                <td><span data-lang="en">Accounting / finance logic of payment requests (posting, VAT, receivables)</span><span data-lang="vi">Nghiệp vụ kế toán/tài chính của đề nghị thanh toán (hạch toán, VAT, công nợ)</span></td>
+                <td><span data-lang="en">E-signature (DocuSeal / CA) — phase 1 uploads a scanned signed record</span><span data-lang="vi">Ký số (DocuSeal / CA) — phase 1 upload ảnh/PDF biên bản ký tay</span></td>
+              </tr>
+              <tr>
+                <td><span data-lang="en">Configurable workflow engine: steps, actors, ANY/ALL, SLA, validation</span><span data-lang="vi">Workflow engine cấu hình được: bước, actor, ANY/ALL, SLA, validation</span></td>
+                <td><span data-lang="en">Other modules (materials, progress, equipment, warehouse)</span><span data-lang="vi">Các phân hệ khác (vật tư, tiến độ, thiết bị, kho)</span></td>
+                <td><span data-lang="en">Native mobile app — phase 1 uses responsive web</span><span data-lang="vi">App mobile native — phase 1 dùng responsive web</span></td>
+              </tr>
+              <tr>
+                <td><span data-lang="en">Submission state machine, SLA engine, red-alert dashboard, versioning, audit trail</span><span data-lang="vi">State machine hồ sơ, SLA engine, dashboard báo đỏ, versioning, audit trail</span></td>
+                <td><span data-lang="en">HR integration (auto-move users on staff transfer) — interface only</span><span data-lang="vi">Tích hợp HR (tự động luân chuyển user) — chỉ nêu interface</span></td>
+                <td><span data-lang="en">Percentage-based approval (only ANY/ALL in phase 1)</span><span data-lang="vi">Phê duyệt theo tỷ lệ % (chỉ ANY/ALL ở phase 1)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note-box">
+          <b><span data-lang="en">A cut I proposed:</span><span data-lang="vi">Một cắt gọt tôi đề xuất:</span></b>
+          <span data-lang="en"> drop "percentage-of-confirmations" approval from phase 1, keep only <b>ANY / ALL</b>. Workshops showed no real case for a percentage mode, while it materially complicates the SLA engine (tracking partial-confirmation progress). Senior BA agreed; logged as a future extension.</span>
+          <span data-lang="vi"> loại "phê duyệt theo tỷ lệ % số người xác nhận" khỏi phase 1, chỉ giữ <b>ANY / ALL</b>. Workshop cho thấy chưa có tình huống thực cần cơ chế %, trong khi nó làm phức tạp đáng kể SLA engine. Senior BA đồng ý; ghi lại là hướng mở rộng.</span>
+        </div>
+      </section>
+
+      <!-- ===================== 2. PROBLEM ===================== -->
+      <section class="sec" id="problem">
+        <p class="kicker">2</p>
+        <h2><span data-lang="en">The problem</span><span data-lang="vi">Vấn đề</span></h2>
+        <p>
+          <span data-lang="en">Records moving between site and office (material requests, shop drawings, method statements, payment requests, equipment-transfer requests) run on Word/Excel + Zalo/email + printed signatures. Discovery surfaced <b>7 pain points</b>:</span>
+          <span data-lang="vi">Việc luân chuyển hồ sơ giữa công trường và văn phòng (đề nghị mua/cấp vật tư, shop drawing, biện pháp thi công, đề nghị thanh toán, đề nghị điều chuyển thiết bị) đang chạy trên Word/Excel + Zalo/email + bản in ký tay. Qua discovery, tôi ghi nhận <b>7 pain point</b>:</span>
+        </p>
+        <ol class="steps">
+          <li><span data-lang="en"><b>Records stall.</b> No SLA, no reminders; a record takes ~7–21 days, occasionally &gt; 30 <em>(interview estimate — not measured)</em>.</span><span data-lang="vi"><b>Hồ sơ bị "ngâm".</b> Không có SLA, không ai bị nhắc; một hồ sơ mất ~7–21 ngày, cá biệt &gt; 30 ngày <em>(ước lượng từ phỏng vấn — chưa đo)</em>.</span></li>
+          <li><span data-lang="en"><b>Nobody knows who is holding a record</b> — handling responsibility isn't visible anywhere.</span><span data-lang="vi"><b>Không biết hồ sơ đang nằm ở ai</b> — trách nhiệm xử lý không hiển thị ở đâu.</span></li>
+          <li><span data-lang="en"><b>Signed paper records go missing</b> — printed, signed, then scattered across personal drives.</span><span data-lang="vi"><b>Mất dấu biên bản ký tay</b> — bản in ký xong nằm rải rác ở thư mục máy cá nhân.</span></li>
+          <li><span data-lang="en"><b>No evidence trail</b> of who viewed, approved or rejected, and why.</span><span data-lang="vi"><b>Không có bằng chứng</b> ai đã xem, ai đã duyệt, ai đã từ chối và vì lý do gì.</span></li>
+          <li><span data-lang="en"><b>The owner can't see overdue records</b> to step in.</span><span data-lang="vi"><b>Chủ doanh nghiệp không thấy hồ sơ quá hạn</b> để can thiệp kịp thời.</span></li>
+          <li><span data-lang="en"><b>Job-title-based permissions break the moment staff rotate between sites</b> — the same person needs different rights per project; a "department" list can't express who may do what, where.</span><span data-lang="vi"><b>Phân quyền theo "chức danh cứng" vỡ ngay khi nhân sự luân chuyển công trường</b> — cùng một người cần quyền khác nhau ở mỗi dự án; danh sách "phòng ban" không phản ánh được ai được làm gì, ở đâu.</span></li>
+          <li><span data-lang="en">About <b>1 in 5 records returns for more information</b> at least once <em>(interview estimate)</em> — with no way to compare the old and new versions.</span><span data-lang="vi">Khoảng <b>1 trên 5 hồ sơ phải quay lại bổ sung</b> ít nhất một lần <em>(ước lượng từ phỏng vấn)</em> — nhưng không có cơ chế so sánh bản cũ/bản mới.</span></li>
+        </ol>
+        <p>
+          <span data-lang="en"><b>Business goal:</b> kill delay with a real-time SLA + red alerts; guarantee the legal traceability of records; and decouple permissions from hard job titles.</span>
+          <span data-lang="vi"><b>Mục tiêu nghiệp vụ:</b> triệt tiêu chậm trễ bằng SLA thời gian thực + báo đỏ; đảm bảo tính pháp lý &amp; truy vết của hồ sơ; và tách phân quyền ra khỏi "chức danh cứng".</span>
+        </p>
+      </section>
+
+      <!-- ===================== 3. STAKEHOLDERS ===================== -->
+      <section class="sec" id="stakeholders">
+        <p class="kicker">3</p>
+        <h2><span data-lang="en">Stakeholders &amp; RACI</span><span data-lang="vi">Stakeholder &amp; RACI</span></h2>
+        <p class="sub"><span data-lang="en">RACI for the four activities in my scope (specifying the two modules), not the whole ERP programme. R = Responsible, A = Accountable, C = Consulted, I = Informed.</span><span data-lang="vi">RACI cho 4 hoạt động thuộc scope của tôi (đặc tả 2 phân hệ), không phải cả dự án ERP.</span></p>
+        <div class="tbl-scroll">
+          <table>
+            <thead><tr>
+              <th><span data-lang="en">Person / role</span><span data-lang="vi">Người / vai trò</span></th>
+              <th>Elicitation</th><th>Specification</th><th><span data-lang="en">Doc review &amp; sign-off</span><span data-lang="vi">Rà soát &amp; duyệt</span></th><th><span data-lang="en">Build &amp; test</span><span data-lang="vi">Xây dựng &amp; kiểm thử</span></th>
+            </tr></thead>
+            <tbody>
+              <tr><td><b><span data-lang="en">Me — BA (F0 + F3 scope)</span><span data-lang="vi">Tôi — BA (scope F0 + F3)</span></b></td><td>R / A</td><td>R / A</td><td>C</td><td>C</td></tr>
+              <tr><td>Senior BA</td><td>C</td><td>C</td><td>R / A</td><td>I</td></tr>
+              <tr><td>PM</td><td>C</td><td>I</td><td>C</td><td>I</td></tr>
+              <tr><td>Developer (1–2)</td><td>I</td><td>C</td><td>C</td><td>R / A</td></tr>
+              <tr><td><span data-lang="en">Site engineer / materials officer / QS (submitter)</span><span data-lang="vi">Kỹ sư / cán bộ vật tư / QS (người tạo đề trình)</span></td><td>C</td><td>C</td><td>I</td><td>I</td></tr>
+              <tr><td><span data-lang="en">Reviewer (office technical)</span><span data-lang="vi">Cán bộ kiểm soát (kỹ thuật VP)</span></td><td>C</td><td>C</td><td>I</td><td>I</td></tr>
+              <tr><td><span data-lang="en">Dept head / site commander / board (approver)</span><span data-lang="vi">Trưởng phòng / Chỉ huy trưởng / BGĐ (người phê duyệt)</span></td><td>C</td><td>C</td><td>C</td><td>I</td></tr>
+              <tr><td><span data-lang="en">Permission admin (IT)</span><span data-lang="vi">Quản trị phân quyền (IT)</span></td><td>C</td><td>C</td><td>C</td><td>I</td></tr>
+              <tr><td><span data-lang="en">Accountant</span><span data-lang="vi">Kế toán</span></td><td>C</td><td>I</td><td>I</td><td>I</td></tr>
+              <tr><td><span data-lang="en">Business owner</span><span data-lang="vi">Chủ doanh nghiệp</span></td><td>C</td><td>I</td><td>C</td><td>I</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note-box">
+          <b><span data-lang="en">Something the Senior BA changed in my work:</span><span data-lang="vi">Một điểm Senior BA chỉnh trong công việc của tôi:</span></b>
+          <span data-lang="en"> my first draft let individual add-on permissions both add and subtract rights relative to a group. The Senior BA required an <b>additive-only</b> model — to restrict someone you re-shape their permission group — so the permission logic stays "non-contradictory and easy to audit". I rewrote section 3 of the BRD and the whole matrix along those lines.</span>
+          <span data-lang="vi"> bản đầu tôi cho phép Quyền bổ sung cá nhân vừa cộng vừa trừ quyền so với Nhóm. Senior BA yêu cầu chuyển sang <b>mô hình chỉ-cộng</b> — muốn hạn chế thì thiết lập lại Nhóm quyền — để logic quyền "không mâu thuẫn, dễ kiểm tra". Tôi viết lại Mục 3 của BRD và cập nhật toàn bộ ma trận theo hướng này.</span>
+        </div>
+      </section>
+
+      <!-- ===================== 4. APPROACH ===================== -->
+      <section class="sec" id="approach">
+        <p class="kicker">4</p>
+        <h2><span data-lang="en">Approach</span><span data-lang="vi">Cách tiếp cận</span></h2>
+        <ol class="steps">
+          <li><span data-lang="en">I read the current state — existing system docs, client meeting notes, and how records actually move on Zalo/email.</span><span data-lang="vi">Tôi đọc hiện trạng — tài liệu hệ thống hiện có, biên bản họp khách, và quan sát cách hồ sơ đang chạy trên Zalo/email.</span></li>
+          <li><span data-lang="en">I built a 12-question elicitation bank for the submission flow: record types, average turnaround, who tracks pending records, the "forgotten record" scenario, the client's formal SLAs, the warning thresholds they want, how signing works today, whether there is multi-level approval, and the re-submit process.</span><span data-lang="vi">Tôi xây bộ 12 câu hỏi elicitation cho luồng đề trình: loại hồ sơ, thời gian duyệt trung bình, ai theo dõi, tình huống "hồ sơ bị quên", SLA chính thức của chủ đầu tư, mốc cảnh báo mong muốn, cách ký hiện tại, có duyệt đa cấp không, quy trình tái nộp.</span></li>
+          <li><span data-lang="en">I ran AS-IS workshops with three groups: record creators (site), reviewers (office), approvers (management).</span><span data-lang="vi">Tôi chạy workshop AS-IS với 3 nhóm: người tạo hồ sơ (công trường), người kiểm soát (văn phòng), người phê duyệt (quản lý).</span></li>
+          <li><span data-lang="en">I benchmarked similar ERPs / tools (anonymised) for their permission and workflow models.</span><span data-lang="vi">Tôi đối chiếu với các ERP/công cụ tương tự trên thị trường (ẩn danh) về mô hình phân quyền và workflow.</span></li>
+          <li><span data-lang="en">I modelled AS-IS → identified pain → designed TO-BE, then cross-reviewed feasibility on Odoo/OCA with a developer (§6.9) and consistency with the Senior BA (§8) before finalising.</span><span data-lang="vi">Tôi mô hình hoá AS-IS → xác định pain → thiết kế TO-BE, rồi rà soát chéo với Developer về tính khả thi trên nền Odoo/OCA (§6.9) và với Senior BA về tính nhất quán (§8), trước khi chốt đặc tả.</span></li>
+        </ol>
+      </section>
+
+      <!-- ===================== 5. AS-IS ===================== -->
+      <section class="sec" id="asis">
+        <p class="kicker">5</p>
+        <h2><span data-lang="en">AS-IS process</span><span data-lang="vi">Quy trình AS-IS</span></h2>
+        <figure class="diagram">
+          <div class="diagram-scroll">
+          <svg viewBox="0 0 680 230" role="img" aria-labelledby="asis-t">
+            <title id="asis-t">AS-IS: draft in Word, send by chat, recipient must remember, print/sign/scan, file locally</title>
+            <defs><marker id="a1" markerWidth="9" markerHeight="9" refX="7.5" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 z" class="dg-accent"/></marker></defs>
+            <rect x="8" y="16" width="150" height="38" rx="7" class="dg-fill dg-stroke"/><text x="18" y="33" class="dg-text">Draft in</text><text x="18" y="47" class="dg-text">Word / Excel</text>
+            <rect x="188" y="16" width="170" height="38" rx="7" class="dg-fill dg-stroke"/><text x="198" y="33" class="dg-text">Send via Zalo /</text><text x="198" y="47" class="dg-text">email / printout</text>
+            <rect x="388" y="16" width="170" height="38" rx="7" class="dg-fill dg-stroke"/><text x="398" y="33" class="dg-text">Recipient must</text><text x="398" y="47" class="dg-text">remember to act</text>
+            <line x1="158" y1="35" x2="184" y2="35" class="dg-accent-stroke" marker-end="url(#a1)"/>
+            <line x1="358" y1="35" x2="384" y2="35" class="dg-accent-stroke" marker-end="url(#a1)"/>
+            <rect x="8" y="110" width="200" height="38" rx="7" class="dg-fill dg-stroke"/><text x="18" y="127" class="dg-text">Reviewed — verbal</text><text x="18" y="141" class="dg-text">/ chat feedback</text>
+            <rect x="360" y="110" width="220" height="38" rx="7" class="dg-bad"/><text x="372" y="127" class="dg-text">Sits untouched —</text><text x="372" y="141" class="dg-text">nobody knows where</text>
+            <line x1="460" y1="54" x2="150" y2="106" class="dg-accent-stroke" marker-end="url(#a1)"/><text x="250" y="82" class="dg-lbl dg-text-soft">remembered</text>
+            <line x1="490" y1="54" x2="470" y2="106" class="dg-accent-stroke" marker-end="url(#a1)"/><text x="500" y="84" class="dg-lbl dg-text-soft">forgotten</text>
+            <line x1="360" y1="140" x2="212" y2="132" class="dg-note-line" marker-end="url(#a1)"/><text x="230" y="170" class="dg-lbl dg-note">found weeks later</text>
+            <rect x="120" y="182" width="150" height="34" rx="7" class="dg-fill dg-stroke"/><text x="130" y="203" class="dg-text">Print, sign, scan</text>
+            <rect x="300" y="182" width="200" height="34" rx="7" class="dg-fill dg-stroke"/><text x="310" y="203" class="dg-text">Saved to a personal folder</text>
+            <line x1="108" y1="148" x2="170" y2="178" class="dg-accent-stroke" marker-end="url(#a1)"/>
+            <line x1="270" y1="199" x2="296" y2="199" class="dg-accent-stroke" marker-end="url(#a1)"/>
+          </svg>
+          </div>
+          <figcaption><span data-lang="en">AS-IS submission flow</span><span data-lang="vi">Luồng đề trình AS-IS</span></figcaption>
+        </figure>
+        <p class="sub">
+          <span data-lang="en">Pain on the flow: no record status · no "current holder" · no SLA clock · no action evidence · scattered signed records · a creator with authority can effectively "approve" their own record.</span>
+          <span data-lang="vi">Điểm đau trên luồng: không có trạng thái hồ sơ · không có "người đang giữ" · không có đồng hồ SLA · không có bằng chứng thao tác · biên bản phân tán · người tạo có thẩm quyền có thể tự "duyệt" hồ sơ của mình.</span>
+        </p>
+      </section>
+
+      <!-- ===================== 6. TO-BE ===================== -->
+      <section class="sec" id="tobe">
+        <p class="kicker">6</p>
+        <h2><span data-lang="en">TO-BE solution — design decisions</span><span data-lang="vi">Giải pháp TO-BE — các quyết định thiết kế</span></h2>
+
+        <div class="subsec">
+          <h3>6.1 · <span data-lang="en">PBAC instead of hard job titles</span><span data-lang="vi">PBAC thay cho "chức danh cứng"</span></h3>
+          <p><span data-lang="en"><b>Problem:</b> staff rotate between sites constantly; granting rights via "department / job title" can't express who may do what, on which project.</span><span data-lang="vi"><b>Vấn đề:</b> nhân sự luân chuyển công trường liên tục; gán quyền qua "phòng ban / chức danh" không phản ánh được ai được làm gì, ở dự án nào.</span></p>
+          <p><span data-lang="en"><b>Design:</b> effective permission is computed as:</span><span data-lang="vi"><b>Thiết kế:</b> quyền thực thi được tính theo công thức:</span></p>
+          <pre class="code"><span data-lang="en">Permission at Project X = UNION(permissions from groups at X) + individual add-ons at X</span><span data-lang="vi">Quyền tại Dự án X = HỢP(quyền từ các Nhóm tại X) + Quyền bổ sung cá nhân tại X</span></pre>
+          <figure class="diagram">
+            <svg viewBox="0 0 620 200" role="img" aria-labelledby="pc-t">
+              <title id="pc-t">Effective permission = union of permission groups plus individual add-ons, filtered by project; departments excluded</title>
+              <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="dg-accent"/></marker></defs>
+              <rect x="8" y="14" width="176" height="32" rx="7" class="dg-fill dg-stroke"/><text x="18" y="34" class="dg-text">Permission Group A</text>
+              <rect x="8" y="82" width="176" height="32" rx="7" class="dg-fill dg-stroke"/><text x="18" y="102" class="dg-text">Permission Group B</text>
+              <rect x="8" y="150" width="176" height="32" rx="7" class="dg-fill dg-stroke" stroke-dasharray="4 3"/><text x="18" y="170" class="dg-text">Individual add-ons</text>
+              <circle cx="330" cy="98" r="40" class="dg-fill-2 dg-stroke"/><text x="330" y="94" text-anchor="middle" class="dg-text">UNION</text><text x="330" y="110" text-anchor="middle" class="dg-lbl dg-text-soft">add only</text>
+              <line x1="184" y1="30" x2="292" y2="86" class="dg-accent-stroke" marker-end="url(#ah)"/>
+              <line x1="184" y1="98" x2="288" y2="98" class="dg-accent-stroke" marker-end="url(#ah)"/>
+              <line x1="184" y1="166" x2="292" y2="110" class="dg-accent-stroke" marker-end="url(#ah)"/>
+              <rect x="420" y="74" width="192" height="48" rx="7" class="dg-ok"/><text x="433" y="95" class="dg-text">Effective permissions</text><text x="433" y="111" class="dg-lbl dg-text-soft">at Project X</text>
+              <line x1="370" y1="98" x2="414" y2="98" class="dg-accent-stroke" marker-end="url(#ah)"/>
+              <text x="310" y="196" text-anchor="middle" class="dg-lbl dg-text-soft">Departments are excluded from this calculation.</text>
+            </svg>
+          </figure>
+          <p><span data-lang="en">Three entities, each with a single role: <b>User</b> (logs in; 1 home department; N permission groups; N projects) · <b>Permission Group</b> (the <b>only</b> source of rights; changes propagate instantly) · <b>Department</b> (organisation only — <b>grants nothing</b>; used to filter reports and to pick workflow actors).</span><span data-lang="vi">Ba thực thể, mỗi thực thể một vai trò duy nhất: <b>Người dùng</b> (đăng nhập; 1 phòng ban chính; N nhóm quyền; N dự án) · <b>Nhóm quyền</b> (nguồn cấp quyền <b>duy nhất</b>; đổi quyền lan truyền tức thì) · <b>Phòng ban</b> (chỉ tổ chức — <b>không cấp quyền</b>; dùng lọc báo cáo và chọn actor workflow).</span></p>
+          <p><span data-lang="en"><b>Invariants:</b> rights come only from groups + individual add-ons; the model is <b>additive, never subtractive</b>; permissions are computed <b>per project</b>; a new project starts with an <b>empty</b> matrix that the admin must set (BR-PBAC-02).</span><span data-lang="vi"><b>Nguyên tắc bất biến:</b> quyền chỉ đến từ Nhóm + Quyền bổ sung; mô hình <b>chỉ cộng, không trừ</b>; quyền tính <b>theo từng Dự án</b>; dự án mới → ma trận quyền <b>trống</b>, Admin phải thiết lập (BR-PBAC-02).</span></p>
+          <p><span data-lang="en"><b>Action vocabulary</b> per module: View · Create · Edit · Submit · Review · Approve · Override (top management only; for exceptions, not free editing).</span><span data-lang="vi"><b>Danh mục hành động</b> mỗi phân hệ: Xem · Tạo · Sửa · Gửi duyệt (Submit) · Kiểm soát (Review) · Phê duyệt (Approve) · Ghi đè (Override — chỉ cấp quản lý cao nhất, dùng cho ngoại lệ).</span></p>
+        </div>
+
+        <div class="subsec">
+          <h3>6.2 · <span data-lang="en">Configurable workflow engine (no hard-coded approvers)</span><span data-lang="vi">Workflow engine cấu hình được</span></h3>
+          <p><span data-lang="en">Every project has a different flow → reviewers / approvers are <b>not</b> fixed in code. The admin builds a sequence of steps; each step has: name · action (Submit / Review / Approve / Request Info / Reject / Complete) · input → output state (approve / request-info / reject) · actor (<b>Permission Group</b> recommended / specific user / Department — system takes the union) · completion mode <b>ANY</b> or <b>ALL</b> · step SLA (working hours; default <b>5 working days</b>) · comment / file required.</span><span data-lang="vi">Mỗi dự án luồng khác nhau → không cố định người kiểm soát / người phê duyệt trong code. Admin cấu hình chuỗi bước tuần tự; mỗi bước có: tên · hành động · trạng thái vào → ra · actor (Nhóm quyền / User / Phòng ban — lấy phép hợp) · chế độ <b>ANY</b> / <b>ALL</b> · SLA bước (mặc định <b>5 ngày làm việc</b>) · bắt buộc comment / file.</span></p>
+          <p><span data-lang="en"><b>Invalid-config guard</b> (validated before save): no step after Submit; a step with no valid actor; an actor lacking the step's action permission; <b>an Approve step whose only actor is the record's creator</b>; no end state; a loop with no exit.</span><span data-lang="vi"><b>Quy tắc chặn cấu hình sai</b> (validate trước khi lưu): thiếu bước sau Submit; bước không có actor hợp lệ; actor thiếu quyền tương ứng; <b>bước Approve chỉ có duy nhất người tạo hồ sơ làm actor</b>; không có trạng thái kết thúc; vòng lặp không lối thoát.</span></p>
+          <p><span data-lang="en"><b>Concurrent actions in a step.</b> In <b>ANY</b> mode the first valid action completes the step; later actions are rejected with <em>"already handled by [name] at [time]"</em>. In <b>ALL</b> mode the system tracks partial confirmations; the step completes only on the last actor, and all partial confirmations are voided if the record returns to <code>NEED_INFO</code>.</span><span data-lang="vi"><b>Thao tác đồng thời trong một bước.</b> Ở chế độ <b>ANY</b>, hành động hợp lệ đầu tiên hoàn tất bước; thao tác đến sau bị từ chối. Ở chế độ <b>ALL</b>, hệ thống ghi nhận xác nhận từng phần; bước chỉ hoàn tất khi actor cuối cùng xác nhận, và mọi xác nhận từng phần bị huỷ nếu hồ sơ quay về <code>NEED_INFO</code>.</span></p>
+          <p><span data-lang="en"><b>Workflow versioning for in-flight records.</b> On Submit the system <b>pins</b> the active <code>workflow_version</code> onto the record. In-flight records keep running on the pinned version even if the admin edits the workflow afterwards; the new version applies only to records submitted after the change. This avoids "editing the workflow jams 40 running records".</span><span data-lang="vi"><b>Workflow versioning cho hồ sơ đang chạy.</b> Khi Submit, hệ thống <b>ghim</b> <code>workflow_version</code> vào hồ sơ. Hồ sơ đang chạy tiếp tục theo version đã ghim dù Admin sửa workflow sau đó; version mới chỉ áp dụng cho hồ sơ Submit sau thời điểm thay đổi.</span></p>
+        </div>
+
+        <div class="subsec">
+          <h3>6.3 · <span data-lang="en">Separation of Duties (SoD)</span><span data-lang="vi">Separation of Duties (SoD)</span></h3>
+          <p><span data-lang="en">A person may hold multiple permissions, but the system <b>hard-blocks self-review / self-approval of a record they created</b> — even if their group has Approve. Action buttons on approval steps are <b>hidden</b> for the creator. If a step's only actor equals the creator, the system warns and demands a substitute actor.</span><span data-lang="vi">Hệ thống cho một người kiêm nhiều quyền, nhưng <b>chặn tuyệt đối tự kiểm soát / tự phê duyệt hồ sơ do chính mình tạo</b> — kể cả khi Nhóm quyền có đủ quyền Approve. Nút thao tác ở bước duyệt bị <b>ẩn</b> với người tạo. Nếu actor duy nhất của bước trùng người tạo → cảnh báo và yêu cầu actor thay thế.</span></p>
+          <div class="tbl-scroll">
+            <table>
+              <thead><tr><th><span data-lang="en">Situation</span><span data-lang="vi">Tình huống</span></th><th><span data-lang="en">Handling</span><span data-lang="vi">Xử lý</span></th></tr></thead>
+              <tbody>
+                <tr><td><span data-lang="en">Approver on leave</span><span data-lang="vi">Người phê duyệt đi vắng</span></td><td><span data-lang="en">Admin sets a <b>substitute actor</b> for the step (phase 1: manual, time-boxed; auto-delegation is phase 2). Pending records are re-assigned; audit-logged.</span><span data-lang="vi">Admin cấu hình <b>actor thay thế</b> cho bước (phase 1: thủ công, có thời hạn; delegation tự động phase 2). Hồ sơ đang chờ được gán lại; ghi audit log.</span></td></tr>
+                <tr><td><span data-lang="en">Account locked while holding a task</span><span data-lang="vi">Tài khoản bị khóa khi đang giữ task</span></td><td><span data-lang="en">System alerts the admin; <b>mandatory hand-over</b> of the task to another reviewer/approver before or right after locking (BR-PBAC-05 hand-over · BR-PBAC-06 lock &amp; force-logout · BR-PBAC-08 unavailable actor).</span><span data-lang="vi">Hệ thống cảnh báo Admin; <b>bắt buộc bàn giao</b> task trước hoặc ngay sau khi khóa (BR-PBAC-05 bàn giao · BR-PBAC-06 khóa &amp; đăng xuất · BR-PBAC-08 actor không khả dụng).</span></td></tr>
+                <tr><td><span data-lang="en">Permission group emptied by an HR transfer</span><span data-lang="vi">Nhóm quyền bị rỗng do điều chuyển nhân sự</span></td><td><span data-lang="en">The step loses a valid actor → the record shows a <b>"reconfigure workflow"</b> warning; the step's action is blocked until an actor exists.</span><span data-lang="vi">Bước mất actor hợp lệ → hồ sơ hiển thị cảnh báo <b>"Cần cấu hình lại workflow"</b>; chặn hành động của bước cho tới khi có actor.</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsec">
+          <h3>6.4 · <span data-lang="en">Submission state machine</span><span data-lang="vi">State machine của hồ sơ đề trình</span></h3>
+          <figure class="diagram">
+            <div class="diagram-scroll">
+            <svg viewBox="0 0 700 384" role="img" aria-labelledby="sm-t">
+              <title id="sm-t">Submission lifecycle: DRAFT to PENDING_REVIEW, NEED_INFO loop, PENDING_APPROVAL, APPROVED, WAITING_SIGNATURE, COMPLETED; plus WITHDRAWN, REJECTED, EXPIRED terminal states</title>
+              <defs><marker id="s1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="dg-accent"/></marker></defs>
+              <g>
+                <rect x="285" y="10" width="150" height="28" rx="6" class="dg-fill dg-stroke"/><text x="360" y="28" text-anchor="middle" class="dg-text">DRAFT</text>
+                <rect x="40" y="70" width="130" height="28" rx="6" class="dg-fill dg-stroke"/><text x="105" y="88" text-anchor="middle" class="dg-text">WITHDRAWN</text><circle cx="166" cy="84" r="3" class="dg-note"/>
+                <rect x="285" y="70" width="150" height="28" rx="6" class="dg-fill dg-stroke"/><text x="360" y="88" text-anchor="middle" class="dg-text">PENDING_REVIEW</text>
+                <rect x="40" y="130" width="130" height="28" rx="6" class="dg-warn"/><text x="105" y="148" text-anchor="middle" class="dg-text">NEED_INFO</text>
+                <rect x="285" y="130" width="150" height="28" rx="6" class="dg-fill dg-stroke"/><text x="360" y="148" text-anchor="middle" class="dg-text">PENDING_APPROVAL</text>
+                <rect x="520" y="130" width="130" height="28" rx="6" class="dg-bad"/><text x="585" y="148" text-anchor="middle" class="dg-text">REJECTED</text><circle cx="646" cy="144" r="3" class="dg-note"/>
+                <rect x="285" y="190" width="150" height="28" rx="6" class="dg-fill dg-stroke"/><text x="360" y="208" text-anchor="middle" class="dg-text">APPROVED</text>
+                <rect x="285" y="250" width="150" height="28" rx="6" class="dg-fill dg-stroke"/><text x="360" y="268" text-anchor="middle" class="dg-text">WAITING_SIGNATURE</text>
+                <rect x="520" y="250" width="130" height="28" rx="6" class="dg-bad"/><text x="585" y="268" text-anchor="middle" class="dg-text">EXPIRED</text><circle cx="646" cy="264" r="3" class="dg-note"/>
+                <rect x="285" y="310" width="150" height="28" rx="6" class="dg-ok"/><text x="360" y="328" text-anchor="middle" class="dg-text">COMPLETED</text><circle cx="431" cy="324" r="3" class="dg-note"/>
+              </g>
+              <line x1="360" y1="38" x2="360" y2="68" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="366" y="57" class="dg-lbl dg-text-soft">Submit</text>
+              <line x1="285" y1="84" x2="172" y2="84" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="188" y="66" class="dg-lbl dg-text-soft">Withdraw</text>
+              <line x1="305" y1="98" x2="140" y2="128" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="150" y="112" class="dg-lbl dg-text-soft">Request info</text>
+              <line x1="360" y1="98" x2="360" y2="128" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="366" y="117" class="dg-lbl dg-text-soft">Review OK</text>
+              <line x1="150" y1="130" x2="290" y2="98" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="150" y="124" class="dg-lbl dg-text-soft">Resubmit (+ v)</text>
+              <line x1="285" y1="146" x2="172" y2="146" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="182" y="164" class="dg-lbl dg-text-soft">Request info</text>
+              <line x1="435" y1="144" x2="518" y2="144" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="430" y="132" class="dg-lbl dg-text-soft">Reject + reason</text>
+              <line x1="360" y1="158" x2="360" y2="188" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="366" y="177" class="dg-lbl dg-text-soft">Approve</text>
+              <line x1="360" y1="218" x2="360" y2="248" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="366" y="237" class="dg-lbl dg-text-soft">Await signed record</text>
+              <line x1="435" y1="264" x2="518" y2="264" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="430" y="252" class="dg-lbl dg-text-soft">&gt; 72 working h</text>
+              <line x1="360" y1="278" x2="360" y2="308" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="366" y="297" class="dg-lbl dg-text-soft">Upload + confirm</text>
+              <text x="16" y="366" class="dg-lbl dg-note">COMPLETED / REJECTED / EXPIRED are immutable — Clone spawns a NEW record (new id, SLA + timeline reset).</text>
+            </svg>
+            </div>
+            <figcaption><span data-lang="en">Submission lifecycle — also serves as the TO-BE flow</span><span data-lang="vi">Vòng đời hồ sơ đề trình — đồng thời là luồng TO-BE</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="subsec">
+          <h3>6.5 · <span data-lang="en">SLA engine + red alert</span><span data-lang="vi">SLA engine + báo đỏ</span></h3>
+          <ul class="plain">
+            <li><span data-lang="en">SLA runs <b>in working hours only</b> (08:00–17:00, Mon–Fri); holidays configurable.</span><span data-lang="vi">SLA <b>chỉ chạy trong giờ làm việc</b> (08:00–17:00, T2–T6); ngày nghỉ/lễ cấu hình được.</span></li>
+            <li><span data-lang="en">SLA <b>pauses</b> while the record is in <code>NEED_INFO</code> or <code>DRAFT</code>.</span><span data-lang="vi">SLA <b>pause</b> khi hồ sơ ở <code>NEED_INFO</code> hoặc <code>DRAFT</code>.</span></li>
+            <li><span data-lang="en">The <b>per-type total SLA</b> (3–14 working days, set by the client) is <b>allocated across the workflow steps</b>; default <b>5 working days per handling step</b>, which the admin reconciles to the type total. Missing a step SLA without Approve/Reject → the record turns Red + escalates.</span><span data-lang="vi"><b>Tổng SLA của một loại đề trình</b> (3–14 ngày làm việc, do chủ đầu tư quy định) được <b>phân bổ cho các bước</b>; mặc định <b>5 ngày làm việc / bước xử lý</b>, Admin điều chỉnh cho khớp SLA của loại. Quá hạn bước mà chưa Approve/Reject → hồ sơ chuyển Đỏ + escalation.</span></li>
+            <li><span data-lang="en">Four alert levels: <b>Green</b> (plenty of time) · <b>Yellow</b> (≥ 80% used) · <b>Orange</b> (due today) · <b>Red</b> (overdue → escalation).</span><span data-lang="vi">4 mức cảnh báo: <b>Xanh</b> · <b>Vàng</b> (đã dùng ≥ 80%) · <b>Cam</b> (đến hạn trong ngày) · <b>Đỏ</b> (quá hạn → escalation).</span></li>
+            <li><span data-lang="en">Red records: shown red on the dashboard, <b>pinned to the top</b>, notification to the current holder + escalation watchers; the owner sees them on the <b>Red-Alert dashboard</b> if they hold a system-wide View.</span><span data-lang="vi">Hồ sơ đỏ: hiển thị đỏ, <b>ghim lên đầu</b>, notification cho người đang giữ task + người theo dõi escalation; chủ doanh nghiệp thấy trên <b>Dashboard Báo đỏ</b> nếu có quyền View toàn hệ thống.</span></li>
+          </ul>
+        </div>
+
+        <div class="subsec">
+          <h3>6.6 · <span data-lang="en">Versioning + audit trail</span><span data-lang="vi">Versioning + audit trail</span></h3>
+          <p><span data-lang="en">Every resubmit from <code>NEED_INFO</code> creates a <b>new version</b>; <b>Version Compare</b> shows added / removed / changed content and new files. <b>Every action</b> (View, Submit, Review, Request Info, Re-submit, Approve, Reject, Upload, Complete, Clone, SLA breached, Notification) <b>and every workflow-config change</b> is logged with actor, target, action, time, <b>old → new value</b>, IP/device.</span><span data-lang="vi">Mỗi lần gửi lại từ <code>NEED_INFO</code> tạo <b>version mới</b>; <b>Version Compare</b> hiển thị phần thêm / xoá / sửa và file bổ sung. <b>Mọi hành động</b> và <b>mọi thay đổi cấu hình workflow</b> đều được ghi log với: người thực hiện, đối tượng, hành động, thời gian, <b>giá trị cũ → mới</b>, IP/thiết bị.</span></p>
+        </div>
+
+        <div class="subsec">
+          <h3>6.7 · <span data-lang="en">Value-threshold multi-level approval</span><span data-lang="vi">Duyệt đa cấp theo ngưỡng giá trị</span></h3>
+          <div class="tbl-scroll">
+            <table>
+              <thead><tr><th><span data-lang="en">Threshold <em>(illustrative — a board decision, configurable)</em></span><span data-lang="vi">Ngưỡng <em>(minh hoạ — HĐQT quyết, cấu hình được)</em></span></th><th><span data-lang="en">Flow</span><span data-lang="vi">Luồng</span></th></tr></thead>
+              <tbody>
+                <tr><td>&lt; 10M VND</td><td><span data-lang="en">Workflow with <b>no approval step</b> — the creator self-confirms (BR-PO-01)</span><span data-lang="vi">Workflow <b>không có bước phê duyệt</b> — người tạo tự xác nhận (BR-PO-01)</span></td></tr>
+                <tr><td>10–100M VND</td><td><span data-lang="en">1 approval level (group "Materials Dept Head") (BR-PO-02)</span><span data-lang="vi">1 cấp duyệt (Nhóm "Trưởng phòng Vật tư") (BR-PO-02)</span></td></tr>
+                <tr><td>&gt; 100M VND</td><td><span data-lang="en">2 sequential levels: Dept Head → Board (BR-PO-03)</span><span data-lang="vi">2 cấp tuần tự: Trưởng phòng → Ban Giám đốc (BR-PO-03)</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note-box">
+            <b><span data-lang="en">The &lt;10M threshold vs SoD — resolving the apparent contradiction.</span><span data-lang="vi">Ngưỡng &lt;10tr vs SoD — làm rõ mâu thuẫn biểu kiến.</span></b>
+            <span data-lang="en"> SoD (§6.3) blocks <em>a creator pressing Approve on their own record</em>. Below the threshold the workflow is configured with <b>no Approve step at all</b> — not "self-approval", but a business decision to <b>accept the risk</b> on small amounts for speed, bounded by full audit logging + a periodic review report of sub-threshold records. The threshold is a <b>business</b> decision, not a constant in code.</span>
+            <span data-lang="vi"> SoD (§6.3) chặn <em>người tạo tự bấm nút Approve hồ sơ của mình</em>. Với hồ sơ dưới ngưỡng, workflow được cấu hình <b>không có bước Approve nào</b> — không phải "tự duyệt", mà là nghiệp vụ <b>chấp nhận rủi ro có chủ đích</b> cho khoản nhỏ, đổi lấy tốc độ, giới hạn bằng audit log + báo cáo rà soát định kỳ.</span>
+          </div>
+          <p><span data-lang="en"><b>BR-PO-05 — Reset on value change:</b> content is only editable in <code>DRAFT</code> / <code>NEED_INFO</code> (BR-SUB-05) — never by editing an <code>APPROVED</code> record. While a record is still inside the approval chain and returns to <code>NEED_INFO</code>, if the resubmitted version moves the total into a different threshold band, the approval chain <b>resets to the first level</b>.</span><span data-lang="vi"><b>BR-PO-05 — Reset on value change:</b> nội dung chỉ sửa được ở <code>DRAFT</code> / <code>NEED_INFO</code> (BR-SUB-05) — <b>không</b> sửa trực tiếp hồ sơ đã <code>APPROVED</code>. Khi hồ sơ còn trong chuỗi duyệt và quay về <code>NEED_INFO</code>, nếu bản gửi lại làm đổi tổng giá trị sang khoảng ngưỡng khác → luồng duyệt <b>reset về cấp đầu</b>.</span></p>
+        </div>
+
+        <div class="subsec">
+          <h3>6.8 · <span data-lang="en">Non-functional requirements &amp; constraints</span><span data-lang="vi">NFR &amp; ràng buộc</span></h3>
+          <div class="tbl-scroll">
+            <table>
+              <thead><tr><th>NFR / <span data-lang="en">constraint</span><span data-lang="vi">ràng buộc</span></th><th><span data-lang="en">Specification</span><span data-lang="vi">Đặc tả</span></th></tr></thead>
+              <tbody>
+                <tr><td><span data-lang="en">Permission performance</span><span data-lang="vi">Hiệu năng phân quyền</span></td><td><span data-lang="en">Effective permission cached by <b>User + Project + Module + Action</b>. Cache <b>invalidates</b> when: user's groups change; a group's rights change; individual add-ons change; project scope changes; workflow/actor config changes; account locked/unlocked.</span><span data-lang="vi">Quyền thực thi cache theo <b>User + Dự án + Phân hệ + Hành động</b>. Cache <b>làm mới</b> khi: user đổi Nhóm quyền; quyền Nhóm thay đổi; Quyền bổ sung cá nhân thay đổi; phạm vi Dự án thay đổi; cấu hình workflow/actor thay đổi; tài khoản khóa/mở khóa.</span></td></tr>
+                <tr><td><span data-lang="en">Working calendar</span><span data-lang="vi">Lịch làm việc</span></td><td><span data-lang="en">Working hours, weekends and holidays are <b>configuration</b> (not hard-coded), shared by all SLA calculations.</span><span data-lang="vi">Giờ làm việc, ngày nghỉ, ngày lễ là <b>cấu hình</b> (không hard-code), dùng chung cho toàn bộ tính SLA.</span></td></tr>
+                <tr><td><span data-lang="en">Mobile &amp; weak signal</span><span data-lang="vi">Mobile &amp; sóng yếu</span></td><td><span data-lang="en">Approvers are often on site, approving on a phone; many sites have weak signal. Phase 1: <b>responsive</b> UI, an approval screen tuned for mobile, few taps to act. Full offline is a later phase.</span><span data-lang="vi">Người phê duyệt thường ở công trường, duyệt trên điện thoại; nhiều công trường sóng yếu. Phase 1: giao diện <b>responsive</b>, màn duyệt tối ưu cho mobile, ít bước. Offline đầy đủ để phase sau.</span></td></tr>
+                <tr><td><span data-lang="en">Retention &amp; legal</span><span data-lang="vi">Lưu trữ &amp; pháp lý</span></td><td><span data-lang="en">Final-state records + audit log + signed files are <b>immutable</b> and retained for reconciliation/audit; records that entered a workflow cannot be physically deleted (only <code>DRAFT</code> can).</span><span data-lang="vi">Hồ sơ trạng thái cuối + audit log + file biên bản <b>bất biến</b>, lưu trữ phục vụ đối chiếu/kiểm toán; hồ sơ đã vào workflow không xoá vật lý (chỉ <code>DRAFT</code> được).</span></td></tr>
+                <tr><td>Audit</td><td><span data-lang="en">100% of actions and config changes logged with old → new value (compliance).</span><span data-lang="vi">100% hành động và thay đổi cấu hình được ghi log với giá trị cũ → mới (compliance).</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsec">
+          <h3>6.9 · <span data-lang="en">Feasibility on Odoo (reviewed with a developer)</span><span data-lang="vi">Tính khả thi trên nền Odoo (rà soát cùng Developer)</span></h3>
+          <div class="tbl-scroll">
+            <table>
+              <thead><tr><th><span data-lang="en">Item</span><span data-lang="vi">Hạng mục</span></th><th><span data-lang="en">Approach</span><span data-lang="vi">Hướng triển khai</span></th></tr></thead>
+              <tbody>
+                <tr><td><span data-lang="en">Value-threshold multi-level approval</span><span data-lang="vi">Duyệt đa cấp theo ngưỡng</span></td><td><span data-lang="en">Almost off-the-shelf with <b><code>base_tier_validation</code> (OCA)</b> — domain on <code>amount_total</code>, reviewer by group, sequential for tier 2.</span><span data-lang="vi">Dùng gần như nguyên <b><code>base_tier_validation</code> (OCA)</b> — domain theo <code>amount_total</code>, reviewer theo nhóm, tuần tự cho tier 2.</span></td></tr>
+                <tr><td><span data-lang="en">Role templates</span><span data-lang="vi">Khuôn mẫu vai trò</span></td><td><b><code>base_user_role</code> (OCA)</b> — <span data-lang="en">assign one role instead of ticking dozens of boxes for a new hire.</span><span data-lang="vi">gán 1 role thay vì tick từng ô quyền cho nhân sự mới.</span></td></tr>
+                <tr><td><span data-lang="en">Per-project data isolation</span><span data-lang="vi">Cách ly dữ liệu theo dự án</span></td><td><span data-lang="en"><b><code>ir.rule</code> record rules</b> on <code>project.project</code> and related models.</span><span data-lang="vi"><b><code>ir.rule</code> record rules</b> trên <code>project.project</code> và các model liên quan.</span></td></tr>
+                <tr><td><b><span data-lang="en">Needs custom</span><span data-lang="vi">Cần custom</span></b></td><td><span data-lang="en"><b>Per-project</b> permissions (a separate matrix per User × Project × Module × Action) exceed Odoo's system-level <code>res.groups</code> + record-rule model (rights granted globally). Needs a project-scoped permission layer + a "union, additive-only" engine + the cache in §6.8. The configurable workflow engine (step builder, ANY/ALL, per-step SLA) is also custom.</span><span data-lang="vi">Mô hình quyền <b>theo từng dự án</b> (ma trận riêng cho mỗi tổ hợp User × Dự án × Phân hệ × Hành động) vượt quá mô hình <code>res.groups</code> + record rule mặc định của Odoo (gán quyền toàn hệ thống). Cần lớp cấu hình quyền project-scoped + engine "phép hợp, chỉ cộng" + cache như §6.8. Workflow engine cấu hình được cũng là phần custom.</span></td></tr>
+                <tr><td><b><span data-lang="en">Considered &amp; rejected</span><span data-lang="vi">Đã cân nhắc &amp; loại</span></b></td><td><span data-lang="en">No Odoo Studio / Enterprise modules (budget &amp; self-host); e-signature via DocuSeal/CA deferred to phase 2 — phase 1 accepts an uploaded scan of the signed record.</span><span data-lang="vi">Không dùng Odoo Studio / module Enterprise (ngân sách &amp; self-host); ký số DocuSeal/CA hoãn sang phase 2 — phase 1 chấp nhận upload ảnh/PDF biên bản ký tay.</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== 7. DELIVERABLES ===================== -->
+      <section class="sec" id="deliverables">
+        <p class="kicker">7</p>
+        <h2><span data-lang="en">Deliverables (representative samples)</span><span data-lang="vi">Sản phẩm BA (mẫu tiêu biểu)</span></h2>
+        <div class="callout" style="margin-top:1rem">
+          <span class="ic" aria-hidden="true">▤</span>
+          <span><span data-lang="en">The deliverable samples below are shown in English, as they were produced. Each type shows one complete sample rather than the full set.</span><span data-lang="vi">Các sản phẩm mẫu dưới đây trình bày bằng tiếng Anh, đúng như khi thực hiện. Mỗi loại hiển thị một mẫu hoàn chỉnh thay vì toàn bộ.</span></span>
+        </div>
+
+        <div class="subsec">
+          <h3>7.1 · BRD / SRS extract</h3>
+          <p class="sub"><span data-lang="en">Extract from Section 3 — Permission mechanism (full doc: 9-part contents + 3 diagrams; PDF download).</span><span data-lang="vi">Trích Mục 3 — Cơ chế Phân quyền (bản đầy đủ: mục lục 9 phần + 3 sơ đồ; tải PDF).</span></p>
+          <p><b>3.1 Scope.</b> The whole permission system operates by <b>Project</b>. A user's rights are computed separately for each project they join; the same user may hold different rights on different projects.</p>
+          <p><b>3.2 Effective-permission formula.</b> <code>Permission at Project X = UNION(rights from groups at X) + individual add-ons at X</code>. The system <b>only adds</b> rights. An individual add-on can only <b>grant</b> an action the user's groups don't have — never override, never negate.</p>
+          <p><b>3.3 Conflict rules.</b> Member of several groups → take the <b>union</b>. Has individual add-ons → <b>add</b> to the group rights. Department involved → <b>excluded</b> from the calculation.</p>
+          <p><b>3.4 Propagation.</b> A change to a group's rights updates <b>immediately</b> for every member, automatically.</p>
+        </div>
+
+        <div class="subsec">
+          <h3>7.2 · User–Role–Permission matrix — Submission module</h3>
+          <div class="tbl-scroll">
+            <table>
+              <thead><tr><th>User group (by permission)</th><th class="t-center">View</th><th class="t-center">Create</th><th class="t-center">Edit</th><th class="t-center">Submit</th><th class="t-center">Review</th><th class="t-center">Approve</th><th class="t-center">Override</th></tr></thead>
+              <tbody>
+                <tr><td>Submitter</td><td class="t-center yes">✓</td><td class="t-center yes">✓</td><td class="t-center yes">✓</td><td class="t-center yes">✓</td><td class="t-center no">✗</td><td class="t-center no">✗</td><td class="t-center no">✗</td></tr>
+                <tr><td>Reviewer</td><td class="t-center yes">✓</td><td class="t-center no">✗</td><td class="t-center no">✗</td><td class="t-center no">✗</td><td class="t-center yes">✓</td><td class="t-center no">✗</td><td class="t-center no">✗</td></tr>
+                <tr><td>Approver</td><td class="t-center yes">✓</td><td class="t-center no">✗</td><td class="t-center no">✗</td><td class="t-center no">✗</td><td class="t-center maybe">~ req-info only</td><td class="t-center yes">✓</td><td class="t-center no">✗</td></tr>
+                <tr><td>Escalation watcher</td><td class="t-center yes">✓</td><td class="t-center no">✗</td><td class="t-center no">✗</td><td class="t-center no">✗</td><td class="t-center no">✗</td><td class="t-center no">✗</td><td class="t-center no">✗</td></tr>
+                <tr><td>Admin / Director</td><td class="t-center yes">✓</td><td class="t-center maybe">~</td><td class="t-center maybe">~</td><td class="t-center maybe">~</td><td class="t-center maybe">~</td><td class="t-center maybe">~</td><td class="t-center maybe">~ reason + audit</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note-box"><span data-lang="en">Every ✓/~ still depends on <b>Project Scope + record state + SoD</b>. A button shows only when <em>all</em> hold: has permission + in scope + state allows it + no SoD violation + record not in an immutable final state. <b>Even Admin/Director cannot edit the business content of a <code>COMPLETED</code>/<code>REJECTED</code>/<code>EXPIRED</code> record</b> — the Admin row only widens actions <em>before</em> the final state; Override only creates an <em>adjustment record</em>, never edits the original (BR-SUB-11, AC-SUB-26).</span><span data-lang="vi">Mọi ✓/~ vẫn phụ thuộc <b>Project Scope + trạng thái hồ sơ + SoD</b>. Kể cả Admin/Director cũng không sửa được nội dung nghiệp vụ của hồ sơ <code>COMPLETED</code>/<code>REJECTED</code>/<code>EXPIRED</code>.</span></div>
+        </div>
+
+        <div class="subsec">
+          <h3>7.3 · BPMN TO-BE — 9-step Submit validation</h3>
+          <p class="sub"><span data-lang="en">The TO-BE flow is the state machine in §6.4. On Submit, the system runs 9 checks <b>in a deliberate order — permission and scope first, data second — so the system never reveals the existence of an out-of-scope record</b>:</span><span data-lang="vi">Luồng TO-BE chính là state machine ở §6.4. Khi Submit, hệ thống chạy 9 bước kiểm tra <b>theo thứ tự có chủ đích — quyền và phạm vi trước, dữ liệu sau</b>:</span></p>
+          <ol class="steps">
+            <li>User has <b>Submit</b> permission on the module</li>
+            <li>Record is in the user's <b>Project Scope</b></li>
+            <li>All <b>mandatory fields</b> present</li>
+            <li>All <b>mandatory files</b> for the record type present</li>
+            <li>Project has a <b>valid workflow</b> configured</li>
+            <li>Workflow has <b>≥ 1 step after Submit</b></li>
+            <li>Each step has <b>≥ 1 valid actor</b></li>
+            <li>Actors have the <b>permission matching the step's action</b></li>
+            <li>No <b>SoD</b> violation</li>
+          </ol>
+        </div>
+
+        <div class="subsec">
+          <h3>7.4 · Entity relationship (logic)</h3>
+          <div class="erd">
+            <div class="ent"><h5>User</h5><ul><li>email / phone (identity)</li><li>1 department</li><li>N permission groups</li><li>N projects (scope)</li></ul></div>
+            <div class="ent"><h5>PermissionGroup</h5><ul><li>rights list</li><li>N users</li></ul></div>
+            <div class="ent"><h5>Department</h5><ul><li>org structure</li><li>filters workflow actors</li></ul></div>
+            <div class="ent"><h5>Project</h5><ul><li>project code</li><li>own permission matrix</li></ul></div>
+            <div class="ent"><h5>Submission</h5><ul><li>id, project_id</li><li>workflow_id, workflow_version <em>(pinned on Submit)</em></li><li>current_step_id, current_assignee_ids</li><li>status, sla_started_at, sla_due_at, total_paused_duration</li><li>is_immutable, original_submission_id, version_number</li></ul></div>
+            <div class="ent"><h5>SubmissionVersion</h5><ul><li>version_id, version_number</li><li>content_snapshot, attachment_snapshot</li><li>change_reason</li></ul></div>
+            <div class="ent"><h5>Workflow</h5><ul><li>workflow_id, project_id</li><li>version, active</li></ul></div>
+            <div class="ent"><h5>WorkflowStep</h5><ul><li>step_id, name, action</li><li>state_in → state_out</li><li>actor_type (Group / User / Dept)</li><li>mode (ANY / ALL), sla_hours</li></ul></div>
+            <div class="ent"><h5>AuditLog</h5><ul><li>audit_id, submission_id, user_id, timestamp</li><li>action_type, old_value, new_value</li><li>comment, ip_device</li></ul></div>
+          </div>
+          <p class="rel">
+            User&nbsp;N—N&nbsp;PermissionGroup&nbsp;· User&nbsp;N—1&nbsp;Department&nbsp;· User&nbsp;N—N&nbsp;Project&nbsp;· PermissionGroup&nbsp;N—N&nbsp;Project (rights per project)&nbsp;· Department&nbsp;··▷&nbsp;WorkflowStep (picks actors)&nbsp;· Project&nbsp;1—N&nbsp;Workflow&nbsp;· Workflow&nbsp;1—N&nbsp;WorkflowStep&nbsp;· Project&nbsp;1—N&nbsp;Submission&nbsp;· Submission&nbsp;1—N&nbsp;SubmissionVersion&nbsp;· Submission&nbsp;1—N&nbsp;AuditLog&nbsp;· Submission&nbsp;N—1&nbsp;Workflow (pinned version)
+          </p>
+        </div>
+
+        <div class="subsec">
+          <h3>7.5 · User stories + acceptance criteria (8 of 22)</h3>
+
+          <div class="story"><div class="title">US-01</div>
+            <p>As a purchasing officer, I want the system to block printing / sending a record before it has the required approvals, so I don't commit to a supplier before the funds are vetted.</p>
+            <pre class="code"><span class="kw">Given</span> a material purchase record is PENDING_APPROVAL
+<span class="kw">When</span> I open the record
+<span class="kw">Then</span> the "Export / send to supplier" button is hidden
+<span class="kw">And</span> a banner shows "Record is pending approval"</pre>
+          </div>
+
+          <div class="story"><div class="title">US-02</div>
+            <p>As an approver, I want the "Reject" button to require a reason, so the level below knows how to fix it.</p>
+            <pre class="code"><span class="kw">Given</span> I have Approve permission and the record is PENDING_APPROVAL
+<span class="kw">When</span> I click "Reject" and leave the reason blank
+<span class="kw">Then</span> the confirm button is disabled
+<span class="kw">When</span> I enter a reason of ≥ 5 characters and confirm
+<span class="kw">Then</span> the record moves to REJECTED
+<span class="kw">And</span> the reason shows on the timeline + notifies the creator</pre>
+            <div class="refs">AC: AC-SUB-27 · BR: BR-SUB-08</div>
+          </div>
+
+          <div class="story"><div class="title">US-03</div>
+            <p>As the business owner, I want records that stall past SLA to auto-escalate, so site work isn't held up waiting for materials.</p>
+            <pre class="code"><span class="kw">Given</span> a record is PENDING_REVIEW and past the step's 5-working-day SLA
+<span class="kw">When</span> the system runs its periodic check
+<span class="kw">Then</span> the record's alert level turns Red
+<span class="kw">And</span> it is pinned to the top of the handling list
+<span class="kw">And</span> the holder and escalation watchers are notified</pre>
+          </div>
+
+          <div class="story"><div class="title">US-04</div>
+            <p>As the person who just created a record, even though I hold Review permission, I want the system to stop me reviewing my own record, so duties stay separated.</p>
+            <pre class="code"><span class="kw">Given</span> I hold both Create and Review
+<span class="kw">And</span> I am the creator of record H
+<span class="kw">When</span> I open record H at PENDING_REVIEW
+<span class="kw">Then</span> the "Mark valid" / "Request info" buttons are hidden</pre>
+          </div>
+
+          <div class="story"><div class="title">US-05</div>
+            <p>As a record creator, I want a clear message when the project has no valid workflow, so I know to contact the admin instead of guessing.</p>
+            <pre class="code"><span class="kw">Given</span> the project has no valid workflow for the Submission module
+<span class="kw">When</span> I click "Submit"
+<span class="kw">Then</span> the system blocks Submit
+<span class="kw">And</span> shows the matching message from the Workflow Validation Error table
+<span class="kw">And</span> starts no SLA and creates no timeline</pre>
+          </div>
+
+          <div class="story"><div class="title">US-06</div>
+            <p>As a reviewer, when I request more information, I want the SLA to pause and a new version created on resubmit, so the wait doesn't count against me and I can see what changed.</p>
+            <pre class="code"><span class="kw">Given</span> a record is PENDING_REVIEW
+<span class="kw">When</span> I choose "Request info" with a comment
+<span class="kw">Then</span> the record moves to NEED_INFO and the SLA pauses
+<span class="kw">When</span> the creator edits and clicks "Resubmit"
+<span class="kw">Then</span> a new version is created and the record returns to PENDING_REVIEW
+<span class="kw">And</span> I can see Version Compare between old and new</pre>
+          </div>
+
+          <div class="story"><div class="title">US-07</div>
+            <p>As internal audit, I want COMPLETED / REJECTED / EXPIRED records to be uneditable by anyone including Admin, so they hold legal value.</p>
+            <pre class="code"><span class="kw">Given</span> a record is COMPLETED
+<span class="kw">When</span> any user (including Admin) opens it
+<span class="kw">Then</span> every business-content edit button is hidden
+<span class="kw">And</span> only "View" and "Download signed record" remain
+<span class="kw">And</span> an Override holder can only create an adjustment record with a reason + audit log</pre>
+          </div>
+
+          <div class="story"><div class="title">US-08</div>
+            <p>As an escalation watcher scoped to a project, I want to see only overdue records for my assigned projects, so data doesn't leak across sites.</p>
+            <pre class="code"><span class="kw">Given</span> I have escalation View for Project A (not system-wide View)
+<span class="kw">When</span> I open the Red-Alert dashboard
+<span class="kw">Then</span> I see only overdue records in Project A
+<span class="kw">And</span> not records from Project B</pre>
+          </div>
+        </div>
+
+        <div class="subsec">
+          <h3>7.6 · Use case specification (one full spec)</h3>
+          <div class="tbl-scroll">
+            <table>
+              <tbody>
+                <tr><td><b>UC-03</b></td><td>Submit a submission record into the approval workflow</td></tr>
+                <tr><td>Primary actor</td><td>Record creator (has Submit permission on the Submission module, within Project Scope)</td></tr>
+                <tr><td>Stakeholders</td><td>Reviewer &amp; approver (receive work downstream); admin (owns the workflow)</td></tr>
+                <tr><td>Preconditions</td><td>Record exists in <code>DRAFT</code> or <code>NEED_INFO</code>; user is the creator</td></tr>
+                <tr><td>Trigger</td><td>User clicks "Submit" on the record form</td></tr>
+                <tr><td>Main flow</td><td>1. System runs the 9 validation steps (§7.3). 2. If all pass: record moves to the first post-Submit state (default <code>PENDING_REVIEW</code>). 3. Pin <code>workflow_version</code> onto the record. 4. Lock business content for the creator. 5. Start the current step's SLA. 6. Notify the first step's actors. 7. Write an audit log for Submit (user, time, version). 8. Show "Submitted" + the Workflow Preview.</td></tr>
+                <tr><td>Alt flow</td><td>1a. Value-bearing record type → the system picks the workflow branch by threshold (&lt;10M / 10–100M / &gt;100M).</td></tr>
+                <tr><td>Exception flows</td><td>Step 2 fails (out of scope) → 403 + audit-log the unauthorised access. · Step 3/4 fails → name the missing field/file, no Submit. · Step 5 fails → "Project has no workflow configured…". · Step 7/8 fails → name the step to configure. · Step 9 fails → "The creator cannot self-review / self-approve…".</td></tr>
+                <tr><td>Postconditions</td><td>Record in the first handling state; <code>workflow_version</code> pinned; SLA running; timeline &amp; audit log initialised; content locked for the creator.</td></tr>
+                <tr><td>Related BR</td><td>BR-SUB-02, BR-SUB-03, BR-SUB-04, BR-SUB-05</td></tr>
+                <tr><td>Related AC</td><td>AC-SUB-03, AC-SUB-04, AC-SUB-05, AC-SUB-06, AC-SUB-23, AC-SUB-25</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsec">
+          <h3>7.7 · Business rules catalogue (29 rules — those cited in this case study)</h3>
+          <h4>PBAC — permissions (BR-PBAC-01…08)</h4>
+          <div class="tbl-scroll"><table><tbody>
+            <tr><td>BR-PBAC-01</td><td>User identity is unique by national-ID / email / phone — no duplicates.</td></tr>
+            <tr><td>BR-PBAC-02</td><td>Adding a new project to a user → that project's permission matrix defaults to <b>empty</b>; the admin must set and confirm it.</td></tr>
+            <tr><td>BR-PBAC-03</td><td>Every workflow step must have ≥ 1 valid actor; missing → "Submit" is blocked.</td></tr>
+            <tr><td>BR-PBAC-04</td><td>A user's scope list cannot contain the same project twice.</td></tr>
+            <tr><td>BR-PBAC-05</td><td>Removing a user from a project with work in progress → hand-over to someone else is mandatory.</td></tr>
+            <tr><td>BR-PBAC-06</td><td>Locking an account → force-logout of all sessions + block new work.</td></tr>
+            <tr><td>BR-PBAC-07</td><td>The only way to restrict a right is to adjust the permission group — no negation mechanism.</td></tr>
+            <tr><td>BR-PBAC-08</td><td>Actor locked / left the company → system warns and demands a substitute before the flow continues.</td></tr>
+          </tbody></table></div>
+          <h4>SUB — submission records (BR-SUB-01…16, extract)</h4>
+          <div class="tbl-scroll"><table><tbody>
+            <tr><td>BR-SUB-01</td><td>Project Scope — a user only views/creates/handles records within their scope.</td></tr>
+            <tr><td>BR-SUB-02</td><td>Permission-based action — a button shows only if the user has the matching right.</td></tr>
+            <tr><td>BR-SUB-03</td><td>Anti self-review / self-approve — the creator cannot Review/Approve that record, even with the right.</td></tr>
+            <tr><td>BR-SUB-04</td><td>Valid workflow before Submit — the 9 validation checks (§7.3).</td></tr>
+            <tr><td>BR-SUB-05</td><td>Submit Lock — after Submit the creator cannot edit content unless the record returns to <code>NEED_INFO</code>.</td></tr>
+            <tr><td>BR-SUB-06</td><td>SLA engine — working-hours only; pauses in <code>NEED_INFO</code>/<code>DRAFT</code>; 4 alert levels; escalation on step overdue.</td></tr>
+            <tr><td>BR-SUB-07</td><td>Versioning — each resubmit from <code>NEED_INFO</code> creates a new version.</td></tr>
+            <tr><td>BR-SUB-08</td><td>Reject requires a reason (≥ 5 chars); the reason is shown publicly + notifies the creator.</td></tr>
+            <tr><td>BR-SUB-11</td><td>Immutable final states — <code>COMPLETED</code>/<code>REJECTED</code>/<code>EXPIRED</code> lock 100% of data; Clone only.</td></tr>
+            <tr><td>BR-SUB-14</td><td>Signature deadline — <code>WAITING_SIGNATURE</code> past 72 working hours with no valid signed file → <code>EXPIRED</code>.</td></tr>
+            <tr><td>BR-SUB-16</td><td>Draft Delete — only <code>DRAFT</code> records can be physically deleted; records in a workflow are retained (audit).</td></tr>
+          </tbody></table></div>
+          <h4>PO — value-threshold approval (BR-PO-01…05)</h4>
+          <div class="tbl-scroll"><table><tbody>
+            <tr><td>BR-PO-01</td><td>Value &lt; 10M → workflow has no approval step; the creator self-confirms.</td></tr>
+            <tr><td>BR-PO-02</td><td>10–100M → 1 approval level (group "Materials Dept Head").</td></tr>
+            <tr><td>BR-PO-03</td><td>&gt; 100M → 2 sequential levels (Dept Head → Board); the Board only sees the record after the Head has approved.</td></tr>
+            <tr><td>BR-PO-04</td><td>SLA escalation at 5 working days — sitting past the deadline without Approve/Reject → email warning to the level above + red-alert tag.</td></tr>
+            <tr><td>BR-PO-05</td><td>Reset on value change — when a record returns to <code>NEED_INFO</code> and the resubmit moves the total into a different threshold band → the approval chain resets to the first level. No editing an <code>APPROVED</code> record directly.</td></tr>
+          </tbody></table></div>
+        </div>
+
+        <div class="subsec">
+          <h3>7.8 · Acceptance criteria — Submission module (AC-SUB-01…27)</h3>
+          <div class="tbl-scroll"><table><tbody>
+            <tr><td>AC-SUB-01</td><td>A user only sees records within their Project Scope.</td></tr>
+            <tr><td>AC-SUB-02</td><td>A user with Create can create a draft record.</td></tr>
+            <tr><td>AC-SUB-03</td><td>No Submit permission → no "Submit" button.</td></tr>
+            <tr><td>AC-SUB-04</td><td>Valid Submit → record moves from <code>DRAFT</code> to the first post-Submit state (default <code>PENDING_REVIEW</code>).</td></tr>
+            <tr><td>AC-SUB-05</td><td>After Submit, the creator cannot edit content.</td></tr>
+            <tr><td>AC-SUB-06</td><td>Invalid workflow → Submit blocked + correct error message.</td></tr>
+            <tr><td>AC-SUB-07</td><td>The creator sees no Review/Approve button on their own record.</td></tr>
+            <tr><td>AC-SUB-08</td><td>Request info → record goes to <code>NEED_INFO</code>, SLA pauses.</td></tr>
+            <tr><td>AC-SUB-09</td><td>Resubmit from <code>NEED_INFO</code> → a new version is created.</td></tr>
+            <tr><td>AC-SUB-10</td><td>Version Compare shows the old/new difference.</td></tr>
+            <tr><td>AC-SUB-11</td><td>An Approve holder can approve a record after review.</td></tr>
+            <tr><td>AC-SUB-12</td><td>After <code>APPROVED</code>, record content is locked.</td></tr>
+            <tr><td>AC-SUB-13</td><td>"Confirm Complete" only lights up when ≥ 1 valid signed file exists.</td></tr>
+            <tr><td>AC-SUB-14</td><td>A <code>COMPLETED</code> record cannot be edited by anyone, including Admin.</td></tr>
+            <tr><td>AC-SUB-15</td><td><code>REJECTED</code>/<code>EXPIRED</code> cannot be edited, only Cloned.</td></tr>
+            <tr><td>AC-SUB-16</td><td>Clone creates a new record, new id, SLA + timeline reset, link to the original.</td></tr>
+            <tr><td>AC-SUB-17</td><td>The dashboard shows the SLA hours remaining accurately, in real time.</td></tr>
+            <tr><td>AC-SUB-18</td><td>Overdue records show red + pin to the top of the list.</td></tr>
+            <tr><td>AC-SUB-19</td><td>Overdue → notification to the handler + escalation watchers.</td></tr>
+            <tr><td>AC-SUB-20</td><td>Every action (View, Submit, Review, Approve, Reject, Upload, Complete) is audit-logged.</td></tr>
+            <tr><td>AC-SUB-21</td><td>The module contains no accounting operations (posting, VAT, receivables).</td></tr>
+            <tr><td>AC-SUB-22</td><td>The admin can configure the workflow per project (steps, actors, ANY/ALL, SLA).</td></tr>
+            <tr><td>AC-SUB-23</td><td>Submit is blocked if the workflow is invalid; the message matches the situation.</td></tr>
+            <tr><td>AC-SUB-24</td><td>Current Assignee shows correctly for the current workflow step (list + detail).</td></tr>
+            <tr><td>AC-SUB-25</td><td>The creator is blocked from self-Review / self-Approve even with the right.</td></tr>
+            <tr><td>AC-SUB-26</td><td>Override cannot edit the original content of <code>COMPLETED</code>/<code>REJECTED</code>/<code>EXPIRED</code>; every adjustment creates an adjustment record + reason + full audit log.</td></tr>
+            <tr><td>AC-SUB-27</td><td>Reject requires a reason ≥ 5 characters; the reason shows on the timeline + notifies the creator.</td></tr>
+          </tbody></table></div>
+        </div>
+
+        <div class="subsec">
+          <h3>7.9 · Wireframes — 6 screens (2 drawn in detail)</h3>
+          <div class="tbl-scroll">
+            <table>
+              <thead><tr><th>Screen</th><th>Goal</th><th>Key components</th></tr></thead>
+              <tbody>
+                <tr><td>M1 — List / SLA dashboard</td><td>See records by permission &amp; scope</td><td>Search; filters (project / type / state / SLA level); tabs "Mine / To handle / Overdue / All in scope"; per row: id, title, project, creator, <b>current handler</b>, state, <b>SLA countdown + colour badge</b>; red records pinned</td></tr>
+                <tr><td>M2 — Create form</td><td>Create &amp; submit</td><td>Project (scope only), type, title, content, attachments; <b>Workflow Preview Panel</b> (live flow from the project's config); Save draft / Submit / Cancel</td></tr>
+                <tr><td>M3 — Detail + Decision panel <em>(drawn below)</em></td><td>Handle a record</td><td>Header (id + state + SLA badge); content + files; <b>timeline</b>; comments; <b>Version Compare</b>; short audit log; <b>action buttons by permission × state × SoD</b></td></tr>
+                <tr><td>M4 — Red-Alert dashboard</td><td>Track escalation</td><td>Total overdue; grouped by project / handler / type; overdue list sorted by hours overdue; "Nudge" button (notification only)</td></tr>
+                <tr><td>M5 — Permission Preview</td><td>Admin checks one user's rights</td><td>Pick User + Project → shows groups, add-ons, <b>final effective rights</b>, a warning if the user can't join the workflow; view-only</td></tr>
+                <tr><td>M6 — Workflow Config builder <em>(drawn below)</em></td><td>Admin configures the flow per project</td><td>Workflow list per project; <b>sequential step builder</b>; per step (name, action, out-state, actor, ANY/ALL, SLA, comment/file required); <b>"Check Workflow"</b> button; inline warning on SoD / missing actor</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4>M3 — Submission detail + Decision panel <span style="font-weight:400;color:var(--ink-soft)">(low-fi, rule callouts)</span></h4>
+          <figure class="diagram">
+            <div class="diagram-scroll">
+            <svg viewBox="0 0 760 490" role="img" aria-labelledby="m3-t">
+              <title id="m3-t">Wireframe M3: record detail with SLA badge, content, version compare, timeline, and a decision panel whose buttons follow permission, state and separation of duties</title>
+              <rect x="0.5" y="0.5" width="759" height="489" class="dg-fill-2 dg-stroke"/>
+              <rect x="16" y="16" width="500" height="34" class="dg-fill dg-stroke"/><text x="28" y="37" class="dg-text">DT-2026-0187 · Material purchase · Project A</text>
+              <rect x="528" y="16" width="90" height="34" rx="4" class="dg-bad"/><text x="540" y="37" class="dg-text">SLA · RED</text>
+              <rect x="628" y="16" width="116" height="34" rx="4" class="dg-fill dg-stroke"/><text x="638" y="37" class="dg-text">PENDING_APPROVAL</text>
+              <rect x="16" y="62" width="380" height="250" class="dg-fill-2 dg-stroke"/>
+              <text x="28" y="82" class="dg-text-soft">Record content</text>
+              <rect x="28" y="92" width="356" height="9" class="dg-fill"/><rect x="28" y="108" width="356" height="9" class="dg-fill"/><rect x="28" y="124" width="240" height="9" class="dg-fill"/>
+              <text x="28" y="160" class="dg-text-soft">Attachments (2)</text>
+              <rect x="28" y="170" width="80" height="56" class="dg-fill dg-stroke"/><rect x="116" y="170" width="80" height="56" class="dg-fill dg-stroke"/>
+              <text x="28" y="252" class="dg-text-soft">Version Compare</text>
+              <rect x="28" y="262" width="356" height="38" class="dg-fill dg-stroke"/><text x="36" y="285" class="dg-text-soft">v1 ⇄ v2 (added / removed / changed)</text>
+              <rect x="408" y="62" width="336" height="150" class="dg-fill-2 dg-stroke"/>
+              <text x="420" y="82" class="dg-text-soft">Timeline</text>
+              <circle cx="426" cy="100" r="4" class="dg-text-soft"/><text x="438" y="104" class="dg-text">Submit · 02/06</text>
+              <circle cx="426" cy="120" r="4" class="dg-text-soft"/><text x="438" y="124" class="dg-text">Review pass · 03/06</text>
+              <circle cx="426" cy="140" r="4" class="dg-note"/><text x="438" y="144" class="dg-text">Awaiting approval · 2 days overdue</text>
+              <text x="420" y="176" class="dg-text-soft">Audit log (short)</text>
+              <rect x="420" y="184" width="312" height="20" class="dg-fill dg-stroke"/>
+              <rect x="408" y="224" width="336" height="118" class="dg-fill dg-stroke"/>
+              <text x="420" y="244" class="dg-text-soft">Decision panel — by permission × state × SoD</text>
+              <rect x="420" y="256" width="120" height="30" rx="4" class="dg-ok"/><text x="432" y="276" class="dg-text">Approve</text>
+              <rect x="548" y="256" width="120" height="30" rx="4" class="dg-bad"/><text x="560" y="276" class="dg-text">Reject *</text>
+              <rect x="420" y="294" width="180" height="30" rx="4" class="dg-fill dg-stroke"/><text x="432" y="314" class="dg-text">Request info</text>
+              <rect x="612" y="294" width="120" height="30" rx="4" class="dg-stroke" fill="none" stroke-dasharray="4 3"/><text x="624" y="314" class="dg-text-soft">Edit (hidden)</text>
+              <line x1="528" y1="33" x2="360" y2="392" class="dg-note-line"/>
+              <line x1="480" y1="140" x2="360" y2="392" class="dg-note-line"/>
+              <line x1="690" y1="300" x2="470" y2="420" class="dg-note-line"/>
+              <line x1="600" y1="258" x2="470" y2="448" class="dg-note-line"/>
+              <text x="40" y="396" class="dg-lbl dg-note">① SLA badge + "overdue" on the timeline → BR-SUB-06 (SLA engine, escalation)</text>
+              <text x="40" y="424" class="dg-lbl dg-note">② "Edit" hidden at PENDING_APPROVAL for the creator → BR-SUB-05 (Submit Lock)</text>
+              <text x="40" y="452" class="dg-lbl dg-note">③ "Reject" requires a reason; approve buttons hidden if the viewer is the creator → BR-SUB-08 / BR-SUB-03 (SoD)</text>
+            </svg>
+            </div>
+            <figcaption>M3 — detail + decision panel</figcaption>
+          </figure>
+
+          <h4>M6 — Workflow Config builder <span style="font-weight:400;color:var(--ink-soft)">(low-fi, rule callouts)</span></h4>
+          <figure class="diagram">
+            <div class="diagram-scroll">
+            <svg viewBox="0 0 760 440" role="img" aria-labelledby="m6-t">
+              <title id="m6-t">Wireframe M6: a sequential workflow step builder with an inline separation-of-duties warning and a Check Workflow validation panel</title>
+              <rect x="0.5" y="0.5" width="759" height="439" class="dg-fill-2 dg-stroke"/>
+              <text x="20" y="30" class="dg-text">Workflow — Project A · Submission module</text>
+              <rect x="20" y="44" width="160" height="24" rx="4" class="dg-fill dg-stroke"/><text x="30" y="61" class="dg-text">+ New from template</text>
+              <rect x="20" y="82" width="480" height="300" class="dg-fill dg-stroke"/>
+              <text x="32" y="102" class="dg-text-soft">Step builder (sequential)</text>
+              <rect x="32" y="112" width="456" height="70" class="dg-fill-2 dg-stroke"/>
+              <text x="44" y="132" class="dg-text">Step 1 · Review · action = Review</text>
+              <text x="44" y="150" class="dg-text-soft">Actor: group "Office Reviewers" · Mode: ANY · SLA: 5 working days</text>
+              <text x="44" y="168" class="dg-text-soft">In: PENDING_REVIEW → Out: PENDING_APPROVAL · Comment required: yes</text>
+              <rect x="32" y="190" width="456" height="70" class="dg-fill-2 dg-stroke"/>
+              <text x="44" y="210" class="dg-text">Step 2 · Approve · action = Approve</text>
+              <text x="44" y="228" class="dg-text-soft">Actor: group "Site Commander" · Mode: ANY · SLA: 5 working days</text>
+              <text x="44" y="246" class="dg-text-soft">In: PENDING_APPROVAL → Out: WAITING_SIGNATURE</text>
+              <rect x="32" y="268" width="456" height="34" class="dg-warn"/>
+              <text x="44" y="289" class="dg-lbl dg-text">⚠ Step 2: actor "Site Commander" has 1 person, same as the creator of equipment-transfer records → SoD violation</text>
+              <rect x="32" y="312" width="140" height="26" rx="4" class="dg-fill dg-stroke"/><text x="42" y="330" class="dg-text">+ Add step</text>
+              <rect x="184" y="312" width="150" height="26" rx="4" class="dg-ok"/><text x="194" y="330" class="dg-text">Check Workflow</text>
+              <rect x="346" y="312" width="150" height="26" rx="4" class="dg-fill dg-stroke"/><text x="356" y="330" class="dg-text">Save &amp; Activate</text>
+              <rect x="516" y="82" width="228" height="300" class="dg-fill dg-stroke"/>
+              <text x="528" y="102" class="dg-text-soft">Check result</text>
+              <text x="528" y="126" class="dg-text">✓ Has a step after Submit</text>
+              <text x="528" y="146" class="dg-text">✓ Every step has an actor</text>
+              <text x="528" y="166" class="dg-text">✓ Actors have the right permission</text>
+              <text x="528" y="186" fill="var(--bad)">✗ Approve step violates SoD</text>
+              <text x="528" y="206" class="dg-text">✓ Has an end state</text>
+              <text x="528" y="226" class="dg-text">✓ No open loop</text>
+              <line x1="260" y1="285" x2="220" y2="400" class="dg-note-line"/>
+              <line x1="600" y1="188" x2="220" y2="400" class="dg-note-line"/>
+              <text x="20" y="404" class="dg-lbl dg-note">④ Inline SoD warning + "Check Workflow" blocks Save when the Approve step's only</text>
+              <text x="20" y="420" class="dg-lbl dg-note">actor is the creator → invalid-config guard (§6.2), BR-PBAC-03</text>
+            </svg>
+            </div>
+            <figcaption>M6 — workflow config builder</figcaption>
+          </figure>
+        </div>
+
+        <div class="subsec">
+          <h3>7.10 · UAT test cases + requirement traceability matrix (10 of ~30)</h3>
+          <div class="tbl-scroll">
+            <table>
+              <thead><tr><th>TC</th><th>Scenario</th><th>Expected</th><th>AC</th><th>BR</th></tr></thead>
+              <tbody>
+                <tr><td>TC-01</td><td>Create a 9.5M material record → Confirm</td><td>Passes straight through (workflow has no approval step)</td><td>AC-SUB-02, AC-SUB-22</td><td>BR-PO-01</td></tr>
+                <tr><td>TC-02</td><td>85M record → Submit</td><td>Held at <code>PENDING_APPROVAL</code>, names group "Materials Dept Head" to approve</td><td>AC-SUB-11, AC-SUB-24</td><td>BR-PO-02</td></tr>
+                <tr><td>TC-03</td><td>450M record → Director tries to approve immediately</td><td>No approve button for the Director; the Dept Head must approve step 1 first</td><td>AC-SUB-11</td><td>BR-PO-03</td></tr>
+                <tr><td>TC-04</td><td>Reject with a blank reason</td><td>Confirm disabled; ≥ 5 chars required</td><td>AC-SUB-27</td><td>BR-SUB-08</td></tr>
+                <tr><td>TC-05</td><td>Leave a record at the reviewer, advance the clock +6 working days (step SLA = 5)</td><td>Record turns Red; escalation logged on the timeline; notification to the escalation watcher</td><td>AC-SUB-17, AC-SUB-18, AC-SUB-19</td><td>BR-SUB-06, BR-PO-04</td></tr>
+                <tr><td>TC-06</td><td>A &gt;100M record past tier-1, awaiting tier-2 → tier-2 approver picks "Request info" → <code>NEED_INFO</code> → creator edits the total into a different threshold band → resubmit</td><td>New version created; the approval chain <b>resets to tier 1</b>, does not continue at tier 2</td><td>AC-SUB-09, AC-SUB-11</td><td>BR-PO-05, BR-SUB-07</td></tr>
+                <tr><td>TC-07</td><td>The creator logs in and opens their own record at an approval step</td><td>Review/Approve buttons hidden; a direct API call → 403</td><td>AC-SUB-07, AC-SUB-25</td><td>BR-SUB-03</td></tr>
+                <tr><td>TC-08</td><td>Open the record list</td><td>A colour badge column (Green/Yellow/Orange/Red) by real-time SLA</td><td>AC-SUB-17</td><td>BR-SUB-06</td></tr>
+                <tr><td>TC-09</td><td>User calls the API for a record outside their Project Scope</td><td>Returns 403 + audit-logs the unauthorised access</td><td>AC-SUB-01</td><td>BR-SUB-01</td></tr>
+                <tr><td>TC-10</td><td><code>COMPLETED</code> record, an administrative error is found</td><td>No direct edit; an Override holder can only create an adjustment record + reason + full audit log</td><td>AC-SUB-14, AC-SUB-26</td><td>BR-SUB-11</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note-box"><b><span data-lang="en">On TC-06 — a correction I made to the source analysis:</span><span data-lang="vi">Về TC-06 — điểm tôi chỉnh so với bản phân tích gốc:</span></b> <span data-lang="en">the source described the creator "editing the unit price <em>after the manager had approved</em>", as if an approved record were editable — which breaks BR-SUB-05 (Submit Lock) and AC-SUB-12 (content locked after <code>APPROVED</code>). I restated BR-PO-05: content only changes via <code>NEED_INFO</code>; when the resubmitted version moves the total into a different threshold band, the approval chain <b>resets to the first level</b> — never by editing an <code>APPROVED</code> record.</span><span data-lang="vi">bản gốc mô tả "sửa đơn giá sau khi sếp đã duyệt xong" như thể sửa được hồ sơ đã chốt — mâu thuẫn BR-SUB-05 và AC-SUB-12. Tôi phát biểu lại BR-PO-05: nội dung chỉ đổi được qua <code>NEED_INFO</code>; khi bản gửi lại làm đổi tổng giá trị sang khoảng ngưỡng khác thì luồng duyệt reset về cấp đầu.</span></div>
+        </div>
+      </section>
+
+      <!-- ===================== 8. CONSISTENCY CATCHES ===================== -->
+      <section class="sec" id="catches">
+        <p class="kicker">8</p>
+        <h2><span data-lang="en">Consistency catches</span><span data-lang="vi">Điểm không nhất quán tôi phát hiện</span></h2>
+        <p class="sub"><span data-lang="en">Four inconsistencies I caught by cross-checking requirements ↔ wireframes ↔ the permission model, and how each was resolved.</span><span data-lang="vi">Bốn điểm không nhất quán tôi phát hiện khi rà soát chéo yêu cầu ↔ wireframe ↔ mô hình phân quyền, và cách xử lý.</span></p>
+        <ol class="steps">
+          <li><span data-lang="en">The first M3 wireframe showed an <b>"Edit record" button at <code>PENDING_REVIEW</code></b> for the creator — contradicting BR-SUB-05 (Submit Lock). → Removed it; Edit only at <code>DRAFT</code> and <code>NEED_INFO</code>. Added an <b>Action Visibility Rule</b> table stating the display condition for every button (all of: permission + scope + state + SoD + not immutable).</span><span data-lang="vi">Wireframe M3 bản đầu hiển thị nút <b>"Sửa hồ sơ" ở trạng thái <code>PENDING_REVIEW</code></b> cho người tạo — mâu thuẫn BR-SUB-05. → Gỡ nút; chỉ cho "Sửa" ở <code>DRAFT</code> và <code>NEED_INFO</code>. Bổ sung bảng <b>Action Visibility Rule</b>.</span></li>
+          <li><span data-lang="en">A sample workflow had an <b>Approve step whose actor group ("Site Commanders") held one person</b>, who was usually the creator of equipment-transfer records → every such record would jam on SoD. → Added a rule that <b>blocks saving a workflow</b> when an approval step's only actor is the creator; added an inline warning in M6; recommend configuring actors by <b>Permission Group</b>, not a specific user.</span><span data-lang="vi">Một workflow mẫu có bước Approve với actor là "Nhóm Chỉ huy trưởng" chỉ gồm 1 người, thường là người tạo hồ sơ điều chuyển thiết bị → mọi hồ sơ loại này sẽ kẹt vì SoD. → Bổ sung quy tắc <b>chặn lưu workflow</b> khi actor bước duyệt chỉ có đúng người tạo; thêm cảnh báo inline ở M6.</span></li>
+          <li><span data-lang="en">The first permission matrix set <b>Review = ✗ for "Approver"</b>, but the real flow needs an approver to be able to "Request info" (a review-family action). → Changed the cell to "~ (Request info only)" and clarified it in the use case spec for the "Request info" action; re-synced the M3 buttons.</span><span data-lang="vi">Ma trận quyền bản đầu để Review = ✗ cho "Người phê duyệt", nhưng luồng thực tế cần người phê duyệt được "Yêu cầu bổ sung". → Sửa ô thành "~ (chỉ Yêu cầu bổ sung)" và làm rõ trong use case; đồng bộ lại các nút ở M3.</span></li>
+          <li><span data-lang="en">The source state machine drew <b><code>REJECTED → DRAFT: Clone</code></b> — implying an immutable record transitions back, contradicting its own immutability rule. → Redrawn: Clone creates a <b>new record</b> (a separate instance); the old record stays put in its final state (see §6.4).</span><span data-lang="vi">State machine bản gốc vẽ <b><code>REJECTED → DRAFT: Clone</code></b> — ngụ ý hồ sơ immutable lại chuyển trạng thái. → Vẽ lại: Clone tạo <b>hồ sơ mới</b>, hồ sơ cũ đứng yên ở trạng thái cuối (xem §6.4).</span></li>
+        </ol>
+      </section>
+
+      <!-- ===================== 9. OUTCOME ===================== -->
+      <section class="sec" id="outcome">
+        <p class="kicker">9</p>
+        <h2><span data-lang="en">Outcome <em>(design targets — not yet measured)</em></span><span data-lang="vi">Kết quả <em>(mục tiêu thiết kế — chưa đo thực tế)</em></span></h2>
+        <ul class="plain">
+          <li><span data-lang="en"><b>≤ SLA for ~90% of records</b> <em>(target)</em> — measured by: % of records that clear each step before <code>sla_due_at</code>, from the audit log, monthly report.</span><span data-lang="vi"><b>≤ SLA cho ~90% hồ sơ</b> <em>(target)</em> — đo bằng: % hồ sơ hoàn tất mỗi bước trước <code>sla_due_at</code>, tính từ audit log, báo cáo hàng tháng.</span></li>
+          <li><span data-lang="en"><b>0 possibility of self-approval</b> — guaranteed by the SoD design; verified by TC-07 + an audit-log scan for (creator = approver) pairs on the same record (expected: 0).</span><span data-lang="vi"><b>0 khả năng tự phê duyệt</b> — bảo đảm bằng thiết kế SoD; kiểm chứng bằng TC-07 + rà soát audit log tìm cặp (người tạo = người duyệt) trên cùng hồ sơ (kỳ vọng: 0).</span></li>
+          <li><span data-lang="en"><b>100% of actions &amp; config changes audit-logged</b> with old → new value — measured by: reconciling the audit record count against business-event count for the period.</span><span data-lang="vi"><b>100% hành động &amp; thay đổi cấu hình có audit log</b> với giá trị cũ → mới — đo bằng: đối chiếu số bản ghi audit với số sự kiện nghiệp vụ trong kỳ.</span></li>
+          <li><span data-lang="en"><b>Overdue records "nobody knew about" → 0</b> <em>(target)</em> — measured by: count of red records that never appeared on the Red-Alert dashboard before breaching SLA (expected: 0).</span><span data-lang="vi"><b>Hồ sơ quá hạn "không ai biết" → 0</b> <em>(target)</em> — đo bằng: số hồ sơ đỏ chưa từng xuất hiện trên Dashboard Báo đỏ trước khi vượt SLA (kỳ vọng: 0).</span></li>
+          <li><span data-lang="en"><b>Cut the return-for-info rate (estimated ~1/5) → target ~1/10</b> <em>(target)</em> — measured by: % of records with ≥ 1 transition to <code>NEED_INFO</code>, compared before / after go-live.</span><span data-lang="vi"><b>Giảm tỷ lệ hồ sơ phải quay lại bổ sung (ước lượng ~1/5) → mục tiêu ~1/10</b> <em>(target)</em> — đo bằng: % hồ sơ có ≥ 1 lần chuyển <code>NEED_INFO</code>, so sánh trước / sau go-live.</span></li>
+        </ul>
+      </section>
+
+      <!-- ===================== 10. OPEN QUESTIONS ===================== -->
+      <section class="sec" id="open">
+        <p class="kicker">10</p>
+        <h2><span data-lang="en">Open questions &amp; assumptions (at hand-off)</span><span data-lang="vi">Câu hỏi mở &amp; giả định (tại thời điểm bàn giao)</span></h2>
+        <ul class="plain">
+          <li><span data-lang="en"><b>Assumption:</b> each record type has exactly <b>one active workflow per project</b> at a time — no parallel condition-selected workflows yet.</span><span data-lang="vi"><b>Giả định:</b> mỗi loại đề trình có đúng <b>1 workflow đang hiệu lực / dự án</b> tại một thời điểm.</span></li>
+          <li><span data-lang="en"><b>Assumption:</b> a scanned image / PDF of the signed record is sufficient for reconciliation in phase 1; e-signature is phase 2.</span><span data-lang="vi"><b>Giả định:</b> biên bản ký nhận dạng ảnh/PDF scan là đủ giá trị đối chiếu ở phase 1; ký số phase 2.</span></li>
+          <li><span data-lang="en"><b>Open:</b> does the client have a <b>written formal SLA</b> per record type, or do we use the 3–14 day default? (affects the initial SLA config)</span><span data-lang="vi"><b>Câu hỏi mở:</b> chủ đầu tư đã có <b>SLA chính thức bằng văn bản</b> cho từng loại hồ sơ chưa, hay dùng mặc định 3–14 ngày?</span></li>
+          <li><span data-lang="en"><b>Open:</b> for material transfers with a <b>wastage allowance</b> — does wastage need its own approval branch? (routed to the Materials-module team)</span><span data-lang="vi"><b>Câu hỏi mở:</b> khi điều chuyển vật tư có <b>định mức hao hụt</b> — có cần một nhánh duyệt riêng không? (đã chuyển sang team phân hệ Vật tư)</span></li>
+          <li><span data-lang="en"><b>Open:</b> the 10M / 100M thresholds are illustrative — the board must confirm the official figures before go-live.</span><span data-lang="vi"><b>Câu hỏi mở:</b> ngưỡng 10tr / 100tr là số minh hoạ — cần HĐQT chốt con số chính thức trước go-live.</span></li>
+        </ul>
+      </section>
+
+      <!-- ===================== 11. LESSONS ===================== -->
+      <section class="sec" id="lessons">
+        <p class="kicker">11</p>
+        <h2><span data-lang="en">Lessons / what I'd do differently</span><span data-lang="vi">Bài học / điều tôi sẽ làm khác</span></h2>
+        <ul class="plain">
+          <li><span data-lang="en"><b>Lock the permission model first, workflow second.</b> I specified the workflow in parallel with permissions and had to redo a lot once the "additive-only" principle was fixed by the Senior BA. Next time I'll lock the permission model + action vocabulary first, then design steps.</span><span data-lang="vi"><b>Chốt mô hình phân quyền trước, workflow sau.</b> Tôi đặc tả workflow song song với phân quyền và phải sửa nhiều khi nguyên tắc "chỉ cộng quyền" được Senior BA chốt.</span></li>
+          <li><span data-lang="en"><b>Wireframes should cite the Action Visibility Rule directly.</b> If every button on the wireframe had carried its display condition (and BR id) from the first draft, 2 of the 4 catches in §8 wouldn't have happened.</span><span data-lang="vi"><b>Wireframe nên tham chiếu trực tiếp Action Visibility Rule.</b> Nếu mỗi nút ghi kèm điều kiện hiển thị (và mã BR) ngay từ bản đầu, 2 trong 4 lỗi ở §8 đã không xảy ra.</span></li>
+          <li><span data-lang="en"><b>Sample configuration is a deliverable, not an afterthought.</b> The SoD flaw only surfaced when I tried to build a real workflow for a small project. I've since put "build 2–3 sample workflows" on the spec checklist.</span><span data-lang="vi"><b>Cấu hình mẫu là một deliverable, không phải việc phụ.</b> Lỗi SoD chỉ lộ ra khi tôi thử dựng workflow thật cho một dự án nhỏ.</span></li>
+          <li><span data-lang="en"><b>Ask the developer about platform limits early.</b> That per-project PBAC needs custom work (it doesn't map onto Odoo's <code>res.groups</code>) should have been confirmed in week 1, not after the permission diagrams were done.</span><span data-lang="vi"><b>Hỏi Developer sớm về ranh giới của nền tảng.</b> Việc PBAC theo-từng-dự-án cần custom lẽ ra nên được xác nhận ngay từ tuần đầu.</span></li>
+        </ul>
+      </section>
+
+    </div><!-- /cs-body -->
+  </div><!-- /cs-layout -->
+</div>
+
+<footer>
+  <div class="wrap wide">
+    <div class="f">
+      <span>Nguyen Tuan Dinh</span>
+      <span data-contact-item="email"><a data-contact="email">email</a></span>
+      <span><a href="index.html"><span data-lang="en">Back to portfolio</span><span data-lang="vi">Về trang chính</span></a></span>
+      <span><span data-lang="en">Representative reconstruction · figures are design targets</span><span data-lang="vi">Bản dựng lại mang tính đại diện · số liệu là mục tiêu thiết kế</span></span>
+    </div>
+  </div>
+</footer>
+</main>
+
+</body>
+</html>
