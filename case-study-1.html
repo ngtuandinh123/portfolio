@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=20">
-<script src="assets/app.js?v=20"></script>
+<link rel="stylesheet" href="assets/styles.css?v=21">
+<script src="assets/app.js?v=21"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -371,7 +371,7 @@
 
         <div class="subsec">
           <h3>6.6 · <span data-lang="en">Versioning + audit trail</span><span data-lang="vi">Versioning + audit trail</span></h3>
-          <p><span data-lang="en">Every resubmit from <code>NEED_INFO</code> creates a <b>new version</b>; <b>Version Compare</b> shows added / removed / changed content and new files. <b>Every action</b> (View, Submit, Review, Request Info, Re-submit, Approve, Reject, Upload, Complete, Clone, SLA breached, Notification) <b>and every workflow-config change</b> is logged with actor, target, action, time, <b>old → new value</b>, IP/device.</span><span data-lang="vi">Mỗi lần gửi lại từ <code>NEED_INFO</code> tạo <b>version mới</b>; <b>Version Compare</b> hiển thị phần thêm / xoá / sửa và file bổ sung. <b>Mọi hành động</b> và <b>mọi thay đổi cấu hình workflow</b> đều được ghi log với: người thực hiện, đối tượng, hành động, thời gian, <b>giá trị cũ → mới</b>, IP/thiết bị.</span></p>
+          <p><span data-lang="en">Every resubmit from <code>NEED_INFO</code> creates a <b>new version</b>; <b>Version Compare</b> shows added / removed / changed content and new files. <b>Every action</b> (View, Submit, Review, Request Info, Re-submit, Approve, Reject, Upload, Complete, Clone, SLA breached, Notification) <b>and every workflow-config change</b> is logged with actor, target, action, time, <b>old → new value</b>, IP/device.</span><span data-lang="vi">Mỗi lần gửi lại từ <code>NEED_INFO</code> tạo <b>version mới</b>; <b>Version Compare</b> hiển thị phần thêm / xoá / sửa và file bổ sung. <b>Mọi hành động</b> (View, Submit, Review, Request Info, Re-submit, Approve, Reject, Upload, Complete, Clone, quá hạn SLA, Notification) và <b>mọi thay đổi cấu hình workflow</b> đều được ghi log với: người thực hiện, đối tượng, hành động, thời gian, <b>giá trị cũ → mới</b>, IP/thiết bị.</span></p>
         </div>
 
         <div class="subsec">
@@ -476,7 +476,7 @@
 
         <div class="subsec">
           <h3 id="d3">7.3 · <span data-lang="en">BPMN TO-BE — 9-step Submit validation</span><span data-lang="vi">BPMN TO-BE — 9 bước kiểm tra khi Submit</span></h3>
-          <p class="sub"><span data-lang="en">The TO-BE flow is the state machine in §6.4. On Submit, the system runs 9 checks <b>in a deliberate order — permission and scope first, data second — so the system never reveals the existence of an out-of-scope record</b>:</span><span data-lang="vi">Luồng TO-BE chính là state machine ở §6.4. Khi Submit, hệ thống chạy 9 bước kiểm tra <b>theo thứ tự có chủ đích — quyền và phạm vi trước, dữ liệu sau</b>:</span></p>
+          <p class="sub"><span data-lang="en">The TO-BE flow is the state machine in §6.4. On Submit, the system runs 9 checks <b>in a deliberate order — permission and scope first, data second — so the system never reveals the existence of an out-of-scope record</b>:</span><span data-lang="vi">Luồng TO-BE chính là state machine ở §6.4. Khi Submit, hệ thống chạy 9 bước kiểm tra <b>theo thứ tự có chủ đích — quyền và phạm vi trước, dữ liệu sau — để hệ thống không bao giờ để lộ sự tồn tại của một hồ sơ ngoài phạm vi</b>:</span></p>
           <ol class="steps">
             <li><span data-lang="en">User has <b>Submit</b> permission on the module</span><span data-lang="vi">Người dùng có quyền <b>Submit</b> trên phân hệ</span></li>
             <li><span data-lang="en">Record is in the user's <b>Project Scope</b></span><span data-lang="vi">Hồ sơ nằm trong <b>Project Scope</b> của người dùng</span></li>
@@ -828,7 +828,7 @@
               </tbody>
             </table>
           </div>
-          <div class="note-box"><b><span data-lang="en">On TC-06 — a correction I made to the source analysis:</span><span data-lang="vi">Về TC-06 — điểm tôi chỉnh so với bản phân tích gốc:</span></b> <span data-lang="en">the source described the creator "editing the unit price <em>after the manager had approved</em>", as if an approved record were editable — which breaks BR-SUB-05 (Submit Lock) and AC-SUB-12 (content locked after <code>APPROVED</code>). I restated BR-PO-05: content only changes via <code>NEED_INFO</code>; when the resubmitted version moves the total into a different threshold band, the approval chain <b>resets to the first level</b> — never by editing an <code>APPROVED</code> record.</span><span data-lang="vi">bản gốc mô tả "sửa đơn giá sau khi sếp đã duyệt xong" như thể sửa được hồ sơ đã chốt — mâu thuẫn BR-SUB-05 và AC-SUB-12. Tôi phát biểu lại BR-PO-05: nội dung chỉ đổi được qua <code>NEED_INFO</code>; khi bản gửi lại làm đổi tổng giá trị sang khoảng ngưỡng khác thì luồng duyệt reset về cấp đầu.</span></div>
+          <div class="note-box"><b><span data-lang="en">On TC-06 — a correction I made to the source analysis:</span><span data-lang="vi">Về TC-06 — điểm tôi chỉnh so với bản phân tích gốc:</span></b> <span data-lang="en">the source described the creator "editing the unit price <em>after the manager had approved</em>", as if an approved record were editable — which breaks BR-SUB-05 (Submit Lock) and AC-SUB-12 (content locked after <code>APPROVED</code>). I restated BR-PO-05: content only changes via <code>NEED_INFO</code>; when the resubmitted version moves the total into a different threshold band, the approval chain <b>resets to the first level</b> — never by editing an <code>APPROVED</code> record.</span><span data-lang="vi">bản gốc mô tả "sửa đơn giá sau khi sếp đã duyệt xong" như thể sửa được hồ sơ đã chốt — mâu thuẫn BR-SUB-05 (Submit Lock) và AC-SUB-12 (nội dung khoá sau khi <code>APPROVED</code>). Tôi phát biểu lại BR-PO-05: nội dung chỉ đổi được qua <code>NEED_INFO</code>; khi bản gửi lại làm đổi tổng giá trị sang khoảng ngưỡng khác thì luồng duyệt reset về cấp đầu — không phải bằng cách sửa một hồ sơ đã <code>APPROVED</code>.</span></div>
         </div>
       </section>
 

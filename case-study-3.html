@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=20">
-<script src="assets/app.js?v=20"></script>
+<link rel="stylesheet" href="assets/styles.css?v=21">
+<script src="assets/app.js?v=21"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -562,7 +562,7 @@
 
         <div class="subsec">
           <h3 id="e4">7.4 · <span data-lang="en">Booking state — transition table</span><span data-lang="vi">Trạng thái booking — bảng chuyển trạng thái</span></h3>
-          <div class="note-box"><span data-lang="en">The states belong to the <b>OrderLine</b>. The Order's status is <b>derived</b>: CONFIRMED if ≥ 1 line is CONFIRMED; EXPIRED if every line is EXPIRED; otherwise it reflects the mix.</span><span data-lang="vi">Các trạng thái là của <b>OrderLine</b>. Trạng thái của Order là <b>suy ra</b>: CONFIRMED nếu còn ≥ 1 dòng CONFIRMED; EXPIRED nếu mọi dòng đều EXPIRED.</span></div>
+          <div class="note-box"><span data-lang="en">The states belong to the <b>OrderLine</b>. The Order's status is <b>derived</b>: CONFIRMED if ≥ 1 line is CONFIRMED; EXPIRED if every line is EXPIRED; otherwise it reflects the mix.</span><span data-lang="vi">Các trạng thái là của <b>OrderLine</b>. Trạng thái của Order là <b>suy ra</b>: CONFIRMED nếu còn ≥ 1 dòng CONFIRMED; EXPIRED nếu mọi dòng đều EXPIRED; các trường hợp còn lại phản ánh trạng thái hỗn hợp.</span></div>
           <div class="tbl-scroll">
             <table>
               <thead><tr><th><span data-lang="en">From</span><span data-lang="vi">Từ</span></th><th><span data-lang="en">Event</span><span data-lang="vi">Sự kiện</span></th><th><span data-lang="en">Guard</span><span data-lang="vi">Điều kiện</span></th><th><span data-lang="en">To</span><span data-lang="vi">Đến</span></th><th><span data-lang="en">Side-effects</span><span data-lang="vi">Hệ quả kèm theo</span></th></tr></thead>
@@ -793,7 +793,7 @@
 
         <div class="subsec">
           <h3 id="e10">7.10 · <span data-lang="en">Report &amp; metric spec + SQL</span><span data-lang="vi">Đặc tả báo cáo &amp; chỉ số + SQL</span></h3>
-          <p class="sub"><span data-lang="en">FR-11 (Reports) in the original BRD was one line. This is the part I specified in the hardening pass: <b>define the 4 owner metrics</b> — grain, calculation, and edge cases. The edge cases are the BA value — so the owner and the developer mean the same number.</span><span data-lang="vi">FR-11 (Thống kê) trong BRD gốc chỉ có một dòng. Đây là phần tôi đặc tả bổ sung: <b>định nghĩa 4 chỉ số cho chủ sân</b> — độ hạt, cách tính, và các edge case (chính các edge case là phần giá trị của BA).</span></p>
+          <p class="sub"><span data-lang="en">FR-11 (Reports) in the original BRD was one line. This is the part I specified in the hardening pass: <b>define the 4 owner metrics</b> — grain, calculation, and edge cases. The edge cases are the BA value — so the owner and the developer mean the same number.</span><span data-lang="vi">FR-11 (Thống kê) trong BRD gốc chỉ có một dòng. Đây là phần tôi đặc tả bổ sung: <b>định nghĩa 4 chỉ số cho chủ sân</b> — độ hạt, cách tính, và các edge case — chính các edge case là phần giá trị của BA, để chủ sân và lập trình viên hiểu cùng một con số.</span></p>
           <div class="tbl-scroll">
             <table>
               <thead><tr><th><span data-lang="en">Metric</span><span data-lang="vi">Chỉ số</span></th><th><span data-lang="en">Definition</span><span data-lang="vi">Định nghĩa</span></th><th><span data-lang="en">Grain</span><span data-lang="vi">Độ hạt</span></th><th><span data-lang="en">Edge cases settled</span><span data-lang="vi">Edge case đã chốt</span></th></tr></thead>
