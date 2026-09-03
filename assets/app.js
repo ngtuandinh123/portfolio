@@ -93,6 +93,7 @@
         root.lang = lang;
         LS.set('pf-lang', lang);
         sync();
+        syncScrollRegions();   // labels are language-specific
       });
     });
     sync();
@@ -119,17 +120,43 @@
       navLinks.forEach(function (a) { navSpy.observe(document.getElementById(a.getAttribute('href').slice(1))); });
     }
 
-    // make horizontally-scrolling containers reachable by keyboard (WCAG 2.1.1)
-    document.querySelectorAll('.tbl-scroll, .diagram-scroll, pre.code').forEach(function (el) {
-      if (el.scrollWidth - el.clientWidth > 2) {
-        el.tabIndex = 0;
-        if (!el.hasAttribute('role')) el.setAttribute('role', 'region');
-        if (!el.hasAttribute('aria-label')) {
-          var cap = el.parentElement && el.parentElement.querySelector('figcaption');
-          el.setAttribute('aria-label', (cap ? cap.textContent.trim() + ' — ' : '') + 'scrollable');
+    // keep horizontally-scrolling containers keyboard-reachable (WCAG 2.1.1);
+    // re-evaluated on resize and on language change, and torn down when a
+    // container stops overflowing so it leaves no phantom tab stop / region.
+    function syncScrollRegions() {
+      var l = root.getAttribute('data-lang');
+      var generic = l === 'vi' ? 'vùng cuộn ngang' : 'scrollable region';
+      document.querySelectorAll('.tbl-scroll, .diagram-scroll, pre.code').forEach(function (el) {
+        if (el.scrollWidth - el.clientWidth > 2) {
+          el.tabIndex = 0;
+          el.setAttribute('role', 'region');
+          el.setAttribute('data-scroll-region', '');
+          var label = '';
+          var fig = el.closest('figure');
+          var cap = fig && fig.querySelector('figcaption');
+          if (cap) label = (cap.querySelector('[data-lang="' + l + '"]') || cap).textContent.trim();
+          if (!label) {
+            var prev = el.previousElementSibling;
+            while (prev && !/^H[1-6]$/.test(prev.tagName)) prev = prev.previousElementSibling;
+            if (prev) label = (prev.querySelector('[data-lang="' + l + '"]') || prev).textContent.trim();
+          }
+          el.setAttribute('aria-label', label ? label + ' — ' + generic : generic);
+        } else if (el.hasAttribute('data-scroll-region')) {
+          el.removeAttribute('tabindex');
+          el.removeAttribute('role');
+          el.removeAttribute('aria-label');
+          el.removeAttribute('data-scroll-region');
         }
-      }
-    });
+      });
+    }
+    syncScrollRegions();
+    var srTimer;
+    function scheduleSync() { clearTimeout(srTimer); srTimer = setTimeout(syncScrollRegions, 150); }
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(scheduleSync).observe(document.documentElement);
+    } else {
+      window.addEventListener('resize', scheduleSync);
+    }
   }
 
   if (document.readyState === 'loading') {
