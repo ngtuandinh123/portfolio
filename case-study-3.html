@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=16">
-<script src="assets/app.js?v=16"></script>
+<link rel="stylesheet" href="assets/styles.css?v=17">
+<script src="assets/app.js?v=17"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -888,7 +888,15 @@ GROUP BY ol.court_id;
       <!-- ===================== 9. OUTCOME ===================== -->
       <section class="sec" id="outcome">
         <p class="kicker">9</p>
-        <h2><span data-lang="en">Outcome <em>(design targets — not yet measured)</em></span><span data-lang="vi">Kết quả <em>(mục tiêu thiết kế — chưa đo thực tế)</em></span></h2>
+        <h2><span data-lang="en">Outcome</span><span data-lang="vi">Kết quả</span></h2>
+        <h3><span data-lang="en">Delivered <em>(training project — end-of-course + this hardening pass)</em></span><span data-lang="vi">Đã hoàn thành <em>(bài tập cuối khoá + vòng làm cứng này)</em></span></h3>
+        <ul class="plain">
+          <li><span data-lang="en">The original BA analysis — BRD, 12 functional requirements, user stories, proposed-process BPMN, FDD — <b>submitted as the end-of-course deliverable</b>.</span><span data-lang="vi">Phần phân tích nghiệp vụ gốc — BRD, 12 functional requirement, user story, BPMN quy trình đề xuất, FDD — <b>nộp làm bài tập cuối khoá</b>.</span></li>
+          <li><span data-lang="en"><b>5 inconsistencies found in my own first BRD</b> and each resolved (§8) — the core evidence of this reconstruction.</span><span data-lang="vi"><b>5 điểm không nhất quán phát hiện trong chính bản BRD đầu của tôi</b>, mỗi điểm đều được xử lý (§8) — bằng chứng cốt lõi của bản dựng lại này.</span></li>
+          <li><span data-lang="en">Hardening pass added: <b>18 business rules, a state machine, an ERD, a time-tiered cancellation/refund policy, and a report/metric spec with runnable PostgreSQL</b>.</span><span data-lang="vi">Vòng làm cứng bổ sung: <b>18 quy tắc nghiệp vụ, một state machine, một ERD, chính sách huỷ/hoàn tiền theo mốc thời gian, và đặc tả báo cáo/chỉ số kèm PostgreSQL chạy được</b>.</span></li>
+          <li><span data-lang="en"><b>16 acceptance criteria + 14 UAT cases + a refund matrix</b> produced against the rules.</span><span data-lang="vi"><b>16 acceptance criteria + 14 test case UAT + một refund matrix</b> viết theo các quy tắc.</span></li>
+        </ul>
+        <h3><span data-lang="en">Projected targets <em>(design — not yet measured)</em></span><span data-lang="vi">Mục tiêu dự kiến <em>(thiết kế — chưa đo thực tế)</em></span></h3>
         <ul class="plain">
           <li><span data-lang="en"><b>Shift demand off the dead hours</b> — target: the gap between peak and off-peak utilisation narrows after tiers are switched on <em>(target)</em> — measured by: utilisation %/time-band before vs after the owner enables tiers.</span><span data-lang="vi"><b>Dịch cầu ra khỏi giờ vắng</b> — mục tiêu: chênh lệch hiệu suất giữa khung cao điểm và thấp điểm thu hẹp sau khi áp bậc giá <em>(target)</em> — đo bằng: utilisation %/khung giờ trước / sau khi chủ sân bật bậc giá.</span></li>
           <li><span data-lang="en"><b>0 double-bookings</b> — requirement BR-HOLD-01 / AC-BK-04 (mechanism is the dev's); verified by TC-04 + a data scan for slots with &gt; 1 active booking (expected: 0).</span><span data-lang="vi"><b>0 trùng chỗ</b> — yêu cầu BR-HOLD-01 / AC-BK-04 (cơ chế do dev chọn); kiểm chứng bằng TC-04 + rà dữ liệu tìm khung giờ có &gt; 1 booking hiệu lực (kỳ vọng: 0).</span></li>

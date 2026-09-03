@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=16">
-<script src="assets/app.js?v=16"></script>
+<link rel="stylesheet" href="assets/styles.css?v=17">
+<script src="assets/app.js?v=17"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -614,69 +614,69 @@
           <h3 id="d7">7.7 · <span data-lang="en">Business rules catalogue (29 rules — those cited in this case study)</span><span data-lang="vi">Danh mục quy tắc nghiệp vụ (29 quy tắc — các quy tắc được trích trong case study này)</span></h3>
           <h4><span data-lang="en">PBAC — permissions (BR-PBAC-01…08)</span><span data-lang="vi">PBAC — phân quyền (BR-PBAC-01…08)</span></h4>
           <div class="tbl-scroll"><table><tbody>
-            <tr><td>BR-PBAC-01</td><td>User identity is unique by national-ID / email / phone — no duplicates.</td></tr>
-            <tr><td>BR-PBAC-02</td><td>Adding a new project to a user → that project's permission matrix defaults to <b>empty</b>; the admin must set and confirm it.</td></tr>
-            <tr><td>BR-PBAC-03</td><td>Every workflow step must have ≥ 1 valid actor; missing → "Submit" is blocked.</td></tr>
-            <tr><td>BR-PBAC-04</td><td>A user's scope list cannot contain the same project twice.</td></tr>
-            <tr><td>BR-PBAC-05</td><td>Removing a user from a project with work in progress → hand-over to someone else is mandatory.</td></tr>
-            <tr><td>BR-PBAC-06</td><td>Locking an account → force-logout of all sessions + block new work.</td></tr>
-            <tr><td>BR-PBAC-07</td><td>The only way to restrict a right is to adjust the permission group — no negation mechanism.</td></tr>
-            <tr><td>BR-PBAC-08</td><td>Actor locked / left the company → system warns and demands a substitute before the flow continues.</td></tr>
+            <tr><td>BR-PBAC-01</td><td><span data-lang="en">User identity is unique by national-ID / email / phone — no duplicates.</span><span data-lang="vi">Danh tính người dùng là duy nhất theo CCCD / email / số điện thoại — không trùng.</span></td></tr>
+            <tr><td>BR-PBAC-02</td><td><span data-lang="en">Adding a new project to a user → that project's permission matrix defaults to <b>empty</b>; the admin must set and confirm it.</span><span data-lang="vi">Thêm một dự án mới cho người dùng → ma trận quyền của dự án đó mặc định <b>rỗng</b>; admin phải thiết lập và xác nhận.</span></td></tr>
+            <tr><td>BR-PBAC-03</td><td><span data-lang="en">Every workflow step must have ≥ 1 valid actor; missing → "Submit" is blocked.</span><span data-lang="vi">Mỗi bước workflow phải có ≥ 1 actor hợp lệ; thiếu → chặn "Submit".</span></td></tr>
+            <tr><td>BR-PBAC-04</td><td><span data-lang="en">A user's scope list cannot contain the same project twice.</span><span data-lang="vi">Danh sách scope của một người không được chứa cùng một dự án hai lần.</span></td></tr>
+            <tr><td>BR-PBAC-05</td><td><span data-lang="en">Removing a user from a project with work in progress → hand-over to someone else is mandatory.</span><span data-lang="vi">Gỡ một người khỏi dự án đang có việc dở → bắt buộc bàn giao cho người khác.</span></td></tr>
+            <tr><td>BR-PBAC-06</td><td><span data-lang="en">Locking an account → force-logout of all sessions + block new work.</span><span data-lang="vi">Khoá một tài khoản → buộc đăng xuất mọi phiên + chặn việc mới.</span></td></tr>
+            <tr><td>BR-PBAC-07</td><td><span data-lang="en">The only way to restrict a right is to adjust the permission group — no negation mechanism.</span><span data-lang="vi">Cách duy nhất để thu hẹp một quyền là điều chỉnh nhóm quyền — không có cơ chế phủ định.</span></td></tr>
+            <tr><td>BR-PBAC-08</td><td><span data-lang="en">Actor locked / left the company → system warns and demands a substitute before the flow continues.</span><span data-lang="vi">Actor bị khoá / đã nghỉ → hệ thống cảnh báo và yêu cầu người thay thế trước khi luồng tiếp tục.</span></td></tr>
           </tbody></table></div>
           <h4><span data-lang="en">SUB — submission records (BR-SUB-01…16, extract)</span><span data-lang="vi">SUB — hồ sơ đề trình (BR-SUB-01…16, trích)</span></h4>
           <div class="tbl-scroll"><table><tbody>
-            <tr><td>BR-SUB-01</td><td>Project Scope — a user only views/creates/handles records within their scope.</td></tr>
-            <tr><td>BR-SUB-02</td><td>Permission-based action — a button shows only if the user has the matching right.</td></tr>
-            <tr><td>BR-SUB-03</td><td>Anti self-review / self-approve — the creator cannot Review/Approve that record, even with the right.</td></tr>
-            <tr><td>BR-SUB-04</td><td>Valid workflow before Submit — the 9 validation checks (§7.3).</td></tr>
-            <tr><td>BR-SUB-05</td><td>Submit Lock — after Submit the creator cannot edit content unless the record returns to <code>NEED_INFO</code>.</td></tr>
-            <tr><td>BR-SUB-06</td><td>SLA engine — working-hours only; pauses in <code>NEED_INFO</code>/<code>DRAFT</code>; 4 alert levels; escalation on step overdue.</td></tr>
-            <tr><td>BR-SUB-07</td><td>Versioning — each resubmit from <code>NEED_INFO</code> creates a new version.</td></tr>
-            <tr><td>BR-SUB-08</td><td>Reject requires a reason (≥ 5 chars); the reason is shown publicly + notifies the creator.</td></tr>
-            <tr><td>BR-SUB-11</td><td>Immutable final states — <code>COMPLETED</code>/<code>REJECTED</code>/<code>EXPIRED</code> lock 100% of data; Clone only.</td></tr>
-            <tr><td>BR-SUB-14</td><td>Signature deadline — <code>WAITING_SIGNATURE</code> past 72 working hours with no valid signed file → <code>EXPIRED</code>.</td></tr>
-            <tr><td>BR-SUB-16</td><td>Draft Delete — only <code>DRAFT</code> records can be physically deleted; records in a workflow are retained (audit).</td></tr>
+            <tr><td>BR-SUB-01</td><td><span data-lang="en">Project Scope — a user only views/creates/handles records within their scope.</span><span data-lang="vi">Project Scope — người dùng chỉ xem/tạo/xử lý hồ sơ trong phạm vi của mình.</span></td></tr>
+            <tr><td>BR-SUB-02</td><td><span data-lang="en">Permission-based action — a button shows only if the user has the matching right.</span><span data-lang="vi">Hành động theo quyền — một nút chỉ hiện nếu người dùng có quyền tương ứng.</span></td></tr>
+            <tr><td>BR-SUB-03</td><td><span data-lang="en">Anti self-review / self-approve — the creator cannot Review/Approve that record, even with the right.</span><span data-lang="vi">Chống tự duyệt / tự phê — người tạo không được Review/Approve chính hồ sơ đó, kể cả khi có quyền.</span></td></tr>
+            <tr><td>BR-SUB-04</td><td><span data-lang="en">Valid workflow before Submit — the 9 validation checks (§7.3).</span><span data-lang="vi">Workflow hợp lệ trước khi Submit — 9 bước kiểm tra (§7.3).</span></td></tr>
+            <tr><td>BR-SUB-05</td><td><span data-lang="en">Submit Lock — after Submit the creator cannot edit content unless the record returns to <code>NEED_INFO</code>.</span><span data-lang="vi">Submit Lock — sau khi Submit, người tạo không sửa được nội dung trừ khi hồ sơ quay về <code>NEED_INFO</code>.</span></td></tr>
+            <tr><td>BR-SUB-06</td><td><span data-lang="en">SLA engine — working-hours only; pauses in <code>NEED_INFO</code>/<code>DRAFT</code>; 4 alert levels; escalation on step overdue.</span><span data-lang="vi">SLA engine — chỉ tính giờ làm việc; tạm dừng ở <code>NEED_INFO</code>/<code>DRAFT</code>; 4 mức cảnh báo; leo thang khi bước quá hạn.</span></td></tr>
+            <tr><td>BR-SUB-07</td><td><span data-lang="en">Versioning — each resubmit from <code>NEED_INFO</code> creates a new version.</span><span data-lang="vi">Versioning — mỗi lần gửi lại từ <code>NEED_INFO</code> tạo một phiên bản mới.</span></td></tr>
+            <tr><td>BR-SUB-08</td><td><span data-lang="en">Reject requires a reason (≥ 5 chars); the reason is shown publicly + notifies the creator.</span><span data-lang="vi">Từ chối phải có lý do (≥ 5 ký tự); lý do hiển thị công khai + báo cho người tạo.</span></td></tr>
+            <tr><td>BR-SUB-11</td><td><span data-lang="en">Immutable final states — <code>COMPLETED</code>/<code>REJECTED</code>/<code>EXPIRED</code> lock 100% of data; Clone only.</span><span data-lang="vi">Trạng thái cuối bất biến — <code>COMPLETED</code>/<code>REJECTED</code>/<code>EXPIRED</code> khoá 100% dữ liệu; chỉ Clone được.</span></td></tr>
+            <tr><td>BR-SUB-14</td><td><span data-lang="en">Signature deadline — <code>WAITING_SIGNATURE</code> past 72 working hours with no valid signed file → <code>EXPIRED</code>.</span><span data-lang="vi">Hạn ký — <code>WAITING_SIGNATURE</code> quá 72 giờ làm việc mà chưa có file ký hợp lệ → <code>EXPIRED</code>.</span></td></tr>
+            <tr><td>BR-SUB-16</td><td><span data-lang="en">Draft Delete — only <code>DRAFT</code> records can be physically deleted; records in a workflow are retained (audit).</span><span data-lang="vi">Xoá nháp — chỉ hồ sơ <code>DRAFT</code> được xoá vật lý; hồ sơ đã vào workflow được giữ lại (để ghi nhật ký).</span></td></tr>
           </tbody></table></div>
           <h4><span data-lang="en">PO — value-threshold approval (BR-PO-01…05)</span><span data-lang="vi">PO — duyệt theo ngưỡng giá trị (BR-PO-01…05)</span></h4>
           <div class="tbl-scroll"><table><tbody>
-            <tr><td>BR-PO-01</td><td>Value &lt; 10M → workflow has no approval step; the creator self-confirms.</td></tr>
-            <tr><td>BR-PO-02</td><td>10–100M → 1 approval level (group "Materials Dept Head").</td></tr>
-            <tr><td>BR-PO-03</td><td>&gt; 100M → 2 sequential levels (Dept Head → Board); the Board only sees the record after the Head has approved.</td></tr>
-            <tr><td>BR-PO-04</td><td>SLA escalation at 5 working days — sitting past the deadline without Approve/Reject → email warning to the level above + red-alert tag.</td></tr>
-            <tr><td>BR-PO-05</td><td>Reset on value change — when a record returns to <code>NEED_INFO</code> and the resubmit moves the total into a different threshold band → the approval chain resets to the first level. No editing an <code>APPROVED</code> record directly.</td></tr>
+            <tr><td>BR-PO-01</td><td><span data-lang="en">Value &lt; 10M → workflow has no approval step; the creator self-confirms.</span><span data-lang="vi">Giá trị &lt; 10 triệu → workflow không có bước duyệt; người tạo tự xác nhận.</span></td></tr>
+            <tr><td>BR-PO-02</td><td><span data-lang="en">10–100M → 1 approval level (group "Materials Dept Head").</span><span data-lang="vi">10–100 triệu → 1 cấp duyệt (nhóm "Trưởng phòng Vật tư").</span></td></tr>
+            <tr><td>BR-PO-03</td><td><span data-lang="en">&gt; 100M → 2 sequential levels (Dept Head → Board); the Board only sees the record after the Head has approved.</span><span data-lang="vi">&gt; 100 triệu → 2 cấp tuần tự (Trưởng phòng → Ban giám đốc); Ban giám đốc chỉ thấy hồ sơ sau khi Trưởng phòng đã duyệt.</span></td></tr>
+            <tr><td>BR-PO-04</td><td><span data-lang="en">SLA escalation at 5 working days — sitting past the deadline without Approve/Reject → email warning to the level above + red-alert tag.</span><span data-lang="vi">Leo thang SLA ở 5 ngày làm việc — để quá hạn mà không Approve/Reject → email cảnh báo lên cấp trên + gắn nhãn báo đỏ.</span></td></tr>
+            <tr><td>BR-PO-05</td><td><span data-lang="en">Reset on value change — when a record returns to <code>NEED_INFO</code> and the resubmit moves the total into a different threshold band → the approval chain resets to the first level. No editing an <code>APPROVED</code> record directly.</span><span data-lang="vi">Reset khi đổi giá trị — khi hồ sơ quay về <code>NEED_INFO</code> và bản gửi lại làm tổng giá trị rơi vào khoảng ngưỡng khác → chuỗi duyệt reset về cấp đầu. Không sửa trực tiếp hồ sơ <code>APPROVED</code>.</span></td></tr>
           </tbody></table></div>
         </div>
 
         <div class="subsec">
           <h3 id="d8">7.8 · <span data-lang="en">Acceptance criteria — Submission module (AC-SUB-01…27)</span><span data-lang="vi">Tiêu chí nghiệm thu — phân hệ Đề trình (AC-SUB-01…27)</span></h3>
           <div class="tbl-scroll"><table><tbody>
-            <tr><td>AC-SUB-01</td><td>A user only sees records within their Project Scope.</td></tr>
-            <tr><td>AC-SUB-02</td><td>A user with Create can create a draft record.</td></tr>
-            <tr><td>AC-SUB-03</td><td>No Submit permission → no "Submit" button.</td></tr>
-            <tr><td>AC-SUB-04</td><td>Valid Submit → record moves from <code>DRAFT</code> to the first post-Submit state (default <code>PENDING_REVIEW</code>).</td></tr>
-            <tr><td>AC-SUB-05</td><td>After Submit, the creator cannot edit content.</td></tr>
-            <tr><td>AC-SUB-06</td><td>Invalid workflow → Submit blocked + correct error message.</td></tr>
-            <tr><td>AC-SUB-07</td><td>The creator sees no Review/Approve button on their own record.</td></tr>
-            <tr><td>AC-SUB-08</td><td>Request info → record goes to <code>NEED_INFO</code>, SLA pauses.</td></tr>
-            <tr><td>AC-SUB-09</td><td>Resubmit from <code>NEED_INFO</code> → a new version is created.</td></tr>
-            <tr><td>AC-SUB-10</td><td>Version Compare shows the old/new difference.</td></tr>
-            <tr><td>AC-SUB-11</td><td>An Approve holder can approve a record after review.</td></tr>
-            <tr><td>AC-SUB-12</td><td>After <code>APPROVED</code>, record content is locked.</td></tr>
-            <tr><td>AC-SUB-13</td><td>"Confirm Complete" only lights up when ≥ 1 valid signed file exists.</td></tr>
-            <tr><td>AC-SUB-14</td><td>A <code>COMPLETED</code> record cannot be edited by anyone, including Admin.</td></tr>
-            <tr><td>AC-SUB-15</td><td><code>REJECTED</code>/<code>EXPIRED</code> cannot be edited, only Cloned.</td></tr>
-            <tr><td>AC-SUB-16</td><td>Clone creates a new record, new id, SLA + timeline reset, link to the original.</td></tr>
-            <tr><td>AC-SUB-17</td><td>The dashboard shows the SLA hours remaining accurately, in real time.</td></tr>
-            <tr><td>AC-SUB-18</td><td>Overdue records show red + pin to the top of the list.</td></tr>
-            <tr><td>AC-SUB-19</td><td>Overdue → notification to the handler + escalation watchers.</td></tr>
-            <tr><td>AC-SUB-20</td><td>Every action (View, Submit, Review, Approve, Reject, Upload, Complete) is audit-logged.</td></tr>
-            <tr><td>AC-SUB-21</td><td>The module contains no accounting operations (posting, VAT, receivables).</td></tr>
-            <tr><td>AC-SUB-22</td><td>The admin can configure the workflow per project (steps, actors, ANY/ALL, SLA).</td></tr>
-            <tr><td>AC-SUB-23</td><td>Submit is blocked if the workflow is invalid; the message matches the situation.</td></tr>
-            <tr><td>AC-SUB-24</td><td>Current Assignee shows correctly for the current workflow step (list + detail).</td></tr>
-            <tr><td>AC-SUB-25</td><td>The creator is blocked from self-Review / self-Approve even with the right.</td></tr>
-            <tr><td>AC-SUB-26</td><td>Override cannot edit the original content of <code>COMPLETED</code>/<code>REJECTED</code>/<code>EXPIRED</code>; every adjustment creates an adjustment record + reason + full audit log.</td></tr>
-            <tr><td>AC-SUB-27</td><td>Reject requires a reason ≥ 5 characters; the reason shows on the timeline + notifies the creator.</td></tr>
+            <tr><td>AC-SUB-01</td><td><span data-lang="en">A user only sees records within their Project Scope.</span><span data-lang="vi">Người dùng chỉ thấy hồ sơ trong Project Scope của mình.</span></td></tr>
+            <tr><td>AC-SUB-02</td><td><span data-lang="en">A user with Create can create a draft record.</span><span data-lang="vi">Người dùng có quyền Create tạo được hồ sơ nháp.</span></td></tr>
+            <tr><td>AC-SUB-03</td><td><span data-lang="en">No Submit permission → no "Submit" button.</span><span data-lang="vi">Không có quyền Submit → không có nút "Submit".</span></td></tr>
+            <tr><td>AC-SUB-04</td><td><span data-lang="en">Valid Submit → record moves from <code>DRAFT</code> to the first post-Submit state (default <code>PENDING_REVIEW</code>).</span><span data-lang="vi">Submit hợp lệ → hồ sơ chuyển từ <code>DRAFT</code> sang trạng thái đầu tiên sau Submit (mặc định <code>PENDING_REVIEW</code>).</span></td></tr>
+            <tr><td>AC-SUB-05</td><td><span data-lang="en">After Submit, the creator cannot edit content.</span><span data-lang="vi">Sau khi Submit, người tạo không sửa được nội dung.</span></td></tr>
+            <tr><td>AC-SUB-06</td><td><span data-lang="en">Invalid workflow → Submit blocked + correct error message.</span><span data-lang="vi">Workflow không hợp lệ → chặn Submit + thông báo lỗi đúng.</span></td></tr>
+            <tr><td>AC-SUB-07</td><td><span data-lang="en">The creator sees no Review/Approve button on their own record.</span><span data-lang="vi">Người tạo không thấy nút Review/Approve trên hồ sơ của chính mình.</span></td></tr>
+            <tr><td>AC-SUB-08</td><td><span data-lang="en">Request info → record goes to <code>NEED_INFO</code>, SLA pauses.</span><span data-lang="vi">Yêu cầu bổ sung → hồ sơ về <code>NEED_INFO</code>, SLA tạm dừng.</span></td></tr>
+            <tr><td>AC-SUB-09</td><td><span data-lang="en">Resubmit from <code>NEED_INFO</code> → a new version is created.</span><span data-lang="vi">Gửi lại từ <code>NEED_INFO</code> → tạo một phiên bản mới.</span></td></tr>
+            <tr><td>AC-SUB-10</td><td><span data-lang="en">Version Compare shows the old/new difference.</span><span data-lang="vi">So sánh phiên bản hiển thị khác biệt cũ/mới.</span></td></tr>
+            <tr><td>AC-SUB-11</td><td><span data-lang="en">An Approve holder can approve a record after review.</span><span data-lang="vi">Người có quyền Approve duyệt được hồ sơ sau khi review.</span></td></tr>
+            <tr><td>AC-SUB-12</td><td><span data-lang="en">After <code>APPROVED</code>, record content is locked.</span><span data-lang="vi">Sau <code>APPROVED</code>, nội dung hồ sơ bị khoá.</span></td></tr>
+            <tr><td>AC-SUB-13</td><td><span data-lang="en">"Confirm Complete" only lights up when ≥ 1 valid signed file exists.</span><span data-lang="vi">"Xác nhận Hoàn tất" chỉ sáng khi có ≥ 1 file ký hợp lệ.</span></td></tr>
+            <tr><td>AC-SUB-14</td><td><span data-lang="en">A <code>COMPLETED</code> record cannot be edited by anyone, including Admin.</span><span data-lang="vi">Hồ sơ <code>COMPLETED</code> không ai sửa được, kể cả Admin.</span></td></tr>
+            <tr><td>AC-SUB-15</td><td><span data-lang="en"><code>REJECTED</code>/<code>EXPIRED</code> cannot be edited, only Cloned.</span><span data-lang="vi"><code>REJECTED</code>/<code>EXPIRED</code> không sửa được, chỉ Clone.</span></td></tr>
+            <tr><td>AC-SUB-16</td><td><span data-lang="en">Clone creates a new record, new id, SLA + timeline reset, link to the original.</span><span data-lang="vi">Clone tạo hồ sơ mới, id mới, reset SLA + timeline, liên kết tới bản gốc.</span></td></tr>
+            <tr><td>AC-SUB-17</td><td><span data-lang="en">The dashboard shows the SLA hours remaining accurately, in real time.</span><span data-lang="vi">Dashboard hiển thị số giờ SLA còn lại chính xác, theo thời gian thực.</span></td></tr>
+            <tr><td>AC-SUB-18</td><td><span data-lang="en">Overdue records show red + pin to the top of the list.</span><span data-lang="vi">Hồ sơ quá hạn hiện đỏ + ghim lên đầu danh sách.</span></td></tr>
+            <tr><td>AC-SUB-19</td><td><span data-lang="en">Overdue → notification to the handler + escalation watchers.</span><span data-lang="vi">Quá hạn → thông báo cho người xử lý + những người theo dõi leo thang.</span></td></tr>
+            <tr><td>AC-SUB-20</td><td><span data-lang="en">Every action (View, Submit, Review, Approve, Reject, Upload, Complete) is audit-logged.</span><span data-lang="vi">Mọi hành động (View, Submit, Review, Approve, Reject, Upload, Complete) đều được ghi nhật ký.</span></td></tr>
+            <tr><td>AC-SUB-21</td><td><span data-lang="en">The module contains no accounting operations (posting, VAT, receivables).</span><span data-lang="vi">Phân hệ không có nghiệp vụ kế toán (ghi sổ, VAT, công nợ).</span></td></tr>
+            <tr><td>AC-SUB-22</td><td><span data-lang="en">The admin can configure the workflow per project (steps, actors, ANY/ALL, SLA).</span><span data-lang="vi">Admin cấu hình được workflow theo từng dự án (bước, actor, ANY/ALL, SLA).</span></td></tr>
+            <tr><td>AC-SUB-23</td><td><span data-lang="en">Submit is blocked if the workflow is invalid; the message matches the situation.</span><span data-lang="vi">Submit bị chặn nếu workflow không hợp lệ; thông báo đúng với tình huống.</span></td></tr>
+            <tr><td>AC-SUB-24</td><td><span data-lang="en">Current Assignee shows correctly for the current workflow step (list + detail).</span><span data-lang="vi">Người đang phụ trách hiển thị đúng theo bước workflow hiện tại (danh sách + chi tiết).</span></td></tr>
+            <tr><td>AC-SUB-25</td><td><span data-lang="en">The creator is blocked from self-Review / self-Approve even with the right.</span><span data-lang="vi">Người tạo bị chặn tự Review / tự Approve kể cả khi có quyền.</span></td></tr>
+            <tr><td>AC-SUB-26</td><td><span data-lang="en">Override cannot edit the original content of <code>COMPLETED</code>/<code>REJECTED</code>/<code>EXPIRED</code>; every adjustment creates an adjustment record + reason + full audit log.</span><span data-lang="vi">Override không sửa được nội dung gốc của <code>COMPLETED</code>/<code>REJECTED</code>/<code>EXPIRED</code>; mỗi điều chỉnh tạo một bản ghi điều chỉnh + lý do + nhật ký đầy đủ.</span></td></tr>
+            <tr><td>AC-SUB-27</td><td><span data-lang="en">Reject requires a reason ≥ 5 characters; the reason shows on the timeline + notifies the creator.</span><span data-lang="vi">Từ chối phải có lý do ≥ 5 ký tự; lý do hiện trên timeline + báo cho người tạo.</span></td></tr>
           </tbody></table></div>
         </div>
 
@@ -784,16 +784,16 @@
             <table>
               <thead><tr><th>TC</th><th><span data-lang="en">Scenario</span><span data-lang="vi">Kịch bản</span></th><th><span data-lang="en">Expected</span><span data-lang="vi">Kỳ vọng</span></th><th>AC</th><th>BR</th></tr></thead>
               <tbody>
-                <tr><td>TC-01</td><td>Create a 9.5M material record → Confirm</td><td>Passes straight through (workflow has no approval step)</td><td>AC-SUB-02, AC-SUB-22</td><td>BR-PO-01</td></tr>
-                <tr><td>TC-02</td><td>85M record → Submit</td><td>Held at <code>PENDING_APPROVAL</code>, names group "Materials Dept Head" to approve</td><td>AC-SUB-11, AC-SUB-24</td><td>BR-PO-02</td></tr>
-                <tr><td>TC-03</td><td>450M record → Director tries to approve immediately</td><td>No approve button for the Director; the Dept Head must approve step 1 first</td><td>AC-SUB-11</td><td>BR-PO-03</td></tr>
-                <tr><td>TC-04</td><td>Reject with a blank reason</td><td>Confirm disabled; ≥ 5 chars required</td><td>AC-SUB-27</td><td>BR-SUB-08</td></tr>
-                <tr><td>TC-05</td><td>Leave a record at the reviewer, advance the clock +6 working days (step SLA = 5)</td><td>Record turns Red; escalation logged on the timeline; notification to the escalation watcher</td><td>AC-SUB-17, AC-SUB-18, AC-SUB-19</td><td>BR-SUB-06, BR-PO-04</td></tr>
-                <tr><td>TC-06</td><td>A &gt;100M record past tier-1, awaiting tier-2 → tier-2 approver picks "Request info" → <code>NEED_INFO</code> → creator edits the total into a different threshold band → resubmit</td><td>New version created; the approval chain <b>resets to tier 1</b>, does not continue at tier 2</td><td>AC-SUB-09, AC-SUB-11</td><td>BR-PO-05, BR-SUB-07</td></tr>
-                <tr><td>TC-07</td><td>The creator logs in and opens their own record at an approval step</td><td>Review/Approve buttons hidden; a direct API call → 403</td><td>AC-SUB-07, AC-SUB-25</td><td>BR-SUB-03</td></tr>
-                <tr><td>TC-08</td><td>Open the record list</td><td>A colour badge column (Green/Yellow/Orange/Red) by real-time SLA</td><td>AC-SUB-17</td><td>BR-SUB-06</td></tr>
-                <tr><td>TC-09</td><td>User calls the API for a record outside their Project Scope</td><td>Returns 403 + audit-logs the unauthorised access</td><td>AC-SUB-01</td><td>BR-SUB-01</td></tr>
-                <tr><td>TC-10</td><td><code>COMPLETED</code> record, an administrative error is found</td><td>No direct edit; an Override holder can only create an adjustment record + reason + full audit log</td><td>AC-SUB-14, AC-SUB-26</td><td>BR-SUB-11</td></tr>
+                <tr><td>TC-01</td><td><span data-lang="en">Create a 9.5M material record → Confirm</span><span data-lang="vi">Tạo hồ sơ vật tư 9,5 triệu → Xác nhận</span></td><td><span data-lang="en">Passes straight through (workflow has no approval step)</span><span data-lang="vi">Đi thẳng qua (workflow không có bước duyệt)</span></td><td>AC-SUB-02, AC-SUB-22</td><td>BR-PO-01</td></tr>
+                <tr><td>TC-02</td><td><span data-lang="en">85M record → Submit</span><span data-lang="vi">Hồ sơ 85 triệu → Submit</span></td><td><span data-lang="en">Held at <code>PENDING_APPROVAL</code>, names group "Materials Dept Head" to approve</span><span data-lang="vi">Dừng ở <code>PENDING_APPROVAL</code>, chỉ đích nhóm "Trưởng phòng Vật tư" duyệt</span></td><td>AC-SUB-11, AC-SUB-24</td><td>BR-PO-02</td></tr>
+                <tr><td>TC-03</td><td><span data-lang="en">450M record → Director tries to approve immediately</span><span data-lang="vi">Hồ sơ 450 triệu → Giám đốc thử duyệt ngay</span></td><td><span data-lang="en">No approve button for the Director; the Dept Head must approve step 1 first</span><span data-lang="vi">Giám đốc không có nút duyệt; Trưởng phòng phải duyệt bước 1 trước</span></td><td>AC-SUB-11</td><td>BR-PO-03</td></tr>
+                <tr><td>TC-04</td><td><span data-lang="en">Reject with a blank reason</span><span data-lang="vi">Từ chối với lý do để trống</span></td><td><span data-lang="en">Confirm disabled; ≥ 5 chars required</span><span data-lang="vi">Nút Xác nhận bị khoá; bắt buộc ≥ 5 ký tự</span></td><td>AC-SUB-27</td><td>BR-SUB-08</td></tr>
+                <tr><td>TC-05</td><td><span data-lang="en">Leave a record at the reviewer, advance the clock +6 working days (step SLA = 5)</span><span data-lang="vi">Để hồ sơ ở người review, tua đồng hồ +6 ngày làm việc (SLA bước = 5)</span></td><td><span data-lang="en">Record turns Red; escalation logged on the timeline; notification to the escalation watcher</span><span data-lang="vi">Hồ sơ chuyển Đỏ; leo thang được ghi trên timeline; thông báo cho người theo dõi leo thang</span></td><td>AC-SUB-17, AC-SUB-18, AC-SUB-19</td><td>BR-SUB-06, BR-PO-04</td></tr>
+                <tr><td>TC-06</td><td><span data-lang="en">A &gt;100M record past tier-1, awaiting tier-2 → tier-2 approver picks "Request info" → <code>NEED_INFO</code> → creator edits the total into a different threshold band → resubmit</span><span data-lang="vi">Hồ sơ &gt;100 triệu đã qua cấp 1, chờ cấp 2 → người duyệt cấp 2 chọn "Yêu cầu bổ sung" → <code>NEED_INFO</code> → người tạo sửa tổng sang khoảng ngưỡng khác → gửi lại</span></td><td><span data-lang="en">New version created; the approval chain <b>resets to tier 1</b>, does not continue at tier 2</span><span data-lang="vi">Tạo phiên bản mới; chuỗi duyệt <b>reset về cấp 1</b>, không tiếp tục ở cấp 2</span></td><td>AC-SUB-09, AC-SUB-11</td><td>BR-PO-05, BR-SUB-07</td></tr>
+                <tr><td>TC-07</td><td><span data-lang="en">The creator logs in and opens their own record at an approval step</span><span data-lang="vi">Người tạo đăng nhập và mở chính hồ sơ của mình ở bước duyệt</span></td><td><span data-lang="en">Review/Approve buttons hidden; a direct API call → 403</span><span data-lang="vi">Nút Review/Approve bị ẩn; gọi API trực tiếp → 403</span></td><td>AC-SUB-07, AC-SUB-25</td><td>BR-SUB-03</td></tr>
+                <tr><td>TC-08</td><td><span data-lang="en">Open the record list</span><span data-lang="vi">Mở danh sách hồ sơ</span></td><td><span data-lang="en">A colour badge column (Green/Yellow/Orange/Red) by real-time SLA</span><span data-lang="vi">Một cột nhãn màu (Xanh lá/Vàng/Cam/Đỏ) theo SLA thời gian thực</span></td><td>AC-SUB-17</td><td>BR-SUB-06</td></tr>
+                <tr><td>TC-09</td><td><span data-lang="en">User calls the API for a record outside their Project Scope</span><span data-lang="vi">Người dùng gọi API cho một hồ sơ ngoài Project Scope của mình</span></td><td><span data-lang="en">Returns 403 + audit-logs the unauthorised access</span><span data-lang="vi">Trả 403 + ghi nhật ký lần truy cập trái phép</span></td><td>AC-SUB-01</td><td>BR-SUB-01</td></tr>
+                <tr><td>TC-10</td><td><span data-lang="en"><code>COMPLETED</code> record, an administrative error is found</span><span data-lang="vi">Hồ sơ <code>COMPLETED</code>, phát hiện một sai sót hành chính</span></td><td><span data-lang="en">No direct edit; an Override holder can only create an adjustment record + reason + full audit log</span><span data-lang="vi">Không sửa trực tiếp; người có quyền Override chỉ tạo được bản ghi điều chỉnh + lý do + nhật ký đầy đủ</span></td><td>AC-SUB-14, AC-SUB-26</td><td>BR-SUB-11</td></tr>
               </tbody>
             </table>
           </div>
@@ -817,7 +817,16 @@
       <!-- ===================== 9. OUTCOME ===================== -->
       <section class="sec" id="outcome">
         <p class="kicker">9</p>
-        <h2><span data-lang="en">Outcome <em>(design targets — not yet measured)</em></span><span data-lang="vi">Kết quả <em>(mục tiêu thiết kế — chưa đo thực tế)</em></span></h2>
+        <h2><span data-lang="en">Outcome</span><span data-lang="vi">Kết quả</span></h2>
+        <h3><span data-lang="en">Delivered &amp; verified at hand-off</span><span data-lang="vi">Đã bàn giao &amp; nghiệm thu khi kết thúc phần việc</span></h3>
+        <ul class="plain">
+          <li><span data-lang="en">Full specification of the two modules in my scope — User &amp; Role Permissions and the Submission / Approval workflow — <b>accepted under Senior BA review</b>.</span><span data-lang="vi">Đặc tả đầy đủ hai phân hệ thuộc scope của tôi — Phân quyền Người dùng &amp; Vai trò và workflow Đề trình / Phê duyệt — <b>được duyệt qua rà soát của Senior BA</b>.</span></li>
+          <li><span data-lang="en"><b>29 business rules</b> catalogued and cross-referenced to acceptance criteria and UAT cases.</span><span data-lang="vi"><b>29 quy tắc nghiệp vụ</b> được lập danh mục và truy vết chéo tới acceptance criteria và test case UAT.</span></li>
+          <li><span data-lang="en"><b>4 contradictions between the requirements, the wireframes and the permission model — caught and resolved <em>before development</em></b> (§8).</span><span data-lang="vi"><b>4 mâu thuẫn giữa yêu cầu, wireframe và mô hình phân quyền — phát hiện và xử lý <em>trước khi phát triển</em></b> (§8).</span></li>
+          <li><span data-lang="en">Odoo feasibility for the configurable multi-level workflow engine <b>confirmed with a developer</b> before the design was frozen (§6.9).</span><span data-lang="vi">Tính khả thi trên Odoo của workflow engine cấu hình nhiều cấp <b>được xác nhận cùng một developer</b> trước khi chốt thiết kế (§6.9).</span></li>
+          <li><span data-lang="en">~30 UAT test cases + a requirement traceability matrix <b>handed to QA</b>.</span><span data-lang="vi">~30 test case UAT + một ma trận truy vết yêu cầu <b>bàn giao cho QA</b>.</span></li>
+        </ul>
+        <h3><span data-lang="en">Projected targets <em>(design — not yet measured)</em></span><span data-lang="vi">Mục tiêu dự kiến <em>(thiết kế — chưa đo thực tế)</em></span></h3>
         <ul class="plain">
           <li><span data-lang="en"><b>≤ SLA for ~90% of records</b> <em>(target)</em> — measured by: % of records that clear each step before <code>sla_due_at</code>, from the audit log, monthly report.</span><span data-lang="vi"><b>≤ SLA cho ~90% hồ sơ</b> <em>(target)</em> — đo bằng: % hồ sơ hoàn tất mỗi bước trước <code>sla_due_at</code>, tính từ audit log, báo cáo hàng tháng.</span></li>
           <li><span data-lang="en"><b>0 possibility of self-approval</b> — guaranteed by the SoD design; verified by TC-07 + an audit-log scan for (creator = approver) pairs on the same record (expected: 0).</span><span data-lang="vi"><b>0 khả năng tự phê duyệt</b> — bảo đảm bằng thiết kế SoD; kiểm chứng bằng TC-07 + rà soát audit log tìm cặp (người tạo = người duyệt) trên cùng hồ sơ (kỳ vọng: 0).</span></li>
