@@ -18,10 +18,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=13">
-<script src="assets/app.js?v=13"></script>
+<link rel="stylesheet" href="assets/styles.css?v=14">
+<script src="assets/app.js?v=14"></script>
 </head>
 <body>
+<a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
 
 <nav class="nav">
   <a class="mark" href="index.html">NTD&nbsp;·&nbsp;BA</a>
@@ -37,7 +38,7 @@
   <button class="tgl" type="button" data-toggle-theme aria-label="Toggle theme">☀</button>
 </nav>
 
-<main>
+<main id="main">
 <div class="wrap wide">
   <a class="backlink" href="index.html">← <span data-lang="en">Back to portfolio</span><span data-lang="vi">Về trang chính</span></a>
 
@@ -841,19 +842,20 @@
         var cid = (a.getAttribute('href') || '').replace('#', '');
         if (cid) chips[cid] = a;
       });
-      var subs = document.querySelectorAll('.subsec > h3[id]');
+      var subs = document.querySelectorAll('.subsec');
       if (!subs.length || !('IntersectionObserver' in window)) return;
       var cur = null;
       var o = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) {
           if (!en.isIntersecting) return;
-          var cid = en.target.id;
-          if (cid === cur || !chips[cid]) return;
+          var h = en.target.querySelector(':scope > h3[id]');
+          var cid = h && h.id;
+          if (!cid || cid === cur || !chips[cid]) return;
           if (cur && chips[cur]) chips[cur].removeAttribute('data-here');
           chips[cid].setAttribute('data-here', '');
           cur = cid;
         });
-      }, { rootMargin: '-72px 0px -75% 0px', threshold: 0 });
+      }, { rootMargin: '-76px 0px -55% 0px', threshold: 0 });
       subs.forEach(function (s) { o.observe(s); });
     })();
   })();

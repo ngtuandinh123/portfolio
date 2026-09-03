@@ -18,10 +18,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=13">
-<script src="assets/app.js?v=13"></script>
+<link rel="stylesheet" href="assets/styles.css?v=14">
+<script src="assets/app.js?v=14"></script>
 </head>
 <body>
+<a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
 
 <nav class="nav">
   <a class="mark" href="index.html">NTD&nbsp;·&nbsp;BA</a>
@@ -37,7 +38,7 @@
   <button class="tgl" type="button" data-toggle-theme aria-label="Toggle theme">☀</button>
 </nav>
 
-<main>
+<main id="main">
 <div class="wrap wide">
   <a class="backlink" href="index.html">← <span data-lang="en">Back to portfolio</span><span data-lang="vi">Về trang chính</span></a>
 
@@ -611,7 +612,7 @@
 
         <div class="subsec">
           <h3 id="d7">7.7 · <span data-lang="en">Business rules catalogue (29 rules — those cited in this case study)</span><span data-lang="vi">Danh mục quy tắc nghiệp vụ (29 quy tắc — các quy tắc được trích trong case study này)</span></h3>
-          <h4>PBAC — permissions (BR-PBAC-01…08)</h4>
+          <h4><span data-lang="en">PBAC — permissions (BR-PBAC-01…08)</span><span data-lang="vi">PBAC — phân quyền (BR-PBAC-01…08)</span></h4>
           <div class="tbl-scroll"><table><tbody>
             <tr><td>BR-PBAC-01</td><td>User identity is unique by national-ID / email / phone — no duplicates.</td></tr>
             <tr><td>BR-PBAC-02</td><td>Adding a new project to a user → that project's permission matrix defaults to <b>empty</b>; the admin must set and confirm it.</td></tr>
@@ -622,7 +623,7 @@
             <tr><td>BR-PBAC-07</td><td>The only way to restrict a right is to adjust the permission group — no negation mechanism.</td></tr>
             <tr><td>BR-PBAC-08</td><td>Actor locked / left the company → system warns and demands a substitute before the flow continues.</td></tr>
           </tbody></table></div>
-          <h4>SUB — submission records (BR-SUB-01…16, extract)</h4>
+          <h4><span data-lang="en">SUB — submission records (BR-SUB-01…16, extract)</span><span data-lang="vi">SUB — hồ sơ đề trình (BR-SUB-01…16, trích)</span></h4>
           <div class="tbl-scroll"><table><tbody>
             <tr><td>BR-SUB-01</td><td>Project Scope — a user only views/creates/handles records within their scope.</td></tr>
             <tr><td>BR-SUB-02</td><td>Permission-based action — a button shows only if the user has the matching right.</td></tr>
@@ -636,7 +637,7 @@
             <tr><td>BR-SUB-14</td><td>Signature deadline — <code>WAITING_SIGNATURE</code> past 72 working hours with no valid signed file → <code>EXPIRED</code>.</td></tr>
             <tr><td>BR-SUB-16</td><td>Draft Delete — only <code>DRAFT</code> records can be physically deleted; records in a workflow are retained (audit).</td></tr>
           </tbody></table></div>
-          <h4>PO — value-threshold approval (BR-PO-01…05)</h4>
+          <h4><span data-lang="en">PO — value-threshold approval (BR-PO-01…05)</span><span data-lang="vi">PO — duyệt theo ngưỡng giá trị (BR-PO-01…05)</span></h4>
           <div class="tbl-scroll"><table><tbody>
             <tr><td>BR-PO-01</td><td>Value &lt; 10M → workflow has no approval step; the creator self-confirms.</td></tr>
             <tr><td>BR-PO-02</td><td>10–100M → 1 approval level (group "Materials Dept Head").</td></tr>
@@ -907,19 +908,20 @@
         var cid = (a.getAttribute('href') || '').replace('#', '');
         if (cid) chips[cid] = a;
       });
-      var subs = document.querySelectorAll('.subsec > h3[id]');
+      var subs = document.querySelectorAll('.subsec');
       if (!subs.length || !('IntersectionObserver' in window)) return;
       var cur = null;
       var o = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) {
           if (!en.isIntersecting) return;
-          var cid = en.target.id;
-          if (cid === cur || !chips[cid]) return;
+          var h = en.target.querySelector(':scope > h3[id]');
+          var cid = h && h.id;
+          if (!cid || cid === cur || !chips[cid]) return;
           if (cur && chips[cur]) chips[cur].removeAttribute('data-here');
           chips[cid].setAttribute('data-here', '');
           cur = cid;
         });
-      }, { rootMargin: '-72px 0px -75% 0px', threshold: 0 });
+      }, { rootMargin: '-76px 0px -55% 0px', threshold: 0 });
       subs.forEach(function (s) { o.observe(s); });
     })();
   })();

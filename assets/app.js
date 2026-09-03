@@ -96,6 +96,28 @@
       });
     });
     sync();
+
+    // in-page nav: mark the section currently in view (homepage only — links start with '#')
+    var navLinks = [].filter.call(
+      document.querySelectorAll('.nav .links a[href^="#"]'),
+      function (a) { return document.getElementById(a.getAttribute('href').slice(1)); }
+    );
+    if (navLinks.length && 'IntersectionObserver' in window) {
+      var navMap = {};
+      navLinks.forEach(function (a) { navMap[a.getAttribute('href').slice(1)] = a; });
+      var navCur = null;
+      var navSpy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          var id = en.target.id;
+          if (id === navCur || !navMap[id]) return;
+          if (navCur && navMap[navCur]) navMap[navCur].removeAttribute('aria-current');
+          navMap[id].setAttribute('aria-current', 'true');
+          navCur = id;
+        });
+      }, { rootMargin: '-70px 0px -70% 0px', threshold: 0 });
+      navLinks.forEach(function (a) { navSpy.observe(document.getElementById(a.getAttribute('href').slice(1))); });
+    }
   }
 
   if (document.readyState === 'loading') {

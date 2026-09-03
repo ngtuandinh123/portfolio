@@ -80,13 +80,25 @@ img,svg{max-width:100%}
 .nav .links{display:flex; gap:1.1rem; margin-left:auto; font-family:var(--fm); font-size:.76rem}
 .nav .links a{text-decoration:none; color:var(--ink-soft)}
 .nav .links a:hover{color:var(--accent)}
-.nav .seg{display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden}
+.nav .links a[aria-current]{color:var(--accent)}
+.nav .seg{display:inline-flex; flex:0 0 auto; border:1px solid var(--line); border-radius:999px; overflow:hidden}
 .nav .seg button{appearance:none; border:0; background:transparent; color:var(--ink-soft); font:inherit; font-family:var(--fm); font-size:.72rem; padding:.5rem .74rem; min-height:34px; cursor:pointer; line-height:1}
 .nav .seg button + button{border-left:1px solid var(--line)}
 .nav .seg button[aria-pressed="true"]{background:var(--accent); color:var(--paper)}
-.nav .tgl{appearance:none; border:1px solid var(--line); background:transparent; color:var(--ink); font-size:.95rem; width:38px; height:34px; border-radius:999px; cursor:pointer; line-height:1; display:inline-flex; align-items:center; justify-content:center}
+.nav .tgl{appearance:none; flex:0 0 auto; border:1px solid var(--line); background:transparent; color:var(--ink); font-size:.95rem; width:38px; height:34px; border-radius:999px; cursor:pointer; line-height:1; display:inline-flex; align-items:center; justify-content:center}
 .nav button:focus-visible, .nav a:focus-visible, a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
-@media (max-width:760px){ .nav .links{display:none} }
+@media (max-width:760px){
+  .nav{gap:.55rem}
+  .nav .mark{flex:0 0 auto}
+  .nav .links{margin-left:0; flex:1 1 auto; min-width:0; gap:.85rem; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch}
+  .nav .links::-webkit-scrollbar{display:none}
+  .nav .links a{white-space:nowrap}
+}
+
+/* skip link — off-screen via transform until keyboard-focused */
+.skip{position:fixed; left:8px; top:8px; z-index:100; background:var(--accent); color:var(--paper); font-family:var(--fm); font-size:.8rem; padding:.5rem .9rem; border-radius:8px; text-decoration:none; transform:translateY(-160%); transition:transform .16s ease}
+.skip:focus, .skip:focus-visible{transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){ .skip{transition:none} }
 
 main{padding-top:calc(60px + clamp(1.5rem,5vw,3rem))}
 
@@ -97,7 +109,7 @@ h1,h2,h3,h4{font-family:var(--fh); font-weight:600; letter-spacing:-.01em; text-
 h1{font-size:clamp(2rem,5.5vw,3rem); line-height:1.14; margin:0}
 h2{font-size:clamp(1.4rem,3.6vw,1.95rem); line-height:1.22; margin:0}
 h3{font-size:1.2rem; line-height:1.28; margin:2rem 0 .5rem}
-h4{font-size:1.06rem; line-height:1.3; margin:1.4rem 0 .4rem}
+h4{font-size:1.12rem; line-height:1.3; margin:1.4rem 0 .4rem}
 p{margin:.9rem 0 0}
 .sub{color:var(--ink-soft); margin:.5rem 0 0; max-width:62ch}
 .lead{font-size:clamp(1.03rem,2.3vw,1.2rem); color:var(--ink-soft); max-width:60ch}
@@ -267,7 +279,15 @@ details.readme p:first-of-type{margin-top:1rem}
 .cs-body p:not([class]),
 .cs-body .steps li,
 .cs-body .plain li,
-.cs-body .dl dd{max-width:34rem}
+.cs-body .dl dd,
+.cs-body .note-box,
+.cs-body .tldr li,
+.cs-body .tldr .read-one,
+.readme p{max-width:34rem}
+.cs-body .dl dd,
+.cs-body .plain li,
+.cs-body .note-box,
+.cs-body .tldr li{max-width:31rem}
 
 /* ---- case-study: diagrams, ERD, sub-nav, mobile TOC ---- */
 figure.diagram text{font-family:var(--fm); font-size:12px}
