@@ -90,7 +90,9 @@ img,svg{max-width:100%}
 @media (max-width:760px){
   .nav{gap:.55rem}
   .nav .mark{flex:0 0 auto}
-  .nav .links{margin-left:0; flex:1 1 auto; min-width:0; gap:.85rem; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch}
+  .nav .links{margin-left:0; flex:1 1 auto; min-width:0; gap:.85rem; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 22px),transparent);
+    mask-image:linear-gradient(90deg,#000 calc(100% - 22px),transparent)}
   .nav .links::-webkit-scrollbar{display:none}
   .nav .links a{white-space:nowrap}
 }
@@ -287,7 +289,9 @@ details.readme p:first-of-type{margin-top:1rem}
 .cs-body .dl dd,
 .cs-body .plain li,
 .cs-body .note-box,
-.cs-body .tldr li{max-width:31rem}
+.cs-body .tldr li,
+.cs-body .tldr .read-one,
+.cs-body .callout{max-width:31rem}
 
 /* ---- case-study: diagrams, ERD, sub-nav, mobile TOC ---- */
 figure.diagram text{font-family:var(--fm); font-size:12px}
