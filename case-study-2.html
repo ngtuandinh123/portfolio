@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=16">
-<script src="assets/app.js?v=16"></script>
+<link rel="stylesheet" href="assets/styles.css?v=18">
+<script src="assets/app.js?v=18"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -437,34 +437,34 @@
           <h3 id="e2">7.2 · <span data-lang="en">Business rules catalogue (19 rules)</span><span data-lang="vi">Danh mục quy tắc nghiệp vụ (19 quy tắc)</span></h3>
           <h4><span data-lang="en">Eligibility (BR-ELIG-01…05)</span><span data-lang="vi">Điều kiện đăng ký (BR-ELIG-01…05)</span></h4>
           <div class="tbl-scroll"><table><tbody>
-            <tr><td>BR-ELIG-01</td><td>Registration is only allowed inside the student's priority-group window; outside it → Submit is blocked.</td></tr>
-            <tr><td>BR-ELIG-02</td><td>Any active hold → all registration actions are blocked.</td></tr>
-            <tr><td>BR-ELIG-03</td><td>Total registered credits ≤ the cap for the student's academic standing; over → block the section that pushes it over.</td></tr>
-            <tr><td>BR-ELIG-04</td><td>Standing &amp; holds are re-checked at submit, not only on entry to the module.</td></tr>
-            <tr><td>BR-ELIG-05</td><td>Total registered credits below the full-time <b>minimum</b> → a <b>warning, not a block</b>.</td></tr>
+            <tr><td>BR-ELIG-01</td><td><span data-lang="en">Registration is only allowed inside the student's priority-group window; outside it → Submit is blocked.</span><span data-lang="vi">Chỉ được đăng ký trong khung giờ của nhóm ưu tiên mà sinh viên thuộc về; ngoài khung → chặn Submit.</span></td></tr>
+            <tr><td>BR-ELIG-02</td><td><span data-lang="en">Any active hold → all registration actions are blocked.</span><span data-lang="vi">Còn bất kỳ hold nào hiệu lực → chặn mọi thao tác đăng ký.</span></td></tr>
+            <tr><td>BR-ELIG-03</td><td><span data-lang="en">Total registered credits ≤ the cap for the student's academic standing; over → block the section that pushes it over.</span><span data-lang="vi">Tổng tín chỉ đăng ký ≤ trần theo xếp loại học lực của sinh viên; vượt → chặn đúng lớp làm vượt trần.</span></td></tr>
+            <tr><td>BR-ELIG-04</td><td><span data-lang="en">Standing &amp; holds are re-checked at submit, not only on entry to the module.</span><span data-lang="vi">Xếp loại &amp; hold được kiểm lại lúc submit, không chỉ khi vào phân hệ.</span></td></tr>
+            <tr><td>BR-ELIG-05</td><td><span data-lang="en">Total registered credits below the full-time <b>minimum</b> → a <b>warning, not a block</b>.</span><span data-lang="vi">Tổng tín chỉ dưới <b>mức tối thiểu</b> học toàn thời gian → <b>cảnh báo, không chặn</b>.</span></td></tr>
           </tbody></table></div>
           <h4><span data-lang="en">Prerequisites (BR-PREQ-01…03)</span><span data-lang="vi">Môn tiên quyết (BR-PREQ-01…03)</span></h4>
           <div class="tbl-scroll"><table><tbody>
-            <tr><td>BR-PREQ-01</td><td>Prerequisites are evaluated as an AND/OR expression tree of (course, minimum grade).</td></tr>
-            <tr><td>BR-PREQ-02</td><td>A course in progress counts as <em>provisionally</em> satisfied; if dropped, see BR-DROP-02.</td></tr>
-            <tr><td>BR-PREQ-03</td><td>A prerequisite waiver requires a reason + audit log; only an advisor or the registrar can grant one.</td></tr>
+            <tr><td>BR-PREQ-01</td><td><span data-lang="en">Prerequisites are evaluated as an AND/OR expression tree of (course, minimum grade).</span><span data-lang="vi">Điều kiện tiên quyết được đánh giá như một cây biểu thức AND/OR của (môn học, điểm tối thiểu).</span></td></tr>
+            <tr><td>BR-PREQ-02</td><td><span data-lang="en">A course in progress counts as <em>provisionally</em> satisfied; if dropped, see BR-DROP-02.</span><span data-lang="vi">Một môn đang học được tính là đạt <em>tạm thời</em>; nếu rút môn, xem BR-DROP-02.</span></td></tr>
+            <tr><td>BR-PREQ-03</td><td><span data-lang="en">A prerequisite waiver requires a reason + audit log; only an advisor or the registrar can grant one.</span><span data-lang="vi">Miễn điều kiện tiên quyết phải có lý do + ghi nhật ký; chỉ cố vấn học tập hoặc phòng đào tạo được cấp.</span></td></tr>
           </tbody></table></div>
           <h4><span data-lang="en">Seats &amp; waitlist (BR-SEAT-01…05)</span><span data-lang="vi">Chỗ &amp; danh sách chờ (BR-SEAT-01…05)</span></h4>
           <div class="tbl-scroll"><table><tbody>
-            <tr><td>BR-SEAT-01</td><td>ENROLLED never exceeds a section's capacity (atomic allocation).</td></tr>
-            <tr><td>BR-SEAT-02</td><td>A reserved-seat pool releases to the general pool on a configured date.</td></tr>
-            <tr><td>BR-SEAT-03</td><td>Waitlist order: by priority group first, then by time joined within the group.</td></tr>
-            <tr><td>BR-SEAT-04</td><td>A seat offer has a deadline (working hours); past it → the offer passes to the next student.</td></tr>
-            <tr><td>BR-SEAT-05</td><td>On offer/claim, re-run the full eligibility + conflict checks.</td></tr>
+            <tr><td>BR-SEAT-01</td><td><span data-lang="en">ENROLLED never exceeds a section's capacity (atomic allocation).</span><span data-lang="vi">ENROLLED không bao giờ vượt sức chứa của lớp (cấp phát nguyên tử).</span></td></tr>
+            <tr><td>BR-SEAT-02</td><td><span data-lang="en">A reserved-seat pool releases to the general pool on a configured date.</span><span data-lang="vi">Quỹ chỗ dành riêng được mở sang quỹ chung vào một ngày cấu hình.</span></td></tr>
+            <tr><td>BR-SEAT-03</td><td><span data-lang="en">Waitlist order: by priority group first, then by time joined within the group.</span><span data-lang="vi">Thứ tự waitlist: theo nhóm ưu tiên trước, rồi theo thời điểm vào hàng trong nhóm.</span></td></tr>
+            <tr><td>BR-SEAT-04</td><td><span data-lang="en">A seat offer has a deadline (working hours); past it → the offer passes to the next student.</span><span data-lang="vi">Một lời mời nhận chỗ có hạn (giờ làm việc); quá hạn → lời mời chuyển sang sinh viên kế tiếp.</span></td></tr>
+            <tr><td>BR-SEAT-05</td><td><span data-lang="en">On offer/claim, re-run the full eligibility + conflict checks.</span><span data-lang="vi">Khi mời/nhận chỗ, chạy lại toàn bộ kiểm tra điều kiện + trùng lịch.</span></td></tr>
           </tbody></table></div>
           <h4><span data-lang="en">Conflicts &amp; add/drop &amp; calendar (BR-CONF / BR-DROP / BR-CAL)</span><span data-lang="vi">Trùng lịch &amp; add/drop &amp; lịch học (BR-CONF / BR-DROP / BR-CAL)</span></h4>
           <div class="tbl-scroll"><table><tbody>
-            <tr><td>BR-CONF-01</td><td>A time overlap is a <b>hard</b> conflict → block.</td></tr>
-            <tr><td>BR-CONF-02</td><td>Back-to-back across campuses / same-day overload is a <b>soft</b> conflict → warn, allow continue.</td></tr>
-            <tr><td>BR-DROP-01</td><td>Drop is only allowed inside the add/drop window; after it, only withdraw (a "W", needs approval).</td></tr>
-            <tr><td>BR-DROP-02</td><td>Dropping a course that another registered course depends on (via <em>provisional</em> satisfaction) → the dependent must be dropped too, or waived.</td></tr>
-            <tr><td>BR-CAL-01</td><td>A reserved-seat release date must fall <b>within</b> the target group's registration window.</td></tr>
-            <tr><td>BR-CAL-02</td><td>Automatic waitlist promotion <b>stops at the configured cutoff</b> in the term calendar.</td></tr>
+            <tr><td>BR-CONF-01</td><td><span data-lang="en">A time overlap is a <b>hard</b> conflict → block.</span><span data-lang="vi">Chồng giờ là xung đột <b>cứng</b> → chặn.</span></td></tr>
+            <tr><td>BR-CONF-02</td><td><span data-lang="en">Back-to-back across campuses / same-day overload is a <b>soft</b> conflict → warn, allow continue.</span><span data-lang="vi">Học liền ca khác cơ sở / quá tải trong ngày là xung đột <b>mềm</b> → cảnh báo, cho tiếp tục.</span></td></tr>
+            <tr><td>BR-DROP-01</td><td><span data-lang="en">Drop is only allowed inside the add/drop window; after it, only withdraw (a "W", needs approval).</span><span data-lang="vi">Chỉ được rút môn (drop) trong cửa sổ add/drop; sau đó chỉ còn withdraw (điểm "W", cần duyệt).</span></td></tr>
+            <tr><td>BR-DROP-02</td><td><span data-lang="en">Dropping a course that another registered course depends on (via <em>provisional</em> satisfaction) → the dependent must be dropped too, or waived.</span><span data-lang="vi">Rút một môn mà một môn đã đăng ký khác phụ thuộc vào (qua đạt <em>tạm thời</em>) → môn phụ thuộc cũng phải rút, hoặc được miễn.</span></td></tr>
+            <tr><td>BR-CAL-01</td><td><span data-lang="en">A reserved-seat release date must fall <b>within</b> the target group's registration window.</span><span data-lang="vi">Ngày mở quỹ chỗ dành riêng phải nằm <b>trong</b> khung đăng ký của nhóm đích.</span></td></tr>
+            <tr><td>BR-CAL-02</td><td><span data-lang="en">Automatic waitlist promotion <b>stops at the configured cutoff</b> in the term calendar.</span><span data-lang="vi">Tự động đẩy waitlist <b>dừng ở mốc cắt cấu hình</b> trong lịch học kỳ.</span></td></tr>
           </tbody></table></div>
         </div>
 
@@ -601,26 +601,26 @@
         <div class="subsec">
           <h3 id="e8">7.8 · <span data-lang="en">Acceptance criteria — registration module (AC-REG-01…20)</span><span data-lang="vi">Tiêu chí nghiệm thu — phân hệ đăng ký (AC-REG-01…20)</span></h3>
           <div class="tbl-scroll"><table><tbody>
-            <tr><td>AC-REG-01</td><td>Outside the priority-group window → Submit is blocked + names when it opens.</td></tr>
-            <tr><td>AC-REG-02</td><td>An active hold → all registration actions disabled + the hold type is named.</td></tr>
-            <tr><td>AC-REG-03</td><td>Registering over the credit cap → block exactly the section that pushes it over, show current / cap.</td></tr>
-            <tr><td>AC-REG-04</td><td>Missing prerequisite → the section is blocked + the unmet branch of the expression is named.</td></tr>
-            <tr><td>AC-REG-05</td><td>An in-progress course satisfies a prerequisite <em>provisionally</em>, flagged.</td></tr>
-            <tr><td>AC-REG-06</td><td>A valid waiver → opens registration for that course; the audit log is complete.</td></tr>
-            <tr><td>AC-REG-07</td><td>A hard schedule conflict → block; a soft conflict → warn, still addable.</td></tr>
-            <tr><td>AC-REG-08</td><td>A full section → the action becomes "Join waitlist (position ~N)".</td></tr>
-            <tr><td>AC-REG-09</td><td>ENROLLED never exceeds capacity, even under simultaneous submits.</td></tr>
-            <tr><td>AC-REG-10</td><td>Two rapid submits for the same section create only one ENROLLED record.</td></tr>
-            <tr><td>AC-REG-11</td><td>Waitlist order matches BR-SEAT-03 (priority group → time joined).</td></tr>
-            <tr><td>AC-REG-12</td><td>A free seat → the next student gets OFFERED + a claim deadline; audit-logged.</td></tr>
-            <tr><td>AC-REG-13</td><td>Past the claim deadline → EXPIRED, the offer passes to the next student.</td></tr>
-            <tr><td>AC-REG-14</td><td>On OFFERED, the system re-runs eligibility + conflict checks for the offered student.</td></tr>
-            <tr><td>AC-REG-15</td><td>Drop only inside the add/drop window; after it, only withdraw (needs approval).</td></tr>
-            <tr><td>AC-REG-16</td><td>Dropping a course another registered course depends on (provisionally) → the single drop is blocked.</td></tr>
-            <tr><td>AC-REG-17</td><td>Reserved seats are usable only by the target group until the release date.</td></tr>
-            <tr><td>AC-REG-18</td><td>A reserved-seat release date outside the target group's window → blocked when saving the calendar config.</td></tr>
-            <tr><td>AC-REG-19</td><td>Every registration action + exception is audit-logged with before → after values.</td></tr>
-            <tr><td>AC-REG-20</td><td>The eligibility + conflict check returns under 1 s at the target load.</td></tr>
+            <tr><td>AC-REG-01</td><td><span data-lang="en">Outside the priority-group window → Submit is blocked + names when it opens.</span><span data-lang="vi">Ngoài khung nhóm ưu tiên → chặn Submit + nêu rõ khi nào mở.</span></td></tr>
+            <tr><td>AC-REG-02</td><td><span data-lang="en">An active hold → all registration actions disabled + the hold type is named.</span><span data-lang="vi">Còn hold hiệu lực → vô hiệu mọi thao tác đăng ký + nêu rõ loại hold.</span></td></tr>
+            <tr><td>AC-REG-03</td><td><span data-lang="en">Registering over the credit cap → block exactly the section that pushes it over, show current / cap.</span><span data-lang="vi">Đăng ký vượt trần tín chỉ → chặn đúng lớp làm vượt, hiển thị hiện tại / trần.</span></td></tr>
+            <tr><td>AC-REG-04</td><td><span data-lang="en">Missing prerequisite → the section is blocked + the unmet branch of the expression is named.</span><span data-lang="vi">Thiếu điều kiện tiên quyết → chặn lớp + nêu rõ nhánh biểu thức chưa thỏa.</span></td></tr>
+            <tr><td>AC-REG-05</td><td><span data-lang="en">An in-progress course satisfies a prerequisite <em>provisionally</em>, flagged.</span><span data-lang="vi">Một môn đang học thỏa điều kiện tiên quyết <em>tạm thời</em>, có gắn cờ.</span></td></tr>
+            <tr><td>AC-REG-06</td><td><span data-lang="en">A valid waiver → opens registration for that course; the audit log is complete.</span><span data-lang="vi">Một miễn hợp lệ → mở đăng ký cho môn đó; nhật ký ghi đầy đủ.</span></td></tr>
+            <tr><td>AC-REG-07</td><td><span data-lang="en">A hard schedule conflict → block; a soft conflict → warn, still addable.</span><span data-lang="vi">Xung đột lịch cứng → chặn; xung đột mềm → cảnh báo, vẫn thêm được.</span></td></tr>
+            <tr><td>AC-REG-08</td><td><span data-lang="en">A full section → the action becomes "Join waitlist (position ~N)".</span><span data-lang="vi">Lớp đầy → thao tác đổi thành "Vào waitlist (vị trí ~N)".</span></td></tr>
+            <tr><td>AC-REG-09</td><td><span data-lang="en">ENROLLED never exceeds capacity, even under simultaneous submits.</span><span data-lang="vi">ENROLLED không bao giờ vượt sức chứa, kể cả khi submit đồng thời.</span></td></tr>
+            <tr><td>AC-REG-10</td><td><span data-lang="en">Two rapid submits for the same section create only one ENROLLED record.</span><span data-lang="vi">Hai lần submit liên tiếp cho cùng một lớp chỉ tạo một bản ghi ENROLLED.</span></td></tr>
+            <tr><td>AC-REG-11</td><td><span data-lang="en">Waitlist order matches BR-SEAT-03 (priority group → time joined).</span><span data-lang="vi">Thứ tự waitlist khớp BR-SEAT-03 (nhóm ưu tiên → thời điểm vào hàng).</span></td></tr>
+            <tr><td>AC-REG-12</td><td><span data-lang="en">A free seat → the next student gets OFFERED + a claim deadline; audit-logged.</span><span data-lang="vi">Một chỗ trống → sinh viên kế tiếp nhận OFFERED + hạn nhận; được ghi nhật ký.</span></td></tr>
+            <tr><td>AC-REG-13</td><td><span data-lang="en">Past the claim deadline → EXPIRED, the offer passes to the next student.</span><span data-lang="vi">Quá hạn nhận → EXPIRED, lời mời chuyển sang sinh viên kế tiếp.</span></td></tr>
+            <tr><td>AC-REG-14</td><td><span data-lang="en">On OFFERED, the system re-runs eligibility + conflict checks for the offered student.</span><span data-lang="vi">Khi OFFERED, hệ thống chạy lại kiểm tra điều kiện + trùng lịch cho sinh viên được mời.</span></td></tr>
+            <tr><td>AC-REG-15</td><td><span data-lang="en">Drop only inside the add/drop window; after it, only withdraw (needs approval).</span><span data-lang="vi">Chỉ drop trong cửa sổ add/drop; sau đó chỉ withdraw (cần duyệt).</span></td></tr>
+            <tr><td>AC-REG-16</td><td><span data-lang="en">Dropping a course another registered course depends on (provisionally) → the single drop is blocked.</span><span data-lang="vi">Rút một môn mà một môn đã đăng ký khác phụ thuộc (tạm thời) → chặn việc chỉ rút một môn.</span></td></tr>
+            <tr><td>AC-REG-17</td><td><span data-lang="en">Reserved seats are usable only by the target group until the release date.</span><span data-lang="vi">Chỗ dành riêng chỉ nhóm đích dùng được cho đến ngày mở.</span></td></tr>
+            <tr><td>AC-REG-18</td><td><span data-lang="en">A reserved-seat release date outside the target group's window → blocked when saving the calendar config.</span><span data-lang="vi">Ngày mở quỹ chỗ dành riêng nằm ngoài khung nhóm đích → bị chặn khi lưu cấu hình lịch.</span></td></tr>
+            <tr><td>AC-REG-19</td><td><span data-lang="en">Every registration action + exception is audit-logged with before → after values.</span><span data-lang="vi">Mọi thao tác đăng ký + ngoại lệ đều được ghi nhật ký kèm giá trị trước → sau.</span></td></tr>
+            <tr><td>AC-REG-20</td><td><span data-lang="en">The eligibility + conflict check returns under 1 s at the target load.</span><span data-lang="vi">Kiểm tra điều kiện + trùng lịch trả kết quả dưới 1 giây ở tải mục tiêu.</span></td></tr>
           </tbody></table></div>
         </div>
 
@@ -706,31 +706,31 @@
             <table>
               <thead><tr><th>TC</th><th><span data-lang="en">Scenario</span><span data-lang="vi">Kịch bản</span></th><th><span data-lang="en">Expected</span><span data-lang="vi">Kỳ vọng</span></th><th>AC</th><th>BR</th></tr></thead>
               <tbody>
-                <tr><td>TC-01</td><td>A "final-year" student whose group's window has not opened</td><td>Submit is blocked, names when it opens</td><td>AC-REG-01</td><td>BR-ELIG-01</td></tr>
-                <tr><td>TC-02</td><td>A student with a financial hold opens the module</td><td>All registration actions disabled + the hold type is named</td><td>AC-REG-02</td><td>BR-ELIG-02</td></tr>
-                <tr><td>TC-03</td><td>Add a course while already near the credit cap</td><td>The section that pushes over is blocked, shows current / cap</td><td>AC-REG-03</td><td>BR-ELIG-03</td></tr>
-                <tr><td>TC-04</td><td>Add a course with prerequisite "B215 ≥ C"; transcript has B215 = D</td><td>Blocked, names the unmet branch</td><td>AC-REG-04</td><td>BR-PREQ-01</td></tr>
-                <tr><td>TC-05</td><td>Add a course using an in-progress course as the prerequisite</td><td>Allowed, flagged <em>provisional</em></td><td>AC-REG-05</td><td>BR-PREQ-02</td></tr>
-                <tr><td>TC-06</td><td>50 students submit at once for a section with 1 seat left</td><td>1 ENROLLED, 49 WAITLISTED; no section exceeds capacity</td><td>AC-REG-09</td><td>BR-SEAT-01</td></tr>
-                <tr><td>TC-07</td><td>A student double-clicks Submit for the same section</td><td>Only 1 ENROLLED record</td><td>AC-REG-10</td><td>BR-SEAT-01</td></tr>
-                <tr><td>TC-08</td><td>An ENROLLED student drops a section within the add/drop window</td><td>Waitlist position 1 gets OFFERED + a deadline; eligibility + conflict checks re-run</td><td>AC-REG-12, AC-REG-14</td><td>BR-SEAT-04, BR-SEAT-05</td></tr>
-                <tr><td>TC-09</td><td>An OFFERED seat passes its claim deadline</td><td>EXPIRED for that student, offer passes to the next; audit-logged</td><td>AC-REG-13</td><td>BR-SEAT-04</td></tr>
-                <tr><td>TC-10</td><td>The registrar sets a reserved-seat release date AFTER the target group's window closes</td><td>The system blocks saving the calendar config, cites BR-CAL-01</td><td>AC-REG-18</td><td>BR-CAL-01</td></tr>
+                <tr><td>TC-01</td><td><span data-lang="en">A "final-year" student whose group's window has not opened</span><span data-lang="vi">Một sinh viên "năm cuối" mà khung của nhóm chưa mở</span></td><td><span data-lang="en">Submit is blocked, names when it opens</span><span data-lang="vi">Chặn Submit, nêu rõ khi nào mở</span></td><td>AC-REG-01</td><td>BR-ELIG-01</td></tr>
+                <tr><td>TC-02</td><td><span data-lang="en">A student with a financial hold opens the module</span><span data-lang="vi">Một sinh viên có hold tài chính mở phân hệ</span></td><td><span data-lang="en">All registration actions disabled + the hold type is named</span><span data-lang="vi">Vô hiệu mọi thao tác đăng ký + nêu rõ loại hold</span></td><td>AC-REG-02</td><td>BR-ELIG-02</td></tr>
+                <tr><td>TC-03</td><td><span data-lang="en">Add a course while already near the credit cap</span><span data-lang="vi">Thêm một môn khi đã sát trần tín chỉ</span></td><td><span data-lang="en">The section that pushes over is blocked, shows current / cap</span><span data-lang="vi">Lớp làm vượt bị chặn, hiển thị hiện tại / trần</span></td><td>AC-REG-03</td><td>BR-ELIG-03</td></tr>
+                <tr><td>TC-04</td><td><span data-lang="en">Add a course with prerequisite "B215 ≥ C"; transcript has B215 = D</span><span data-lang="vi">Thêm một môn có điều kiện tiên quyết "B215 ≥ C"; bảng điểm có B215 = D</span></td><td><span data-lang="en">Blocked, names the unmet branch</span><span data-lang="vi">Bị chặn, nêu rõ nhánh chưa thỏa</span></td><td>AC-REG-04</td><td>BR-PREQ-01</td></tr>
+                <tr><td>TC-05</td><td><span data-lang="en">Add a course using an in-progress course as the prerequisite</span><span data-lang="vi">Thêm một môn dùng một môn đang học làm điều kiện tiên quyết</span></td><td><span data-lang="en">Allowed, flagged <em>provisional</em></span><span data-lang="vi">Cho phép, gắn cờ <em>tạm thời</em></span></td><td>AC-REG-05</td><td>BR-PREQ-02</td></tr>
+                <tr><td>TC-06</td><td><span data-lang="en">50 students submit at once for a section with 1 seat left</span><span data-lang="vi">50 sinh viên cùng submit cho một lớp còn 1 chỗ</span></td><td><span data-lang="en">1 ENROLLED, 49 WAITLISTED; no section exceeds capacity</span><span data-lang="vi">1 ENROLLED, 49 WAITLISTED; không lớp nào vượt sức chứa</span></td><td>AC-REG-09</td><td>BR-SEAT-01</td></tr>
+                <tr><td>TC-07</td><td><span data-lang="en">A student double-clicks Submit for the same section</span><span data-lang="vi">Một sinh viên bấm Submit hai lần cho cùng một lớp</span></td><td><span data-lang="en">Only 1 ENROLLED record</span><span data-lang="vi">Chỉ 1 bản ghi ENROLLED</span></td><td>AC-REG-10</td><td>BR-SEAT-01</td></tr>
+                <tr><td>TC-08</td><td><span data-lang="en">An ENROLLED student drops a section within the add/drop window</span><span data-lang="vi">Một sinh viên ENROLLED rút một lớp trong cửa sổ add/drop</span></td><td><span data-lang="en">Waitlist position 1 gets OFFERED + a deadline; eligibility + conflict checks re-run</span><span data-lang="vi">Vị trí 1 waitlist nhận OFFERED + một hạn; chạy lại kiểm tra điều kiện + trùng lịch</span></td><td>AC-REG-12, AC-REG-14</td><td>BR-SEAT-04, BR-SEAT-05</td></tr>
+                <tr><td>TC-09</td><td><span data-lang="en">An OFFERED seat passes its claim deadline</span><span data-lang="vi">Một chỗ OFFERED quá hạn nhận</span></td><td><span data-lang="en">EXPIRED for that student, offer passes to the next; audit-logged</span><span data-lang="vi">EXPIRED cho sinh viên đó, lời mời chuyển sang người kế tiếp; được ghi nhật ký</span></td><td>AC-REG-13</td><td>BR-SEAT-04</td></tr>
+                <tr><td>TC-10</td><td><span data-lang="en">The registrar sets a reserved-seat release date AFTER the target group's window closes</span><span data-lang="vi">Phòng đào tạo đặt ngày mở quỹ chỗ dành riêng SAU khi khung của nhóm đích đóng</span></td><td><span data-lang="en">The system blocks saving the calendar config, cites BR-CAL-01</span><span data-lang="vi">Hệ thống chặn lưu cấu hình lịch, viện dẫn BR-CAL-01</span></td><td>AC-REG-18</td><td>BR-CAL-01</td></tr>
               </tbody>
             </table>
           </div>
 
-          <p style="margin-top:1.4rem"><b>Conflict-detection test matrix</b> <span style="color:var(--ink-soft)">(shared with the timetable module)</span></p>
+          <p style="margin-top:1.4rem"><b><span data-lang="en">Conflict-detection test matrix</span><span data-lang="vi">Ma trận kiểm thử phát hiện xung đột</span></b> <span style="color:var(--ink-soft)"><span data-lang="en">(shared with the timetable module)</span><span data-lang="vi">(dùng chung với phân hệ xếp lịch)</span></span></p>
           <div class="tbl-scroll">
             <table>
               <thead><tr><th>#</th><th><span data-lang="en">Situation</span><span data-lang="vi">Tình huống</span></th><th><span data-lang="en">Type</span><span data-lang="vi">Loại</span></th><th><span data-lang="en">Expected system response</span><span data-lang="vi">Phản hồi hệ thống kỳ vọng</span></th><th>BR</th></tr></thead>
               <tbody>
-                <tr><td>CD-1</td><td>Two sections overlap the same day (Mon 09:00–11:00 vs 10:00–12:00)</td><td>Hard</td><td>Block the section added second; name the section + overlapping slot</td><td>BR-CONF-01</td></tr>
-                <tr><td>CD-2</td><td>Two sections back-to-back on different campuses (ends 11:00 at A → starts 11:15 at B)</td><td>Soft</td><td>Warn "hard to travel in time"; still addable</td><td>BR-CONF-02</td></tr>
-                <tr><td>CD-3</td><td>Four sections on one day, &gt; 8 periods total</td><td>Soft</td><td>Warn same-day overload; still addable</td><td>BR-CONF-02</td></tr>
-                <tr><td>CD-4</td><td>A section overlaps an already-scheduled exam slot</td><td>Hard</td><td>Block; name the clashing exam</td><td>BR-CONF-01</td></tr>
-                <tr><td>CD-5</td><td>Two sections on odd/even-week schedules, overlapping only in odd weeks</td><td>Hard (within the overlapping weeks)</td><td>Block; state it clashes only in odd weeks</td><td>BR-CONF-01</td></tr>
-                <tr><td>CD-6</td><td>A section overlaps the cohort's fixed block (e.g. class assembly)</td><td>Hard</td><td>Block; name the fixed block</td><td>BR-CONF-01</td></tr>
+                <tr><td>CD-1</td><td><span data-lang="en">Two sections overlap the same day (Mon 09:00–11:00 vs 10:00–12:00)</span><span data-lang="vi">Hai lớp chồng giờ cùng ngày (Thứ 2 09:00–11:00 vs 10:00–12:00)</span></td><td><span data-lang="en">Hard</span><span data-lang="vi">Cứng</span></td><td><span data-lang="en">Block the section added second; name the section + overlapping slot</span><span data-lang="vi">Chặn lớp thêm sau; nêu rõ lớp + khung giờ chồng</span></td><td>BR-CONF-01</td></tr>
+                <tr><td>CD-2</td><td><span data-lang="en">Two sections back-to-back on different campuses (ends 11:00 at A → starts 11:15 at B)</span><span data-lang="vi">Hai lớp liền ca ở hai cơ sở (kết thúc 11:00 tại A → bắt đầu 11:15 tại B)</span></td><td><span data-lang="en">Soft</span><span data-lang="vi">Mềm</span></td><td><span data-lang="en">Warn "hard to travel in time"; still addable</span><span data-lang="vi">Cảnh báo "khó di chuyển kịp"; vẫn thêm được</span></td><td>BR-CONF-02</td></tr>
+                <tr><td>CD-3</td><td><span data-lang="en">Four sections on one day, &gt; 8 periods total</span><span data-lang="vi">Bốn lớp trong một ngày, tổng &gt; 8 tiết</span></td><td><span data-lang="en">Soft</span><span data-lang="vi">Mềm</span></td><td><span data-lang="en">Warn same-day overload; still addable</span><span data-lang="vi">Cảnh báo quá tải trong ngày; vẫn thêm được</span></td><td>BR-CONF-02</td></tr>
+                <tr><td>CD-4</td><td><span data-lang="en">A section overlaps an already-scheduled exam slot</span><span data-lang="vi">Một lớp chồng với một ca thi đã xếp lịch</span></td><td><span data-lang="en">Hard</span><span data-lang="vi">Cứng</span></td><td><span data-lang="en">Block; name the clashing exam</span><span data-lang="vi">Chặn; nêu rõ ca thi bị đụng</span></td><td>BR-CONF-01</td></tr>
+                <tr><td>CD-5</td><td><span data-lang="en">Two sections on odd/even-week schedules, overlapping only in odd weeks</span><span data-lang="vi">Hai lớp theo lịch tuần lẻ/chẵn, chỉ chồng nhau ở các tuần lẻ</span></td><td><span data-lang="en">Hard (within the overlapping weeks)</span><span data-lang="vi">Cứng (trong các tuần bị chồng)</span></td><td><span data-lang="en">Block; state it clashes only in odd weeks</span><span data-lang="vi">Chặn; nêu rõ chỉ đụng ở các tuần lẻ</span></td><td>BR-CONF-01</td></tr>
+                <tr><td>CD-6</td><td><span data-lang="en">A section overlaps the cohort's fixed block (e.g. class assembly)</span><span data-lang="vi">Một lớp chồng với khối cố định của khóa (ví dụ sinh hoạt lớp)</span></td><td><span data-lang="en">Hard</span><span data-lang="vi">Cứng</span></td><td><span data-lang="en">Block; name the fixed block</span><span data-lang="vi">Chặn; nêu rõ khối cố định</span></td><td>BR-CONF-01</td></tr>
               </tbody>
             </table>
           </div>
@@ -753,7 +753,16 @@
       <!-- ===================== 9. OUTCOME ===================== -->
       <section class="sec" id="outcome">
         <p class="kicker">9</p>
-        <h2><span data-lang="en">Outcome <em>(design targets — not yet measured)</em></span><span data-lang="vi">Kết quả <em>(mục tiêu thiết kế — chưa đo thực tế)</em></span></h2>
+        <h2><span data-lang="en">Outcome</span><span data-lang="vi">Kết quả</span></h2>
+        <h3><span data-lang="en">Delivered &amp; verified at hand-off</span><span data-lang="vi">Đã bàn giao &amp; nghiệm thu khi kết thúc phần việc</span></h3>
+        <ul class="plain">
+          <li><span data-lang="en">Full specification of the course-registration + waitlist module <b>accepted under BA Lead review</b>.</span><span data-lang="vi">Đặc tả đầy đủ phân hệ đăng ký học phần + waitlist <b>được duyệt qua rà soát của BA Lead</b>.</span></li>
+          <li><span data-lang="en"><b>19 business rules</b> catalogued and cross-referenced to 20 acceptance criteria and the UAT cases.</span><span data-lang="vi"><b>19 quy tắc nghiệp vụ</b> được lập danh mục và truy vết chéo tới 20 acceptance criteria và các test case UAT.</span></li>
+          <li><span data-lang="en">The concurrency requirement — <em>0 oversold sections, even under simultaneous submits</em> — specified as a testable rule (BR-SEAT-01) and its mechanism <b>agreed with the developer</b> (§6.7).</span><span data-lang="vi">Yêu cầu về tương tranh — <em>0 section vượt sức chứa, kể cả khi nhiều người submit đồng thời</em> — được đặc tả thành một quy tắc kiểm được (BR-SEAT-01) và cơ chế <b>thống nhất với developer</b> (§6.7).</span></li>
+          <li><span data-lang="en">The prerequisite expression model + evaluation rules specified end to end (§7.4).</span><span data-lang="vi">Mô hình biểu thức tiên quyết + quy tắc đánh giá được đặc tả đầu-cuối (§7.4).</span></li>
+          <li><span data-lang="en">~28 UAT test cases + a requirement traceability matrix <b>handed over</b>.</span><span data-lang="vi">~28 test case UAT + một ma trận truy vết yêu cầu <b>được bàn giao</b>.</span></li>
+        </ul>
+        <h3><span data-lang="en">Projected targets <em>(design — not yet measured)</em></span><span data-lang="vi">Mục tiêu dự kiến <em>(thiết kế — chưa đo thực tế)</em></span></h3>
         <ul class="plain">
           <li><span data-lang="en"><b>Cut the registrar's manual corrections from ~1/5 → target &lt; 1/20</b> <em>(target)</em> — measured by: % of enrolment records edited at least once by a registrar account, before / after go-live.</span><span data-lang="vi"><b>Giảm lượt sửa tay của phòng đào tạo từ ~1/5 → mục tiêu &lt; 1/20</b> <em>(target)</em> — đo bằng: % bản ghi đăng ký có ít nhất một lần chỉnh bởi tài khoản phòng đào tạo, so sánh trước/sau go-live.</span></li>
           <li><span data-lang="en"><b>0 oversold sections</b> — requirement BR-SEAT-01 / AC-REG-09 (the seat mechanism is the dev's); verified by TC-06 / TC-07 + a data scan for sections where ENROLLED &gt; capacity (expected: 0).</span><span data-lang="vi"><b>0 section vượt sức chứa</b> — yêu cầu BR-SEAT-01 / AC-REG-09 (cơ chế cấp chỗ do dev chọn); kiểm chứng bằng TC-06 / TC-07 + rà soát dữ liệu tìm section có ENROLLED &gt; sức chứa (kỳ vọng: 0).</span></li>
