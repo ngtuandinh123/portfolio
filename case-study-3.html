@@ -70,7 +70,7 @@
       <h1><span data-lang="en">Court Booking — Pricing, Holds &amp; Refunds</span><span data-lang="vi">Đặt sân — Định giá, Giữ chỗ &amp; Hoàn tiền</span></h1>
       <p class="lead" style="margin-top:.8rem">
         <span data-lang="en">Peak/off-peak pricing, a safe seat hold while an external wallet decides, a time-tiered refund policy, and a metric spec that tells the owner which slots earn nothing — for a two-sided sports-court booking platform.</span>
-        <span data-lang="vi">Định giá theo cao/thấp điểm, giữ chỗ an toàn khi chờ cổng thanh toán, chính sách huỷ/hoàn tiền theo mốc thời gian, và bộ chỉ số cho chủ sân biết slot nào không kiếm ra tiền — cho một nền tảng đặt sân thể thao hai phía.</span>
+        <span data-lang="vi">Định giá theo cao/thấp điểm, giữ chỗ an toàn khi chờ cổng thanh toán, chính sách huỷ/hoàn tiền theo mốc thời gian, và bộ chỉ số cho chủ sân biết khung giờ nào không kiếm ra tiền — cho một nền tảng đặt sân thể thao hai phía.</span>
       </p>
 
       <div class="callout" style="margin-top:1.4rem">
@@ -127,7 +127,7 @@
         </dl>
 
         <h3><span data-lang="en">FDD — what the platform does (one glance)</span><span data-lang="vi">FDD — nền tảng làm gì (một cái nhìn)</span></h3>
-        <pre class="code"><span data-lang="en">Sports-court booking platform
+        <pre class="code fixed"><span data-lang="en">Sports-court booking platform
 ├── Search courts    — by sport · by location · by free slot · by price
 ├── Book a court     — pick slots · hold · pay · confirm
 ├── Manage courts    — add / edit / close a court · manage schedule · price tiers   (owner)
@@ -139,7 +139,7 @@
 ├── Tìm sân        — theo bộ môn · theo vị trí · theo khung giờ trống · theo giá
 ├── Đặt sân         — chọn khung giờ · giữ chỗ · thanh toán · xác nhận
 ├── Quản lý sân     — thêm / sửa / đóng sân · quản lý lịch · bậc giá   (chủ sân)
-├── Huỷ &amp; hoàn tiền  — người thuê huỷ · chủ sân đóng slot · hoàn theo mốc thời gian
+├── Huỷ &amp; hoàn tiền  — người thuê huỷ · chủ sân đóng khung giờ · hoàn theo mốc thời gian
 ├── Thanh toán      — cổng ví/ngân hàng · đối soát về chủ sân
 ├── Đánh giá        — sao · bình luận
 ├── Thống kê        — hiệu suất · doanh thu · huỷ/no-show · tỷ lệ quay lại   (chủ sân)
@@ -165,7 +165,7 @@
                 <td><span data-lang="en">Voucher / auto-promotions</span><span data-lang="vi">Voucher / khuyến mãi tự động</span></td>
               </tr>
               <tr>
-                <td><span data-lang="en"><b>Time-tiered cancellation/refund policy</b>; owner closes a slot; settlement to the owner</span><span data-lang="vi"><b>Chính sách huỷ/hoàn tiền</b> theo mốc thời gian; chủ sân đóng slot; đối soát tiền về chủ sân</span></td>
+                <td><span data-lang="en"><b>Time-tiered cancellation/refund policy</b>; owner closes a slot; settlement to the owner</span><span data-lang="vi"><b>Chính sách huỷ/hoàn tiền</b> theo mốc thời gian; chủ sân đóng khung giờ; đối soát tiền về chủ sân</span></td>
                 <td><span data-lang="en">Tournament organisation / match scheduling</span><span data-lang="vi">Tổ chức giải đấu / xếp lịch thi đấu</span></td>
                 <td><span data-lang="en">Loyalty / rewards</span><span data-lang="vi">Tích điểm / khách hàng thân thiết</span></td>
               </tr>
@@ -211,7 +211,7 @@
         </ol>
         <p>
           <span data-lang="en"><b>Business goal:</b> a renter searches–sees the price–books–pays in a few steps, the slot held safely until payment clears; cancellations/refunds have a clear rule; owners can price to demand and <b>see</b> which slots earn nothing.</span>
-          <span data-lang="vi"><b>Mục tiêu nghiệp vụ:</b> người thuê tìm–xem giá–đặt–trả trong vài bước, chỗ được giữ an toàn cho tới khi thanh toán xong; huỷ/hoàn tiền có quy tắc rõ; chủ sân định giá được theo cầu và <b>nhìn thấy</b> slot nào đang không kiếm ra tiền.</span>
+          <span data-lang="vi"><b>Mục tiêu nghiệp vụ:</b> người thuê tìm–xem giá–đặt–trả trong vài bước, chỗ được giữ an toàn cho tới khi thanh toán xong; huỷ/hoàn tiền có quy tắc rõ; chủ sân định giá được theo cầu và <b>nhìn thấy</b> khung giờ nào đang không kiếm ra tiền.</span>
         </p>
       </section>
 
@@ -320,7 +320,7 @@
         <div class="subsec">
           <h3>6.3 · <span data-lang="en">Multi-slot order (Order / OrderLine)</span><span data-lang="vi">Đơn đặt nhiều khung giờ (Order / OrderLine)</span></h3>
           <p><span data-lang="en"><b>Problem:</b> the second sheet of the "slot grid" file shows one booking of <b>8 slots across 2 dates, 800,000đ total</b> — so an order has many lines. But FR-05 describes booking as choosing <b>one</b> free slot.</span><span data-lang="vi"><b>Vấn đề:</b> sheet thứ 2 của file "Bảng chọn đặt lịch sân" cho thấy một lượt đặt gồm <b>8 khung giờ trải 2 ngày, tổng 800.000đ</b> — tức một đơn có nhiều dòng. Nhưng FR-05 lại mô tả đặt sân là chọn <b>một</b> khung giờ trống.</span></p>
-          <p><span data-lang="en"><b>Design:</b> an <b>Order</b> has many <b>OrderLines</b>, each = (court, date, slot, locked price). Hold, payment and cancellation/refund are all per <b>line</b>: a line lost to someone else before submit → the order names it, the renter drops it and continues with the rest; cancel per line, refund per line.</span><span data-lang="vi"><b>Thiết kế:</b> một <b>Order</b> gồm nhiều <b>OrderLine</b>, mỗi line = (sân, ngày, khung giờ, giá đã khoá). Hold, thanh toán, huỷ/hoàn tiền đều tính theo <b>line</b>: một line bị người khác giữ mất trước khi submit → báo rõ line nào, cho bỏ line đó và tiếp tục với phần còn lại; huỷ từng line, hoàn tiền theo line.</span></p>
+          <p><span data-lang="en"><b>Design:</b> an <b>Order</b> has many <b>OrderLines</b>, each = (court, date, slot, locked price). Hold, payment and cancellation/refund are all per <b>line</b>: a line lost to someone else before submit → the order names it, the renter drops it and continues with the rest; cancel per line, refund per line.</span><span data-lang="vi"><b>Thiết kế:</b> một <b>Order</b> gồm nhiều <b>OrderLine</b>, mỗi dòng = (sân, ngày, khung giờ, giá đã khoá). Hold, thanh toán, huỷ/hoàn tiền đều tính theo <b>dòng</b>: một dòng bị người khác giữ mất trước khi submit → báo rõ dòng nào, cho bỏ dòng đó và tiếp tục với phần còn lại; huỷ từng dòng, hoàn tiền theo dòng.</span></p>
         </div>
 
         <div class="subsec">
@@ -328,7 +328,7 @@
           <p><span data-lang="en"><b>Problem:</b> the BRD, the FRs and both process diagrams <b>never mention cancellation/refund</b> — even though two stories from the original BRD's per-role numbering, renter <b>US-R09</b> ("notified when a court is cancelled / under maintenance") and owner <b>US-O06</b> ("close a court when it stops operating"), both imply it. <span class="soft">(US-R / US-O are the original per-role IDs; §7.7's US-01…18 is the consolidated backlog.)</span></span><span data-lang="vi"><b>Vấn đề:</b> BRD, FR và cả hai sơ đồ quy trình <b>không hề nhắc huỷ/hoàn tiền</b> — dù hai story theo cách đánh số theo vai của BRD gốc, người thuê <b>US-R09</b> ("được báo khi sân bị huỷ / bảo trì") và chủ sân <b>US-O06</b> ("đóng sân khi ngừng hoạt động"), đều ngầm hứa. <span class="soft">(US-R / US-O là ID theo vai của BRD gốc; US-01…18 ở §7.7 là backlog đã hợp nhất.)</span></span></p>
           <div class="tbl-scroll">
             <table>
-              <thead><tr><th><span data-lang="en">Cancel before play time</span><span data-lang="vi">Huỷ trước giờ chơi</span></th><th><span data-lang="en">Renter cancels</span><span data-lang="vi">Người thuê huỷ</span></th><th><span data-lang="en">Owner closes the slot</span><span data-lang="vi">Chủ sân đóng slot</span></th></tr></thead>
+              <thead><tr><th><span data-lang="en">Cancel before play time</span><span data-lang="vi">Huỷ trước giờ chơi</span></th><th><span data-lang="en">Renter cancels</span><span data-lang="vi">Người thuê huỷ</span></th><th><span data-lang="en">Owner closes the slot</span><span data-lang="vi">Chủ sân đóng khung giờ</span></th></tr></thead>
               <tbody>
                 <tr><td>≥ 24h</td><td><span data-lang="en">100% refund</span><span data-lang="vi">Hoàn 100%</span></td><td><span data-lang="en">100% refund</span><span data-lang="vi">Hoàn 100%</span></td></tr>
                 <tr><td>≥ 6h, &lt; 24h</td><td><span data-lang="en">50% refund</span><span data-lang="vi">Hoàn 50%</span></td><td><span data-lang="en">100% refund</span><span data-lang="vi">Hoàn 100%</span></td></tr>
@@ -337,7 +337,7 @@
               </tbody>
             </table>
           </div>
-          <p><span data-lang="en">Boundaries are inclusive on the upper side and use court-local time: <b>≥ 24h</b> before play → 100%; <b>≥ 6h and &lt; 24h</b> → 50%; <b>&lt; 6h</b> → 0%. Thresholds and rates are <b>platform-level config</b>. An owner closing a booked slot <b>always refunds 100%</b> + notifies the renter (US-R09). A refund signals the payment module to return funds to the original source; <b>the accounting posting is out of scope</b> (§1).</span><span data-lang="vi">Mốc thời gian tính theo giờ địa phương của sân, chặn trên là bao gồm: <b>≥ 24h</b> trước giờ chơi → 100%; <b>≥ 6h và &lt; 24h</b> → 50%; <b>&lt; 6h</b> → 0%. Mốc và tỷ lệ là <b>cấu hình cấp nền tảng</b>. Chủ sân đóng slot đã có booking → <b>luôn hoàn 100%</b> + thông báo (US-R09). Hoàn tiền phát tín hiệu sang module Thanh toán để hoàn về nguồn tiền gốc; <b>việc ghi sổ kế toán ngoài scope</b> (§1).</span></p>
+          <p><span data-lang="en">Boundaries are inclusive on the upper side and use court-local time: <b>≥ 24h</b> before play → 100%; <b>≥ 6h and &lt; 24h</b> → 50%; <b>&lt; 6h</b> → 0%. Thresholds and rates are <b>platform-level config</b>. An owner closing a booked slot <b>always refunds 100%</b> + notifies the renter (US-R09). A refund signals the payment module to return funds to the original source; <b>the accounting posting is out of scope</b> (§1).</span><span data-lang="vi">Mốc thời gian tính theo giờ địa phương của sân, chặn trên là bao gồm: <b>≥ 24h</b> trước giờ chơi → 100%; <b>≥ 6h và &lt; 24h</b> → 50%; <b>&lt; 6h</b> → 0%. Mốc và tỷ lệ là <b>cấu hình cấp nền tảng</b>. Chủ sân đóng khung giờ đã có booking → <b>luôn hoàn 100%</b> + thông báo (US-R09). Hoàn tiền phát tín hiệu sang module Thanh toán để hoàn về nguồn tiền gốc; <b>việc ghi sổ kế toán ngoài scope</b> (§1).</span></p>
         </div>
 
         <div class="subsec">
@@ -384,7 +384,7 @@
             <li><span data-lang="en">Renter funds go into the <b>platform's holding wallet</b>, not straight to the owner.</span><span data-lang="vi">Tiền người thuê trả vào <b>ví trung gian của nền tảng</b>, không chuyển thẳng chủ sân.</span></li>
             <li><span data-lang="en">The platform settles on a cycle (e.g. weekly): gross − refunds − platform fee = the owner's transfer.</span><span data-lang="vi">Nền tảng đối soát theo chu kỳ (VD hàng tuần): tổng thu − hoàn tiền − phí nền tảng = số chuyển cho chủ sân.</span></li>
             <li><span data-lang="en">Each settlement produces a <b>statement</b> itemising every booking and refund — the owner sees it on the dashboard.</span><span data-lang="vi">Mỗi lần đối soát tạo một <b>statement</b> liệt kê từng booking/hoàn tiền — chủ sân xem được ở dashboard.</span></li>
-            <li><span data-lang="en">On a partial refund (renter cancels 6–24h out), the <b>retained portion is revenue and settles to the owner</b>; the platform fee applies to the retained amount, not the original price. A 100% refund (owner closure, or a ≥ 24h renter cancel) leaves <b>no revenue and no fee</b> on that line. (BR-ORD-04)</span><span data-lang="vi">Với hoàn một phần (người thuê huỷ 6–24h): <b>phần giữ lại là doanh thu và được đối soát về chủ sân</b>; phí nền tảng tính trên phần giữ lại, không phải giá gốc. Hoàn 100% (chủ sân đóng slot, hoặc người thuê huỷ ≥ 24h) → line đó <b>không phát sinh doanh thu và không phí</b>. (BR-ORD-04)</span></li>
+            <li><span data-lang="en">On a partial refund (renter cancels 6–24h out), the <b>retained portion is revenue and settles to the owner</b>; the platform fee applies to the retained amount, not the original price. A 100% refund (owner closure, or a ≥ 24h renter cancel) leaves <b>no revenue and no fee</b> on that line. (BR-ORD-04)</span><span data-lang="vi">Với hoàn một phần (người thuê huỷ 6–24h): <b>phần giữ lại là doanh thu và được đối soát về chủ sân</b>; phí nền tảng tính trên phần giữ lại, không phải giá gốc. Hoàn 100% (chủ sân đóng khung giờ, hoặc người thuê huỷ ≥ 24h) → dòng đó <b>không phát sinh doanh thu và không phí</b>. (BR-ORD-04)</span></li>
           </ul>
         </div>
 
@@ -407,7 +407,7 @@
           <div class="note-box">
             <b><span data-lang="en">Note (specified with a developer):</span><span data-lang="vi">Ghi chú (đặc tả cùng Developer):</span></b>
             <span data-lang="en"> the requirement I set was <em>"a slot never has 2 active bookings, even under simultaneous submits"</em> (BR-HOLD-01). The dev's mechanism: a unique constraint on (court, slot, active-status) + a conditional hold create; a failed submit returns the lost-line message. Verified by TC-04.</span>
-            <span data-lang="vi"> yêu cầu tôi đặt là <em>"một khung giờ không bao giờ có 2 booking hiệu lực, kể cả khi 2 người submit đồng thời"</em> (BR-HOLD-01). Dev chọn cơ chế: unique constraint trên (sân, khung giờ, trạng-thái-hiệu-lực) + tạo hold có điều kiện; submit thất bại → báo line bị mất chỗ. Nghiệm thu: TC-04.</span>
+            <span data-lang="vi"> yêu cầu tôi đặt là <em>"một khung giờ không bao giờ có 2 booking hiệu lực, kể cả khi 2 người submit đồng thời"</em> (BR-HOLD-01). Dev chọn cơ chế: unique constraint trên (sân, khung giờ, trạng-thái-hiệu-lực) + tạo hold có điều kiện; submit thất bại → báo dòng bị mất chỗ. Nghiệm thu: TC-04.</span>
           </div>
         </div>
       </section>
@@ -473,7 +473,7 @@
             <tr><td>BR-REF-02</td><td><span data-lang="en">Owner closes a slot with a confirmed booking → 100% refund to the renter + a notification, regardless of timing.</span><span data-lang="vi">Chủ sân đóng một khung giờ đã có booking xác nhận → hoàn 100% cho người thuê + một thông báo, bất kể thời điểm.</span></td></tr>
             <tr><td>BR-REF-03</td><td><span data-lang="en">Refund is computed <b>per OrderLine</b>, not per whole order.</span><span data-lang="vi">Hoàn tiền được tính <b>theo từng OrderLine</b>, không phải theo cả đơn.</span></td></tr>
             <tr><td>BR-REF-04</td><td><span data-lang="en">Refund signals the payment module to return funds to the original source; accounting posting is out of scope.</span><span data-lang="vi">Hoàn tiền phát tín hiệu sang module thanh toán để trả tiền về nguồn ban đầu; việc ghi sổ kế toán nằm ngoài scope.</span></td></tr>
-            <tr><td>BR-REF-05</td><td><span data-lang="en">An owner-closure &lt; 6h before play is recorded against the owner's reliability rate.</span><span data-lang="vi">Chủ sân đóng slot &lt; 6h trước giờ chơi bị ghi vào tỷ lệ tin cậy của chủ sân đó.</span></td></tr>
+            <tr><td>BR-REF-05</td><td><span data-lang="en">An owner-closure &lt; 6h before play is recorded against the owner's reliability rate.</span><span data-lang="vi">Chủ sân đóng khung giờ &lt; 6h trước giờ chơi bị ghi vào tỷ lệ tin cậy của chủ sân đó.</span></td></tr>
           </tbody></table></div>
           <h4><span data-lang="en">Order &amp; settlement (BR-ORD)</span><span data-lang="vi">Đơn &amp; đối soát (BR-ORD)</span></h4>
           <div class="tbl-scroll"><table><thead><tr><th>ID</th><th><span data-lang="en">Rule</span><span data-lang="vi">Quy tắc</span></th></tr></thead><tbody>
@@ -538,7 +538,7 @@
             </div>
             <figcaption><span data-lang="en">BPMN TO-BE — book &amp; pay</span><span data-lang="vi">BPMN TO-BE — đặt &amp; thanh toán</span></figcaption>
           </figure>
-          <pre class="code"><span data-lang="en">Renter: search → choose court → open slot grid (prices shown)
+          <pre class="code fixed"><span data-lang="en">Renter: search → choose court → open slot grid (prices shown)
   → select one or more slots → "Book"
      → System: create a hold (TTL) per line
         --a line already held by someone else--> name the lost line; renter drops it, continues
@@ -562,7 +562,7 @@
 
         <div class="subsec">
           <h3 id="e4">7.4 · <span data-lang="en">Booking state — transition table</span><span data-lang="vi">Trạng thái booking — bảng chuyển trạng thái</span></h3>
-          <div class="note-box"><span data-lang="en">The states belong to the <b>OrderLine</b>. The Order's status is <b>derived</b>: CONFIRMED if ≥ 1 line is CONFIRMED; EXPIRED if every line is EXPIRED; otherwise it reflects the mix.</span><span data-lang="vi">Các trạng thái là của <b>OrderLine</b>. Trạng thái của Order là <b>suy ra</b>: CONFIRMED nếu còn ≥ 1 line CONFIRMED; EXPIRED nếu mọi line đều EXPIRED.</span></div>
+          <div class="note-box"><span data-lang="en">The states belong to the <b>OrderLine</b>. The Order's status is <b>derived</b>: CONFIRMED if ≥ 1 line is CONFIRMED; EXPIRED if every line is EXPIRED; otherwise it reflects the mix.</span><span data-lang="vi">Các trạng thái là của <b>OrderLine</b>. Trạng thái của Order là <b>suy ra</b>: CONFIRMED nếu còn ≥ 1 dòng CONFIRMED; EXPIRED nếu mọi dòng đều EXPIRED.</span></div>
           <div class="tbl-scroll">
             <table>
               <thead><tr><th><span data-lang="en">From</span><span data-lang="vi">Từ</span></th><th><span data-lang="en">Event</span><span data-lang="vi">Sự kiện</span></th><th><span data-lang="en">Guard</span><span data-lang="vi">Điều kiện</span></th><th><span data-lang="en">To</span><span data-lang="vi">Đến</span></th><th><span data-lang="en">Side-effects</span><span data-lang="vi">Hệ quả kèm theo</span></th></tr></thead>
@@ -573,7 +573,7 @@
                 <tr><td>PENDING_PAYMENT</td><td><span data-lang="en">Gateway success</span><span data-lang="vi">Cổng thanh toán báo thành công</span></td><td><span data-lang="en">Within TTL</span><span data-lang="vi">Trong TTL</span></td><td>CONFIRMED</td><td><span data-lang="en">Mark slots booked; notify renter + owner; audit</span><span data-lang="vi">Đánh dấu các khung giờ đã đặt; thông báo người thuê + chủ sân; ghi audit log</span></td></tr>
                 <tr><td>PENDING_PAYMENT</td><td><span data-lang="en">Failure, or hung past deadline</span><span data-lang="vi">Lỗi, hoặc treo quá hạn</span></td><td>—</td><td>EXPIRED <span class="soft">(reason GATEWAY_FAILED / HUNG)</span></td><td><span data-lang="en">Release holds; allow retry (BR-HOLD-06); audit</span><span data-lang="vi">Nhả các hold; cho phép thử lại (BR-HOLD-06); ghi audit log</span></td></tr>
                 <tr><td>CONFIRMED</td><td><span data-lang="en">Renter cancels</span><span data-lang="vi">Người thuê huỷ</span></td><td><span data-lang="en">Before play time</span><span data-lang="vi">Trước giờ chơi</span></td><td>CANCELLED_BY_RENTER</td><td><span data-lang="en">Refund per BR-REF-01 (per line); signal payment module; notify owner; audit</span><span data-lang="vi">Hoàn tiền theo BR-REF-01 (từng dòng); phát tín hiệu sang module thanh toán; thông báo chủ sân; ghi audit log</span></td></tr>
-                <tr><td>CONFIRMED</td><td><span data-lang="en">Owner closes slot</span><span data-lang="vi">Chủ sân đóng slot</span></td><td><span data-lang="en">Before play time</span><span data-lang="vi">Trước giờ chơi</span></td><td>CLOSED_BY_OWNER</td><td><span data-lang="en">100% refund (BR-REF-02); notify renter; if &lt; 6h, hit owner reliability; audit</span><span data-lang="vi">Hoàn 100% (BR-REF-02); thông báo người thuê; nếu &lt; 6h, ghi vào tỷ lệ tin cậy của chủ sân; ghi audit log</span></td></tr>
+                <tr><td>CONFIRMED</td><td><span data-lang="en">Owner closes slot</span><span data-lang="vi">Chủ sân đóng khung giờ</span></td><td><span data-lang="en">Before play time</span><span data-lang="vi">Trước giờ chơi</span></td><td>CLOSED_BY_OWNER</td><td><span data-lang="en">100% refund (BR-REF-02); notify renter; if &lt; 6h, hit owner reliability; audit</span><span data-lang="vi">Hoàn 100% (BR-REF-02); thông báo người thuê; nếu &lt; 6h, ghi vào tỷ lệ tin cậy của chủ sân; ghi audit log</span></td></tr>
                 <tr><td>CONFIRMED</td><td><span data-lang="en">Play time passes, attended</span><span data-lang="vi">Qua giờ chơi, có đến</span></td><td><span data-lang="en">Owner confirms</span><span data-lang="vi">Chủ sân xác nhận</span> <span class="soft">(provisional — see §10)</span></td><td>COMPLETED</td><td><span data-lang="en">Counts toward utilisation &amp; revenue; audit</span><span data-lang="vi">Tính vào hiệu suất &amp; doanh thu; ghi audit log</span></td></tr>
                 <tr><td>CONFIRMED</td><td><span data-lang="en">Play time passes, absent</span><span data-lang="vi">Qua giờ chơi, không đến</span></td><td><span data-lang="en">Owner marks no-show in the dispute window</span><span data-lang="vi">Chủ sân đánh dấu no-show trong cửa sổ khiếu nại</span> <span class="soft">(provisional — see §10)</span></td><td>NO_SHOW</td><td><span data-lang="en">Counts as sold, no refund; audit</span><span data-lang="vi">Tính là đã bán, không hoàn; ghi audit log</span></td></tr>
               </tbody>
@@ -800,13 +800,13 @@
               <tbody>
                 <tr><td><b><span data-lang="en">Utilisation rate</span><span data-lang="vi">Tỷ lệ hiệu suất</span></b></td><td><span data-lang="en">Slot-hours sold / slot-hours sellable, in the period</span><span data-lang="vi">Số giờ-khung đã bán / số giờ-khung có thể bán, trong kỳ</span></td><td><span data-lang="en">court × time band × period</span><span data-lang="vi">sân × khung giờ × kỳ</span></td><td><span data-lang="en">Owner-closed slots → <b>out of the denominator</b>. A booking cancelled before play → <b>not counted as sold</b>. No-show → <b>counted as sold</b> (the slot was blocked, nobody played). A 2-hour booking = 2 slot-hours.</span><span data-lang="vi">Khung giờ chủ sân đóng → <b>ngoài mẫu số</b>. Booking huỷ trước giờ chơi → <b>không tính là đã bán</b>. No-show → <b>tính là đã bán</b> (khung bị chặn, không ai chơi). Một booking 2 giờ = 2 giờ-khung.</span></td></tr>
                 <tr><td><b><span data-lang="en">Revenue per slot-hour</span><span data-lang="vi">Doanh thu mỗi giờ-sân</span></b></td><td><span data-lang="en">Net revenue / slot-hours sold</span><span data-lang="vi">Doanh thu ròng / số giờ-khung đã bán</span></td><td><span data-lang="en">court × period</span><span data-lang="vi">sân × kỳ</span></td><td><span data-lang="en">Revenue = paid − refunded. A 100%-refunded booking → <b>no revenue</b>; 50% → half. The platform fee is <b>not</b> deducted here (this is the owner's gross metric).</span><span data-lang="vi">Doanh thu = đã trả − đã hoàn. Booking hoàn 100% → <b>không doanh thu</b>; 50% → một nửa. Phí nền tảng <b>không</b> trừ ở đây (đây là chỉ số gộp của chủ sân).</span></td></tr>
-                <tr><td><b><span data-lang="en">Cancellation / no-show rate</span><span data-lang="vi">Tỷ lệ huỷ / no-show</span></b></td><td><span data-lang="en">(cancelled lines + no-show lines) / lines that reached an outcome in the period (COMPLETED + NO_SHOW + CANCELLED_BY_RENTER)</span><span data-lang="vi">(số dòng huỷ + số dòng no-show) / số dòng đã có kết cục trong kỳ (COMPLETED + NO_SHOW + CANCELLED_BY_RENTER)</span></td><td><span data-lang="en">court × period</span><span data-lang="vi">sân × kỳ</span></td><td><span data-lang="en">Owner-closed and unconfirmed lines (HELD / PENDING / EXPIRED) count in <b>neither</b> the numerator nor the denominator — owner-closure is a separate "owner-closure rate".</span><span data-lang="vi">Dòng chủ sân đóng và dòng chưa xác nhận (HELD / PENDING / EXPIRED) <b>không</b> tính vào tử số lẫn mẫu số — việc chủ sân đóng slot là một "tỷ lệ chủ sân đóng" riêng.</span></td></tr>
+                <tr><td><b><span data-lang="en">Cancellation / no-show rate</span><span data-lang="vi">Tỷ lệ huỷ / no-show</span></b></td><td><span data-lang="en">(cancelled lines + no-show lines) / lines that reached an outcome in the period (COMPLETED + NO_SHOW + CANCELLED_BY_RENTER)</span><span data-lang="vi">(số dòng huỷ + số dòng no-show) / số dòng đã có kết cục trong kỳ (COMPLETED + NO_SHOW + CANCELLED_BY_RENTER)</span></td><td><span data-lang="en">court × period</span><span data-lang="vi">sân × kỳ</span></td><td><span data-lang="en">Owner-closed and unconfirmed lines (HELD / PENDING / EXPIRED) count in <b>neither</b> the numerator nor the denominator — owner-closure is a separate "owner-closure rate".</span><span data-lang="vi">Dòng chủ sân đóng và dòng chưa xác nhận (HELD / PENDING / EXPIRED) <b>không</b> tính vào tử số lẫn mẫu số — việc chủ sân đóng khung giờ là một "tỷ lệ chủ sân đóng" riêng.</span></td></tr>
                 <tr><td><b><span data-lang="en">Repeat-booking rate</span><span data-lang="vi">Tỷ lệ khách quay lại</span></b></td><td><span data-lang="en">Renters with ≥ 2 CONFIRMED bookings in the period / renters with any booking in the period</span><span data-lang="vi">Số người thuê có ≥ 2 booking CONFIRMED trong kỳ / số người thuê có bất kỳ booking nào trong kỳ</span></td><td><span data-lang="en">platform or court</span><span data-lang="vi">nền tảng hoặc sân</span></td><td><span data-lang="en">Only COMPLETED or CONFIRMED-future bookings count; EXPIRED doesn't.</span><span data-lang="vi">Chỉ tính booking COMPLETED hoặc CONFIRMED-tương-lai; EXPIRED không tính.</span></td></tr>
               </tbody>
             </table>
           </div>
           <p style="margin-top:1rem"><span data-lang="en"><b>Sample SQL</b> — dialect <b>PostgreSQL</b> (<code>FILTER</code>, <code>INTERVAL</code>). Each query sits under the business question it answers; CTEs split by grain so totals don't fan out, and refunds are subtracted at line grain. <em>An Order may have several Payment rows (retries); at most one is <code>SUCCESS</code>, so the payment join stays 1:1 in practice.</em></span><span data-lang="vi"><b>SQL mẫu</b> — dialect <b>PostgreSQL</b> (<code>FILTER</code>, <code>INTERVAL</code>). Mỗi truy vấn đặt dưới câu hỏi nghiệp vụ nó trả lời; CTE tách theo độ hạt để tổng không bị fan-out, và tiền hoàn được trừ ở độ hạt dòng. <em>Một Order có thể có nhiều dòng Payment (thử lại); tối đa một dòng <code>SUCCESS</code>, nên trên thực tế phép join payment vẫn 1:1.</em></span></p>
-          <pre class="code">-- Q1. Which time bands of court X are "dead" in the last 30 days? (utilisation by band)
+          <pre class="code fixed">-- Q1. Which time bands of court X are "dead" in the last 30 days? (utilisation by band)
 WITH sold AS (
   SELECT court_id, slot_date, time_band, SUM(hours) AS sold_hours
   FROM order_line
@@ -897,8 +897,8 @@ GROUP BY ol.court_id;
                 <tr><td>RF-2</td><td><span data-lang="en">Renter</span><span data-lang="vi">Người thuê</span></td><td>12h</td><td><span data-lang="en">50% refund</span><span data-lang="vi">Hoàn 50%</span></td></tr>
                 <tr><td>RF-3</td><td><span data-lang="en">Renter</span><span data-lang="vi">Người thuê</span></td><td>3h</td><td><span data-lang="en">No refund</span><span data-lang="vi">Không hoàn</span></td></tr>
                 <tr><td>RF-4</td><td><span data-lang="en">Renter</span><span data-lang="vi">Người thuê</span></td><td><span data-lang="en">No cancel, no arrival (no-show)</span><span data-lang="vi">Không huỷ, không đến (no-show)</span></td><td><span data-lang="en">No refund; marked NO_SHOW after play time</span><span data-lang="vi">Không hoàn; đánh dấu NO_SHOW sau giờ chơi</span></td></tr>
-                <tr><td>RF-5</td><td><span data-lang="en">Owner closes slot</span><span data-lang="vi">Chủ sân đóng slot</span></td><td>20h</td><td><span data-lang="en">100% refund to the renter + notification</span><span data-lang="vi">Hoàn 100% cho người thuê + thông báo</span></td></tr>
-                <tr><td>RF-6</td><td><span data-lang="en">Owner closes slot</span><span data-lang="vi">Chủ sân đóng slot</span></td><td>2h</td><td><span data-lang="en">100% refund + recorded against the owner's reliability rate</span><span data-lang="vi">Hoàn 100% + ghi vào tỷ lệ tin cậy của chủ sân</span></td></tr>
+                <tr><td>RF-5</td><td><span data-lang="en">Owner closes slot</span><span data-lang="vi">Chủ sân đóng khung giờ</span></td><td>20h</td><td><span data-lang="en">100% refund to the renter + notification</span><span data-lang="vi">Hoàn 100% cho người thuê + thông báo</span></td></tr>
+                <tr><td>RF-6</td><td><span data-lang="en">Owner closes slot</span><span data-lang="vi">Chủ sân đóng khung giờ</span></td><td>2h</td><td><span data-lang="en">100% refund + recorded against the owner's reliability rate</span><span data-lang="vi">Hoàn 100% + ghi vào tỷ lệ tin cậy của chủ sân</span></td></tr>
               </tbody>
             </table>
           </div>

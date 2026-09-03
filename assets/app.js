@@ -118,6 +118,18 @@
       }, { rootMargin: '-70px 0px -70% 0px', threshold: 0 });
       navLinks.forEach(function (a) { navSpy.observe(document.getElementById(a.getAttribute('href').slice(1))); });
     }
+
+    // make horizontally-scrolling containers reachable by keyboard (WCAG 2.1.1)
+    document.querySelectorAll('.tbl-scroll, .diagram-scroll, pre.code').forEach(function (el) {
+      if (el.scrollWidth - el.clientWidth > 2) {
+        el.tabIndex = 0;
+        if (!el.hasAttribute('role')) el.setAttribute('role', 'region');
+        if (!el.hasAttribute('aria-label')) {
+          var cap = el.parentElement && el.parentElement.querySelector('figcaption');
+          el.setAttribute('aria-label', (cap ? cap.textContent.trim() + ' — ' : '') + 'scrollable');
+        }
+      }
+    });
   }
 
   if (document.readyState === 'loading') {
