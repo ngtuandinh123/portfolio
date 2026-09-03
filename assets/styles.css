@@ -17,7 +17,7 @@ html,body{margin:0;padding:0}
   --warn:#a5730c; --warn-tint:#f9f0da;
   --bad:#b23b3b; --bad-tint:#fbecec;
   --dg-node-bg:#f0eee9; --dg-node-line:#b0a898;
-  --fh:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fh:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
   --fb:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
   --fm:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
   --wrap:760px;
@@ -69,7 +69,7 @@ img,svg{max-width:100%}
 
 /* ---- top nav ---- */
 .nav{
-  position:fixed; inset:0 0 auto 0; height:52px; z-index:50;
+  position:fixed; inset:0 0 auto 0; height:60px; z-index:50;
   display:flex; align-items:center; gap:.9rem;
   padding:0 clamp(1rem,4vw,1.6rem);
   background:color-mix(in srgb,var(--paper) 88%,transparent);
@@ -81,23 +81,23 @@ img,svg{max-width:100%}
 .nav .links a{text-decoration:none; color:var(--ink-soft)}
 .nav .links a:hover{color:var(--accent)}
 .nav .seg{display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden}
-.nav .seg button{appearance:none; border:0; background:transparent; color:var(--ink-soft); font:inherit; font-family:var(--fm); font-size:.72rem; padding:.32rem .6rem; cursor:pointer; line-height:1}
+.nav .seg button{appearance:none; border:0; background:transparent; color:var(--ink-soft); font:inherit; font-family:var(--fm); font-size:.72rem; padding:.5rem .74rem; min-height:34px; cursor:pointer; line-height:1}
 .nav .seg button + button{border-left:1px solid var(--line)}
 .nav .seg button[aria-pressed="true"]{background:var(--accent); color:var(--paper)}
-.nav .tgl{appearance:none; border:1px solid var(--line); background:transparent; color:var(--ink); font-size:.9rem; width:30px; height:26px; border-radius:999px; cursor:pointer; line-height:1; display:inline-flex; align-items:center; justify-content:center}
+.nav .tgl{appearance:none; border:1px solid var(--line); background:transparent; color:var(--ink); font-size:.95rem; width:38px; height:34px; border-radius:999px; cursor:pointer; line-height:1; display:inline-flex; align-items:center; justify-content:center}
 .nav button:focus-visible, .nav a:focus-visible, a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
 @media (max-width:760px){ .nav .links{display:none} }
 
-main{padding-top:calc(52px + clamp(1.5rem,5vw,3rem))}
+main{padding-top:calc(60px + clamp(1.5rem,5vw,3rem))}
 
 /* ---- section rhythm ---- */
-.sec{padding-top:clamp(2.6rem,7vw,4.4rem); scroll-margin-top:68px}
+.sec{padding-top:clamp(2.6rem,7vw,4.4rem); scroll-margin-top:78px}
 .kicker{font-family:var(--fm); font-size:.72rem; text-transform:uppercase; letter-spacing:.15em; color:var(--accent); margin:0 0 .7rem}
-h1,h2,h3,h4{font-family:var(--fh); font-weight:500; letter-spacing:-.01em; text-wrap:balance}
-h1{font-size:clamp(2rem,5.5vw,3rem); line-height:1.12; margin:0}
-h2{font-size:clamp(1.4rem,3.6vw,1.95rem); margin:0}
-h3{font-size:1.2rem; margin:2rem 0 .5rem}
-h4{font-size:1rem; margin:1.4rem 0 .4rem}
+h1,h2,h3,h4{font-family:var(--fh); font-weight:600; letter-spacing:-.01em; text-wrap:balance}
+h1{font-size:clamp(2rem,5.5vw,3rem); line-height:1.14; margin:0}
+h2{font-size:clamp(1.4rem,3.6vw,1.95rem); line-height:1.22; margin:0}
+h3{font-size:1.2rem; line-height:1.28; margin:2rem 0 .5rem}
+h4{font-size:1.06rem; line-height:1.3; margin:1.4rem 0 .4rem}
 p{margin:.9rem 0 0}
 .sub{color:var(--ink-soft); margin:.5rem 0 0; max-width:62ch}
 .lead{font-size:clamp(1.03rem,2.3vw,1.2rem); color:var(--ink-soft); max-width:60ch}
@@ -245,15 +245,12 @@ details.readme p:first-of-type{margin-top:1rem}
 .hgrid .htitle{font-family:var(--fh); font-weight:500; font-size:1.05rem; margin:.35rem 0 .3rem}
 .hgrid .htext{font-size:.92rem; color:var(--ink-soft); margin:0}
 
-/* ---- reveal ---- */
-.reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
-.reveal.in{opacity:1; transform:none}
-@media (prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none; transition:none} }
+/* (scroll-reveal removed — was unused) */
 
 /* ---- case-study back link ---- */
 .backlink{font-family:var(--fm); font-size:.76rem; color:var(--ink-soft); text-decoration:none; display:inline-block; margin-bottom:1rem}
 .backlink:hover{color:var(--accent)}
-.cs-toc{position:sticky; top:64px; font-family:var(--fm); font-size:.74rem; line-height:1.9; color:var(--ink-soft)}
+.cs-toc{position:sticky; top:76px; align-self:start; max-height:calc(100vh - 96px); overflow-y:auto; font-family:var(--fm); font-size:.74rem; line-height:1.9; color:var(--ink-soft)}
 .cs-toc a{display:block; text-decoration:none}
 .cs-toc a:hover{color:var(--accent)}
 @media (max-width:1179px){ .cs-toc{display:none} }
@@ -266,6 +263,11 @@ details.readme p:first-of-type{margin-top:1rem}
 }
 .cs-body{max-width:760px; min-width:0}
 .cs-body .soft{color:var(--ink-soft)}
+/* readable measure: cap running prose (not the .sub/.lead/.kicker helpers, tables or diagrams) */
+.cs-body p:not([class]),
+.cs-body .steps li,
+.cs-body .plain li,
+.cs-body .dl dd{max-width:34rem}
 
 /* ---- case-study: diagrams, ERD, sub-nav, mobile TOC ---- */
 figure.diagram text{font-family:var(--fm); font-size:12px}
@@ -290,7 +292,8 @@ figure.diagram .dg-title{font-size:13px; font-weight:600}
 .rel li{padding:.35rem 0; border-top:1px solid var(--line)}
 .rel li:first-child{border-top:0}
 .subsec{margin-top:2.2rem}
-.subsec > h3{margin-top:0; scroll-margin-top:66px}
+.subsec > h3{margin-top:0; scroll-margin-top:78px}
 .dsubnav{display:flex; flex-wrap:wrap; gap:.4rem .5rem; margin-top:1.1rem; padding:.9rem 1rem; border:1px solid var(--line); border-radius:10px; background:var(--surface)}
 .dsubnav a{font-family:var(--fm); font-size:.72rem; text-decoration:none; color:var(--ink-soft); padding:.25rem .55rem; border:1px solid var(--line); border-radius:999px}
 .dsubnav a:hover{color:var(--accent); border-color:var(--accent)}
+.dsubnav a[data-here]{color:var(--accent); border-color:var(--accent); background:var(--accent-tint)}

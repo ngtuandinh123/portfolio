@@ -5,11 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Access Control &amp; Approval Workflow — Case Study</title>
 <meta name="description" content="Case study: a per-project PBAC permission model and a configurable multi-level approval workflow for a construction ERP on Odoo. Reconstruction based on real work.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nguyen Tuan Dinh — BA Portfolio">
+<meta property="og:title" content="Access Control &amp; Approval Workflow — Case Study">
+<meta property="og:description" content="Case study: a per-project PBAC permission model and a configurable multi-level approval workflow for a construction ERP on Odoo. Reconstruction based on real work.">
+<meta property="og:url" content="https://ngtuandinh123.github.io/portfolio/case-study-1.html">
+<meta property="og:image" content="https://ngtuandinh123.github.io/portfolio/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Access Control &amp; Approval Workflow — Case Study">
+<meta name="twitter:description" content="Case study: a per-project PBAC permission model and a configurable multi-level approval workflow for a construction ERP on Odoo. Reconstruction based on real work.">
+<meta name="twitter:image" content="https://ngtuandinh123.github.io/portfolio/assets/og-card.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=12">
-<script src="assets/app.js?v=12"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/styles.css?v=13">
+<script src="assets/app.js?v=13"></script>
 </head>
 <body>
 
@@ -178,12 +188,12 @@
       <section class="sec" id="stakeholders">
         <p class="kicker">3</p>
         <h2><span data-lang="en">Stakeholders &amp; RACI</span><span data-lang="vi">Stakeholder &amp; RACI</span></h2>
-        <p class="sub"><span data-lang="en">RACI for the four activities in my scope (specifying the two modules), not the whole ERP programme. R = Responsible, A = Accountable, C = Consulted, I = Informed.</span><span data-lang="vi">RACI cho 4 hoạt động thuộc scope của tôi (đặc tả 2 phân hệ), không phải cả dự án ERP.</span></p>
+        <p class="sub"><span data-lang="en">RACI for the four activities in my scope (specifying the two modules), not the whole ERP programme. R = Responsible, A = Accountable, C = Consulted, I = Informed.</span><span data-lang="vi">RACI cho 4 hoạt động thuộc scope của tôi (đặc tả 2 phân hệ), không phải cả dự án ERP. R = Responsible (người làm), A = Accountable (người chịu trách nhiệm), C = Consulted (được hỏi ý kiến), I = Informed (được thông báo).</span></p>
         <div class="tbl-scroll">
           <table>
             <thead><tr>
               <th><span data-lang="en">Person / role</span><span data-lang="vi">Người / vai trò</span></th>
-              <th>Elicitation</th><th>Specification</th><th><span data-lang="en">Doc review &amp; sign-off</span><span data-lang="vi">Rà soát &amp; duyệt</span></th><th><span data-lang="en">Build &amp; test</span><span data-lang="vi">Xây dựng &amp; kiểm thử</span></th>
+              <th><span data-lang="en">Elicitation</span><span data-lang="vi">Khai thác yêu cầu</span></th><th><span data-lang="en">Specification</span><span data-lang="vi">Đặc tả</span></th><th><span data-lang="en">Doc review &amp; sign-off</span><span data-lang="vi">Rà soát &amp; duyệt</span></th><th><span data-lang="en">Build &amp; test</span><span data-lang="vi">Xây dựng &amp; kiểm thử</span></th>
             </tr></thead>
             <tbody>
               <tr><td><b><span data-lang="en">Me — BA (F0 + F3 scope)</span><span data-lang="vi">Tôi — BA (scope F0 + F3)</span></b></td><td>R / A</td><td>R / A</td><td>C</td><td>C</td></tr>
@@ -425,20 +435,20 @@
           <span><span data-lang="en">The deliverable samples below are shown in English, as they were produced. Each type shows one complete sample rather than the full set.</span><span data-lang="vi">Các sản phẩm mẫu dưới đây trình bày bằng tiếng Anh, đúng như khi thực hiện. Mỗi loại hiển thị một mẫu hoàn chỉnh thay vì toàn bộ.</span></span>
         </div>
         <nav class="dsubnav" aria-label="Deliverables index">
-          <a href="#d1">7.1 BRD/SRS</a>
-          <a href="#d2">7.2 U–R–P matrix</a>
-          <a href="#d3">7.3 BPMN + validation</a>
+          <a href="#d1">7.1 <span data-lang="en">BRD/SRS</span><span data-lang="vi">Trích BRD/SRS</span></a>
+          <a href="#d2">7.2 <span data-lang="en">U–R–P matrix</span><span data-lang="vi">Ma trận U–R–P</span></a>
+          <a href="#d3">7.3 <span data-lang="en">BPMN + validation</span><span data-lang="vi">BPMN + kiểm tra</span></a>
           <a href="#d4">7.4 ERD</a>
-          <a href="#d5">7.5 User stories</a>
-          <a href="#d6">7.6 Use case spec</a>
-          <a href="#d7">7.7 Business rules</a>
-          <a href="#d8">7.8 Acceptance criteria</a>
-          <a href="#d9">7.9 Wireframes</a>
-          <a href="#d10">7.10 UAT + traceability</a>
+          <a href="#d5">7.5 <span data-lang="en">User stories</span><span data-lang="vi">User story</span></a>
+          <a href="#d6">7.6 <span data-lang="en">Use case spec</span><span data-lang="vi">Đặc tả use case</span></a>
+          <a href="#d7">7.7 <span data-lang="en">Business rules</span><span data-lang="vi">Quy tắc nghiệp vụ</span></a>
+          <a href="#d8">7.8 <span data-lang="en">Acceptance criteria</span><span data-lang="vi">Tiêu chí nghiệm thu</span></a>
+          <a href="#d9">7.9 <span data-lang="en">Wireframes</span><span data-lang="vi">Wireframe</span></a>
+          <a href="#d10">7.10 <span data-lang="en">UAT + traceability</span><span data-lang="vi">UAT + truy vết</span></a>
         </nav>
 
         <div class="subsec">
-          <h3 id="d1">7.1 · BRD / SRS extract</h3>
+          <h3 id="d1">7.1 · <span data-lang="en">BRD / SRS extract</span><span data-lang="vi">Trích BRD / SRS</span></h3>
           <p class="sub"><span data-lang="en">Extract from Section 3 — Permission mechanism (full doc: 9-part contents + 3 diagrams; PDF download).</span><span data-lang="vi">Trích Mục 3 — Cơ chế Phân quyền (bản đầy đủ: mục lục 9 phần + 3 sơ đồ; tải PDF).</span></p>
           <p><b>3.1 Scope.</b> The whole permission system operates by <b>Project</b>. A user's rights are computed separately for each project they join; the same user may hold different rights on different projects.</p>
           <p><b>3.2 Effective-permission formula.</b> <code>Permission at Project X = UNION(rights from groups at X) + individual add-ons at X</code>. The system <b>only adds</b> rights. An individual add-on can only <b>grant</b> an action the user's groups don't have — never override, never negate.</p>
@@ -447,10 +457,10 @@
         </div>
 
         <div class="subsec">
-          <h3 id="d2">7.2 · User–Role–Permission matrix — Submission module</h3>
+          <h3 id="d2">7.2 · <span data-lang="en">User–Role–Permission matrix — Submission module</span><span data-lang="vi">Ma trận User–Role–Permission — phân hệ Đề trình</span></h3>
           <div class="tbl-scroll">
             <table>
-              <thead><tr><th>User group (by permission)</th><th class="t-center">View</th><th class="t-center">Create</th><th class="t-center">Edit</th><th class="t-center">Submit</th><th class="t-center">Review</th><th class="t-center">Approve</th><th class="t-center">Override</th></tr></thead>
+              <thead><tr><th><span data-lang="en">User group (by permission)</span><span data-lang="vi">Nhóm người dùng (theo quyền)</span></th><th class="t-center">View</th><th class="t-center">Create</th><th class="t-center">Edit</th><th class="t-center">Submit</th><th class="t-center">Review</th><th class="t-center">Approve</th><th class="t-center">Override</th></tr></thead>
               <tbody>
                 <tr><td>Submitter</td><td class="t-center yes">✓</td><td class="t-center yes">✓</td><td class="t-center yes">✓</td><td class="t-center yes">✓</td><td class="t-center no">✗</td><td class="t-center no">✗</td><td class="t-center no">✗</td></tr>
                 <tr><td>Reviewer</td><td class="t-center yes">✓</td><td class="t-center no">✗</td><td class="t-center no">✗</td><td class="t-center no">✗</td><td class="t-center yes">✓</td><td class="t-center no">✗</td><td class="t-center no">✗</td></tr>
@@ -464,7 +474,7 @@
         </div>
 
         <div class="subsec">
-          <h3 id="d3">7.3 · BPMN TO-BE — 9-step Submit validation</h3>
+          <h3 id="d3">7.3 · <span data-lang="en">BPMN TO-BE — 9-step Submit validation</span><span data-lang="vi">BPMN TO-BE — 9 bước kiểm tra khi Submit</span></h3>
           <p class="sub"><span data-lang="en">The TO-BE flow is the state machine in §6.4. On Submit, the system runs 9 checks <b>in a deliberate order — permission and scope first, data second — so the system never reveals the existence of an out-of-scope record</b>:</span><span data-lang="vi">Luồng TO-BE chính là state machine ở §6.4. Khi Submit, hệ thống chạy 9 bước kiểm tra <b>theo thứ tự có chủ đích — quyền và phạm vi trước, dữ liệu sau</b>:</span></p>
           <ol class="steps">
             <li>User has <b>Submit</b> permission on the module</li>
@@ -480,7 +490,7 @@
         </div>
 
         <div class="subsec">
-          <h3 id="d4">7.4 · Entity relationship (logic)</h3>
+          <h3 id="d4">7.4 · <span data-lang="en">Entity relationship (logic)</span><span data-lang="vi">Quan hệ thực thể (mức logic)</span></h3>
           <div class="erd">
             <div class="ent"><h5>User</h5><ul><li>email / phone (identity)</li><li>1 department</li><li>N permission groups</li><li>N projects (scope)</li></ul></div>
             <div class="ent"><h5>PermissionGroup</h5><ul><li>rights list</li><li>N users</li></ul></div>
@@ -503,7 +513,7 @@
         </div>
 
         <div class="subsec">
-          <h3 id="d5">7.5 · User stories + acceptance criteria (8 of 22)</h3>
+          <h3 id="d5">7.5 · <span data-lang="en">User stories + acceptance criteria (8 of 22)</span><span data-lang="vi">User story + tiêu chí nghiệm thu (8/22)</span></h3>
 
           <div class="story"><div class="title">US-01</div>
             <p>As a purchasing officer, I want the system to block printing / sending a record before it has the required approvals, so I don't commit to a supplier before the funds are vetted.</p>
@@ -579,7 +589,7 @@
         </div>
 
         <div class="subsec">
-          <h3 id="d6">7.6 · Use case specification (one full spec)</h3>
+          <h3 id="d6">7.6 · <span data-lang="en">Use case specification (one full spec)</span><span data-lang="vi">Đặc tả use case (một bản đầy đủ)</span></h3>
           <div class="tbl-scroll">
             <table>
               <tbody>
@@ -600,7 +610,7 @@
         </div>
 
         <div class="subsec">
-          <h3 id="d7">7.7 · Business rules catalogue (29 rules — those cited in this case study)</h3>
+          <h3 id="d7">7.7 · <span data-lang="en">Business rules catalogue (29 rules — those cited in this case study)</span><span data-lang="vi">Danh mục quy tắc nghiệp vụ (29 quy tắc — các quy tắc được trích trong case study này)</span></h3>
           <h4>PBAC — permissions (BR-PBAC-01…08)</h4>
           <div class="tbl-scroll"><table><tbody>
             <tr><td>BR-PBAC-01</td><td>User identity is unique by national-ID / email / phone — no duplicates.</td></tr>
@@ -637,7 +647,7 @@
         </div>
 
         <div class="subsec">
-          <h3 id="d8">7.8 · Acceptance criteria — Submission module (AC-SUB-01…27)</h3>
+          <h3 id="d8">7.8 · <span data-lang="en">Acceptance criteria — Submission module (AC-SUB-01…27)</span><span data-lang="vi">Tiêu chí nghiệm thu — phân hệ Đề trình (AC-SUB-01…27)</span></h3>
           <div class="tbl-scroll"><table><tbody>
             <tr><td>AC-SUB-01</td><td>A user only sees records within their Project Scope.</td></tr>
             <tr><td>AC-SUB-02</td><td>A user with Create can create a draft record.</td></tr>
@@ -670,10 +680,10 @@
         </div>
 
         <div class="subsec">
-          <h3 id="d9">7.9 · Wireframes — 6 screens (2 drawn in detail)</h3>
+          <h3 id="d9">7.9 · <span data-lang="en">Wireframes — 6 screens (2 drawn in detail)</span><span data-lang="vi">Wireframe — 6 màn hình (2 vẽ chi tiết)</span></h3>
           <div class="tbl-scroll">
             <table>
-              <thead><tr><th>Screen</th><th>Goal</th><th>Key components</th></tr></thead>
+              <thead><tr><th><span data-lang="en">Screen</span><span data-lang="vi">Màn hình</span></th><th><span data-lang="en">Goal</span><span data-lang="vi">Mục tiêu</span></th><th><span data-lang="en">Key components</span><span data-lang="vi">Thành phần chính</span></th></tr></thead>
               <tbody>
                 <tr><td>M1 — List / SLA dashboard</td><td>See records by permission &amp; scope</td><td>Search; filters (project / type / state / SLA level); tabs "Mine / To handle / Overdue / All in scope"; per row: id, title, project, creator, <b>current handler</b>, state, <b>SLA countdown + colour badge</b>; red records pinned</td></tr>
                 <tr><td>M2 — Create form</td><td>Create &amp; submit</td><td>Project (scope only), type, title, content, attachments; <b>Workflow Preview Panel</b> (live flow from the project's config); Save draft / Submit / Cancel</td></tr>
@@ -724,7 +734,7 @@
               <text x="24" y="470" class="dg-lbl dg-text-soft">* = reason required</text>
             </svg>
             </div>
-            <figcaption>M3 — detail + decision panel</figcaption>
+            <figcaption><span data-lang="en">M3 — detail + decision panel</span><span data-lang="vi">M3 — bảng chi tiết + ra quyết định</span></figcaption>
           </figure>
 
           <h4>M6 — Workflow Config builder <span style="font-weight:400;color:var(--ink-soft)">(low-fi, rule callouts)</span></h4>
@@ -763,15 +773,15 @@
               <text x="20" y="426" class="dg-lbl dg-note">record's creator → invalid-config guard (§6.2), BR-PBAC-03</text>
             </svg>
             </div>
-            <figcaption>M6 — workflow config builder</figcaption>
+            <figcaption><span data-lang="en">M6 — workflow config builder</span><span data-lang="vi">M6 — trình cấu hình workflow</span></figcaption>
           </figure>
         </div>
 
         <div class="subsec">
-          <h3 id="d10">7.10 · UAT test cases + requirement traceability matrix (10 of ~30)</h3>
+          <h3 id="d10">7.10 · <span data-lang="en">UAT test cases + requirement traceability matrix (10 of ~30)</span><span data-lang="vi">Test case UAT + ma trận truy vết yêu cầu (10/~30)</span></h3>
           <div class="tbl-scroll">
             <table>
-              <thead><tr><th>TC</th><th>Scenario</th><th>Expected</th><th>AC</th><th>BR</th></tr></thead>
+              <thead><tr><th>TC</th><th><span data-lang="en">Scenario</span><span data-lang="vi">Kịch bản</span></th><th><span data-lang="en">Expected</span><span data-lang="vi">Kỳ vọng</span></th><th>AC</th><th>BR</th></tr></thead>
               <tbody>
                 <tr><td>TC-01</td><td>Create a 9.5M material record → Confirm</td><td>Passes straight through (workflow has no approval step)</td><td>AC-SUB-02, AC-SUB-22</td><td>BR-PO-01</td></tr>
                 <tr><td>TC-02</td><td>85M record → Submit</td><td>Held at <code>PENDING_APPROVAL</code>, names group "Materials Dept Head" to approve</td><td>AC-SUB-11, AC-SUB-24</td><td>BR-PO-02</td></tr>
@@ -889,6 +899,29 @@
       });
     }, { rootMargin: '-60px 0px -70% 0px', threshold: 0 });
     document.querySelectorAll('section.sec[id]').forEach(function (s) { spy.observe(s); });
+
+    // sub-nav scroll-spy: highlight the current §7 chip
+    (function () {
+      var chips = {};
+      document.querySelectorAll('.dsubnav a').forEach(function (a) {
+        var cid = (a.getAttribute('href') || '').replace('#', '');
+        if (cid) chips[cid] = a;
+      });
+      var subs = document.querySelectorAll('.subsec > h3[id]');
+      if (!subs.length || !('IntersectionObserver' in window)) return;
+      var cur = null;
+      var o = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          var cid = en.target.id;
+          if (cid === cur || !chips[cid]) return;
+          if (cur && chips[cur]) chips[cur].removeAttribute('data-here');
+          chips[cid].setAttribute('data-here', '');
+          cur = cid;
+        });
+      }, { rootMargin: '-72px 0px -75% 0px', threshold: 0 });
+      subs.forEach(function (s) { o.observe(s); });
+    })();
   })();
 </script>
 
