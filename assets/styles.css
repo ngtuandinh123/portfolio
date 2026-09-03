@@ -257,12 +257,15 @@ details.readme p:first-of-type{margin-top:1rem}
 .cs-toc a{display:block; text-decoration:none}
 .cs-toc a:hover{color:var(--accent)}
 @media (max-width:1179px){ .cs-toc{display:none} }
-.cs-layout{display:grid; grid-template-columns:1fr; gap:2rem}
+.cs-layout{display:grid; grid-template-columns:minmax(0,1fr); gap:2rem}
+.cs-layout>*{min-width:0}
 @media (min-width:1180px){
+  .wrap.wide{max-width:1060px}
   .cs-layout{grid-template-columns:180px minmax(0,1fr); gap:2.5rem; max-width:1010px; margin:0 auto}
   .cs-layout .cs-body{max-width:760px; min-width:0}
 }
-.cs-body{max-width:760px; margin-inline:auto}
+.cs-body{max-width:760px; min-width:0}
+.cs-body .soft{color:var(--ink-soft)}
 
 /* ---- case-study: diagrams, ERD, sub-nav, mobile TOC ---- */
 figure.diagram text{font-family:var(--fm); font-size:12px}
