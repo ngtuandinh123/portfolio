@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=18">
-<script src="assets/app.js?v=18"></script>
+<link rel="stylesheet" href="assets/styles.css?v=19">
+<script src="assets/app.js?v=19"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -154,7 +154,7 @@
               </tr>
               <tr>
                 <td><span data-lang="en">6 wireframes for the spec</span><span data-lang="vi">6 wireframe phục vụ đặc tả</span></td>
-                <td><span data-lang="en">Two-way sync with the source SIS — phase 1 reads only</span><span data-lang="vi">Đồng bộ 2 chiều với SIS nguồn — phase 1 chỉ đọc</span></td>
+                <td><span data-lang="en">Two-way sync with the source SIS — phase 1 reads only</span><span data-lang="vi">Đồng bộ 2 chiều với SIS (hệ thống thông tin sinh viên) nguồn — phase 1 chỉ đọc</span></td>
                 <td></td>
               </tr>
             </tbody>
@@ -427,10 +427,10 @@
 
         <div class="subsec">
           <h3 id="e1">7.1 · <span data-lang="en">BRD / SRS extract — Eligibility &amp; prerequisites</span><span data-lang="vi">Trích BRD / SRS — Điều kiện &amp; tiên quyết</span></h3>
-          <p><b>3.1 Registration window.</b> A student may only register during their assigned <b>priority group's</b> window. Priority groups and their open/close datetimes are configured per term by the registrar. Outside the window, "Submit registration" is blocked with a message naming when the student's window opens.</p>
-          <p><b>3.2 Blocking holds.</b> A financial, disciplinary or missing-document <b>hold</b> blocks all registration actions until cleared. Holds are read from the SIS; the block is re-checked at submit.</p>
-          <p><b>3.3 Credit cap by academic standing.</b> Good standing: up to the term credit cap. Warning / probation: a lower cap, optionally with a mandatory-course list. Below the full-time minimum → a <b>warning, not a block</b>.</p>
-          <p><b>3.4 Prerequisite expression.</b> A course's prerequisite is an <b>expression tree</b> — AND / OR of <code>(course, minimum grade)</code> leaves. A course in progress satisfies a leaf <b>provisionally</b> (flagged). A documented <b>waiver</b> (advisor or registrar, with a reason, audit-logged) satisfies the whole expression for that student.</p>
+          <p><span data-lang="en"><b>3.1 Registration window.</b> A student may only register during their assigned <b>priority group's</b> window. Priority groups and their open/close datetimes are configured per term by the registrar. Outside the window, "Submit registration" is blocked with a message naming when the student's window opens.</span><span data-lang="vi"><b>3.1 Khung đăng ký.</b> Sinh viên chỉ được đăng ký trong khung của <b>nhóm ưu tiên</b> được gán. Nhóm ưu tiên và mốc mở/đóng do phòng đào tạo cấu hình theo từng học kỳ. Ngoài khung, "Submit registration" bị chặn kèm thông báo nêu rõ khi nào khung của sinh viên mở.</span></p>
+          <p><span data-lang="en"><b>3.2 Blocking holds.</b> A financial, disciplinary or missing-document <b>hold</b> blocks all registration actions until cleared. Holds are read from the SIS; the block is re-checked at submit.</span><span data-lang="vi"><b>3.2 Hold chặn.</b> Một <b>hold</b> tài chính, kỷ luật hay thiếu giấy tờ sẽ chặn mọi thao tác đăng ký cho đến khi được gỡ. Hold đọc từ SIS; lệnh chặn được kiểm lại lúc submit.</span></p>
+          <p><span data-lang="en"><b>3.3 Credit cap by academic standing.</b> Good standing: up to the term credit cap. Warning / probation: a lower cap, optionally with a mandatory-course list. Below the full-time minimum → a <b>warning, not a block</b>.</span><span data-lang="vi"><b>3.3 Trần tín chỉ theo xếp loại học lực.</b> Đủ điều kiện: tới trần tín chỉ học kỳ. Cảnh cáo / thử thách: trần thấp hơn, có thể kèm danh sách môn bắt buộc. Dưới mức tối thiểu học toàn thời gian → <b>cảnh báo, không chặn</b>.</span></p>
+          <p><span data-lang="en"><b>3.4 Prerequisite expression.</b> A course's prerequisite is an <b>expression tree</b> — AND / OR of <code>(course, minimum grade)</code> leaves. A course in progress satisfies a leaf <b>provisionally</b> (flagged). A documented <b>waiver</b> (advisor or registrar, with a reason, audit-logged) satisfies the whole expression for that student.</span><span data-lang="vi"><b>3.4 Biểu thức tiên quyết.</b> Điều kiện tiên quyết của một môn là một <b>cây biểu thức</b> — AND / OR của các lá <code>(môn, điểm tối thiểu)</code>. Một môn đang học thỏa một lá <b>tạm thời</b> (có gắn cờ). Một <b>waiver</b> (miễn tiên quyết) có hồ sơ (cố vấn hoặc phòng đào tạo, có lý do, ghi audit log) thỏa toàn bộ biểu thức cho sinh viên đó.</span></p>
         </div>
 
         <div class="subsec">
@@ -472,14 +472,14 @@
           <h3 id="e3">7.3 · <span data-lang="en">BPMN TO-BE — Register for a section</span><span data-lang="vi">BPMN TO-BE — Đăng ký một lớp học phần</span></h3>
           <p class="sub"><span data-lang="en">The TO-BE flow is the state machine in §6.5. On Submit, the system runs 8 checks <b>in a deliberate order — the cheap, policy-level blocks first, the data-heavy checks second</b>:</span><span data-lang="vi">Luồng TO-BE chính là state machine ở §6.5. Khi Submit, hệ thống chạy 8 bước kiểm tra <b>theo thứ tự có chủ đích — chặn ở mức rẻ và mang tính chính sách trước, kiểm tra tốn dữ liệu sau</b>:</span></p>
           <ol class="steps">
-            <li>Inside the student's <b>priority-group window</b></li>
-            <li>No active <b>hold</b></li>
-            <li>Academic <b>standing &amp; credit cap</b></li>
-            <li><b>Prerequisite</b> satisfied (or waived)</li>
-            <li><b>Co-requisite</b> present in the plan</li>
-            <li>No <b>anti-requisite / duplicate</b> course</li>
-            <li>No <b>hard schedule conflict</b></li>
-            <li><b>Seat allocation</b> (atomic) → ENROLLED / WAITLISTED</li>
+            <li><span data-lang="en">Inside the student's <b>priority-group window</b></span><span data-lang="vi">Trong <b>khung nhóm ưu tiên</b> của sinh viên</span></li>
+            <li><span data-lang="en">No active <b>hold</b></span><span data-lang="vi">Không còn <b>hold</b> hiệu lực</span></li>
+            <li><span data-lang="en">Academic <b>standing &amp; credit cap</b></span><span data-lang="vi"><b>Xếp loại học lực &amp; trần tín chỉ</b></span></li>
+            <li><span data-lang="en"><b>Prerequisite</b> satisfied (or waived)</span><span data-lang="vi"><b>Điều kiện tiên quyết</b> đã thỏa (hoặc được miễn)</span></li>
+            <li><span data-lang="en"><b>Co-requisite</b> present in the plan</span><span data-lang="vi"><b>Môn song hành</b> có trong kế hoạch</span></li>
+            <li><span data-lang="en">No <b>anti-requisite / duplicate</b> course</span><span data-lang="vi">Không có môn <b>loại trừ / trùng</b></span></li>
+            <li><span data-lang="en">No <b>hard schedule conflict</b></span><span data-lang="vi">Không <b>xung đột lịch cứng</b></span></li>
+            <li><span data-lang="en"><b>Seat allocation</b> (atomic) → ENROLLED / WAITLISTED</span><span data-lang="vi"><b>Cấp chỗ</b> (nguyên tử) → ENROLLED / WAITLISTED</span></li>
           </ol>
         </div>
 
@@ -521,7 +521,7 @@
             <div class="ent"><h5>AuditLog</h5><ul><li>enrolment_record, actor, timestamp</li><li>action, old_value, new_value</li></ul></div>
           </div>
           <ul class="rel">
-            <li>Student &nbsp;N—N&nbsp; Section &nbsp;(via EnrolmentRecord) &nbsp;·&nbsp; Student &nbsp;N—1&nbsp; PriorityGroup &nbsp;·&nbsp; Student &nbsp;1—N&nbsp; Hold</li>
+            <li>Student &nbsp;N—N&nbsp; Section &nbsp;<span data-lang="en">(via EnrolmentRecord)</span><span data-lang="vi">(qua EnrolmentRecord)</span> &nbsp;·&nbsp; Student &nbsp;N—1&nbsp; PriorityGroup &nbsp;·&nbsp; Student &nbsp;1—N&nbsp; Hold</li>
             <li>Term &nbsp;1—N&nbsp; RegistrationWindow &nbsp;·&nbsp; Term &nbsp;1—1&nbsp; AcademicCalendar</li>
             <li>Course &nbsp;1—N&nbsp; Section &nbsp;·&nbsp; Course &nbsp;1—1&nbsp; PrerequisiteRule</li>
             <li>Section &nbsp;1—N&nbsp; MeetingPattern &nbsp;·&nbsp; Section &nbsp;1—N&nbsp; EnrolmentRecord &nbsp;·&nbsp; Section &nbsp;1—N&nbsp; WaitlistEntry &nbsp;·&nbsp; Section &nbsp;1—N&nbsp; ReservedSeatPool</li>
@@ -533,47 +533,66 @@
           <h3 id="e6">7.6 · <span data-lang="en">User stories + acceptance criteria (5 of 20)</span><span data-lang="vi">User story + tiêu chí nghiệm thu (5/20)</span></h3>
 
           <div class="story"><div class="title">US-01</div>
-            <p>As a student, I want to see each section's remaining seats in real time, so I know whether to register or join the waitlist.</p>
-            <pre class="code"><span class="kw">Given</span> section S has capacity 40 and 40 ENROLLED
+            <p><span data-lang="en">As a student, I want to see each section's remaining seats in real time, so I know whether to register or join the waitlist.</span><span data-lang="vi">Là sinh viên, tôi muốn thấy số chỗ còn lại của mỗi section theo thời gian thực, để biết nên đăng ký hay vào waitlist.</span></p>
+            <pre class="code"><span data-lang="en"><span class="kw">Given</span> section S has capacity 40 and 40 ENROLLED
 <span class="kw">When</span> I open the section list
 <span class="kw">Then</span> S shows "Full · Waitlist: 3"
-<span class="kw">And</span> the "Add to plan" button becomes "Join waitlist (position ~4)"</pre>
+<span class="kw">And</span> the "Add to plan" button becomes "Join waitlist (position ~4)"</span><span data-lang="vi"><span class="kw">Given</span> section S có sức chứa 40 và đã có 40 ENROLLED
+<span class="kw">When</span> tôi mở danh sách section
+<span class="kw">Then</span> S hiện "Full · Waitlist: 3"
+<span class="kw">And</span> nút "Add to plan" đổi thành "Join waitlist (position ~4)"</span></pre>
           </div>
 
           <div class="story"><div class="title">US-02</div>
-            <p>As a student, when I'm missing a prerequisite, I want to be told exactly what's missing, so I can pick another course instead of guessing.</p>
-            <pre class="code"><span class="kw">Given</span> course C requires "B215 with grade ≥ C"
+            <p><span data-lang="en">As a student, when I'm missing a prerequisite, I want to be told exactly what's missing, so I can pick another course instead of guessing.</span><span data-lang="vi">Là sinh viên, khi thiếu điều kiện tiên quyết, tôi muốn được báo chính xác thiếu gì, để chọn môn khác thay vì phỏng đoán.</span></p>
+            <pre class="code"><span data-lang="en"><span class="kw">Given</span> course C requires "B215 with grade ≥ C"
 <span class="kw">And</span> my transcript has B215 = D
 <span class="kw">When</span> I add C to my plan
 <span class="kw">Then</span> C is blocked with "Prerequisite not met: B215 (need ≥ C, have D)"
-<span class="kw">And</span> a hint: "Contact your advisor if you need a prerequisite waiver"</pre>
+<span class="kw">And</span> a hint: "Contact your advisor if you need a prerequisite waiver"</span><span data-lang="vi"><span class="kw">Given</span> môn C yêu cầu "B215 điểm ≥ C"
+<span class="kw">And</span> bảng điểm của tôi có B215 = D
+<span class="kw">When</span> tôi thêm C vào kế hoạch
+<span class="kw">Then</span> C bị chặn với "Prerequisite not met: B215 (need ≥ C, have D)"
+<span class="kw">And</span> một gợi ý: "Liên hệ cố vấn nếu bạn cần waiver tiên quyết"</span></pre>
           </div>
 
           <div class="story"><div class="title">US-03</div>
-            <p>As a waitlisted student, when a seat frees up, I want a clear offer with a claim deadline, so I can confirm in time.</p>
-            <pre class="code"><span class="kw">Given</span> I am position 1 on section S's waitlist
+            <p><span data-lang="en">As a waitlisted student, when a seat frees up, I want a clear offer with a claim deadline, so I can confirm in time.</span><span data-lang="vi">Là sinh viên trong waitlist, khi có chỗ trống, tôi muốn một lời mời rõ ràng kèm hạn nhận, để xác nhận kịp.</span></p>
+            <pre class="code"><span data-lang="en"><span class="kw">Given</span> I am position 1 on section S's waitlist
 <span class="kw">When</span> an ENROLLED student drops S within the add/drop window
 <span class="kw">Then</span> I get an offer, S moves to OFFERED with a 24-working-hour claim deadline
 <span class="kw">And</span> the system re-runs the eligibility + conflict checks for me
 <span class="kw">When</span> I confirm within the deadline
-<span class="kw">Then</span> S moves to ENROLLED</pre>
+<span class="kw">Then</span> S moves to ENROLLED</span><span data-lang="vi"><span class="kw">Given</span> tôi ở vị trí 1 trong waitlist của section S
+<span class="kw">When</span> một sinh viên ENROLLED rút S trong cửa sổ add/drop
+<span class="kw">Then</span> tôi nhận được lời mời, S chuyển sang OFFERED với hạn nhận 24 giờ làm việc
+<span class="kw">And</span> hệ thống chạy lại kiểm tra điều kiện + trùng lịch cho tôi
+<span class="kw">When</span> tôi xác nhận trong hạn
+<span class="kw">Then</span> S chuyển sang ENROLLED</span></pre>
           </div>
 
           <div class="story"><div class="title">US-04</div>
-            <p>As a student holding an offer, if I don't respond, I want the offer to pass on automatically, so the seat isn't stuck.</p>
-            <pre class="code"><span class="kw">Given</span> S is OFFERED to me and 24 working hours have passed
+            <p><span data-lang="en">As a student holding an offer, if I don't respond, I want the offer to pass on automatically, so the seat isn't stuck.</span><span data-lang="vi">Là sinh viên đang giữ một lời mời, nếu tôi không phản hồi, tôi muốn lời mời tự động chuyển tiếp, để chỗ không bị kẹt.</span></p>
+            <pre class="code"><span data-lang="en"><span class="kw">Given</span> S is OFFERED to me and 24 working hours have passed
 <span class="kw">When</span> the system runs its periodic check
 <span class="kw">Then</span> S moves to EXPIRED for me and I go to the back of the waitlist
 <span class="kw">And</span> the offer passes to the next waitlisted student
-<span class="kw">And</span> the action is audit-logged</pre>
+<span class="kw">And</span> the action is audit-logged</span><span data-lang="vi"><span class="kw">Given</span> S đang OFFERED cho tôi và đã qua 24 giờ làm việc
+<span class="kw">When</span> hệ thống chạy kiểm tra định kỳ
+<span class="kw">Then</span> S chuyển sang EXPIRED với tôi và tôi xếp xuống cuối waitlist
+<span class="kw">And</span> lời mời chuyển sang sinh viên kế tiếp trong waitlist
+<span class="kw">And</span> thao tác được ghi audit log</span></pre>
           </div>
 
           <div class="story"><div class="title">US-05</div>
-            <p>As a student, when I drop a course that another course in my plan depends on, I want a warning, so I don't quietly break my own eligibility.</p>
-            <pre class="code"><span class="kw">Given</span> I am ENROLLED in B215 (in progress) and C, where C uses B215 as a provisional prerequisite
+            <p><span data-lang="en">As a student, when I drop a course that another course in my plan depends on, I want a warning, so I don't quietly break my own eligibility.</span><span data-lang="vi">Là sinh viên, khi tôi rút một môn mà một môn khác trong kế hoạch phụ thuộc vào, tôi muốn được cảnh báo, để không âm thầm phá điều kiện của chính mình.</span></p>
+            <pre class="code"><span data-lang="en"><span class="kw">Given</span> I am ENROLLED in B215 (in progress) and C, where C uses B215 as a provisional prerequisite
 <span class="kw">When</span> I drop B215
 <span class="kw">Then</span> the system warns "C depends on B215. Dropping B215 will require dropping C, or a waiver."
-<span class="kw">And</span> blocks dropping B215 alone until I choose to drop C too, or have a waiver</pre>
+<span class="kw">And</span> blocks dropping B215 alone until I choose to drop C too, or have a waiver</span><span data-lang="vi"><span class="kw">Given</span> tôi đang ENROLLED B215 (đang học) và C, trong đó C dùng B215 làm tiên quyết tạm thời
+<span class="kw">When</span> tôi rút B215
+<span class="kw">Then</span> hệ thống cảnh báo "C phụ thuộc B215. Rút B215 sẽ phải rút luôn C, hoặc có waiver."
+<span class="kw">And</span> chặn việc chỉ rút riêng B215 cho đến khi tôi chọn rút luôn C, hoặc có waiver</span></pre>
           </div>
         </div>
 
@@ -582,17 +601,17 @@
           <div class="tbl-scroll">
             <table>
               <tbody>
-                <tr><td><b>UC-02</b></td><td>Register for a section</td></tr>
-                <tr><td>Primary actor</td><td>Student, inside their priority group's registration window</td></tr>
-                <tr><td>Stakeholders</td><td>Registrar (owns sections, calendar, waivers); other students on the waitlist</td></tr>
-                <tr><td>Preconditions</td><td>Student is logged in; the term's registration is open; the student has a priority group for the term</td></tr>
-                <tr><td>Trigger</td><td>Student clicks "Submit registration" on the plan screen</td></tr>
-                <tr><td>Main flow</td><td>1. The system runs the 8 validation steps (§7.3). 2. For each section in the plan that passes: allocate a seat atomically. 3. Seat available → ENROLLED; full → WAITLISTED at a position per BR-SEAT-03. 4. Audit-log each transition. 5. Send a summary notification (ENROLLED + WAITLISTED + any REJECTED reasons). 6. Show the resulting timetable.</td></tr>
-                <tr><td>Alt flow</td><td>2a. A section has an un-released reserved pool for the student's group → use the reserved seats first.</td></tr>
-                <tr><td>Exception flows</td><td>Step 1 fails (outside window) → name when it opens. · Step 2 (hold) → name the hold type + where to clear it. · Step 3 (over the cap) → show current credits / cap. · Step 4 (prerequisite) → name the unmet branch of the expression. · Step 7 (hard conflict) → name the section and the overlapping slot.</td></tr>
-                <tr><td>Postconditions</td><td>Each section is ENROLLED / WAITLISTED / REJECTED; the section's seat count is updated atomically; the timeline + audit log are initialised; the notification is sent.</td></tr>
-                <tr><td>Related BR</td><td>BR-ELIG-01…04, BR-PREQ-01…03, BR-SEAT-01/03, BR-CONF-01, BR-DROP-01</td></tr>
-                <tr><td>Related AC</td><td>AC-REG-01, AC-REG-04, AC-REG-07, AC-REG-11, AC-REG-14</td></tr>
+                <tr><td><b>UC-02</b></td><td><span data-lang="en">Register for a section</span><span data-lang="vi">Đăng ký một section</span></td></tr>
+                <tr><td><span data-lang="en">Primary actor</span><span data-lang="vi">Actor chính</span></td><td><span data-lang="en">Student, inside their priority group's registration window</span><span data-lang="vi">Sinh viên, trong khung đăng ký của nhóm ưu tiên của mình</span></td></tr>
+                <tr><td><span data-lang="en">Stakeholders</span><span data-lang="vi">Bên liên quan</span></td><td><span data-lang="en">Registrar (owns sections, calendar, waivers); other students on the waitlist</span><span data-lang="vi">Phòng đào tạo (sở hữu section, lịch, waiver); các sinh viên khác trong waitlist</span></td></tr>
+                <tr><td><span data-lang="en">Preconditions</span><span data-lang="vi">Điều kiện trước</span></td><td><span data-lang="en">Student is logged in; the term's registration is open; the student has a priority group for the term</span><span data-lang="vi">Sinh viên đã đăng nhập; đăng ký học kỳ đang mở; sinh viên có nhóm ưu tiên cho học kỳ</span></td></tr>
+                <tr><td><span data-lang="en">Trigger</span><span data-lang="vi">Kích hoạt</span></td><td><span data-lang="en">Student clicks "Submit registration" on the plan screen</span><span data-lang="vi">Sinh viên bấm "Submit registration" trên màn kế hoạch</span></td></tr>
+                <tr><td><span data-lang="en">Main flow</span><span data-lang="vi">Luồng chính</span></td><td><span data-lang="en">1. The system runs the 8 validation steps (§7.3). 2. For each section in the plan that passes: allocate a seat atomically. 3. Seat available → ENROLLED; full → WAITLISTED at a position per BR-SEAT-03. 4. Audit-log each transition. 5. Send a summary notification (ENROLLED + WAITLISTED + any REJECTED reasons). 6. Show the resulting timetable.</span><span data-lang="vi">1. Hệ thống chạy 8 bước kiểm tra (§7.3). 2. Với mỗi section trong kế hoạch đi qua được: cấp một chỗ theo kiểu nguyên tử. 3. Còn chỗ → ENROLLED; đầy → WAITLISTED ở một vị trí theo BR-SEAT-03. 4. Ghi audit log từng bước chuyển. 5. Gửi một thông báo tổng hợp (ENROLLED + WAITLISTED + lý do REJECTED nếu có). 6. Hiện thời khóa biểu kết quả.</span></td></tr>
+                <tr><td><span data-lang="en">Alt flow</span><span data-lang="vi">Luồng thay thế</span></td><td><span data-lang="en">2a. A section has an un-released reserved pool for the student's group → use the reserved seats first.</span><span data-lang="vi">2a. Một section có quỹ chỗ dành riêng chưa mở cho nhóm của sinh viên → dùng chỗ dành riêng trước.</span></td></tr>
+                <tr><td><span data-lang="en">Exception flows</span><span data-lang="vi">Luồng ngoại lệ</span></td><td><span data-lang="en">Step 1 fails (outside window) → name when it opens. · Step 2 (hold) → name the hold type + where to clear it. · Step 3 (over the cap) → show current credits / cap. · Step 4 (prerequisite) → name the unmet branch of the expression. · Step 7 (hard conflict) → name the section and the overlapping slot.</span><span data-lang="vi">Bước 1 hỏng (ngoài khung) → nêu rõ khi nào mở. · Bước 2 (hold) → nêu loại hold + nơi gỡ. · Bước 3 (vượt trần) → hiện số tín chỉ hiện tại / trần. · Bước 4 (tiên quyết) → nêu rõ nhánh biểu thức chưa thỏa. · Bước 7 (xung đột cứng) → nêu rõ section và khung giờ chồng.</span></td></tr>
+                <tr><td><span data-lang="en">Postconditions</span><span data-lang="vi">Điều kiện sau</span></td><td><span data-lang="en">Each section is ENROLLED / WAITLISTED / REJECTED; the section's seat count is updated atomically; the timeline + audit log are initialised; the notification is sent.</span><span data-lang="vi">Mỗi section ở ENROLLED / WAITLISTED / REJECTED; số chỗ của section được cập nhật theo kiểu nguyên tử; timeline + audit log được khởi tạo; thông báo được gửi.</span></td></tr>
+                <tr><td><span data-lang="en">Related BR</span><span data-lang="vi">BR liên quan</span></td><td>BR-ELIG-01…04, BR-PREQ-01…03, BR-SEAT-01/03, BR-CONF-01, BR-DROP-01</td></tr>
+                <tr><td><span data-lang="en">Related AC</span><span data-lang="vi">AC liên quan</span></td><td>AC-REG-01, AC-REG-04, AC-REG-07, AC-REG-11, AC-REG-14</td></tr>
               </tbody>
             </table>
           </div>
@@ -630,12 +649,12 @@
             <table>
               <thead><tr><th><span data-lang="en">Screen</span><span data-lang="vi">Màn hình</span></th><th><span data-lang="en">Goal</span><span data-lang="vi">Mục tiêu</span></th><th><span data-lang="en">Key components</span><span data-lang="vi">Thành phần chính</span></th></tr></thead>
               <tbody>
-                <tr><td>M1 — Section search &amp; catalogue</td><td>Pick courses</td><td>Search by code/name; filters (programme / cohort / weekday); per section: code, instructor, meeting pattern, <b>seats left / waitlist</b>; "Add to plan" or "Join waitlist (position ~N)"</td></tr>
-                <tr><td>M2 — Plan / cart <em>(drawn below)</em></td><td>Build &amp; validate</td><td>Chosen sections; <b>inline check flags</b> (prerequisite ✗, hard clash ✗, soft clash ⚠, total credits vs cap); Submit; timetable preview</td></tr>
-                <tr><td>M3 — Conflict &amp; eligibility panel</td><td>Explain why something is blocked</td><td>Issues per section: type (prerequisite / hard / soft / credits), the specific detail, a suggested action (pick another / ask for a waiver)</td></tr>
-                <tr><td>M4 — Registration confirmation</td><td>Result after Submit</td><td>Summary of ENROLLED / WAITLISTED (with position) / REJECTED (with reasons); timetable grid; download-calendar button</td></tr>
-                <tr><td>M5 — Waitlist &amp; seat offer <em>(drawn below)</em></td><td>Track &amp; claim</td><td>Waitlisted sections + current position; on an OFFERED: a countdown to the claim deadline, "Claim" / "Decline", a warning if the offer would create a new clash</td></tr>
-                <tr><td>M6 — Registrar console</td><td>Administer</td><td>Sections + capacity + waitlist; grant/revoke a waiver (reason required); override a registration (reason + audit); configure the term calendar &amp; priority groups with a <b>validate button</b> (catches things like BR-CAL-01)</td></tr>
+                <tr><td><span data-lang="en">M1 — Section search &amp; catalogue</span><span data-lang="vi">M1 — Tìm section &amp; danh mục</span></td><td><span data-lang="en">Pick courses</span><span data-lang="vi">Chọn môn</span></td><td><span data-lang="en">Search by code/name; filters (programme / cohort / weekday); per section: code, instructor, meeting pattern, <b>seats left / waitlist</b>; "Add to plan" or "Join waitlist (position ~N)"</span><span data-lang="vi">Tìm theo mã/tên; bộ lọc (chương trình / khóa / thứ); mỗi section: mã, giảng viên, lịch học, <b>chỗ còn / waitlist</b>; "Add to plan" hoặc "Join waitlist (position ~N)"</span></td></tr>
+                <tr><td><span data-lang="en">M2 — Plan / cart <em>(drawn below)</em></span><span data-lang="vi">M2 — Kế hoạch / giỏ <em>(vẽ bên dưới)</em></span></td><td><span data-lang="en">Build &amp; validate</span><span data-lang="vi">Dựng &amp; kiểm tra</span></td><td><span data-lang="en">Chosen sections; <b>inline check flags</b> (prerequisite ✗, hard clash ✗, soft clash ⚠, total credits vs cap); Submit; timetable preview</span><span data-lang="vi">Các section đã chọn; <b>cờ kiểm tra tại chỗ</b> (tiên quyết ✗, trùng cứng ✗, trùng mềm ⚠, tổng tín chỉ vs trần); Submit; xem trước thời khóa biểu</span></td></tr>
+                <tr><td><span data-lang="en">M3 — Conflict &amp; eligibility panel</span><span data-lang="vi">M3 — Bảng xung đột &amp; điều kiện</span></td><td><span data-lang="en">Explain why something is blocked</span><span data-lang="vi">Giải thích vì sao bị chặn</span></td><td><span data-lang="en">Issues per section: type (prerequisite / hard / soft / credits), the specific detail, a suggested action (pick another / ask for a waiver)</span><span data-lang="vi">Vấn đề theo từng section: loại (tiên quyết / cứng / mềm / tín chỉ), chi tiết cụ thể, hành động gợi ý (chọn môn khác / xin waiver)</span></td></tr>
+                <tr><td><span data-lang="en">M4 — Registration confirmation</span><span data-lang="vi">M4 — Xác nhận đăng ký</span></td><td><span data-lang="en">Result after Submit</span><span data-lang="vi">Kết quả sau Submit</span></td><td><span data-lang="en">Summary of ENROLLED / WAITLISTED (with position) / REJECTED (with reasons); timetable grid; download-calendar button</span><span data-lang="vi">Tóm tắt ENROLLED / WAITLISTED (kèm vị trí) / REJECTED (kèm lý do); lưới thời khóa biểu; nút tải lịch</span></td></tr>
+                <tr><td><span data-lang="en">M5 — Waitlist &amp; seat offer <em>(drawn below)</em></span><span data-lang="vi">M5 — Waitlist &amp; mời nhận chỗ <em>(vẽ bên dưới)</em></span></td><td><span data-lang="en">Track &amp; claim</span><span data-lang="vi">Theo dõi &amp; nhận</span></td><td><span data-lang="en">Waitlisted sections + current position; on an OFFERED: a countdown to the claim deadline, "Claim" / "Decline", a warning if the offer would create a new clash</span><span data-lang="vi">Các section trong waitlist + vị trí hiện tại; khi có OFFERED: đếm ngược tới hạn nhận, "Claim" / "Decline", cảnh báo nếu nhận sẽ tạo trùng lịch mới</span></td></tr>
+                <tr><td><span data-lang="en">M6 — Registrar console</span><span data-lang="vi">M6 — Console phòng đào tạo</span></td><td><span data-lang="en">Administer</span><span data-lang="vi">Quản trị</span></td><td><span data-lang="en">Sections + capacity + waitlist; grant/revoke a waiver (reason required); override a registration (reason + audit); configure the term calendar &amp; priority groups with a <b>validate button</b> (catches things like BR-CAL-01)</span><span data-lang="vi">Section + sức chứa + waitlist; cấp/thu waiver (bắt buộc lý do); override một lượt đăng ký (lý do + audit); cấu hình lịch học kỳ &amp; nhóm ưu tiên kèm <b>nút validate</b> (bắt các lỗi như BR-CAL-01)</span></td></tr>
               </tbody>
             </table>
           </div>
