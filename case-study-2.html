@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=19">
-<script src="assets/app.js?v=19"></script>
+<link rel="stylesheet" href="assets/styles.css?v=20">
+<script src="assets/app.js?v=20"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -447,7 +447,7 @@
           <div class="tbl-scroll"><table><tbody>
             <tr><td>BR-PREQ-01</td><td><span data-lang="en">Prerequisites are evaluated as an AND/OR expression tree of (course, minimum grade).</span><span data-lang="vi">Điều kiện tiên quyết được đánh giá như một cây biểu thức AND/OR của (môn học, điểm tối thiểu).</span></td></tr>
             <tr><td>BR-PREQ-02</td><td><span data-lang="en">A course in progress counts as <em>provisionally</em> satisfied; if dropped, see BR-DROP-02.</span><span data-lang="vi">Một môn đang học được tính là đạt <em>tạm thời</em>; nếu rút môn, xem BR-DROP-02.</span></td></tr>
-            <tr><td>BR-PREQ-03</td><td><span data-lang="en">A prerequisite waiver requires a reason + audit log; only an advisor or the registrar can grant one.</span><span data-lang="vi">Miễn điều kiện tiên quyết phải có lý do + ghi nhật ký; chỉ cố vấn học tập hoặc phòng đào tạo được cấp.</span></td></tr>
+            <tr><td>BR-PREQ-03</td><td><span data-lang="en">A prerequisite waiver requires a reason + audit log; only an advisor or the registrar can grant one.</span><span data-lang="vi">Miễn điều kiện tiên quyết phải có lý do + ghi audit log; chỉ cố vấn học tập hoặc phòng đào tạo được cấp.</span></td></tr>
           </tbody></table></div>
           <h4><span data-lang="en">Seats &amp; waitlist (BR-SEAT-01…05)</span><span data-lang="vi">Chỗ &amp; danh sách chờ (BR-SEAT-01…05)</span></h4>
           <div class="tbl-scroll"><table><tbody>
@@ -625,20 +625,20 @@
             <tr><td>AC-REG-03</td><td><span data-lang="en">Registering over the credit cap → block exactly the section that pushes it over, show current / cap.</span><span data-lang="vi">Đăng ký vượt trần tín chỉ → chặn đúng lớp làm vượt, hiển thị hiện tại / trần.</span></td></tr>
             <tr><td>AC-REG-04</td><td><span data-lang="en">Missing prerequisite → the section is blocked + the unmet branch of the expression is named.</span><span data-lang="vi">Thiếu điều kiện tiên quyết → chặn lớp + nêu rõ nhánh biểu thức chưa thỏa.</span></td></tr>
             <tr><td>AC-REG-05</td><td><span data-lang="en">An in-progress course satisfies a prerequisite <em>provisionally</em>, flagged.</span><span data-lang="vi">Một môn đang học thỏa điều kiện tiên quyết <em>tạm thời</em>, có gắn cờ.</span></td></tr>
-            <tr><td>AC-REG-06</td><td><span data-lang="en">A valid waiver → opens registration for that course; the audit log is complete.</span><span data-lang="vi">Một miễn hợp lệ → mở đăng ký cho môn đó; nhật ký ghi đầy đủ.</span></td></tr>
+            <tr><td>AC-REG-06</td><td><span data-lang="en">A valid waiver → opens registration for that course; the audit log is complete.</span><span data-lang="vi">Một miễn hợp lệ → mở đăng ký cho môn đó; audit log ghi đầy đủ.</span></td></tr>
             <tr><td>AC-REG-07</td><td><span data-lang="en">A hard schedule conflict → block; a soft conflict → warn, still addable.</span><span data-lang="vi">Xung đột lịch cứng → chặn; xung đột mềm → cảnh báo, vẫn thêm được.</span></td></tr>
             <tr><td>AC-REG-08</td><td><span data-lang="en">A full section → the action becomes "Join waitlist (position ~N)".</span><span data-lang="vi">Lớp đầy → thao tác đổi thành "Vào waitlist (vị trí ~N)".</span></td></tr>
             <tr><td>AC-REG-09</td><td><span data-lang="en">ENROLLED never exceeds capacity, even under simultaneous submits.</span><span data-lang="vi">ENROLLED không bao giờ vượt sức chứa, kể cả khi submit đồng thời.</span></td></tr>
             <tr><td>AC-REG-10</td><td><span data-lang="en">Two rapid submits for the same section create only one ENROLLED record.</span><span data-lang="vi">Hai lần submit liên tiếp cho cùng một lớp chỉ tạo một bản ghi ENROLLED.</span></td></tr>
             <tr><td>AC-REG-11</td><td><span data-lang="en">Waitlist order matches BR-SEAT-03 (priority group → time joined).</span><span data-lang="vi">Thứ tự waitlist khớp BR-SEAT-03 (nhóm ưu tiên → thời điểm vào hàng).</span></td></tr>
-            <tr><td>AC-REG-12</td><td><span data-lang="en">A free seat → the next student gets OFFERED + a claim deadline; audit-logged.</span><span data-lang="vi">Một chỗ trống → sinh viên kế tiếp nhận OFFERED + hạn nhận; được ghi nhật ký.</span></td></tr>
+            <tr><td>AC-REG-12</td><td><span data-lang="en">A free seat → the next student gets OFFERED + a claim deadline; audit-logged.</span><span data-lang="vi">Một chỗ trống → sinh viên kế tiếp nhận OFFERED + hạn nhận; được ghi audit log.</span></td></tr>
             <tr><td>AC-REG-13</td><td><span data-lang="en">Past the claim deadline → EXPIRED, the offer passes to the next student.</span><span data-lang="vi">Quá hạn nhận → EXPIRED, lời mời chuyển sang sinh viên kế tiếp.</span></td></tr>
             <tr><td>AC-REG-14</td><td><span data-lang="en">On OFFERED, the system re-runs eligibility + conflict checks for the offered student.</span><span data-lang="vi">Khi OFFERED, hệ thống chạy lại kiểm tra điều kiện + trùng lịch cho sinh viên được mời.</span></td></tr>
             <tr><td>AC-REG-15</td><td><span data-lang="en">Drop only inside the add/drop window; after it, only withdraw (needs approval).</span><span data-lang="vi">Chỉ drop trong cửa sổ add/drop; sau đó chỉ withdraw (cần duyệt).</span></td></tr>
             <tr><td>AC-REG-16</td><td><span data-lang="en">Dropping a course another registered course depends on (provisionally) → the single drop is blocked.</span><span data-lang="vi">Rút một môn mà một môn đã đăng ký khác phụ thuộc (tạm thời) → chặn việc chỉ rút một môn.</span></td></tr>
             <tr><td>AC-REG-17</td><td><span data-lang="en">Reserved seats are usable only by the target group until the release date.</span><span data-lang="vi">Chỗ dành riêng chỉ nhóm đích dùng được cho đến ngày mở.</span></td></tr>
             <tr><td>AC-REG-18</td><td><span data-lang="en">A reserved-seat release date outside the target group's window → blocked when saving the calendar config.</span><span data-lang="vi">Ngày mở quỹ chỗ dành riêng nằm ngoài khung nhóm đích → bị chặn khi lưu cấu hình lịch.</span></td></tr>
-            <tr><td>AC-REG-19</td><td><span data-lang="en">Every registration action + exception is audit-logged with before → after values.</span><span data-lang="vi">Mọi thao tác đăng ký + ngoại lệ đều được ghi nhật ký kèm giá trị trước → sau.</span></td></tr>
+            <tr><td>AC-REG-19</td><td><span data-lang="en">Every registration action + exception is audit-logged with before → after values.</span><span data-lang="vi">Mọi thao tác đăng ký + ngoại lệ đều được ghi audit log kèm giá trị trước → sau.</span></td></tr>
             <tr><td>AC-REG-20</td><td><span data-lang="en">The eligibility + conflict check returns under 1 s at the target load.</span><span data-lang="vi">Kiểm tra điều kiện + trùng lịch trả kết quả dưới 1 giây ở tải mục tiêu.</span></td></tr>
           </tbody></table></div>
         </div>
@@ -733,7 +733,7 @@
                 <tr><td>TC-06</td><td><span data-lang="en">50 students submit at once for a section with 1 seat left</span><span data-lang="vi">50 sinh viên cùng submit cho một lớp còn 1 chỗ</span></td><td><span data-lang="en">1 ENROLLED, 49 WAITLISTED; no section exceeds capacity</span><span data-lang="vi">1 ENROLLED, 49 WAITLISTED; không lớp nào vượt sức chứa</span></td><td>AC-REG-09</td><td>BR-SEAT-01</td></tr>
                 <tr><td>TC-07</td><td><span data-lang="en">A student double-clicks Submit for the same section</span><span data-lang="vi">Một sinh viên bấm Submit hai lần cho cùng một lớp</span></td><td><span data-lang="en">Only 1 ENROLLED record</span><span data-lang="vi">Chỉ 1 bản ghi ENROLLED</span></td><td>AC-REG-10</td><td>BR-SEAT-01</td></tr>
                 <tr><td>TC-08</td><td><span data-lang="en">An ENROLLED student drops a section within the add/drop window</span><span data-lang="vi">Một sinh viên ENROLLED rút một lớp trong cửa sổ add/drop</span></td><td><span data-lang="en">Waitlist position 1 gets OFFERED + a deadline; eligibility + conflict checks re-run</span><span data-lang="vi">Vị trí 1 waitlist nhận OFFERED + một hạn; chạy lại kiểm tra điều kiện + trùng lịch</span></td><td>AC-REG-12, AC-REG-14</td><td>BR-SEAT-04, BR-SEAT-05</td></tr>
-                <tr><td>TC-09</td><td><span data-lang="en">An OFFERED seat passes its claim deadline</span><span data-lang="vi">Một chỗ OFFERED quá hạn nhận</span></td><td><span data-lang="en">EXPIRED for that student, offer passes to the next; audit-logged</span><span data-lang="vi">EXPIRED cho sinh viên đó, lời mời chuyển sang người kế tiếp; được ghi nhật ký</span></td><td>AC-REG-13</td><td>BR-SEAT-04</td></tr>
+                <tr><td>TC-09</td><td><span data-lang="en">An OFFERED seat passes its claim deadline</span><span data-lang="vi">Một chỗ OFFERED quá hạn nhận</span></td><td><span data-lang="en">EXPIRED for that student, offer passes to the next; audit-logged</span><span data-lang="vi">EXPIRED cho sinh viên đó, lời mời chuyển sang người kế tiếp; được ghi audit log</span></td><td>AC-REG-13</td><td>BR-SEAT-04</td></tr>
                 <tr><td>TC-10</td><td><span data-lang="en">The registrar sets a reserved-seat release date AFTER the target group's window closes</span><span data-lang="vi">Phòng đào tạo đặt ngày mở quỹ chỗ dành riêng SAU khi khung của nhóm đích đóng</span></td><td><span data-lang="en">The system blocks saving the calendar config, cites BR-CAL-01</span><span data-lang="vi">Hệ thống chặn lưu cấu hình lịch, viện dẫn BR-CAL-01</span></td><td>AC-REG-18</td><td>BR-CAL-01</td></tr>
               </tbody>
             </table>
