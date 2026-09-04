@@ -6,7 +6,7 @@
 <title>Court Booking — Pricing, Holds &amp; Refunds — Case Study</title>
 <meta name="description" content="Case study: peak/off-peak pricing, safe seat holds while an external wallet decides, a time-tiered refund policy, and an owner metric spec with SQL — for a two-sided sports-court booking platform. Reconstruction of a BA training project.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Nguyen Tuan Dinh — BA Portfolio">
+<meta property="og:site_name" content="Nguyễn Tuấn Định — BA Portfolio">
 <meta property="og:title" content="Court Booking — Pricing, Holds &amp; Refunds — Case Study">
 <meta property="og:description" content="Case study: peak/off-peak pricing, safe seat holds while an external wallet decides, a time-tiered refund policy, and an owner metric spec with SQL. Reconstruction of a BA training project.">
 <meta property="og:url" content="https://ngtuandinh123.github.io/portfolio/case-study-3.html">
@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=23">
-<script src="assets/app.js?v=23"></script>
+<link rel="stylesheet" href="assets/styles.css?v=24">
+<script src="assets/app.js?v=24"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -73,13 +73,6 @@
         <span data-lang="vi">Định giá theo cao/thấp điểm, giữ chỗ an toàn khi chờ cổng thanh toán, chính sách huỷ/hoàn tiền theo mốc thời gian, và bộ chỉ số cho chủ sân biết khung giờ nào không kiếm ra tiền — cho một nền tảng đặt sân thể thao hai phía.</span>
       </p>
 
-      <div class="callout" style="margin-top:1.4rem">
-        <span class="ic" aria-hidden="true">✷</span>
-        <span>
-          <span data-lang="en">Reconstruction of <b>my BA training project</b> (MindX end-of-course) — a simulated project, no real client. I co-led the original BA analysis with a second BA on the team; this case study keeps that analysis and adds what the first version lacked (business rules, a state machine, a cancellation/refund policy, a report spec). Competitor names removed. Outcome figures are design targets, tagged <em>(target)</em>; present-state figures are interview estimates, not measurements.</span>
-          <span data-lang="vi">Bản dựng lại <b>bài tập BA của tôi</b> (MindX, cuối khoá) — dự án mô phỏng, không có khách hàng thật. Tôi đồng chủ trì phần phân tích nghiệp vụ gốc với một BA khác trong nhóm; bản case study này giữ phần đó và bổ sung những gì bản đầu còn thiếu (business rules, state machine, chính sách huỷ/hoàn tiền, đặc tả báo cáo). Tên đối thủ đã lược bỏ. Con số kết quả gắn nhãn <em>(target)</em>; con số hiện trạng là ước lượng từ phỏng vấn, không phải số đo.</span>
-        </span>
-      </div>
 
       <!-- ===================== TL;DR ===================== -->
       <section class="sec" id="tldr">
@@ -90,8 +83,8 @@
               <span data-lang="en"> a two-sided sports-court booking platform (<b>renters</b> and <b>court owners</b>), replacing the manual find–phone–confirm process that runs through Facebook/Zalo groups.</span>
               <span data-lang="vi"> một nền tảng đặt sân thể thao trực tuyến (hai phía: <b>người thuê</b> và <b>chủ sân</b>), thay quy trình tìm–gọi–chốt thủ công qua nhóm Facebook/Zalo.</span></li>
             <li><b><span data-lang="en">This is a reconstruction of my MindX BA project</span><span data-lang="vi">Đây là bản dựng lại bài tập BA của tôi (MindX)</span>:</b>
-              <span data-lang="en"> I co-led the original analysis on the team; I've hardened it here with the artefacts the first version didn't have.</span>
-              <span data-lang="vi"> phần phân tích gốc do tôi đồng chủ trì trong nhóm; tôi làm cứng lại nó ở đây bằng các artifact bản đầu chưa có.</span></li>
+              <span data-lang="en"> An end-of-course project — no real client. I co-led the original analysis on the team; I've hardened it here with the artefacts the first version didn't have.</span>
+              <span data-lang="vi"> bài tập cuối khoá — không có khách hàng thật. Phần phân tích gốc do tôi đồng chủ trì trong nhóm; tôi làm cứng lại nó ở đây bằng các artifact bản đầu chưa có.</span></li>
             <li><b><span data-lang="en">Three design decisions that mattered most</span><span data-lang="vi">3 quyết định thiết kế quan trọng nhất</span>:</b>
               <span data-lang="en"> <b>peak/off-peak pricing tiers</b> (a lever to shift demand off dead hours) · a <b>hold with a TTL</b> while the external wallet decides (a timeout you don't control) · a <b>time-tiered cancellation/refund policy</b> + owner settlement.</span>
               <span data-lang="vi"> <b>định giá theo bậc cao/thấp điểm</b> (để dịch cầu ra khỏi giờ vắng) · <b>giữ chỗ có TTL (thời hạn giữ chỗ)</b> trong lúc chờ ví điện tử phản hồi (timeout không do mình kiểm soát) · <b>chính sách huỷ/hoàn tiền theo mốc thời gian</b> + đối soát tiền về chủ sân.</span></li>
@@ -262,7 +255,6 @@
       <section class="sec" id="asis">
         <p class="kicker">5</p>
         <h2><span data-lang="en">AS-IS process</span><span data-lang="vi">Quy trình AS-IS</span></h2>
-        <p class="sub"><span data-lang="en">Diagram labels are kept in English throughout, as the models were produced. Scroll a diagram sideways on a narrow screen.</span><span data-lang="vi">Nhãn trên các sơ đồ để tiếng Anh xuyên suốt, đúng như khi dựng mô hình. Trên màn hình hẹp, kéo ngang sơ đồ để xem đủ.</span></p>
         <figure class="diagram">
           <div class="diagram-scroll">
           <svg viewBox="0 0 780 258" role="img" aria-labelledby="a3-t">
@@ -587,15 +579,15 @@
             <table>
               <thead><tr><th><span data-lang="en">Screen</span><span data-lang="vi">Màn hình</span></th><th><span data-lang="en">Goal</span><span data-lang="vi">Mục tiêu</span></th><th><span data-lang="en">Key components</span><span data-lang="vi">Thành phần chính</span></th></tr></thead>
               <tbody>
-                <tr><td><span data-lang="en">W1 — Slot grid <em>(drawn below)</em></span><span data-lang="vi">W1 — Lưới khung giờ <em>(vẽ bên dưới)</em></span></td><td><span data-lang="en">Choose &amp; see price</span><span data-lang="vi">Chọn &amp; xem giá</span></td><td><span data-lang="en">Day × hour grid; <b>each cell shows its tier price</b> (off/peak); booked / held-by-someone-else cells (greyed + label); select many → "Book (N slots · ₫ total)" bar; <b>hold countdown</b> after Book</span><span data-lang="vi">Lưới ngày × giờ; <b>mỗi ô hiện giá theo bậc</b> (thấp/cao điểm); ô đã đặt / người khác đang giữ (làm mờ + nhãn); chọn nhiều ô → thanh "Book (N khung · tổng ₫)"; <b>đếm ngược hold</b> sau khi Book</span></td></tr>
+                <tr><td><span data-lang="en">W1 — Slot grid <a href="#wf-w1"><em>(drawn below)</em></a></span><span data-lang="vi">W1 — Lưới khung giờ <a href="#wf-w1"><em>(vẽ bên dưới)</em></a></span></td><td><span data-lang="en">Choose &amp; see price</span><span data-lang="vi">Chọn &amp; xem giá</span></td><td><span data-lang="en">Day × hour grid; <b>each cell shows its tier price</b> (off/peak); booked / held-by-someone-else cells (greyed + label); select many → "Book (N slots · ₫ total)" bar; <b>hold countdown</b> after Book</span><span data-lang="vi">Lưới ngày × giờ; <b>mỗi ô hiện giá theo bậc</b> (thấp/cao điểm); ô đã đặt / người khác đang giữ (làm mờ + nhãn); chọn nhiều ô → thanh "Book (N khung · tổng ₫)"; <b>đếm ngược hold</b> sau khi Book</span></td></tr>
                 <tr><td><span data-lang="en">W2 — Confirm &amp; pay</span><span data-lang="vi">W2 — Xác nhận &amp; thanh toán</span></td><td><span data-lang="en">Finalise the order</span><span data-lang="vi">Chốt đơn</span></td><td><span data-lang="en">Line list (court · date · slot · locked price); total; choose wallet/bank; a warning if a line was just lost; "Pay"</span><span data-lang="vi">Danh sách dòng (sân · ngày · khung giờ · giá đã khoá); tổng; chọn ví/ngân hàng; cảnh báo nếu vừa mất một dòng; "Pay"</span></td></tr>
                 <tr><td><span data-lang="en">W3 — Cancel &amp; refund</span><span data-lang="vi">W3 — Huỷ &amp; hoàn tiền</span></td><td><span data-lang="en">Renter cancels</span><span data-lang="vi">Người thuê huỷ</span></td><td><span data-lang="en">Each line with the <b>projected refund</b> by time tier (100% / 50% / 0); pick lines to cancel; confirm</span><span data-lang="vi">Mỗi dòng kèm <b>số tiền hoàn dự kiến</b> theo mốc thời gian (100% / 50% / 0); chọn dòng để huỷ; xác nhận</span></td></tr>
-                <tr><td><span data-lang="en">W4 — Owner revenue dashboard <em>(drawn below)</em></span><span data-lang="vi">W4 — Dashboard doanh thu chủ sân <em>(vẽ bên dưới)</em></span></td><td><span data-lang="en">Owner sees the numbers</span><span data-lang="vi">Chủ sân xem số liệu</span></td><td><span data-lang="en">Period + court selector; 4 metric cards (utilisation, revenue/slot-hour, cancellation/no-show, repeat rate); <b>a heatmap</b> of low-utilisation slots; a settlement statement table</span><span data-lang="vi">Chọn kỳ + chọn sân; 4 thẻ chỉ số (hiệu suất, doanh thu/giờ-sân, huỷ/no-show, tỷ lệ quay lại); <b>heatmap</b> các khung giờ hiệu suất thấp; bảng kê đối soát</span></td></tr>
+                <tr><td><span data-lang="en">W4 — Owner revenue dashboard <a href="#wf-w4"><em>(drawn below)</em></a></span><span data-lang="vi">W4 — Dashboard doanh thu chủ sân <a href="#wf-w4"><em>(vẽ bên dưới)</em></a></span></td><td><span data-lang="en">Owner sees the numbers</span><span data-lang="vi">Chủ sân xem số liệu</span></td><td><span data-lang="en">Period + court selector; 4 metric cards (utilisation, revenue/slot-hour, cancellation/no-show, repeat rate); <b>a heatmap</b> of low-utilisation slots; a settlement statement table</span><span data-lang="vi">Chọn kỳ + chọn sân; 4 thẻ chỉ số (hiệu suất, doanh thu/giờ-sân, huỷ/no-show, tỷ lệ quay lại); <b>heatmap</b> các khung giờ hiệu suất thấp; bảng kê đối soát</span></td></tr>
               </tbody>
             </table>
           </div>
 
-          <h4><span data-lang="en">W1 — Slot grid</span><span data-lang="vi">W1 — Lưới khung giờ</span> <span style="font-weight:400;color:var(--ink-soft)"><span data-lang="en">(low-fi, rule callouts)</span><span data-lang="vi">(low-fi, chú thích quy tắc)</span></span></h4>
+          <h4 id="wf-w1"><span data-lang="en">W1 — Slot grid</span><span data-lang="vi">W1 — Lưới khung giờ</span></h4>
           <figure class="diagram">
             <div class="diagram-scroll">
             <svg viewBox="0 0 760 400" role="img" aria-labelledby="w1-t">
@@ -632,7 +624,7 @@
             <figcaption><span data-lang="en">W1 — slot grid</span><span data-lang="vi">W1 — lưới khung giờ</span></figcaption>
           </figure>
 
-          <h4><span data-lang="en">W4 — Owner revenue dashboard</span><span data-lang="vi">W4 — Dashboard doanh thu chủ sân</span> <span style="font-weight:400;color:var(--ink-soft)">(low-fi)</span></h4>
+          <h4 id="wf-w4"><span data-lang="en">W4 — Owner revenue dashboard</span><span data-lang="vi">W4 — Dashboard doanh thu chủ sân</span></h4>
           <figure class="diagram">
             <div class="diagram-scroll">
             <svg viewBox="0 0 760 360" role="img" aria-labelledby="w4-t">
@@ -966,6 +958,8 @@ GROUP BY ol.court_id;
         </ul>
       </section>
 
+      <p class="soft" style="margin-top:2.4rem;font-size:.92rem"><span data-lang="en">Names, figures and confidential detail have been changed or removed; outcome numbers marked <em>(target)</em> are design targets, not measured results.</span><span data-lang="vi">Tên riêng, số liệu và thông tin mật đã được thay đổi hoặc lược bỏ; các con số gắn nhãn <em>(target)</em> là mục tiêu thiết kế, chưa phải kết quả đo thực tế.</span></p>
+
     </div><!-- /cs-body -->
   </div><!-- /cs-layout -->
 </div>
@@ -976,7 +970,7 @@ GROUP BY ol.court_id;
       <span><span data-lang="en">Nguyen Tuan Dinh</span><span data-lang="vi">Nguyễn Tuấn Định</span></span>
       <span data-contact-item="email"><a data-contact="email">email</a></span>
       <span><a href="index.html"><span data-lang="en">Back to portfolio</span><span data-lang="vi">Về trang chính</span></a></span>
-      <span><span data-lang="en">Reconstruction of a BA training project · figures are design targets</span><span data-lang="vi">Bản dựng lại bài tập BA · số liệu là mục tiêu thiết kế</span></span>
+      <span><span data-lang="en">Training project · anonymised · figures marked (target) are design targets.</span><span data-lang="vi">Bài tập cuối khoá · đã ẩn danh · số liệu gắn nhãn (target) là mục tiêu thiết kế.</span></span>
     </div>
   </div>
 </footer>

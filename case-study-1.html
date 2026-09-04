@@ -6,7 +6,7 @@
 <title>Access Control &amp; Approval Workflow — Case Study</title>
 <meta name="description" content="Case study: a per-project PBAC permission model and a configurable multi-level approval workflow for a construction ERP on Odoo. Reconstruction based on real work.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Nguyen Tuan Dinh — BA Portfolio">
+<meta property="og:site_name" content="Nguyễn Tuấn Định — BA Portfolio">
 <meta property="og:title" content="Access Control &amp; Approval Workflow — Case Study">
 <meta property="og:description" content="Case study: a per-project PBAC permission model and a configurable multi-level approval workflow for a construction ERP on Odoo. Reconstruction based on real work.">
 <meta property="og:url" content="https://ngtuandinh123.github.io/portfolio/case-study-1.html">
@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=23">
-<script src="assets/app.js?v=23"></script>
+<link rel="stylesheet" href="assets/styles.css?v=24">
+<script src="assets/app.js?v=24"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -73,13 +73,6 @@
         <span data-lang="vi">Mô hình phân quyền PBAC (phân quyền theo từng dự án) theo từng dự án và workflow phê duyệt đề trình nhiều cấp, cấu hình được, cho một doanh nghiệp xây dựng đa lĩnh vực triển khai ERP nền Odoo.</span>
       </p>
 
-      <div class="callout" style="margin-top:1.4rem">
-        <span class="ic" aria-hidden="true">✷</span>
-        <span>
-          <span data-lang="en">Representative reconstruction based on real work. Client, product and vendor names, pricing and confidential material have been removed or fictionalised. Outcome figures are design targets, tagged <em>(target)</em>; problem-side figures are interview estimates, not measurements.</span>
-          <span data-lang="vi">Bản dựng lại mang tính đại diện dựa trên dự án thật. Tên khách hàng, sản phẩm, nhà cung cấp, giá và tài liệu mật đã được lược bỏ hoặc hư cấu hoá. Con số kết quả là mục tiêu thiết kế, đánh dấu <em>(target)</em>; con số mô tả hiện trạng là ước lượng từ phỏng vấn, không phải số đo.</span>
-        </span>
-      </div>
 
       <!-- ===================== TL;DR ===================== -->
       <section class="sec" id="tldr">
@@ -234,7 +227,6 @@
       <section class="sec" id="asis">
         <p class="kicker">5</p>
         <h2><span data-lang="en">AS-IS process</span><span data-lang="vi">Quy trình AS-IS</span></h2>
-        <p class="sub"><span data-lang="en">Diagram labels are kept in English throughout, as the models were produced. Scroll a diagram sideways on a narrow screen.</span><span data-lang="vi">Nhãn trên các sơ đồ để tiếng Anh xuyên suốt, đúng như khi dựng mô hình. Trên màn hình hẹp, kéo ngang sơ đồ để xem đủ.</span></p>
         <figure class="diagram">
           <div class="diagram-scroll">
           <svg viewBox="0 0 680 230" role="img" aria-labelledby="asis-t">
@@ -719,15 +711,15 @@
               <tbody>
                 <tr><td><span data-lang="en">M1 — List / SLA dashboard</span><span data-lang="vi">M1 — Danh sách / dashboard SLA</span></td><td><span data-lang="en">See records by permission &amp; scope</span><span data-lang="vi">Xem hồ sơ theo quyền &amp; phạm vi</span></td><td><span data-lang="en">Search; filters (project / type / state / SLA level); tabs "Mine / To handle / Overdue / All in scope"; per row: id, title, project, creator, <b>current handler</b>, state, <b>SLA countdown + colour badge</b>; red records pinned</span><span data-lang="vi">Tìm kiếm; bộ lọc (dự án / loại / trạng thái / mức SLA); tab "Của tôi / Cần xử lý / Quá hạn / Tất cả trong scope"; mỗi dòng: id, tiêu đề, dự án, người tạo, <b>người đang xử lý</b>, trạng thái, <b>đếm ngược SLA + nhãn màu</b>; hồ sơ đỏ được ghim</span></td></tr>
                 <tr><td><span data-lang="en">M2 — Create form</span><span data-lang="vi">M2 — Form tạo hồ sơ</span></td><td><span data-lang="en">Create &amp; submit</span><span data-lang="vi">Tạo &amp; gửi</span></td><td><span data-lang="en">Project (scope only), type, title, content, attachments; <b>Workflow Preview Panel</b> (live flow from the project's config); Save draft / Submit / Cancel</span><span data-lang="vi">Dự án (chỉ trong scope), loại, tiêu đề, nội dung, đính kèm; <b>Workflow Preview Panel</b> (luồng trực tiếp từ cấu hình dự án); Lưu nháp / Submit / Huỷ</span></td></tr>
-                <tr><td><span data-lang="en">M3 — Detail + Decision panel <em>(drawn below)</em></span><span data-lang="vi">M3 — Chi tiết + bảng ra quyết định <em>(vẽ bên dưới)</em></span></td><td><span data-lang="en">Handle a record</span><span data-lang="vi">Xử lý một hồ sơ</span></td><td><span data-lang="en">Header (id + state + SLA badge); content + files; <b>timeline</b>; comments; <b>Version Compare</b>; short audit log; <b>action buttons by permission × state × SoD</b></span><span data-lang="vi">Header (id + trạng thái + nhãn SLA); nội dung + file; <b>timeline</b>; bình luận; <b>Version Compare</b>; audit log ngắn; <b>nút hành động theo quyền × trạng thái × SoD</b></span></td></tr>
+                <tr><td><span data-lang="en">M3 — Detail + Decision panel <a href="#wf-m3"><em>(drawn below)</em></a></span><span data-lang="vi">M3 — Chi tiết + bảng ra quyết định <a href="#wf-m3"><em>(vẽ bên dưới)</em></a></span></td><td><span data-lang="en">Handle a record</span><span data-lang="vi">Xử lý một hồ sơ</span></td><td><span data-lang="en">Header (id + state + SLA badge); content + files; <b>timeline</b>; comments; <b>Version Compare</b>; short audit log; <b>action buttons by permission × state × SoD</b></span><span data-lang="vi">Header (id + trạng thái + nhãn SLA); nội dung + file; <b>timeline</b>; bình luận; <b>Version Compare</b>; audit log ngắn; <b>nút hành động theo quyền × trạng thái × SoD</b></span></td></tr>
                 <tr><td><span data-lang="en">M4 — Red-Alert dashboard</span><span data-lang="vi">M4 — Dashboard Báo đỏ</span></td><td><span data-lang="en">Track escalation</span><span data-lang="vi">Theo dõi escalation</span></td><td><span data-lang="en">Total overdue; grouped by project / handler / type; overdue list sorted by hours overdue; "Nudge" button (notification only)</span><span data-lang="vi">Tổng quá hạn; nhóm theo dự án / người xử lý / loại; danh sách quá hạn sắp theo số giờ trễ; nút "Nudge" (chỉ thông báo)</span></td></tr>
                 <tr><td><span data-lang="en">M5 — Permission Preview</span><span data-lang="vi">M5 — Xem trước quyền</span></td><td><span data-lang="en">Admin checks one user's rights</span><span data-lang="vi">Admin kiểm tra quyền của một người</span></td><td><span data-lang="en">Pick User + Project → shows groups, add-ons, <b>final effective rights</b>, a warning if the user can't join the workflow; view-only</span><span data-lang="vi">Chọn User + Dự án → hiện các nhóm, quyền bổ sung, <b>quyền thực thi cuối cùng</b>, cảnh báo nếu người đó không thể tham gia workflow; chỉ xem</span></td></tr>
-                <tr><td><span data-lang="en">M6 — Workflow Config builder <em>(drawn below)</em></span><span data-lang="vi">M6 — Trình cấu hình Workflow <em>(vẽ bên dưới)</em></span></td><td><span data-lang="en">Admin configures the flow per project</span><span data-lang="vi">Admin cấu hình luồng theo từng dự án</span></td><td><span data-lang="en">Workflow list per project; <b>sequential step builder</b>; per step (name, action, out-state, actor, ANY/ALL, SLA, comment/file required); <b>"Check Workflow"</b> button; inline warning on SoD / missing actor</span><span data-lang="vi">Danh sách workflow theo dự án; <b>trình dựng bước tuần tự</b>; mỗi bước (tên, hành động, trạng thái ra, actor, ANY/ALL, SLA, yêu cầu comment/file); nút <b>"Check Workflow"</b>; cảnh báo tại chỗ khi vi phạm SoD / thiếu actor</span></td></tr>
+                <tr><td><span data-lang="en">M6 — Workflow Config builder <a href="#wf-m6"><em>(drawn below)</em></a></span><span data-lang="vi">M6 — Trình cấu hình Workflow <a href="#wf-m6"><em>(vẽ bên dưới)</em></a></span></td><td><span data-lang="en">Admin configures the flow per project</span><span data-lang="vi">Admin cấu hình luồng theo từng dự án</span></td><td><span data-lang="en">Workflow list per project; <b>sequential step builder</b>; per step (name, action, out-state, actor, ANY/ALL, SLA, comment/file required); <b>"Check Workflow"</b> button; inline warning on SoD / missing actor</span><span data-lang="vi">Danh sách workflow theo dự án; <b>trình dựng bước tuần tự</b>; mỗi bước (tên, hành động, trạng thái ra, actor, ANY/ALL, SLA, yêu cầu comment/file); nút <b>"Check Workflow"</b>; cảnh báo tại chỗ khi vi phạm SoD / thiếu actor</span></td></tr>
               </tbody>
             </table>
           </div>
 
-          <h4><span data-lang="en">M3 — Submission detail + Decision panel</span><span data-lang="vi">M3 — Chi tiết hồ sơ + bảng ra quyết định</span> <span style="font-weight:400;color:var(--ink-soft)"><span data-lang="en">(low-fi, rule callouts)</span><span data-lang="vi">(low-fi, chú thích quy tắc)</span></span></h4>
+          <h4 id="wf-m3"><span data-lang="en">M3 — Submission detail + Decision panel</span><span data-lang="vi">M3 — Chi tiết hồ sơ + bảng ra quyết định</span></h4>
           <figure class="diagram">
             <div class="diagram-scroll">
             <svg viewBox="0 0 760 490" role="img" aria-labelledby="m3-t">
@@ -769,7 +761,7 @@
             <figcaption><span data-lang="en">M3 — detail + decision panel</span><span data-lang="vi">M3 — bảng chi tiết + ra quyết định</span></figcaption>
           </figure>
 
-          <h4><span data-lang="en">M6 — Workflow Config builder</span><span data-lang="vi">M6 — Trình cấu hình workflow</span> <span style="font-weight:400;color:var(--ink-soft)"><span data-lang="en">(low-fi, rule callouts)</span><span data-lang="vi">(low-fi, chú thích quy tắc)</span></span></h4>
+          <h4 id="wf-m6"><span data-lang="en">M6 — Workflow Config builder</span><span data-lang="vi">M6 — Trình cấu hình workflow</span></h4>
           <figure class="diagram">
             <div class="diagram-scroll">
             <svg viewBox="0 0 760 440" role="img" aria-labelledby="m6-t">
@@ -892,6 +884,8 @@
         </ul>
       </section>
 
+      <p class="soft" style="margin-top:2.4rem;font-size:.92rem"><span data-lang="en">Names, figures and confidential detail have been changed or removed; outcome numbers marked <em>(target)</em> are design targets, not measured results.</span><span data-lang="vi">Tên riêng, số liệu và thông tin mật đã được thay đổi hoặc lược bỏ; các con số gắn nhãn <em>(target)</em> là mục tiêu thiết kế, chưa phải kết quả đo thực tế.</span></p>
+
     </div><!-- /cs-body -->
   </div><!-- /cs-layout -->
 </div>
@@ -902,7 +896,7 @@
       <span><span data-lang="en">Nguyen Tuan Dinh</span><span data-lang="vi">Nguyễn Tuấn Định</span></span>
       <span data-contact-item="email"><a data-contact="email">email</a></span>
       <span><a href="index.html"><span data-lang="en">Back to portfolio</span><span data-lang="vi">Về trang chính</span></a></span>
-      <span><span data-lang="en">Representative reconstruction · figures are design targets</span><span data-lang="vi">Bản dựng lại mang tính đại diện · số liệu là mục tiêu thiết kế</span></span>
+      <span><span data-lang="en">Case studies are anonymised; figures marked (target) are design targets.</span><span data-lang="vi">Case study đã ẩn danh; số liệu gắn nhãn (target) là mục tiêu thiết kế.</span></span>
     </div>
   </div>
 </footer>

@@ -6,7 +6,7 @@
 <title>Course Registration &amp; Waitlist — Case Study</title>
 <meta name="description" content="Case study: a self-service course registration module with real-time eligibility and schedule-conflict validation and an automatic waitlist, for a university replacing an Excel + email process. Representative reconstruction.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Nguyen Tuan Dinh — BA Portfolio">
+<meta property="og:site_name" content="Nguyễn Tuấn Định — BA Portfolio">
 <meta property="og:title" content="Course Registration &amp; Waitlist — Case Study">
 <meta property="og:description" content="Case study: a self-service course registration module with real-time eligibility and schedule-conflict validation and an automatic waitlist. Representative reconstruction.">
 <meta property="og:url" content="https://ngtuandinh123.github.io/portfolio/case-study-2.html">
@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=23">
-<script src="assets/app.js?v=23"></script>
+<link rel="stylesheet" href="assets/styles.css?v=24">
+<script src="assets/app.js?v=24"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -73,13 +73,6 @@
         <span data-lang="vi">Đăng ký học phần tự phục vụ, có kiểm tra điều kiện &amp; trùng lịch theo thời gian thực và waitlist tự động, cho một trường đại học chuyển từ đăng ký bằng Excel + email.</span>
       </p>
 
-      <div class="callout" style="margin-top:1.4rem">
-        <span class="ic" aria-hidden="true">✷</span>
-        <span>
-          <span data-lang="en">Representative reconstruction — <b>no source repo</b>. Built from real project experience (course registration + timetabling) plus standard university-LMS practice. School, vendor and regulation names removed or fictionalised. Outcome figures are design targets, tagged <em>(target)</em>; problem-side figures are interview estimates, not measurements.</span>
-          <span data-lang="vi">Bản dựng lại mang tính đại diện — <b>không có repo gốc</b>. Dựng từ kinh nghiệm dự án thật (đăng ký học phần + xếp thời khoá biểu) + chuẩn hệ thống LMS đại học. Tên trường, nhà cung cấp, quy chế đã lược bỏ/hư cấu hoá. Con số kết quả gắn nhãn <em>(target)</em>; con số hiện trạng là ước lượng từ phỏng vấn, không phải số đo.</span>
-        </span>
-      </div>
 
       <!-- ===================== TL;DR ===================== -->
       <section class="sec" id="tldr">
@@ -240,7 +233,6 @@
       <section class="sec" id="asis">
         <p class="kicker">5</p>
         <h2><span data-lang="en">AS-IS process</span><span data-lang="vi">Quy trình AS-IS</span></h2>
-        <p class="sub"><span data-lang="en">Diagram labels are kept in English throughout, as the models were produced. Scroll a diagram sideways on a narrow screen.</span><span data-lang="vi">Nhãn trên các sơ đồ để tiếng Anh xuyên suốt, đúng như khi dựng mô hình. Trên màn hình hẹp, kéo ngang sơ đồ để xem đủ.</span></p>
         <figure class="diagram">
           <div class="diagram-scroll">
           <svg viewBox="0 0 700 250" role="img" aria-labelledby="a2-t">
@@ -650,16 +642,16 @@
               <thead><tr><th><span data-lang="en">Screen</span><span data-lang="vi">Màn hình</span></th><th><span data-lang="en">Goal</span><span data-lang="vi">Mục tiêu</span></th><th><span data-lang="en">Key components</span><span data-lang="vi">Thành phần chính</span></th></tr></thead>
               <tbody>
                 <tr><td><span data-lang="en">M1 — Section search &amp; catalogue</span><span data-lang="vi">M1 — Tìm section &amp; danh mục</span></td><td><span data-lang="en">Pick courses</span><span data-lang="vi">Chọn học phần</span></td><td><span data-lang="en">Search by code/name; filters (programme / cohort / weekday); per section: code, instructor, meeting pattern, <b>seats left / waitlist</b>; "Add to plan" or "Join waitlist (position ~N)"</span><span data-lang="vi">Tìm theo mã/tên; bộ lọc (chương trình / khoá / thứ); mỗi section: mã, giảng viên, lịch học, <b>chỗ còn / waitlist</b>; "Add to plan" hoặc "Join waitlist (position ~N)"</span></td></tr>
-                <tr><td><span data-lang="en">M2 — Plan / cart <em>(drawn below)</em></span><span data-lang="vi">M2 — Kế hoạch / giỏ <em>(vẽ bên dưới)</em></span></td><td><span data-lang="en">Build &amp; validate</span><span data-lang="vi">Dựng &amp; kiểm tra</span></td><td><span data-lang="en">Chosen sections; <b>inline check flags</b> (prerequisite ✗, hard clash ✗, soft clash ⚠, total credits vs cap); Submit; timetable preview</span><span data-lang="vi">Các section đã chọn; <b>cờ kiểm tra tại chỗ</b> (tiên quyết ✗, trùng cứng ✗, trùng mềm ⚠, tổng tín chỉ vs trần); Submit; xem trước thời khoá biểu</span></td></tr>
+                <tr><td><span data-lang="en">M2 — Plan / cart <a href="#wf-m2"><em>(drawn below)</em></a></span><span data-lang="vi">M2 — Kế hoạch / giỏ <a href="#wf-m2"><em>(vẽ bên dưới)</em></a></span></td><td><span data-lang="en">Build &amp; validate</span><span data-lang="vi">Dựng &amp; kiểm tra</span></td><td><span data-lang="en">Chosen sections; <b>inline check flags</b> (prerequisite ✗, hard clash ✗, soft clash ⚠, total credits vs cap); Submit; timetable preview</span><span data-lang="vi">Các section đã chọn; <b>cờ kiểm tra tại chỗ</b> (tiên quyết ✗, trùng cứng ✗, trùng mềm ⚠, tổng tín chỉ vs trần); Submit; xem trước thời khoá biểu</span></td></tr>
                 <tr><td><span data-lang="en">M3 — Conflict &amp; eligibility panel</span><span data-lang="vi">M3 — Bảng xung đột &amp; điều kiện</span></td><td><span data-lang="en">Explain why something is blocked</span><span data-lang="vi">Giải thích vì sao bị chặn</span></td><td><span data-lang="en">Issues per section: type (prerequisite / hard / soft / credits), the specific detail, a suggested action (pick another / ask for a waiver)</span><span data-lang="vi">Vấn đề theo từng section: loại (tiên quyết / cứng / mềm / tín chỉ), chi tiết cụ thể, hành động gợi ý (chọn học phần khác / xin waiver)</span></td></tr>
                 <tr><td><span data-lang="en">M4 — Registration confirmation</span><span data-lang="vi">M4 — Xác nhận đăng ký</span></td><td><span data-lang="en">Result after Submit</span><span data-lang="vi">Kết quả sau Submit</span></td><td><span data-lang="en">Summary of ENROLLED / WAITLISTED (with position) / REJECTED (with reasons); timetable grid; download-calendar button</span><span data-lang="vi">Tóm tắt ENROLLED / WAITLISTED (kèm vị trí) / REJECTED (kèm lý do); lưới thời khoá biểu; nút tải lịch</span></td></tr>
-                <tr><td><span data-lang="en">M5 — Waitlist &amp; seat offer <em>(drawn below)</em></span><span data-lang="vi">M5 — Waitlist &amp; mời nhận chỗ <em>(vẽ bên dưới)</em></span></td><td><span data-lang="en">Track &amp; claim</span><span data-lang="vi">Theo dõi &amp; nhận</span></td><td><span data-lang="en">Waitlisted sections + current position; on an OFFERED: a countdown to the claim deadline, "Claim" / "Decline", a warning if the offer would create a new clash</span><span data-lang="vi">Các section trong waitlist + vị trí hiện tại; khi có OFFERED: đếm ngược tới hạn nhận, "Claim" / "Decline", cảnh báo nếu nhận sẽ tạo trùng lịch mới</span></td></tr>
+                <tr><td><span data-lang="en">M5 — Waitlist &amp; seat offer <a href="#wf-m5"><em>(drawn below)</em></a></span><span data-lang="vi">M5 — Waitlist &amp; mời nhận chỗ <a href="#wf-m5"><em>(vẽ bên dưới)</em></a></span></td><td><span data-lang="en">Track &amp; claim</span><span data-lang="vi">Theo dõi &amp; nhận</span></td><td><span data-lang="en">Waitlisted sections + current position; on an OFFERED: a countdown to the claim deadline, "Claim" / "Decline", a warning if the offer would create a new clash</span><span data-lang="vi">Các section trong waitlist + vị trí hiện tại; khi có OFFERED: đếm ngược tới hạn nhận, "Claim" / "Decline", cảnh báo nếu nhận sẽ tạo trùng lịch mới</span></td></tr>
                 <tr><td><span data-lang="en">M6 — Registrar console</span><span data-lang="vi">M6 — Console phòng đào tạo</span></td><td><span data-lang="en">Administer</span><span data-lang="vi">Quản trị</span></td><td><span data-lang="en">Sections + capacity + waitlist; grant/revoke a waiver (reason required); override a registration (reason + audit); configure the term calendar &amp; priority groups with a <b>validate button</b> (catches things like BR-CAL-01)</span><span data-lang="vi">Section + sức chứa + waitlist; cấp/thu waiver (bắt buộc lý do); override một lượt đăng ký (lý do + audit); cấu hình lịch học kỳ &amp; nhóm ưu tiên kèm <b>nút validate</b> (bắt các lỗi như BR-CAL-01)</span></td></tr>
               </tbody>
             </table>
           </div>
 
-          <h4><span data-lang="en">M2 — Plan / cart with inline check flags</span><span data-lang="vi">M2 — Kế hoạch / giỏ đăng ký, cờ kiểm tra tại chỗ</span> <span style="font-weight:400;color:var(--ink-soft)"><span data-lang="en">(low-fi, rule callouts)</span><span data-lang="vi">(low-fi, chú thích quy tắc)</span></span></h4>
+          <h4 id="wf-m2"><span data-lang="en">M2 — Plan / cart with inline check flags</span><span data-lang="vi">M2 — Kế hoạch / giỏ đăng ký, cờ kiểm tra tại chỗ</span></h4>
           <figure class="diagram">
             <div class="diagram-scroll">
             <svg viewBox="0 0 760 440" role="img" aria-labelledby="m2-t">
@@ -694,7 +686,7 @@
             <figcaption><span data-lang="en">M2 — plan / cart with inline validation</span><span data-lang="vi">M2 — kế hoạch / giỏ đăng ký, kiểm tra tại chỗ</span></figcaption>
           </figure>
 
-          <h4><span data-lang="en">M5 — Waitlist &amp; seat offer</span><span data-lang="vi">M5 — Danh sách chờ &amp; mời nhận chỗ</span> <span style="font-weight:400;color:var(--ink-soft)"><span data-lang="en">(low-fi, rule callouts)</span><span data-lang="vi">(low-fi, chú thích quy tắc)</span></span></h4>
+          <h4 id="wf-m5"><span data-lang="en">M5 — Waitlist &amp; seat offer</span><span data-lang="vi">M5 — Danh sách chờ &amp; mời nhận chỗ</span></h4>
           <figure class="diagram">
             <div class="diagram-scroll">
             <svg viewBox="0 0 760 360" role="img" aria-labelledby="m5-t">
@@ -816,6 +808,8 @@
         </ul>
       </section>
 
+      <p class="soft" style="margin-top:2.4rem;font-size:.92rem"><span data-lang="en">Names, figures and confidential detail have been changed or removed; outcome numbers marked <em>(target)</em> are design targets, not measured results.</span><span data-lang="vi">Tên riêng, số liệu và thông tin mật đã được thay đổi hoặc lược bỏ; các con số gắn nhãn <em>(target)</em> là mục tiêu thiết kế, chưa phải kết quả đo thực tế.</span></p>
+
     </div><!-- /cs-body -->
   </div><!-- /cs-layout -->
 </div>
@@ -826,7 +820,7 @@
       <span><span data-lang="en">Nguyen Tuan Dinh</span><span data-lang="vi">Nguyễn Tuấn Định</span></span>
       <span data-contact-item="email"><a data-contact="email">email</a></span>
       <span><a href="index.html"><span data-lang="en">Back to portfolio</span><span data-lang="vi">Về trang chính</span></a></span>
-      <span><span data-lang="en">Representative reconstruction · figures are design targets</span><span data-lang="vi">Bản dựng lại mang tính đại diện · số liệu là mục tiêu thiết kế</span></span>
+      <span><span data-lang="en">Case studies are anonymised; figures marked (target) are design targets.</span><span data-lang="vi">Case study đã ẩn danh; số liệu gắn nhãn (target) là mục tiêu thiết kế.</span></span>
     </div>
   </div>
 </footer>
