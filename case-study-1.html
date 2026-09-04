@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=28">
-<script src="assets/app.js?v=28"></script>
+<link rel="stylesheet" href="assets/styles.css?v=29">
+<script src="assets/app.js?v=29"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -347,6 +347,7 @@
             </svg>
             </div>
             <figcaption><span data-lang="en">Submission lifecycle — also serves as the TO-BE flow</span><span data-lang="vi">Vòng đời hồ sơ đề trình — đồng thời là luồng TO-BE</span></figcaption>
+            <p class="dg-key"><span data-lang="vi"><b>DRAFT</b> nháp · <b>PENDING_REVIEW</b> chờ kiểm soát · <b>NEED_INFO</b> cần bổ sung · <b>PENDING_APPROVAL</b> chờ phê duyệt · <b>APPROVED</b> đã duyệt · <b>WAITING_SIGNATURE</b> chờ ký · <b>COMPLETED</b> hoàn tất · <b>WITHDRAWN</b> người tạo rút · <b>REJECTED</b> bị từ chối · <b>EXPIRED</b> quá hạn ký</span></p>
           </figure>
         </div>
 
@@ -451,6 +452,7 @@
 
         <div class="subsec">
           <h3 id="d2">7.2 · <span data-lang="en">User–Role–Permission matrix — Submission module</span><span data-lang="vi">Ma trận User–Role–Permission — phân hệ Đề trình</span></h3>
+          <p class="sub"><span data-lang="en">Who can do what, by role. These cells feed the button-visibility logic on M3.</span><span data-lang="vi">Ai làm được gì, theo vai trò. Giá trị từng ô là đầu vào cho logic ẩn/hiện nút ở M3.</span></p>
           <div class="tbl-scroll">
             <table>
               <thead><tr><th><span data-lang="en">User group (by permission)</span><span data-lang="vi">Nhóm người dùng (theo quyền)</span></th><th class="t-center">View</th><th class="t-center">Create</th><th class="t-center">Edit</th><th class="t-center">Submit</th><th class="t-center">Review</th><th class="t-center">Approve</th><th class="t-center">Override</th></tr></thead>
@@ -484,6 +486,7 @@
 
         <div class="subsec">
           <h3 id="d4">7.4 · <span data-lang="en">Entity relationship (logic)</span><span data-lang="vi">Quan hệ thực thể (mức logic)</span></h3>
+          <p class="sub"><span data-lang="en">The four logical entities behind the permission model — each with one job.</span><span data-lang="vi">Bốn thực thể logic đứng sau mô hình phân quyền — mỗi thực thể một vai trò.</span></p>
           <div class="erd">
             <div class="ent"><h5>User</h5><ul><li><span data-lang="en">email / phone (identity)</span><span data-lang="vi">email / điện thoại (danh tính)</span></li><li><span data-lang="en">1 department</span><span data-lang="vi">1 phòng ban</span></li><li><span data-lang="en">N permission groups</span><span data-lang="vi">N nhóm quyền</span></li><li><span data-lang="en">N projects (scope)</span><span data-lang="vi">N dự án (scope)</span></li></ul></div>
             <div class="ent"><h5>PermissionGroup</h5><ul><li><span data-lang="en">rights list</span><span data-lang="vi">danh sách quyền</span></li><li><span data-lang="en">N users</span><span data-lang="vi">N người dùng</span></li></ul></div>
@@ -507,6 +510,7 @@
 
         <div class="subsec">
           <h3 id="d5">7.5 · <span data-lang="en">User stories + acceptance criteria (8 of 22)</span><span data-lang="vi">User story + tiêu chí nghiệm thu (8/22)</span></h3>
+          <p class="sub"><span data-lang="en">Eight of the 22 stories, each with its Gherkin acceptance criteria.</span><span data-lang="vi">Tám trên 22 story, mỗi story kèm tiêu chí nghiệm thu viết bằng Gherkin.</span></p>
 
           <div class="story"><div class="title">US-01</div>
             <p><span data-lang="en">As a purchasing officer, I want the system to block printing / sending a record before it has the required approvals, so I don't commit to a supplier before the funds are vetted.</span><span data-lang="vi">Là cán bộ mua hàng, tôi muốn hệ thống chặn việc in / gửi hồ sơ khi chưa đủ phê duyệt, để tôi không cam kết với nhà cung cấp trước khi nguồn tiền được thẩm định.</span></p>
@@ -614,6 +618,7 @@
 
         <div class="subsec">
           <h3 id="d6">7.6 · <span data-lang="en">Use case specification (one full spec)</span><span data-lang="vi">Đặc tả use case (một bản đầy đủ)</span></h3>
+          <p class="sub"><span data-lang="en">One spec written out in full; the other six follow the same template.</span><span data-lang="vi">Một bản viết đầy đủ; sáu bản còn lại theo cùng khuôn.</span></p>
           <div class="tbl-scroll">
             <table>
               <tbody>
@@ -672,6 +677,7 @@
 
         <div class="subsec">
           <h3 id="d8">7.8 · <span data-lang="en">Acceptance criteria — Submission module (AC-SUB-01…27)</span><span data-lang="vi">Tiêu chí nghiệm thu — phân hệ Đề trình (AC-SUB-01…27)</span></h3>
+          <p class="sub"><span data-lang="en">The testable conditions each story must satisfy before it ships.</span><span data-lang="vi">Các điều kiện kiểm được mà mỗi story phải thoả trước khi bàn giao.</span></p>
           <div class="tbl-scroll"><table><tbody>
             <tr><td>AC-SUB-01</td><td><span data-lang="en">A user only sees records within their Project Scope.</span><span data-lang="vi">Người dùng chỉ thấy hồ sơ trong Project Scope của mình.</span></td></tr>
             <tr><td>AC-SUB-02</td><td><span data-lang="en">A user with Create can create a draft record.</span><span data-lang="vi">Người dùng có quyền Create tạo được hồ sơ nháp.</span></td></tr>
@@ -705,6 +711,7 @@
 
         <div class="subsec">
           <h3 id="d9">7.9 · <span data-lang="en">Wireframes — 6 screens (2 drawn in detail)</span><span data-lang="vi">Wireframe — 6 màn hình (2 vẽ chi tiết)</span></h3>
+          <p class="sub"><span data-lang="en">Six screens; two drawn low-fi below, the rest as a spec table. Each numbered note ties a control to the rule behind it.</span><span data-lang="vi">Sáu màn; hai màn vẽ low-fi bên dưới, các màn còn lại đặc tả bằng bảng. Mỗi chú thích đánh số gắn một control với quy tắc đứng sau nó.</span></p>
           <div class="tbl-scroll">
             <table>
               <thead><tr><th><span data-lang="en">Screen</span><span data-lang="vi">Màn hình</span></th><th><span data-lang="en">Goal</span><span data-lang="vi">Mục tiêu</span></th><th><span data-lang="en">Key components</span><span data-lang="vi">Thành phần chính</span></th></tr></thead>
@@ -817,6 +824,7 @@
 
         <div class="subsec">
           <h3 id="d10">7.10 · <span data-lang="en">UAT test cases + requirement traceability matrix (10 of ~30)</span><span data-lang="vi">Test case UAT + ma trận truy vết yêu cầu (10/~30)</span></h3>
+          <p class="sub"><span data-lang="en">Each test case traces to the AC and BR it exercises — the two right-hand columns.</span><span data-lang="vi">Mỗi test case truy về AC và BR mà nó kiểm — hai cột bên phải.</span></p>
           <div class="tbl-scroll">
             <table>
               <thead><tr><th>TC</th><th><span data-lang="en">Scenario</span><span data-lang="vi">Kịch bản</span></th><th><span data-lang="en">Expected</span><span data-lang="vi">Kỳ vọng</span></th><th>AC</th><th>BR</th></tr></thead>
@@ -899,6 +907,11 @@
       </section>
 
       <p class="soft" style="margin-top:2.4rem;font-size:.92rem"><span data-lang="en">Names, figures and confidential detail have been changed or removed; outcome numbers marked <em>(target)</em> are design targets, not measured results.</span><span data-lang="vi">Tên riêng, số liệu và thông tin mật đã được thay đổi hoặc lược bỏ; các con số gắn nhãn <em>(target)</em> là mục tiêu thiết kế, chưa phải kết quả đo thực tế.</span></p>
+
+      <nav class="cs-more" aria-label="More case studies">
+        <a href="index.html#work"><span data-lang="en">All case studies</span><span data-lang="vi">Tất cả case study</span></a>
+        <a class="nx" href="case-study-2.html"><span data-lang="en">Next — University LMS: course registration &amp; waitlist</span><span data-lang="vi">Tiếp — LMS đại học: đăng ký học phần &amp; waitlist</span> →</a>
+      </nav>
 
     </div><!-- /cs-body -->
   </div><!-- /cs-layout -->

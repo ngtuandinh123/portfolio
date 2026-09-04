@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=28">
-<script src="assets/app.js?v=28"></script>
+<link rel="stylesheet" href="assets/styles.css?v=29">
+<script src="assets/app.js?v=29"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -367,6 +367,7 @@
             </svg>
             </div>
             <figcaption><span data-lang="en">OrderLine lifecycle</span><span data-lang="vi">Vòng đời OrderLine</span></figcaption>
+            <p class="dg-key"><span data-lang="vi"><b>SELECTING</b> đang chọn khung giờ · <b>HELD</b> đang giữ chỗ · <b>PENDING_PAYMENT</b> chờ thanh toán · <b>CONFIRMED</b> đã xác nhận · <b>EXPIRED</b> hết hạn giữ/thanh toán · <b>CANCELLED_BY_RENTER</b> người thuê huỷ · <b>CLOSED_BY_OWNER</b> chủ sân đóng · <b>COMPLETED</b> đã chơi · <b>NO_SHOW</b> không đến</span></p>
           </figure>
         </div>
 
@@ -829,7 +830,7 @@
             </table>
           </div>
           <p style="margin-top:1rem"><span data-lang="en"><b>Sample SQL</b> — dialect <b>PostgreSQL</b> (<code>FILTER</code>, <code>INTERVAL</code>). Each query sits under the business question it answers; CTEs split by grain so totals don't fan out, and refunds are subtracted at line grain. <em>An Order may have several Payment rows (retries); at most one is <code>SUCCESS</code>, so the payment join stays 1:1 in practice.</em></span><span data-lang="vi"><b>SQL mẫu</b> — dialect <b>PostgreSQL</b> (<code>FILTER</code>, <code>INTERVAL</code>). Mỗi truy vấn đặt dưới câu hỏi nghiệp vụ nó trả lời; CTE tách theo độ hạt để tổng không bị fan-out, và tiền hoàn được trừ ở độ hạt dòng. <em>Một Order có thể có nhiều dòng Payment (thử lại); tối đa một dòng <code>SUCCESS</code>, nên trên thực tế phép join payment vẫn 1:1.</em></span></p>
-          <pre class="code fixed">-- Q1. Which time bands of court X are "dead" in the last 30 days? (utilisation by band)
+          <pre class="code fixed" data-scroll-label="SQL">-- Q1. Which time bands of court X are "dead" in the last 30 days? (utilisation by band)
 WITH sold AS (
   SELECT court_id, slot_date, time_band, SUM(hours) AS sold_hours
   FROM order_line
@@ -912,7 +913,7 @@ GROUP BY ol.court_id;
           </div>
 
           <p style="margin-top:1.4rem"><b>Refund matrix</b> <span style="color:var(--ink-soft)">(checks §6.4)</span></p>
-          <div class="tbl-scroll">
+          <div class="tbl-scroll" data-scroll-label="Refund matrix">
             <table>
               <thead><tr><th>#</th><th><span data-lang="en">Who cancels</span><span data-lang="vi">Ai huỷ</span></th><th><span data-lang="en">Time before play</span><span data-lang="vi">Thời gian trước giờ chơi</span></th><th><span data-lang="en">Expected</span><span data-lang="vi">Kỳ vọng</span></th></tr></thead>
               <tbody>
@@ -990,6 +991,11 @@ GROUP BY ol.court_id;
       </section>
 
       <p class="soft" style="margin-top:2.4rem;font-size:.92rem"><span data-lang="en">Names, figures and confidential detail have been changed or removed; outcome numbers marked <em>(target)</em> are design targets, not measured results.</span><span data-lang="vi">Tên riêng, số liệu và thông tin mật đã được thay đổi hoặc lược bỏ; các con số gắn nhãn <em>(target)</em> là mục tiêu thiết kế, chưa phải kết quả đo thực tế.</span></p>
+
+      <nav class="cs-more" aria-label="More case studies">
+        <a href="case-study-2.html">← <span data-lang="en">Prev — University LMS: course registration &amp; waitlist</span><span data-lang="vi">Trước — LMS đại học: đăng ký học phần &amp; waitlist</span></a>
+        <a href="index.html#work"><span data-lang="en">All case studies</span><span data-lang="vi">Tất cả case study</span></a>
+      </nav>
 
     </div><!-- /cs-body -->
   </div><!-- /cs-layout -->

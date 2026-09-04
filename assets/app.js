@@ -131,10 +131,12 @@
           el.tabIndex = 0;
           el.setAttribute('role', 'region');
           el.setAttribute('data-scroll-region', '');
-          var label = '';
-          var fig = el.closest('figure');
-          var cap = fig && fig.querySelector('figcaption');
-          if (cap) label = (cap.querySelector('[data-lang="' + l + '"]') || cap).textContent.trim();
+          var label = el.getAttribute('data-scroll-label') || '';
+          if (!label) {
+            var fig = el.closest('figure');
+            var cap = fig && fig.querySelector('figcaption');
+            if (cap) label = (cap.querySelector('[data-lang="' + l + '"]') || cap).textContent.trim();
+          }
           if (!label) {
             var prev = el.previousElementSibling;
             while (prev && !/^H[1-6]$/.test(prev.tagName)) prev = prev.previousElementSibling;

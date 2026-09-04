@@ -110,11 +110,11 @@ main{padding-top:calc(60px + clamp(1.5rem,5vw,3rem))}
 h1,h2,h3,h4{font-family:var(--fh); font-weight:600; letter-spacing:-.01em; text-wrap:balance}
 h1{font-size:clamp(2rem,5.5vw,3rem); line-height:1.14; margin:0}
 h2{font-size:clamp(1.4rem,3.6vw,1.95rem); line-height:1.22; margin:0}
-h3{font-size:1.2rem; line-height:1.28; margin:2rem 0 .5rem}
-h4{font-size:1.12rem; line-height:1.3; margin:1.4rem 0 .4rem}
+h3{font-size:1.26rem; line-height:1.3; margin:2rem 0 .5rem}
+h4{font-size:1.06rem; line-height:1.32; margin:1.4rem 0 .4rem}
 p{margin:.9rem 0 0}
 .sub{color:var(--ink-soft); margin:.5rem 0 0; max-width:62ch}
-.lead{font-size:clamp(1.03rem,2.3vw,1.2rem); color:var(--ink-soft); max-width:60ch}
+.lead{font-size:clamp(1.03rem,2.3vw,1.16rem); color:var(--ink-soft); max-width:60ch}
 
 /* ---- callouts ---- */
 .callout{
@@ -166,11 +166,16 @@ pre.code .kw{color:var(--accent); font-weight:600}
 .tbl-scroll:focus-visible, .diagram-scroll:focus-visible, pre.code:focus-visible{
   outline:2px solid var(--accent); outline-offset:2px;
 }
+/* fade the trailing edge of anything that actually scrolls sideways (set by app.js) */
+[data-scroll-region]{
+  -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 20px),transparent);
+  mask-image:linear-gradient(90deg,#000 calc(100% - 20px),transparent);
+}
 
 /* ---- story cards ---- */
 .story{border-top:1px solid var(--line); padding:1.2rem 0}
 .story:first-of-type{border-top:0}
-.story .title{font-family:var(--fh); font-weight:500; font-size:1.02rem}
+.story .title{font-family:var(--fh); font-weight:500; font-size:1.05rem}
 .story .refs{font-family:var(--fm); font-size:.72rem; color:var(--ink-soft); margin-top:.5rem}
 
 /* ---- diagram figures ---- */
@@ -183,6 +188,14 @@ figure.diagram figcaption{font-family:var(--fm); font-size:.72rem; color:var(--i
 .wf-notes li{position:relative; padding-left:1.7rem; margin:.4rem 0; font-size:.86rem; line-height:1.5; color:var(--ink-soft); max-width:34rem}
 .wf-notes li::before{counter-increment:wfn; content:counter(wfn); position:absolute; left:0; top:.1rem; width:1.15rem; height:1.15rem; border-radius:50%; background:var(--note); color:var(--paper); font-family:var(--fm); font-size:.68rem; font-weight:600; display:grid; place-items:center}
 .wf-notes code{font-size:.9em; background:var(--surface-2); padding:.05em .3em; border-radius:3px}
+/* state-name key under a state-machine figure (VI only — glosses the English constants) */
+.dg-key{font-family:var(--fm); font-size:.72rem; color:var(--ink-soft); line-height:1.75; margin:.55rem 0 0; max-width:62ch}
+.dg-key b{color:var(--ink); font-weight:500}
+/* prev / next case-study nav at the foot of a case study */
+.cs-more{display:flex; flex-wrap:wrap; align-items:baseline; gap:.9rem 1.6rem; margin-top:2.2rem; padding-top:1.4rem; border-top:1px solid var(--line); font-family:var(--fm); font-size:.78rem}
+.cs-more a{color:var(--ink-soft); text-decoration:none}
+.cs-more a:hover{color:var(--accent)}
+.cs-more .nx{margin-left:auto; text-align:right}
 /* diagram palette hooks (SVG uses these via CSS vars) */
 .dg-stroke{stroke:var(--dg-node-line)}
 .dg-fill{fill:var(--dg-node-bg)}
@@ -260,7 +273,7 @@ details.readme p:first-of-type{margin-top:1rem}
 
 .item{padding:1.05rem 0; border-top:1px solid var(--line)}
 .item:last-of-type{border-bottom:1px solid var(--line)}
-.item .h{font-family:var(--fh); font-weight:500; font-size:1.03rem}
+.item .h{font-family:var(--fh); font-weight:500; font-size:1.05rem}
 .item .meta{font-family:var(--fm); font-size:.74rem; color:var(--ink-soft); margin-top:.25rem}
 .item p{margin:.5rem 0 0; font-size:.92rem; color:var(--ink-soft); max-width:62ch}
 
