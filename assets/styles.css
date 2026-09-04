@@ -20,7 +20,8 @@ html,body{margin:0;padding:0}
   --fh:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
   --fb:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
   --fm:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
-  --wrap:760px;
+  --gutter:clamp(1.25rem,5vw,2rem);
+  --wrap:clamp(760px, 100% - 8rem, 1080px);
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
@@ -64,17 +65,23 @@ img,svg{max-width:100%}
 :root[data-lang="vi"] body [data-lang="en"]{display:none}
 
 /* ---- layout ---- */
-.wrap{max-width:var(--wrap); margin:0 auto; padding:0 clamp(1.25rem,5vw,2rem)}
-.wrap.wide{max-width:960px}
+.wrap{max-width:var(--wrap); margin:0 auto; padding:0 var(--gutter)}
+.wrap.wide{max-width:max(960px, var(--wrap))}
 
 /* ---- top nav ---- */
 .nav{
   position:fixed; inset:0 0 auto 0; height:60px; z-index:50;
   display:flex; align-items:center; gap:.9rem;
-  padding:0 clamp(1rem,4vw,1.6rem);
+  /* keep the nav furniture on the same axis as the page content */
+  padding-left:max(clamp(1rem,4vw,1.6rem), calc(var(--gutter) + (100% - var(--wrap))/2));
+  padding-right:max(clamp(1rem,4vw,1.6rem), calc(var(--gutter) + (100% - var(--wrap))/2));
   background:color-mix(in srgb,var(--paper) 88%,transparent);
   backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
+}
+body.cs .nav{
+  padding-left:max(clamp(1rem,4vw,1.6rem), calc(var(--gutter) + (100% - max(960px, var(--wrap)))/2));
+  padding-right:max(clamp(1rem,4vw,1.6rem), calc(var(--gutter) + (100% - max(960px, var(--wrap)))/2));
 }
 .nav .mark{font-family:var(--fm); font-size:.8rem; font-weight:500; text-decoration:none; white-space:nowrap}
 .nav .links{display:flex; gap:1.1rem; margin-left:auto; font-family:var(--fm); font-size:.76rem}
@@ -91,10 +98,26 @@ img,svg{max-width:100%}
   .nav{gap:.55rem}
   .nav .mark{flex:0 0 auto}
   .nav .links{margin-left:0; flex:1 1 auto; min-width:0; gap:.85rem; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch;
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 22px),transparent);
-    mask-image:linear-gradient(90deg,#000 calc(100% - 22px),transparent)}
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 18px,#000 calc(100% - 18px),transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 18px,#000 calc(100% - 18px),transparent)}
   .nav .links::-webkit-scrollbar{display:none}
   .nav .links a{white-space:nowrap}
+}
+
+/* ---- mobile: enlarge tap targets to ~44px (no visual change, just hit area) ---- */
+@media (max-width:760px){
+  .nav .links{align-items:stretch}
+  .nav .links a{display:flex; align-items:center; min-height:44px}
+  .nav .seg button{min-height:44px}
+  .nav .tgl{width:44px; height:44px}
+  .chips{gap:.15rem .9rem}
+  .chips a{display:inline-block; padding:.5rem 0; min-height:44px}
+  .readme summary{min-height:44px; align-items:center}
+  .samples li a{min-height:44px}
+  .actions a[data-contact="cv"], p.sub a[data-contact="cv"]{display:inline-block; padding:.5rem 0}
+  footer .f a{display:inline-block; padding:.35rem 0}
+  .toc-m .toc-body a{display:flex; align-items:center; min-height:40px}
+  .dsubnav a{padding:.5rem .7rem}
 }
 
 /* skip link — off-screen via transform until keyboard-focused */
@@ -105,11 +128,11 @@ img,svg{max-width:100%}
 main{padding-top:calc(60px + clamp(1.5rem,5vw,3rem))}
 
 /* ---- section rhythm ---- */
-.sec{padding-top:clamp(2.6rem,7vw,4.4rem); scroll-margin-top:78px}
-.kicker{font-family:var(--fm); font-size:.72rem; text-transform:uppercase; letter-spacing:.15em; color:var(--accent); margin:0 0 .7rem}
+.sec{padding-top:clamp(3rem,7vw,4.4rem); scroll-margin-top:78px}
+.kicker{font-family:var(--fm); font-size:.72rem; text-transform:uppercase; letter-spacing:.15em; color:var(--accent); margin:0 0 .7rem; max-width:44rem}
 h1,h2,h3,h4{font-family:var(--fh); font-weight:600; letter-spacing:-.01em; text-wrap:balance}
-h1{font-size:clamp(2rem,5.5vw,3rem); line-height:1.14; margin:0}
-h2{font-size:clamp(1.4rem,3.6vw,1.95rem); line-height:1.22; margin:0}
+h1{font-size:clamp(2rem,5.5vw,3rem); line-height:1.14; margin:0; max-width:44rem}
+h2{font-size:clamp(1.5rem,3.6vw,1.95rem); line-height:1.22; margin:0; max-width:44rem}
 h3{font-size:1.26rem; line-height:1.3; margin:2rem 0 .5rem}
 h4{font-size:1.06rem; line-height:1.32; margin:1.4rem 0 .4rem}
 p{margin:.9rem 0 0}
@@ -238,7 +261,7 @@ footer .f{font-family:var(--fm); font-size:.74rem; color:var(--ink-soft); displa
 
 /* ---- homepage-specific ---- */
 .hero h1{margin-top:1.3rem}
-.hero .role{font-family:var(--fm); font-size:.82rem; color:var(--accent); margin:.8rem 0 0}
+.hero .role{font-family:var(--fm); font-size:.82rem; color:var(--accent); margin:.8rem 0 0; max-width:44rem}
 .hero .pitch{margin-top:1.15rem}
 details.readme{margin-top:1.6rem; border-top:1px solid var(--line); padding-top:1rem}
 details.readme summary{display:flex; align-items:center; gap:.5rem; cursor:pointer; list-style:none; font-family:var(--fm); font-size:.76rem; text-transform:uppercase; letter-spacing:.12em; color:var(--ink-soft)}
@@ -275,8 +298,8 @@ details.readme p:first-of-type{margin-top:1rem}
 
 .item{padding:1.05rem 0; border-top:1px solid var(--line)}
 .item:last-of-type{border-bottom:1px solid var(--line)}
-.item .h{font-family:var(--fh); font-weight:500; font-size:1.05rem}
-.item .meta{font-family:var(--fm); font-size:.74rem; color:var(--ink-soft); margin-top:.25rem}
+.item .h{font-family:var(--fh); font-weight:500; font-size:1.05rem; max-width:44rem}
+.item .meta{font-family:var(--fm); font-size:.74rem; color:var(--ink-soft); margin-top:.25rem; max-width:52ch}
 .item p{margin:.5rem 0 0; font-size:.92rem; color:var(--ink-soft); max-width:62ch}
 
 .hgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem 2rem; margin-top:1.4rem}
@@ -296,9 +319,8 @@ details.readme p:first-of-type{margin-top:1rem}
 .cs-layout{display:grid; grid-template-columns:minmax(0,1fr); gap:2rem}
 .cs-layout>*{min-width:0}
 @media (min-width:1180px){
-  .wrap.wide{max-width:1060px}
-  .cs-layout{grid-template-columns:180px minmax(0,1fr); gap:2.5rem; max-width:1010px; margin:0 auto}
-  .cs-layout .cs-body{max-width:760px; min-width:0}
+  .cs-layout{grid-template-columns:200px minmax(0,1fr); column-gap:3rem; max-width:none; margin:0}
+  .cs-layout .cs-body{max-width:768px; min-width:0}
 }
 .cs-body{max-width:760px; min-width:0}
 .cs-body .soft{color:var(--ink-soft)}
