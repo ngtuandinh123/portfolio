@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=27">
-<script src="assets/app.js?v=27"></script>
+<link rel="stylesheet" href="assets/styles.css?v=28">
+<script src="assets/app.js?v=28"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -53,7 +53,7 @@
       <a href="#asis"><span data-lang="en">5 · AS-IS process</span><span data-lang="vi">5 · Quy trình AS-IS</span></a>
       <a href="#tobe"><span data-lang="en">6 · TO-BE solution</span><span data-lang="vi">6 · Giải pháp TO-BE</span></a>
       <a href="#deliverables"><span data-lang="en">7 · Deliverables</span><span data-lang="vi">7 · Sản phẩm BA</span></a>
-      <a href="#catches"><span data-lang="en">8 · Consistency catches</span><span data-lang="vi">8 · Điểm không nhất quán</span></a>
+      <a href="#catches"><span data-lang="en">8 · Consistency catches</span><span data-lang="vi">8 · Những chỗ tự mâu thuẫn</span></a>
       <a href="#outcome"><span data-lang="en">9 · Outcome</span><span data-lang="vi">9 · Kết quả</span></a>
       <a href="#open"><span data-lang="en">10 · Open questions</span><span data-lang="vi">10 · Câu hỏi mở</span></a>
       <a href="#lessons"><span data-lang="en">11 · Lessons</span><span data-lang="vi">11 · Bài học</span></a>
@@ -84,7 +84,7 @@
               <span data-lang="vi"> một nền tảng đặt sân thể thao trực tuyến (hai phía: <b>người thuê</b> và <b>chủ sân</b>), thay quy trình tìm–gọi–chốt thủ công qua nhóm Facebook/Zalo.</span></li>
             <li><b><span data-lang="en">This is a reconstruction of my MindX BA project</span><span data-lang="vi">Đây là bản dựng lại bài tập BA của tôi (MindX)</span>:</b>
               <span data-lang="en"> An end-of-course project — no real client. I co-led the original analysis on the team; I've hardened it here with the artefacts the first version didn't have.</span>
-              <span data-lang="vi"> bài tập cuối khoá — không có khách hàng thật. Phần phân tích gốc do tôi đồng chủ trì trong nhóm; tôi làm cứng lại nó ở đây bằng các artifact bản đầu chưa có.</span></li>
+              <span data-lang="vi"> bài tập cuối khoá — không có khách hàng thật. Phần phân tích gốc do tôi cùng phụ trách trong nhóm; tôi làm cứng lại nó ở đây bằng các artifact bản đầu chưa có.</span></li>
             <li><b><span data-lang="en">Three design decisions that mattered most</span><span data-lang="vi">3 quyết định thiết kế quan trọng nhất</span>:</b>
               <span data-lang="en"> <b>peak/off-peak pricing tiers</b> (a lever to shift demand off dead hours) · a <b>hold with a TTL</b> while the external wallet decides (a timeout you don't control) · a <b>time-tiered cancellation/refund policy</b> + owner settlement.</span>
               <span data-lang="vi"> <b>định giá theo bậc cao/thấp điểm</b> (để dịch cầu ra khỏi giờ vắng) · <b>giữ chỗ có TTL (thời hạn giữ chỗ)</b> trong lúc chờ ví điện tử phản hồi (timeout không do mình kiểm soát) · <b>chính sách huỷ/hoàn tiền theo mốc thời gian</b> + đối soát tiền về chủ sân.</span></li>
@@ -97,7 +97,7 @@
           </ul>
           <p class="read-one">
             <span data-lang="en">If you read one section, read <a href="#catches">§8 — Consistency catches</a>: five inconsistencies I found in my own first BRD.</span>
-            <span data-lang="vi">Nếu chỉ đọc một mục: đọc <a href="#catches">§8 — Nững chỗ tài liệu tự mâu thuẫn</a> (năm điểm tôi phát hiện trong chính bản BRD đầu của mình).</span>
+            <span data-lang="vi">Nếu chỉ đọc một mục: đọc <a href="#catches">§8 — Những chỗ tài liệu tự mâu thuẫn</a> (năm điểm tôi phát hiện trong chính bản BRD đầu của mình).</span>
           </p>
         </div>
       </section>
@@ -110,7 +110,7 @@
           <dt><span data-lang="en">Context</span><span data-lang="vi">Bối cảnh</span></dt>
           <dd><span data-lang="en">A two-sided online court-booking platform in Vietnam: <b>renters</b> search and book; <b>owners</b> list courts, manage schedules and see revenue. Replacing a manual process — finding courts in Facebook/Zalo groups, phoning/texting the owner, confirming by SMS, paying cash or bank transfer, the owner writing bookings in a notebook.</span><span data-lang="vi">Một nền tảng đặt sân thể thao trực tuyến tại Việt Nam, hai phía: <b>người thuê</b> tìm và đặt sân; <b>chủ sân</b> đăng sân, quản lý lịch và xem doanh thu. Thay quy trình thủ công: tìm sân qua nhóm Facebook/Zalo, gọi điện/nhắn tin cho chủ sân, xác nhận bằng SMS, trả tiền mặt hoặc chuyển khoản, chủ sân ghi lịch vào sổ.</span></dd>
           <dt><span data-lang="en">Source</span><span data-lang="vi">Nguồn</span></dt>
-          <dd><span data-lang="en">A BA training end-of-course project (MindX) — a <b>simulated project</b>, no real client. I was a BA on the team and <b>co-led</b> the original BA analysis (BRD, functional requirements, user stories, proposed-process BPMN, FDD) with a second BA.</span><span data-lang="vi">Bài tập cuối khoá chương trình đào tạo BA (MindX) — <b>dự án mô phỏng</b>, không có khách hàng thật. Tôi là BA của nhóm, <b>đồng chủ trì</b> phần phân tích nghiệp vụ gốc (BRD, functional requirements, user story, BPMN đề xuất, FDD) với một BA khác trong nhóm.</span></dd>
+          <dd><span data-lang="en">A BA training end-of-course project (MindX) — a <b>simulated project</b>, no real client. I was a BA on the team and <b>co-led</b> the original BA analysis (BRD, functional requirements, user stories, proposed-process BPMN, FDD) with a second BA.</span><span data-lang="vi">Bài tập cuối khoá chương trình đào tạo BA (MindX) — <b>dự án mô phỏng</b>, không có khách hàng thật. Tôi là BA của nhóm, <b>cùng phụ trách</b> phần phân tích nghiệp vụ gốc (BRD, functional requirements, user story, BPMN đề xuất, FDD) với một BA khác trong nhóm.</span></dd>
           <dt><span data-lang="en">This case study</span><span data-lang="vi">Bản case study này</span></dt>
           <dd><span data-lang="en"><b>A reconstruction</b>: I keep the original analysis and add what the first version lacked — business rules, a state machine, an ERD, a cancellation/refund policy, a report spec + SQL.</span><span data-lang="vi"><b>Bản dựng lại</b>: tôi giữ phần phân tích gốc và bổ sung những gì bản đầu còn thiếu — business rules, state machine, ERD, chính sách huỷ/hoàn tiền, đặc tả báo cáo + SQL.</span></dd>
           <dt><span data-lang="en">Duration</span><span data-lang="vi">Thời lượng</span></dt>
@@ -262,7 +262,7 @@
             <defs><marker id="a3" markerWidth="9" markerHeight="9" refX="7.5" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 z" class="dg-accent"/></marker></defs>
             <rect x="8" y="16" width="200" height="44" rx="7" class="dg-fill dg-stroke"/><text x="18" y="35" class="dg-text" data-lang="en">Find courts via friends /</text><text x="18" y="35" class="dg-text" data-lang="vi">Tìm sân qua bạn bè /</text><text x="18" y="51" class="dg-text" data-lang="en">Facebook / Zalo groups</text><text x="18" y="51" class="dg-text" data-lang="vi">nhóm Facebook / Zalo</text>
             <rect x="216" y="16" width="196" height="44" rx="7" class="dg-fill dg-stroke"/><text x="226" y="35" class="dg-text" data-lang="en">Phone / text each owner</text><text x="226" y="35" class="dg-text" data-lang="vi">Gọi / nhắn từng chủ sân</text><text x="226" y="51" class="dg-text" data-lang="en">for a free slot + price</text><text x="226" y="51" class="dg-text" data-lang="vi">hỏi khung trống + giá</text>
-            <rect x="436" y="16" width="336" height="44" rx="7" class="dg-warn"/><text x="446" y="35" class="dg-text" data-lang="en">Owner checks a notebook / memory,</text><text x="446" y="35" class="dg-text" data-lang="vi">Chủ sân xem sổ / trí nhớ,</text><text x="446" y="51" class="dg-text" data-lang="en">says "keeping it for you" — nothing holds it</text><text x="446" y="51" class="dg-text" data-lang="vi">nói "để đó cho" — không có gì giữ chỗ</text>
+            <rect x="436" y="16" width="336" height="44" rx="7" class="dg-warn"/><text x="446" y="35" class="dg-text" data-lang="en">Owner checks a notebook / memory,</text><text x="446" y="35" class="dg-text" data-lang="vi">Chủ sân xem sổ / trí nhớ,</text><text x="446" y="51" class="dg-text" data-lang="en">says "keeping it for you" — nothing does</text><text x="446" y="51" class="dg-text" data-lang="vi">nói "để đó cho" — không có gì giữ chỗ</text>
             <line x1="210" y1="38" x2="214" y2="38" class="dg-accent-stroke" marker-end="url(#a3)"/>
             <line x1="412" y1="38" x2="432" y2="38" class="dg-accent-stroke" marker-end="url(#a3)"/>
             <rect x="150" y="96" width="272" height="38" rx="7" class="dg-fill dg-stroke"/><text x="160" y="119" class="dg-text" data-lang="en">Agree by phone; pay cash / transfer</text><text x="160" y="119" class="dg-text" data-lang="vi">Chốt qua điện thoại; trả tiền mặt / chuyển khoản</text>
@@ -931,7 +931,7 @@ GROUP BY ol.court_id;
       <!-- ===================== 8. CONSISTENCY CATCHES ===================== -->
       <section class="sec" id="catches">
         <p class="kicker">8</p>
-        <h2><span data-lang="en">Consistency catches</span><span data-lang="vi">Nững chỗ tài liệu tự mâu thuẫn</span></h2>
+        <h2><span data-lang="en">Consistency catches</span><span data-lang="vi">Những chỗ tài liệu tự mâu thuẫn</span></h2>
         <p class="sub"><span data-lang="en">Five inconsistencies I found when I re-read <b>my own first BRD</b>, and how the reconstruction fixes each.</span><span data-lang="vi">Năm điểm không nhất quán tôi phát hiện khi rà lại <b>chính bản BRD đầu của mình</b>, và cách xử lý ở bản dựng lại.</span></p>
         <ol class="steps">
           <li><span data-lang="en"><b>Flat 100,000đ pricing vs the claim that utilisation rises to 75–90%.</b> No price lever, so demand can't shift off the dead hours. → Added <b>peak/off-peak tiers</b> (§6.1, BR-PRICE); restated the utilisation driver as a target <em>dependent on the pricing lever</em>, not a fixed number.</span><span data-lang="vi"><b>Giá phẳng 100.000đ mọi khung giờ vs claim hiệu suất tăng lên 75–90%.</b> Không có đòn bẩy giá thì không dịch được cầu. → Thêm <b>bậc giá cao/thấp điểm</b> (§6.1, BR-PRICE); phát biểu lại business driver hiệu suất là <em>mục tiêu phụ thuộc đòn bẩy giá</em>, không phải một con số cố định.</span></li>

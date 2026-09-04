@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=27">
-<script src="assets/app.js?v=27"></script>
+<link rel="stylesheet" href="assets/styles.css?v=28">
+<script src="assets/app.js?v=28"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -53,7 +53,7 @@
       <a href="#asis"><span data-lang="en">5 · AS-IS process</span><span data-lang="vi">5 · Quy trình AS-IS</span></a>
       <a href="#tobe"><span data-lang="en">6 · TO-BE solution</span><span data-lang="vi">6 · Giải pháp TO-BE</span></a>
       <a href="#deliverables"><span data-lang="en">7 · Deliverables</span><span data-lang="vi">7 · Sản phẩm BA</span></a>
-      <a href="#catches"><span data-lang="en">8 · Consistency catches</span><span data-lang="vi">8 · Điểm không nhất quán</span></a>
+      <a href="#catches"><span data-lang="en">8 · Consistency catches</span><span data-lang="vi">8 · Những chỗ tự mâu thuẫn</span></a>
       <a href="#outcome"><span data-lang="en">9 · Outcome</span><span data-lang="vi">9 · Kết quả</span></a>
       <a href="#open"><span data-lang="en">10 · Open questions</span><span data-lang="vi">10 · Câu hỏi mở</span></a>
       <a href="#lessons"><span data-lang="en">11 · Lessons</span><span data-lang="vi">11 · Bài học</span></a>
@@ -97,7 +97,7 @@
           </ul>
           <p class="read-one">
             <span data-lang="en">If you read one section, read <a href="#catches">§8 — Consistency catches</a>: four inconsistencies I caught by cross-checking requirements ↔ wireframes ↔ the permission model.</span>
-            <span data-lang="vi">Nếu chỉ đọc một mục: đọc <a href="#catches">§8 — Nững chỗ tài liệu tự mâu thuẫn</a> (bốn điểm tôi phát hiện khi rà soát chéo yêu cầu ↔ wireframe ↔ mô hình phân quyền).</span>
+            <span data-lang="vi">Nếu chỉ đọc một mục: đọc <a href="#catches">§8 — Những chỗ tài liệu tự mâu thuẫn</a> (bốn điểm tôi phát hiện khi rà soát chéo yêu cầu ↔ wireframe ↔ mô hình phân quyền).</span>
           </p>
         </div>
       </section>
@@ -794,7 +794,7 @@
               <rect x="24" y="320" width="120" height="26" rx="3" class="dg-fill dg-stroke"/><text x="36" y="338" class="dg-lbl" data-lang="en">+ Add step</text><text x="36" y="338" class="dg-lbl" data-lang="vi">+ Thêm bước</text>
               <rect x="152" y="320" width="140" height="26" rx="3" class="dg-fill dg-accent-stroke" stroke-width="1.5"/><text x="164" y="338" class="dg-lbl">Check Workflow</text>
               <circle cx="152" cy="320" r="8" class="dg-note"/><text x="152" y="324" text-anchor="middle" class="dg-lbl" fill="var(--paper)">2</text>
-              <rect x="300" y="320" width="140" height="26" rx="3" class="dg-fill dg-stroke"/><text x="312" y="338" class="dg-lbl dg-text-soft">Save &amp; Activate</text>
+              <rect x="300" y="320" width="140" height="26" rx="3" class="dg-fill dg-stroke"/><text x="312" y="338" class="dg-lbl dg-text-soft" data-lang="en">Save &amp; Activate</text><text x="312" y="338" class="dg-lbl dg-text-soft" data-lang="vi">Lưu &amp; Kích hoạt</text>
               <!-- check result -->
               <rect x="492" y="96" width="244" height="216" rx="3" class="dg-fill dg-stroke"/>
               <text x="504" y="116" class="dg-title" data-lang="en">Check result</text><text x="504" y="116" class="dg-title" data-lang="vi">Kết quả kiểm tra</text>
@@ -804,13 +804,13 @@
               <text x="504" y="200" class="dg-lbl" fill="var(--bad)" data-lang="en">✗ Approve step breaks SoD</text><text x="504" y="200" class="dg-lbl" fill="var(--bad)" data-lang="vi">✗ Bước Approve vi phạm SoD</text>
               <text x="504" y="220" class="dg-lbl" data-lang="en">✓ Has an end state</text><text x="504" y="220" class="dg-lbl" data-lang="vi">✓ Có trạng thái kết thúc</text>
               <text x="504" y="240" class="dg-lbl" data-lang="en">✓ No open loop</text><text x="504" y="240" class="dg-lbl" data-lang="vi">✓ Không có vòng lặp hở</text>
-              <text x="504" y="284" class="dg-lbl dg-text-soft" data-lang="en">1 blocker — Save &amp; Activate disabled</text><text x="504" y="284" class="dg-lbl dg-text-soft" data-lang="vi">1 lỗi chặn — Save &amp; Activate bị khoá</text>
+              <text x="504" y="284" class="dg-lbl dg-text-soft" data-lang="en">1 blocker — Save &amp; Activate disabled</text><text x="504" y="284" class="dg-lbl dg-text-soft" data-lang="vi">1 lỗi chặn — Lưu &amp; Kích hoạt bị khoá</text>
             </svg>
             </div>
             <figcaption><span data-lang="en">M6 — workflow config builder</span><span data-lang="vi">M6 — trình cấu hình workflow</span></figcaption>
             <ol class="wf-notes">
               <li><span data-lang="en">The amber band is the inline SoD check — Step 2's actor group holds one person, who also creates the equipment-transfer records this step would approve.</span><span data-lang="vi">Dải màu vàng là bước kiểm tra SoD tại chỗ — nhóm actor của Bước 2 chỉ có một người, mà người đó cũng tạo các hồ sơ điều chuyển thiết bị sẽ được duyệt ở bước này.</span></li>
-              <li><span data-lang="en">"Check Workflow" blocks "Save &amp; Activate" while an approval step's only actor is the record's creator — invalid-config guard (§6.2), BR-PBAC-03.</span><span data-lang="vi">"Check Workflow" chặn "Save &amp; Activate" khi actor duy nhất của một bước duyệt là chính người tạo hồ sơ — quy tắc chặn cấu hình sai (§6.2), BR-PBAC-03.</span></li>
+              <li><span data-lang="en">"Check Workflow" blocks "Save &amp; Activate" while an approval step's only actor is the record's creator — invalid-config guard (§6.2), BR-PBAC-03.</span><span data-lang="vi">"Check Workflow" chặn "Lưu &amp; Kích hoạt" khi actor duy nhất của một bước duyệt là chính người tạo hồ sơ — quy tắc chặn cấu hình sai (§6.2), BR-PBAC-03.</span></li>
             </ol>
           </figure>
         </div>
@@ -841,7 +841,7 @@
       <!-- ===================== 8. CONSISTENCY CATCHES ===================== -->
       <section class="sec" id="catches">
         <p class="kicker">8</p>
-        <h2><span data-lang="en">Consistency catches</span><span data-lang="vi">Nững chỗ tài liệu tự mâu thuẫn</span></h2>
+        <h2><span data-lang="en">Consistency catches</span><span data-lang="vi">Những chỗ tài liệu tự mâu thuẫn</span></h2>
         <p class="sub"><span data-lang="en">Four inconsistencies I caught by cross-checking requirements ↔ wireframes ↔ the permission model, and how each was resolved.</span><span data-lang="vi">Bốn điểm không nhất quán tôi bắt được khi rà soát chéo yêu cầu ↔ wireframe ↔ mô hình phân quyền, và cách xử lý từng điểm.</span></p>
         <ol class="steps">
           <li><span data-lang="en">The first M3 wireframe showed an <b>"Edit record" button at <code>PENDING_REVIEW</code></b> for the creator — contradicting BR-SUB-05 (Submit Lock). → Removed it; Edit only at <code>DRAFT</code> and <code>NEED_INFO</code>. Added an <b>Action Visibility Rule</b> table stating the display condition for every button (all of: permission + scope + state + SoD + not immutable).</span><span data-lang="vi">Wireframe M3 bản đầu hiển thị nút <b>"Sửa hồ sơ" ở trạng thái <code>PENDING_REVIEW</code></b> cho người tạo — mâu thuẫn BR-SUB-05 (Submit Lock). → Gỡ nút đó; chỉ cho "Sửa" ở <code>DRAFT</code> và <code>NEED_INFO</code>. Bổ sung một bảng <b>Action Visibility Rule</b> ghi điều kiện hiển thị cho từng nút (đủ tất cả: có quyền + trong scope + đúng trạng thái + không vi phạm SoD + hồ sơ chưa bất biến).</span></li>

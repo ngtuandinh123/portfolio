@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=27">
-<script src="assets/app.js?v=27"></script>
+<link rel="stylesheet" href="assets/styles.css?v=28">
+<script src="assets/app.js?v=28"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -53,7 +53,7 @@
       <a href="#asis"><span data-lang="en">5 · AS-IS process</span><span data-lang="vi">5 · Quy trình AS-IS</span></a>
       <a href="#tobe"><span data-lang="en">6 · TO-BE solution</span><span data-lang="vi">6 · Giải pháp TO-BE</span></a>
       <a href="#deliverables"><span data-lang="en">7 · Deliverables</span><span data-lang="vi">7 · Sản phẩm BA</span></a>
-      <a href="#catches"><span data-lang="en">8 · Consistency catches</span><span data-lang="vi">8 · Điểm không nhất quán</span></a>
+      <a href="#catches"><span data-lang="en">8 · Consistency catches</span><span data-lang="vi">8 · Những chỗ tự mâu thuẫn</span></a>
       <a href="#outcome"><span data-lang="en">9 · Outcome</span><span data-lang="vi">9 · Kết quả</span></a>
       <a href="#open"><span data-lang="en">10 · Open questions</span><span data-lang="vi">10 · Câu hỏi mở</span></a>
       <a href="#lessons"><span data-lang="en">11 · Lessons</span><span data-lang="vi">11 · Bài học</span></a>
@@ -97,7 +97,7 @@
           </ul>
           <p class="read-one">
             <span data-lang="en">If you read one section, read <a href="#catches">§8 — Consistency catches</a>: four inconsistencies I caught cross-checking the regulation ↔ wireframes ↔ the rule model.</span>
-            <span data-lang="vi">Nếu chỉ đọc một mục: đọc <a href="#catches">§8 — Nững chỗ tài liệu tự mâu thuẫn</a> (bốn điểm tôi phát hiện khi rà soát chéo quy chế ↔ wireframe ↔ mô hình rule).</span>
+            <span data-lang="vi">Nếu chỉ đọc một mục: đọc <a href="#catches">§8 — Những chỗ tài liệu tự mâu thuẫn</a> (bốn điểm tôi phát hiện khi rà soát chéo quy chế ↔ wireframe ↔ mô hình rule).</span>
           </p>
         </div>
       </section>
@@ -348,7 +348,7 @@
               <line x1="540" y1="192" x2="420" y2="150" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="430" y="176" class="dg-lbl dg-text-soft" data-lang="en">claim in time (re-check)</text><text x="430" y="176" class="dg-lbl dg-text-soft" data-lang="vi">nhận kịp hạn (kiểm tra lại)</text>
               <line x1="575" y1="220" x2="575" y2="260" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="581" y="246" class="dg-lbl dg-text-soft" data-lang="en">deadline passed</text><text x="581" y="246" class="dg-lbl dg-text-soft" data-lang="vi">quá hạn</text>
               <line x1="540" y1="262" x2="540" y2="150" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="440" y="250" class="dg-lbl dg-text-soft" data-lang="en">→ back of queue (default)</text><text x="440" y="250" class="dg-lbl dg-text-soft" data-lang="vi">→ về cuối hàng (mặc định)</text>
-              <line x1="575" y1="290" x2="575" y2="330" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="558" y="316" class="dg-lbl dg-text-soft" data-lang="en">or removed (config)</text><text x="558" y="316" class="dg-lbl dg-text-soft" data-lang="vi">hoặc bị loại (cấu hình)</text>
+              <line x1="575" y1="290" x2="575" y2="330" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="558" y="316" class="dg-lbl dg-text-soft" data-lang="en">or removed (config)</text><text x="558" y="316" class="dg-lbl dg-text-soft" data-lang="vi">hoặc bị loại</text>
               <text x="16" y="316" class="dg-lbl dg-note" data-lang="en">WITHDRAWN signals the Grades/SIS module to record a "W" — the transcript write is out of scope (§1).</text><text x="16" y="316" class="dg-lbl dg-note" data-lang="vi">WITHDRAWN báo cho phân hệ Điểm/SIS ghi "W" — việc ghi vào bảng điểm nằm ngoài scope (§1).</text>
               <text x="16" y="336" class="dg-lbl dg-note" data-lang="en">Final states are immutable after the drop deadline, except a documented registrar override.</text><text x="16" y="336" class="dg-lbl dg-note" data-lang="vi">Trạng thái cuối là bất biến sau hạn drop, trừ một override có hồ sơ của phòng đào tạo.</text>
             </svg>
@@ -483,10 +483,10 @@
               <title id="pr-t">Prerequisite expression tree: AND of (B215 grade C) and an OR of (M101 grade D) or (M103 grade D); a leaf passes on transcript grade, an in-progress course, or a waiver</title>
               <defs><marker id="pr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="dg-accent"/></marker></defs>
               <rect x="270" y="12" width="110" height="30" rx="15" class="dg-fill-2 dg-stroke"/><text x="325" y="31" text-anchor="middle" class="dg-title dg-text">AND</text>
-              <rect x="60" y="92" width="170" height="30" rx="7" class="dg-fill dg-stroke"/><text x="72" y="111" class="dg-text">B215 · min grade C</text>
+              <rect x="60" y="92" width="170" height="30" rx="7" class="dg-fill dg-stroke"/><text x="72" y="111" class="dg-text" data-lang="en">B215 · min grade C</text><text x="72" y="111" class="dg-text" data-lang="vi">B215 · điểm tối thiểu C</text>
               <rect x="330" y="92" width="90" height="30" rx="15" class="dg-fill-2 dg-stroke"/><text x="375" y="111" text-anchor="middle" class="dg-title dg-text">OR</text>
-              <rect x="250" y="168" width="170" height="30" rx="7" class="dg-fill dg-stroke"/><text x="262" y="187" class="dg-text">M101 · min grade D</text>
-              <rect x="440" y="168" width="170" height="30" rx="7" class="dg-fill dg-stroke"/><text x="452" y="187" class="dg-text">M103 · min grade D</text>
+              <rect x="250" y="168" width="170" height="30" rx="7" class="dg-fill dg-stroke"/><text x="262" y="187" class="dg-text" data-lang="en">M101 · min grade D</text><text x="262" y="187" class="dg-text" data-lang="vi">M101 · điểm tối thiểu D</text>
+              <rect x="440" y="168" width="170" height="30" rx="7" class="dg-fill dg-stroke"/><text x="452" y="187" class="dg-text" data-lang="en">M103 · min grade D</text><text x="452" y="187" class="dg-text" data-lang="vi">M103 · điểm tối thiểu D</text>
               <line x1="300" y1="42" x2="150" y2="90" class="dg-accent-stroke" marker-end="url(#pr)"/>
               <line x1="350" y1="42" x2="373" y2="90" class="dg-accent-stroke" marker-end="url(#pr)"/>
               <line x1="360" y1="122" x2="335" y2="166" class="dg-accent-stroke" marker-end="url(#pr)"/>
@@ -755,7 +755,7 @@
       <!-- ===================== 8. CONSISTENCY CATCHES ===================== -->
       <section class="sec" id="catches">
         <p class="kicker">8</p>
-        <h2><span data-lang="en">Consistency catches</span><span data-lang="vi">Nững chỗ tài liệu tự mâu thuẫn</span></h2>
+        <h2><span data-lang="en">Consistency catches</span><span data-lang="vi">Những chỗ tài liệu tự mâu thuẫn</span></h2>
         <p class="sub"><span data-lang="en">Four inconsistencies I caught cross-checking the <b>regulation ↔ wireframes ↔ the rule model</b>, and how each was resolved.</span><span data-lang="vi">Bốn điểm không nhất quán tôi phát hiện khi rà soát chéo <b>quy chế ↔ wireframe ↔ mô hình rule</b>, và cách xử lý.</span></p>
         <ol class="steps">
           <li><span data-lang="en">The first M1 wireframe left "Add to plan" looking normal for a <b>full section</b> — a student would think they'd registered when they'd been silently waitlisted. → Changed to an explicit <b>"Join waitlist (position ~N)"</b> button; blocked silent waitlisting; added a confirmation step on M4.</span><span data-lang="vi">Wireframe M1 bản đầu để nút "Thêm vào kế hoạch" sáng bình thường cho section đã đầy — sinh viên tưởng đã đăng ký, thực ra bị đưa vào waitlist âm thầm. → Đổi thành nút <b>"Vào waitlist (vị trí ~N)"</b> rõ ràng; chặn waitlist ngầm; thêm bước xác nhận ở M4.</span></li>
