@@ -304,6 +304,13 @@ details.readme p:first-of-type{margin-top:1rem}
 .samples li:last-child{border-bottom:1px solid var(--line)}
 .samples .sfmt{font-family:var(--fm); font-size:.72rem; color:var(--ink-soft); white-space:nowrap}
 
+/* wide screens: keep the divider rules with the content instead of running the full column */
+@media (min-width:1180px){
+  .proj{max-width:54rem}
+  .pdesc{max-width:66ch}
+  .samples li{max-width:54rem}
+}
+
 .item{padding:1.05rem 0; border-top:1px solid var(--line)}
 .item:last-of-type{border-bottom:1px solid var(--line)}
 .item .h{font-family:var(--fh); font-weight:500; font-size:1.05rem; max-width:44rem}
