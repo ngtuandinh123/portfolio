@@ -15,7 +15,7 @@
     phone:    "",   // e.g. "0869 159 656"  — leave "" to hide the phone line
     linkedin: "https://www.linkedin.com/in/định-nguyễn-tuấn-1a7004431/",   // full URL, e.g. "https://www.linkedin.com/in/your-handle"
     github:   "https://github.com/ngtuandinh123",
-    cv:       ""    // link to your CV PDF, e.g. "assets/cv.pdf"
+    cv:       "assets/cv.pdf"   // link to your CV PDF
   };
   /* =========================================================== */
 
@@ -69,7 +69,9 @@
       } else { // linkedin, github, cv
         if (el.tagName === 'A') {
           el.setAttribute('href', val);
-          if (key !== 'cv') { el.setAttribute('target', '_blank'); el.setAttribute('rel', 'noopener'); }
+          el.setAttribute('target', '_blank');
+          el.setAttribute('rel', 'noopener');
+          if (key === 'cv') el.setAttribute('download', 'Nguyen-Tuan-Dinh-BA-CV.pdf');
         }
       }
     });
