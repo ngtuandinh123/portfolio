@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=30">
-<script src="assets/app.js?v=30"></script>
+<link rel="stylesheet" href="assets/styles.css?v=31">
+<script src="assets/app.js?v=31"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -181,7 +181,7 @@
         <div class="note-box">
           <b><span data-lang="en">A cut I proposed:</span><span data-lang="vi">Một phần tôi đề xuất cắt khỏi phase 1:</span></b>
           <span data-lang="en"> leave "voucher / auto-promotions" out of phase 1. It layers on the tiered-pricing logic and complicates revenue accounting; phase 1 only needs peak/off-peak tiers to shift demand.</span>
-          <span data-lang="vi"> để "voucher / khuyến mãi tự động" ra ngoài phase 1. Nó chồng lên logic định giá bậc và làm phức tạp việc tính doanh thu; phase 1 chỉ cần bậc giá cao/thấp điểm là đủ để dịch cầu.</span>
+          <span data-lang="vi"> để "voucher / khuyến mãi tự động" ra ngoài phase 1. Tính năng này chồng lên logic định giá bậc và làm phức tạp việc tính doanh thu; phase 1 chỉ cần bậc giá cao/thấp điểm là đủ để dịch cầu.</span>
         </div>
       </section>
 
@@ -798,7 +798,7 @@
           <div class="tbl-scroll"><table><thead><tr><th>ID</th><th><span data-lang="en">Criterion</span><span data-lang="vi">Tiêu chí</span></th></tr></thead><tbody>
             <tr><td>AC-BK-01</td><td><span data-lang="en">Each slot's price shows the court's tier price for that day/time, right on the grid.</span><span data-lang="vi">Giá của mỗi khung giờ hiển thị đúng giá theo bậc của sân cho ngày/giờ đó, ngay trên lưới chọn.</span></td></tr>
             <tr><td>AC-BK-02</td><td><span data-lang="en">Price is locked when the hold is created; later tier edits don't affect a held/confirmed order.</span><span data-lang="vi">Giá được khoá khi tạo hold; sửa bậc giá về sau không ảnh hưởng đơn đang giữ chỗ/đã xác nhận.</span></td></tr>
-            <tr><td>AC-BK-03</td><td><span data-lang="en">"Book" → a hold per line with a TTL; the slot stops showing as free to others.</span><span data-lang="vi">Bấm "Đặt" → mỗi dòng có một hold kèm TTL; khung giờ ngừng hiển thị là trống với người khác.</span></td></tr>
+            <tr><td>AC-BK-03</td><td><span data-lang="en">"Book" → a hold per line with a TTL; the slot stops showing as free to others.</span><span data-lang="vi">Bấm "Book" → mỗi dòng có một hold kèm TTL; khung giờ ngừng hiển thị là trống với người khác.</span></td></tr>
             <tr><td>AC-BK-04</td><td><span data-lang="en">A slot never has 2 active holds/bookings, even under simultaneous submits.</span><span data-lang="vi">Một khung giờ không bao giờ có 2 hold/booking hiệu lực, kể cả khi submit đồng thời.</span></td></tr>
             <tr><td>AC-BK-05</td><td><span data-lang="en">TTL elapses with no payment confirmation → the hold auto-releases, slot returns to free.</span><span data-lang="vi">Hết TTL mà chưa có xác nhận thanh toán → hold tự nhả, khung giờ trở lại trống.</span></td></tr>
             <tr><td>AC-BK-06</td><td><span data-lang="en">Gateway reports failure → order EXPIRED, holds released, retry allowed.</span><span data-lang="vi">Cổng thanh toán báo lỗi → đơn EXPIRED, các hold được nhả, cho phép thử lại.</span></td></tr>
@@ -896,7 +896,7 @@ GROUP BY ol.court_id;
               <tbody>
                 <tr><td>TC-01</td><td><span data-lang="en">Open the grid of a court with peak/off-peak tiers, weekday</span><span data-lang="vi">Mở lưới chọn của một sân có bậc giá cao/thấp điểm, vào ngày thường</span></td><td><span data-lang="en">14:00 = off-peak price, 19:00 = peak price, shown immediately</span><span data-lang="vi">14:00 = giá thấp điểm, 19:00 = giá cao điểm, hiển thị ngay</span></td><td>AC-BK-01</td><td>BR-PRICE-01</td></tr>
                 <tr><td>TC-02</td><td><span data-lang="en">Create a hold, owner edits the tier, renter pays</span><span data-lang="vi">Tạo một hold, chủ sân sửa bậc giá, người thuê thanh toán</span></td><td><span data-lang="en">Order priced at the price locked when the hold was created, not the new one</span><span data-lang="vi">Đơn tính theo giá đã khoá lúc tạo hold, không phải giá mới</span></td><td>AC-BK-02</td><td>BR-PRICE-02</td></tr>
-                <tr><td>TC-03</td><td><span data-lang="en">Hit "Book" on a free slot</span><span data-lang="vi">Bấm "Đặt" trên một khung giờ trống</span></td><td><span data-lang="en">Slot → HELD + a countdown; others don't see it as free</span><span data-lang="vi">Khung giờ → HELD + một đồng hồ đếm ngược; người khác không thấy nó trống</span></td><td>AC-BK-03</td><td>BR-HOLD-02</td></tr>
+                <tr><td>TC-03</td><td><span data-lang="en">Hit "Book" on a free slot</span><span data-lang="vi">Bấm "Book" trên một khung giờ trống</span></td><td><span data-lang="en">Slot → HELD + a countdown; others don't see it as free</span><span data-lang="vi">Khung giờ → HELD + một đồng hồ đếm ngược; người khác không thấy nó trống</span></td><td>AC-BK-03</td><td>BR-HOLD-02</td></tr>
                 <tr><td>TC-04</td><td><span data-lang="en">20 people hit "Book" for one slot at once</span><span data-lang="vi">20 người cùng bấm "Book" cho một khung giờ</span></td><td><span data-lang="en">1 hold succeeds, 19 get "slot just taken"; no 2 active bookings</span><span data-lang="vi">1 hold thành công, 19 người nhận "khung giờ vừa có người đặt"; không có 2 booking hiệu lực</span></td><td>AC-BK-04</td><td>BR-HOLD-01</td></tr>
                 <tr><td>TC-05</td><td><span data-lang="en">Hold past the 10-minute TTL, unpaid</span><span data-lang="vi">Hold quá TTL 10 phút, chưa thanh toán</span></td><td><span data-lang="en">Order EXPIRED (reason TTL_ELAPSED), slot returns to free, audit log</span><span data-lang="vi">Đơn EXPIRED (lý do TTL_ELAPSED), khung giờ trở lại trống, ghi audit log</span></td><td>AC-BK-05</td><td>BR-HOLD-03</td></tr>
                 <tr><td>TC-06</td><td><span data-lang="en">Gateway reports failure</span><span data-lang="vi">Cổng thanh toán báo lỗi</span></td><td><span data-lang="en">Order EXPIRED (reason GATEWAY_FAILED), holds released, retry allowed</span><span data-lang="vi">Đơn EXPIRED (lý do GATEWAY_FAILED), các hold được nhả, cho phép thử lại</span></td><td>AC-BK-06</td><td>BR-HOLD-06</td></tr>
