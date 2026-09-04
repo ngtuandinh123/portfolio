@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=24">
-<script src="assets/app.js?v=24"></script>
+<link rel="stylesheet" href="assets/styles.css?v=25">
+<script src="assets/app.js?v=25"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -654,60 +654,64 @@
           <h4 id="wf-m2"><span data-lang="en">M2 — Plan / cart with inline check flags</span><span data-lang="vi">M2 — Kế hoạch / giỏ đăng ký, cờ kiểm tra tại chỗ</span></h4>
           <figure class="diagram">
             <div class="diagram-scroll">
-            <svg viewBox="0 0 760 440" role="img" aria-labelledby="m2-t">
+            <svg viewBox="0 0 760 346" role="img" aria-labelledby="m2-t">
               <title id="m2-t">Wireframe M2: a registration plan listing four sections, each with an inline validation flag — passed, prerequisite failed, hard clash, soft clash — a credit total against the cap, and a Submit button disabled while any hard failure remains</title>
-              <rect x="0.5" y="0.5" width="759" height="439" class="dg-fill-2 dg-stroke"/>
-              <text x="20" y="30" class="dg-text">Registration plan · Term 2 2025–26</text>
-              <rect x="560" y="14" width="184" height="24" rx="4" class="dg-fill dg-stroke"/><text x="570" y="31" class="dg-text">Credits: 15 / 18</text>
-              <!-- rows -->
-              <rect x="20" y="52" width="500" height="42" class="dg-fill dg-stroke"/><text x="32" y="70" class="dg-text">L101 · Calculus A</text><text x="32" y="86" class="dg-lbl dg-text-soft">Mon 09:00–11:00 · 3 cr</text>
-              <rect x="530" y="52" width="214" height="42" rx="4" class="dg-ok"/><text x="542" y="77" class="dg-text">✓ OK</text>
-              <rect x="20" y="102" width="500" height="42" class="dg-fill dg-stroke"/><text x="32" y="120" class="dg-text">C220 · Physics</text><text x="32" y="136" class="dg-lbl dg-text-soft">Wed 13:00–15:00 · 4 cr</text>
-              <rect x="530" y="102" width="214" height="42" rx="4" class="dg-bad"/><text x="542" y="121" class="dg-lbl dg-text">✗ Prerequisite: B215</text><text x="542" y="136" class="dg-lbl dg-text">(need ≥ C, have D)</text>
-              <rect x="20" y="152" width="500" height="42" class="dg-fill dg-stroke"/><text x="32" y="170" class="dg-text">L108 · Chemistry</text><text x="32" y="186" class="dg-lbl dg-text-soft">Mon 10:00–12:00 · 3 cr</text>
-              <rect x="530" y="152" width="214" height="42" rx="4" class="dg-bad"/><text x="542" y="171" class="dg-lbl dg-text">✗ Hard clash with L101</text><text x="542" y="186" class="dg-lbl dg-text">(Mon 09:00–11:00)</text>
-              <rect x="20" y="202" width="500" height="42" class="dg-fill dg-stroke"/><text x="32" y="220" class="dg-text">E140 · English</text><text x="32" y="236" class="dg-lbl dg-text-soft">Fri 08:00–10:00 · 2 cr</text>
-              <rect x="530" y="202" width="214" height="42" rx="4" class="dg-warn"/><text x="542" y="221" class="dg-lbl dg-text">⚠ Back-to-back, other</text><text x="542" y="236" class="dg-lbl dg-text">campus — still addable</text>
+              <rect x="8" y="8" width="744" height="330" rx="6" class="dg-fill-2 dg-stroke"/>
+              <text x="24" y="40" class="dg-title">Registration plan · Term 2 2025–26</text>
+              <rect x="560" y="24" width="176" height="28" rx="3" class="dg-fill dg-stroke"/><text x="572" y="43" class="dg-lbl">Credits: 15 / 18</text>
+              <!-- section rows -->
+              <rect x="24" y="64" width="488" height="44" rx="3" class="dg-fill dg-stroke"/><text x="36" y="82" class="dg-text">L101 · Calculus A</text><text x="36" y="99" class="dg-lbl dg-text-soft">Mon 09:00–11:00 · 3 cr</text>
+              <rect x="520" y="64" width="216" height="44" rx="3" class="dg-ok"/><text x="532" y="90" class="dg-lbl">✓ OK</text>
+              <rect x="24" y="116" width="488" height="44" rx="3" class="dg-fill dg-stroke"/><text x="36" y="134" class="dg-text">C220 · Physics</text><text x="36" y="151" class="dg-lbl dg-text-soft">Wed 13:00–15:00 · 4 cr</text>
+              <rect x="520" y="116" width="216" height="44" rx="3" class="dg-bad"/><text x="532" y="134" class="dg-lbl">✗ Prerequisite not met</text><text x="532" y="151" class="dg-lbl">B215: need ≥ C, have D</text>
+              <rect x="24" y="168" width="488" height="44" rx="3" class="dg-fill dg-stroke"/><text x="36" y="186" class="dg-text">L108 · Chemistry</text><text x="36" y="203" class="dg-lbl dg-text-soft">Mon 10:00–12:00 · 3 cr</text>
+              <rect x="520" y="168" width="216" height="44" rx="3" class="dg-bad"/><text x="532" y="186" class="dg-lbl">✗ Hard clash: L101</text><text x="532" y="203" class="dg-lbl">Mon 09:00–11:00</text>
+              <rect x="24" y="220" width="488" height="44" rx="3" class="dg-fill dg-stroke"/><text x="36" y="238" class="dg-text">E140 · English</text><text x="36" y="255" class="dg-lbl dg-text-soft">Fri 08:00–10:00 · 2 cr</text>
+              <rect x="520" y="220" width="216" height="44" rx="3" class="dg-warn"/><text x="532" y="238" class="dg-lbl">⚠ Back-to-back, other campus</text><text x="532" y="255" class="dg-lbl">still addable</text>
               <!-- footer -->
-              <rect x="20" y="266" width="300" height="30" class="dg-fill dg-stroke"/><text x="32" y="286" class="dg-text">Total 15 / 18 cr — within cap</text>
-              <rect x="330" y="266" width="190" height="30" rx="4" class="dg-stroke" fill="none" stroke-dasharray="4 3"/><text x="342" y="286" class="dg-text-soft">Submit (disabled — 2 ✗)</text>
-              <rect x="560" y="52" width="184" height="192" class="dg-fill-2 dg-stroke"/><text x="572" y="72" class="dg-text-soft">Timetable preview</text>
+              <rect x="24" y="284" width="280" height="30" rx="3" class="dg-fill dg-stroke"/><text x="36" y="304" class="dg-lbl">Total 15 / 18 cr — within cap</text>
+              <rect x="320" y="284" width="200" height="30" rx="3" fill="none" class="dg-stroke" stroke-dasharray="4 3"/><text x="332" y="304" class="dg-lbl dg-text-soft">Submit — 2 blockers</text>
               <!-- badges -->
-              <circle cx="524" cy="123" r="8" class="dg-note"/><text x="524" y="127" text-anchor="middle" class="dg-lbl" fill="var(--paper)">1</text>
-              <circle cx="524" cy="173" r="8" class="dg-note"/><text x="524" y="177" text-anchor="middle" class="dg-lbl" fill="var(--paper)">2</text>
-              <circle cx="524" cy="223" r="8" class="dg-note"/><text x="524" y="227" text-anchor="middle" class="dg-lbl" fill="var(--paper)">3</text>
-              <circle cx="324" cy="281" r="8" class="dg-note"/><text x="324" y="285" text-anchor="middle" class="dg-lbl" fill="var(--paper)">4</text>
-              <text x="20" y="330" class="dg-lbl dg-note">① Prerequisite flag names the unmet leaf → BR-PREQ-01 / AC-REG-04</text>
-              <text x="20" y="350" class="dg-lbl dg-note">② Hard clash names the overlapping section + slot → BR-CONF-01 / AC-REG-07</text>
-              <text x="20" y="370" class="dg-lbl dg-note">③ Soft clash warns but stays addable → BR-CONF-02</text>
-              <text x="20" y="390" class="dg-lbl dg-note">④ Submit stays disabled while any ✗ remains; credit total checked vs cap → BR-ELIG-03</text>
+              <circle cx="520" cy="116" r="8" class="dg-note"/><text x="520" y="120" text-anchor="middle" class="dg-lbl" fill="var(--paper)">1</text>
+              <circle cx="520" cy="168" r="8" class="dg-note"/><text x="520" y="172" text-anchor="middle" class="dg-lbl" fill="var(--paper)">2</text>
+              <circle cx="520" cy="220" r="8" class="dg-note"/><text x="520" y="224" text-anchor="middle" class="dg-lbl" fill="var(--paper)">3</text>
+              <circle cx="320" cy="284" r="8" class="dg-note"/><text x="320" y="288" text-anchor="middle" class="dg-lbl" fill="var(--paper)">4</text>
             </svg>
             </div>
             <figcaption><span data-lang="en">M2 — plan / cart with inline validation</span><span data-lang="vi">M2 — kế hoạch / giỏ đăng ký, kiểm tra tại chỗ</span></figcaption>
+            <ol class="wf-notes">
+              <li><span data-lang="en">The prerequisite flag names the unmet leaf of the rule tree — BR-PREQ-01 / AC-REG-04.</span><span data-lang="vi">Cờ tiên quyết chỉ đúng lá chưa thoả trong cây quy tắc — BR-PREQ-01 / AC-REG-04.</span></li>
+              <li><span data-lang="en">A hard clash names the overlapping section and its time slot — BR-CONF-01 / AC-REG-07.</span><span data-lang="vi">Xung đột cứng nêu rõ section chồng giờ và khung giờ của nó — BR-CONF-01 / AC-REG-07.</span></li>
+              <li><span data-lang="en">A soft clash (back-to-back, different campus) only warns — it stays addable — BR-CONF-02.</span><span data-lang="vi">Xung đột mềm (liền ca, khác cơ sở) chỉ cảnh báo — vẫn thêm được — BR-CONF-02.</span></li>
+              <li><span data-lang="en">Submit stays disabled while any ✗ remains; the credit total is checked against the cap — BR-ELIG-03.</span><span data-lang="vi">Nút Submit vẫn khoá khi còn bất kỳ ✗ nào; tổng tín chỉ được đối chiếu với trần — BR-ELIG-03.</span></li>
+            </ol>
           </figure>
 
           <h4 id="wf-m5"><span data-lang="en">M5 — Waitlist &amp; seat offer</span><span data-lang="vi">M5 — Danh sách chờ &amp; mời nhận chỗ</span></h4>
           <figure class="diagram">
             <div class="diagram-scroll">
-            <svg viewBox="0 0 760 360" role="img" aria-labelledby="m5-t">
-              <title id="m5-t">Wireframe M5: my waitlist — one section showing my position, and one with a live seat offer showing a countdown to the claim deadline, Claim and Decline buttons, and a warning that claiming would create a new soft clash</title>
-              <rect x="0.5" y="0.5" width="759" height="359" class="dg-fill-2 dg-stroke"/>
-              <text x="20" y="30" class="dg-text">My waitlist</text>
-              <rect x="20" y="46" width="720" height="52" class="dg-fill dg-stroke"/><text x="32" y="68" class="dg-text">C310 · Macroeconomics</text><text x="32" y="86" class="dg-lbl dg-text-soft">Current position: 3</text>
-              <rect x="600" y="58" width="128" height="28" rx="4" class="dg-fill dg-stroke"/><text x="612" y="77" class="dg-text">Leave waitlist</text>
-              <rect x="20" y="112" width="720" height="120" rx="4" class="dg-ok"/><text x="32" y="136" class="dg-text">C220 · Physics — seat available</text>
-              <rect x="500" y="122" width="228" height="30" rx="4" class="dg-warn"/><text x="512" y="142" class="dg-text">Claim in: 21:14:03</text>
-              <text x="32" y="162" class="dg-lbl dg-text-soft">The system re-runs your eligibility + conflict checks when you claim.</text>
-              <rect x="32" y="176" width="440" height="26" rx="4" class="dg-warn"/><text x="42" y="194" class="dg-lbl dg-text">⚠ Claiming this creates a soft clash with E140 — continue?</text>
-              <rect x="32" y="210" width="120" height="30" rx="4" class="dg-ok"/><text x="44" y="230" class="dg-text">Claim seat</text>
-              <rect x="164" y="210" width="120" height="30" rx="4" class="dg-fill dg-stroke"/><text x="176" y="230" class="dg-text">Decline</text>
-              <circle cx="500" cy="137" r="8" class="dg-note"/><text x="500" y="141" text-anchor="middle" class="dg-lbl" fill="var(--paper)">1</text>
-              <circle cx="24" cy="162" r="8" class="dg-note"/><text x="24" y="166" text-anchor="middle" class="dg-lbl" fill="var(--paper)">2</text>
-              <text x="20" y="272" class="dg-lbl dg-note">① Claim countdown = the offer deadline in working hours → BR-SEAT-04 / AC-REG-13</text>
-              <text x="20" y="292" class="dg-lbl dg-note">② Eligibility + conflict checks re-run at claim time → BR-SEAT-05 / AC-REG-14</text>
+            <svg viewBox="0 0 760 288" role="img" aria-labelledby="m5-t">
+              <title id="m5-t">Wireframe M5: my waitlist — one section showing my position, and one with a live seat offer showing a claim window in working hours, Claim and Decline buttons, and a warning that claiming would create a new soft clash</title>
+              <rect x="8" y="8" width="744" height="272" rx="6" class="dg-fill-2 dg-stroke"/>
+              <text x="24" y="40" class="dg-title">My waitlist</text>
+              <rect x="24" y="56" width="712" height="48" rx="3" class="dg-fill dg-stroke"/><text x="36" y="78" class="dg-text">C310 · Macroeconomics</text><text x="36" y="94" class="dg-lbl dg-text-soft">Current position: 3 of ~12</text>
+              <rect x="608" y="64" width="116" height="28" rx="3" class="dg-fill dg-stroke"/><text x="620" y="82" class="dg-lbl">Leave waitlist</text>
+              <rect x="24" y="116" width="712" height="140" rx="3" class="dg-fill-2 dg-accent-stroke"/>
+              <text x="36" y="140" class="dg-text">C220 · Physics — a seat is free for you</text>
+              <rect x="500" y="124" width="224" height="24" rx="3" class="dg-warn"/><text x="512" y="141" class="dg-lbl">Claim within 6 working hours</text>
+              <text x="52" y="168" class="dg-lbl dg-text-soft">Eligibility and conflict checks re-run when you claim.</text>
+              <rect x="36" y="180" width="452" height="26" rx="3" class="dg-warn"/><text x="48" y="197" class="dg-lbl">⚠ Claiming this creates a soft clash with E140 — continue?</text>
+              <rect x="36" y="218" width="120" height="28" rx="3" class="dg-fill dg-accent-stroke" stroke-width="1.5"/><text x="48" y="236" class="dg-lbl">Claim seat</text>
+              <rect x="168" y="218" width="110" height="28" rx="3" class="dg-fill dg-stroke"/><text x="180" y="236" class="dg-lbl">Decline</text>
+              <circle cx="500" cy="124" r="8" class="dg-note"/><text x="500" y="128" text-anchor="middle" class="dg-lbl" fill="var(--paper)">1</text>
+              <circle cx="40" cy="160" r="8" class="dg-note"/><text x="40" y="164" text-anchor="middle" class="dg-lbl" fill="var(--paper)">2</text>
             </svg>
             </div>
             <figcaption><span data-lang="en">M5 — waitlist &amp; seat offer</span><span data-lang="vi">M5 — danh sách chờ &amp; mời nhận chỗ</span></figcaption>
+            <ol class="wf-notes">
+              <li><span data-lang="en">The claim window is the offer deadline, counted in working hours — BR-SEAT-04 / AC-REG-13.</span><span data-lang="vi">Cửa sổ nhận chỗ là hạn của lời mời, tính theo giờ làm việc — BR-SEAT-04 / AC-REG-13.</span></li>
+              <li><span data-lang="en">Eligibility and conflict checks re-run at the moment you claim, not when the offer was made — BR-SEAT-05 / AC-REG-14.</span><span data-lang="vi">Kiểm tra điều kiện và xung đột chạy lại đúng lúc bạn bấm nhận, không phải lúc phát lời mời — BR-SEAT-05 / AC-REG-14.</span></li>
+            </ol>
           </figure>
         </div>
 

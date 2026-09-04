@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=24">
-<script src="assets/app.js?v=24"></script>
+<link rel="stylesheet" href="assets/styles.css?v=25">
+<script src="assets/app.js?v=25"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -722,82 +722,96 @@
           <h4 id="wf-m3"><span data-lang="en">M3 — Submission detail + Decision panel</span><span data-lang="vi">M3 — Chi tiết hồ sơ + bảng ra quyết định</span></h4>
           <figure class="diagram">
             <div class="diagram-scroll">
-            <svg viewBox="0 0 760 490" role="img" aria-labelledby="m3-t">
+            <svg viewBox="0 0 760 348" role="img" aria-labelledby="m3-t">
               <title id="m3-t">Wireframe M3: record detail with SLA badge, content, version compare, timeline, and a decision panel whose buttons follow permission, state and separation of duties</title>
-              <rect x="0.5" y="0.5" width="759" height="489" class="dg-fill-2 dg-stroke"/>
-              <rect x="16" y="16" width="500" height="34" class="dg-fill dg-stroke"/><text x="28" y="37" class="dg-text">DT-2026-0187 · Material purchase · Project A</text>
-              <rect x="528" y="16" width="90" height="34" rx="4" class="dg-bad"/><text x="540" y="37" class="dg-text">SLA · RED</text>
-              <rect x="628" y="16" width="116" height="34" rx="4" class="dg-fill dg-stroke"/><text x="638" y="37" class="dg-text">PENDING_APPROVAL</text>
-              <rect x="16" y="62" width="380" height="250" class="dg-fill-2 dg-stroke"/>
-              <text x="28" y="82" class="dg-text-soft">Record content</text>
-              <rect x="28" y="92" width="356" height="9" class="dg-fill"/><rect x="28" y="108" width="356" height="9" class="dg-fill"/><rect x="28" y="124" width="240" height="9" class="dg-fill"/>
-              <text x="28" y="160" class="dg-text-soft">Attachments (2)</text>
-              <rect x="28" y="170" width="80" height="56" class="dg-fill dg-stroke"/><rect x="116" y="170" width="80" height="56" class="dg-fill dg-stroke"/>
-              <text x="28" y="252" class="dg-text-soft">Version Compare</text>
-              <rect x="28" y="262" width="356" height="38" class="dg-fill dg-stroke"/><text x="36" y="285" class="dg-text-soft">v1 ⇄ v2 (added / removed / changed)</text>
-              <rect x="408" y="62" width="336" height="150" class="dg-fill-2 dg-stroke"/>
-              <text x="420" y="82" class="dg-text-soft">Timeline</text>
-              <circle cx="426" cy="100" r="4" class="dg-text-soft"/><text x="438" y="104" class="dg-text">Submit · 02/06</text>
-              <circle cx="426" cy="120" r="4" class="dg-text-soft"/><text x="438" y="124" class="dg-text">Review pass · 03/06</text>
-              <circle cx="426" cy="140" r="4" class="dg-note"/><text x="438" y="144" class="dg-text">Awaiting approval · 2 days overdue</text>
-              <text x="420" y="176" class="dg-text-soft">Audit log (short)</text>
-              <rect x="420" y="184" width="312" height="20" class="dg-fill dg-stroke"/>
-              <rect x="408" y="224" width="336" height="118" class="dg-fill dg-stroke"/>
-              <text x="420" y="244" class="dg-text-soft">Decision panel — by permission × state × SoD</text>
-              <rect x="420" y="256" width="120" height="30" rx="4" class="dg-ok"/><text x="432" y="276" class="dg-text">Approve</text>
-              <rect x="548" y="256" width="120" height="30" rx="4" class="dg-bad"/><text x="560" y="276" class="dg-text">Reject *</text>
-              <rect x="420" y="294" width="180" height="30" rx="4" class="dg-fill dg-stroke"/><text x="432" y="314" class="dg-text">Request info</text>
-              <rect x="612" y="294" width="120" height="30" rx="4" class="dg-stroke" fill="none" stroke-dasharray="4 3"/><text x="624" y="314" class="dg-text-soft">Edit (hidden)</text>
-              <circle cx="518" cy="33" r="8" class="dg-note"/><text x="518" y="37" text-anchor="middle" class="dg-lbl" fill="var(--paper)">1</text>
-              <circle cx="540" cy="271" r="8" class="dg-note"/><text x="540" y="275" text-anchor="middle" class="dg-lbl" fill="var(--paper)">3</text>
-              <circle cx="604" cy="309" r="8" class="dg-note"/><text x="604" y="313" text-anchor="middle" class="dg-lbl" fill="var(--paper)">2</text>
-              <text x="24" y="386" class="dg-lbl dg-note">① SLA badge + "overdue" on the timeline → BR-SUB-06 (SLA engine, escalation)</text>
-              <text x="24" y="406" class="dg-lbl dg-note">② "Edit" hidden at PENDING_APPROVAL for the creator → BR-SUB-05 (Submit Lock)</text>
-              <text x="24" y="426" class="dg-lbl dg-note">③ "Reject" requires a reason (*); approve buttons hidden if the viewer</text>
-              <text x="40" y="444" class="dg-lbl dg-note">is the creator → BR-SUB-08 / BR-SUB-03 (SoD)</text>
-              <text x="24" y="470" class="dg-lbl dg-text-soft">* = reason required</text>
+              <rect x="8" y="8" width="744" height="332" rx="6" class="dg-fill-2 dg-stroke"/>
+              <!-- header row -->
+              <rect x="24" y="24" width="360" height="32" rx="3" class="dg-fill dg-stroke"/><text x="36" y="44" class="dg-text">DT-2026-0187 · Material purchase · Project A</text>
+              <rect x="400" y="24" width="64" height="32" rx="3" class="dg-bad"/><text x="432" y="44" text-anchor="middle" class="dg-lbl">SLA RED</text>
+              <rect x="480" y="24" width="256" height="32" rx="3" class="dg-fill dg-stroke"/><text x="492" y="44" class="dg-text">PENDING_APPROVAL</text>
+              <!-- content panel -->
+              <rect x="24" y="72" width="408" height="252" rx="3" class="dg-fill-2 dg-stroke"/>
+              <text x="36" y="93" class="dg-title">Record content</text>
+              <text x="36" y="118" class="dg-text">Supplier: An Phat Co · rebar D10 · 12 t</text>
+              <text x="36" y="138" class="dg-text">Need-by 12/06 · Site A store · est. 78,000,000 ₫</text>
+              <text x="36" y="170" class="dg-lbl dg-text-soft">Attachments (2)</text>
+              <rect x="36" y="180" width="112" height="56" rx="3" class="dg-fill dg-stroke"/><text x="46" y="212" class="dg-lbl">quote.pdf</text>
+              <rect x="160" y="180" width="112" height="56" rx="3" class="dg-fill dg-stroke"/><text x="170" y="212" class="dg-lbl">spec_D10.pdf</text>
+              <text x="36" y="268" class="dg-lbl dg-text-soft">Version compare</text>
+              <rect x="36" y="276" width="384" height="36" rx="3" class="dg-fill dg-stroke"/><text x="48" y="299" class="dg-lbl">v1 ⇄ v2 — added / removed / changed</text>
+              <!-- timeline panel -->
+              <rect x="456" y="72" width="280" height="116" rx="3" class="dg-fill-2 dg-stroke"/>
+              <text x="468" y="93" class="dg-title">Timeline</text>
+              <circle cx="472" cy="114" r="3" class="dg-text-soft"/><text x="484" y="118" class="dg-lbl">Submit · 02/06</text>
+              <circle cx="472" cy="134" r="3" class="dg-text-soft"/><text x="484" y="138" class="dg-lbl">Review passed · 03/06</text>
+              <circle cx="472" cy="154" r="3" class="dg-note"/><text x="484" y="158" class="dg-lbl">Awaiting approval · 2 days over</text>
+              <text x="468" y="180" class="dg-lbl dg-text-soft">Audit log — last 3 actions</text>
+              <!-- decision panel -->
+              <rect x="456" y="200" width="280" height="124" rx="3" class="dg-fill dg-stroke"/>
+              <text x="468" y="221" class="dg-title">Decision panel</text>
+              <text x="468" y="237" class="dg-lbl dg-text-soft">buttons: permission × state × SoD</text>
+              <rect x="468" y="246" width="120" height="30" rx="3" class="dg-fill dg-accent-stroke" stroke-width="1.5"/><text x="528" y="265" text-anchor="middle" class="dg-text">Approve</text>
+              <rect x="596" y="246" width="128" height="30" rx="3" class="dg-fill dg-stroke"/><text x="660" y="265" text-anchor="middle" class="dg-text">Reject *</text>
+              <rect x="468" y="286" width="150" height="26" rx="3" class="dg-fill dg-stroke"/><text x="480" y="303" class="dg-lbl">Request info</text>
+              <rect x="628" y="286" width="96" height="26" rx="3" fill="none" class="dg-stroke" stroke-dasharray="4 3"/><text x="640" y="303" class="dg-lbl dg-text-soft">Edit — hidden</text>
+              <!-- annotation badges -->
+              <circle cx="400" cy="24" r="8" class="dg-note"/><text x="400" y="28" text-anchor="middle" class="dg-lbl" fill="var(--paper)">1</text>
+              <circle cx="592" cy="242" r="8" class="dg-note"/><text x="592" y="246" text-anchor="middle" class="dg-lbl" fill="var(--paper)">3</text>
+              <circle cx="624" cy="282" r="8" class="dg-note"/><text x="624" y="286" text-anchor="middle" class="dg-lbl" fill="var(--paper)">2</text>
             </svg>
             </div>
             <figcaption><span data-lang="en">M3 — detail + decision panel</span><span data-lang="vi">M3 — bảng chi tiết + ra quyết định</span></figcaption>
+            <ol class="wf-notes">
+              <li><span data-lang="en">The SLA badge and the "2 days over" line on the timeline come from BR-SUB-06 (SLA engine + escalation).</span><span data-lang="vi">Nhãn SLA và dòng "quá hạn 2 ngày" trên timeline đến từ BR-SUB-06 (SLA engine + escalation).</span></li>
+              <li><span data-lang="en">"Edit" is hidden while the record is at <code>PENDING_APPROVAL</code> for its creator — BR-SUB-05 (Submit Lock).</span><span data-lang="vi">Nút "Sửa" bị ẩn khi hồ sơ đang ở <code>PENDING_APPROVAL</code> đối với người tạo — BR-SUB-05 (Submit Lock).</span></li>
+              <li><span data-lang="en">"Reject" needs a written reason (*); "Approve" and "Reject" are hidden when the viewer created the record — BR-SUB-03 / BR-SUB-08 (Separation of Duties).</span><span data-lang="vi">Nút "Từ chối" bắt buộc có lý do (*); nút "Duyệt" và "Từ chối" bị ẩn khi người xem chính là người tạo hồ sơ — BR-SUB-03 / BR-SUB-08 (Separation of Duties).</span></li>
+            </ol>
           </figure>
 
           <h4 id="wf-m6"><span data-lang="en">M6 — Workflow Config builder</span><span data-lang="vi">M6 — Trình cấu hình workflow</span></h4>
           <figure class="diagram">
             <div class="diagram-scroll">
-            <svg viewBox="0 0 760 440" role="img" aria-labelledby="m6-t">
+            <svg viewBox="0 0 760 360" role="img" aria-labelledby="m6-t">
               <title id="m6-t">Wireframe M6: a sequential workflow step builder with an inline separation-of-duties warning and a Check Workflow validation panel</title>
-              <rect x="0.5" y="0.5" width="759" height="439" class="dg-fill-2 dg-stroke"/>
-              <text x="20" y="30" class="dg-text">Workflow — Project A · Submission module</text>
-              <rect x="20" y="44" width="160" height="24" rx="4" class="dg-fill dg-stroke"/><text x="30" y="61" class="dg-text">+ New from template</text>
-              <rect x="20" y="82" width="480" height="300" class="dg-fill dg-stroke"/>
-              <text x="32" y="102" class="dg-text-soft">Step builder (sequential)</text>
-              <rect x="32" y="112" width="456" height="70" class="dg-fill-2 dg-stroke"/>
-              <text x="44" y="132" class="dg-text">Step 1 · Review · action = Review</text>
-              <text x="44" y="150" class="dg-lbl dg-text-soft">Actor: group "Office Reviewers" · ANY · SLA 5 wd</text>
-              <text x="44" y="167" class="dg-lbl dg-text-soft">In: PENDING_REVIEW → Out: PENDING_APPROVAL · comment req.</text>
-              <rect x="32" y="190" width="456" height="70" class="dg-fill-2 dg-stroke"/>
-              <text x="44" y="210" class="dg-text">Step 2 · Approve · action = Approve</text>
-              <text x="44" y="228" class="dg-lbl dg-text-soft">Actor: group "Site Commander" · ANY · SLA 5 wd</text>
-              <text x="44" y="245" class="dg-lbl dg-text-soft">In: PENDING_APPROVAL → Out: WAITING_SIGNATURE</text>
-              <rect x="32" y="266" width="456" height="42" class="dg-warn"/>
-              <text x="44" y="282" class="dg-lbl dg-text">④ Step 2: actor group "Site Commander" = 1 person, and that</text>
-              <text x="44" y="298" class="dg-lbl dg-text">person also creates equipment-transfer records → SoD violation</text>
-              <rect x="32" y="318" width="140" height="26" rx="4" class="dg-fill dg-stroke"/><text x="42" y="336" class="dg-text">+ Add step</text>
-              <rect x="184" y="318" width="150" height="26" rx="4" class="dg-ok"/><text x="194" y="336" class="dg-text">Check Workflow</text>
-              <rect x="346" y="318" width="150" height="26" rx="4" class="dg-fill dg-stroke"/><text x="356" y="336" class="dg-text">Save &amp; Activate</text>
-              <rect x="516" y="82" width="228" height="300" class="dg-fill dg-stroke"/>
-              <text x="528" y="102" class="dg-text-soft">Check result</text>
-              <text x="528" y="126" class="dg-text">✓ Has a step after Submit</text>
-              <text x="528" y="146" class="dg-text">✓ Every step has an actor</text>
-              <text x="528" y="166" class="dg-text">✓ Actors have step permission</text>
-              <text x="528" y="186" fill="var(--bad)">✗ Approve step violates SoD</text>
-              <text x="528" y="206" class="dg-text">✓ Has an end state</text>
-              <text x="528" y="226" class="dg-text">✓ No open loop</text>
-              <text x="20" y="410" class="dg-lbl dg-note">④ "Check Workflow" blocks Save while the Approve step's only actor is the</text>
-              <text x="20" y="426" class="dg-lbl dg-note">record's creator → invalid-config guard (§6.2), BR-PBAC-03</text>
+              <rect x="8" y="8" width="744" height="344" rx="6" class="dg-fill-2 dg-stroke"/>
+              <text x="24" y="40" class="dg-title">Workflow — Project A · Submission module</text>
+              <rect x="24" y="52" width="176" height="26" rx="3" class="dg-fill dg-stroke"/><text x="36" y="70" class="dg-lbl">+ New from template</text>
+              <!-- step builder -->
+              <rect x="24" y="96" width="452" height="216" rx="3" class="dg-fill dg-stroke"/>
+              <text x="36" y="116" class="dg-lbl dg-text-soft">Step builder (sequential)</text>
+              <rect x="36" y="124" width="428" height="64" rx="3" class="dg-fill-2 dg-stroke"/>
+              <text x="48" y="144" class="dg-text">Step 1 · Review</text>
+              <text x="48" y="162" class="dg-lbl dg-text-soft">Actor: group "Office Reviewers" · ANY · SLA 5 wd</text>
+              <text x="48" y="178" class="dg-lbl dg-text-soft">PENDING_REVIEW → PENDING_APPROVAL · comment required</text>
+              <rect x="36" y="196" width="428" height="64" rx="3" class="dg-fill-2 dg-stroke"/>
+              <text x="48" y="216" class="dg-text">Step 2 · Approve</text>
+              <text x="48" y="234" class="dg-lbl dg-text-soft">Actor: group "Site Commanders" · ANY · SLA 5 wd</text>
+              <text x="48" y="250" class="dg-lbl dg-text-soft">PENDING_APPROVAL → WAITING_SIGNATURE</text>
+              <rect x="36" y="268" width="428" height="32" class="dg-warn"/>
+              <text x="48" y="288" class="dg-lbl">Step 2's only actor also creates the records it approves</text>
+              <circle cx="36" cy="268" r="8" class="dg-note"/><text x="36" y="272" text-anchor="middle" class="dg-lbl" fill="var(--paper)">1</text>
+              <!-- action buttons -->
+              <rect x="24" y="320" width="120" height="26" rx="3" class="dg-fill dg-stroke"/><text x="36" y="338" class="dg-lbl">+ Add step</text>
+              <rect x="152" y="320" width="140" height="26" rx="3" class="dg-fill dg-accent-stroke" stroke-width="1.5"/><text x="164" y="338" class="dg-lbl">Check Workflow</text>
+              <circle cx="152" cy="320" r="8" class="dg-note"/><text x="152" y="324" text-anchor="middle" class="dg-lbl" fill="var(--paper)">2</text>
+              <rect x="300" y="320" width="140" height="26" rx="3" class="dg-fill dg-stroke"/><text x="312" y="338" class="dg-lbl dg-text-soft">Save &amp; Activate</text>
+              <!-- check result -->
+              <rect x="492" y="96" width="244" height="216" rx="3" class="dg-fill dg-stroke"/>
+              <text x="504" y="116" class="dg-title">Check result</text>
+              <text x="504" y="140" class="dg-lbl">✓ A step after Submit</text>
+              <text x="504" y="160" class="dg-lbl">✓ Every step has an actor</text>
+              <text x="504" y="180" class="dg-lbl">✓ Actors hold the permission</text>
+              <text x="504" y="200" class="dg-lbl" fill="var(--bad)">✗ Approve step breaks SoD</text>
+              <text x="504" y="220" class="dg-lbl">✓ Has an end state</text>
+              <text x="504" y="240" class="dg-lbl">✓ No open loop</text>
+              <text x="504" y="284" class="dg-lbl dg-text-soft">1 blocker — Save &amp; Activate disabled</text>
             </svg>
             </div>
             <figcaption><span data-lang="en">M6 — workflow config builder</span><span data-lang="vi">M6 — trình cấu hình workflow</span></figcaption>
+            <ol class="wf-notes">
+              <li><span data-lang="en">The amber band is the inline SoD check — Step 2's actor group holds one person, who also creates the equipment-transfer records this step would approve.</span><span data-lang="vi">Dải màu vàng là bước kiểm tra SoD tại chỗ — nhóm actor của Bước 2 chỉ có một người, mà người đó cũng tạo các hồ sơ điều chuyển thiết bị sẽ được duyệt ở bước này.</span></li>
+              <li><span data-lang="en">"Check Workflow" blocks "Save &amp; Activate" while an approval step's only actor is the record's creator — invalid-config guard (§6.2), BR-PBAC-03.</span><span data-lang="vi">"Check Workflow" chặn "Save &amp; Activate" khi actor duy nhất của một bước duyệt là chính người tạo hồ sơ — quy tắc chặn cấu hình sai (§6.2), BR-PBAC-03.</span></li>
+            </ol>
           </figure>
         </div>
 

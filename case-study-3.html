@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=24">
-<script src="assets/app.js?v=24"></script>
+<link rel="stylesheet" href="assets/styles.css?v=25">
+<script src="assets/app.js?v=25"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -590,68 +590,99 @@
           <h4 id="wf-w1"><span data-lang="en">W1 — Slot grid</span><span data-lang="vi">W1 — Lưới khung giờ</span></h4>
           <figure class="diagram">
             <div class="diagram-scroll">
-            <svg viewBox="0 0 760 400" role="img" aria-labelledby="w1-t">
+            <svg viewBox="0 0 760 316" role="img" aria-labelledby="w1-t">
               <title id="w1-t">Wireframe W1: a court's slot grid, hours down the side and days across, each free cell showing its tier price, booked and held cells greyed, a Book bar with a hold countdown</title>
-              <rect x="0.5" y="0.5" width="759" height="399" class="dg-fill-2 dg-stroke"/>
-              <text x="20" y="28" class="dg-text">Court "Sân 5A" · week of 05/05</text>
+              <rect x="8" y="8" width="744" height="300" rx="6" class="dg-fill-2 dg-stroke"/>
+              <text x="24" y="40" class="dg-title">Court "Sân 5A" · week of 05/05</text>
               <!-- header row -->
-              <rect x="20" y="42" width="90" height="26" class="dg-fill dg-stroke"/><text x="30" y="59" class="dg-text-soft">Hour</text>
-              <rect x="112" y="42" width="120" height="26" class="dg-fill dg-stroke"/><text x="122" y="59" class="dg-text-soft">Mon (weekday)</text>
-              <rect x="234" y="42" width="120" height="26" class="dg-fill dg-stroke"/><text x="244" y="59" class="dg-text-soft">Sat (weekend)</text>
-              <!-- rows -->
-              <rect x="20" y="70" width="90" height="30" class="dg-fill dg-stroke"/><text x="30" y="89" class="dg-text">14:00</text>
-              <rect x="112" y="70" width="120" height="30" class="dg-fill"/><text x="122" y="89" class="dg-text">80.000₫</text>
-              <rect x="234" y="70" width="120" height="30" class="dg-fill"/><text x="244" y="89" class="dg-text">100.000₫</text>
-              <rect x="20" y="102" width="90" height="30" class="dg-fill dg-stroke"/><text x="30" y="121" class="dg-text">19:00</text>
-              <rect x="112" y="102" width="120" height="30" class="dg-fill"/><text x="122" y="121" class="dg-text">120.000₫</text>
-              <rect x="234" y="102" width="120" height="30" class="dg-stroke" fill="none" stroke-dasharray="4 3"/><text x="244" y="121" class="dg-text-soft">Booked</text>
-              <rect x="20" y="134" width="90" height="30" class="dg-fill dg-stroke"/><text x="30" y="153" class="dg-text">20:00</text>
-              <rect x="112" y="134" width="120" height="30" class="dg-warn"/><text x="122" y="153" class="dg-lbl dg-text">Held (someone)</text>
-              <rect x="234" y="134" width="120" height="30" class="dg-fill"/><text x="244" y="153" class="dg-text">150.000₫</text>
+              <rect x="24" y="52" width="72" height="26" class="dg-fill dg-stroke"/><text x="34" y="69" class="dg-lbl dg-text-soft">Hour</text>
+              <rect x="96" y="52" width="128" height="26" class="dg-fill dg-stroke"/><text x="106" y="69" class="dg-lbl dg-text-soft">Mon · weekday</text>
+              <rect x="224" y="52" width="128" height="26" class="dg-fill dg-stroke"/><text x="234" y="69" class="dg-lbl dg-text-soft">Wed · weekday</text>
+              <rect x="352" y="52" width="128" height="26" class="dg-fill dg-stroke"/><text x="362" y="69" class="dg-lbl dg-text-soft">Fri · weekday</text>
+              <rect x="480" y="52" width="128" height="26" class="dg-fill dg-stroke"/><text x="490" y="69" class="dg-lbl dg-text-soft">Sat · weekend</text>
+              <rect x="608" y="52" width="128" height="26" class="dg-fill dg-stroke"/><text x="618" y="69" class="dg-lbl dg-text-soft">Sun · weekend</text>
+              <!-- row 14:00 (off-peak) -->
+              <rect x="24" y="80" width="72" height="30" class="dg-fill dg-stroke"/><text x="34" y="99" class="dg-lbl">14:00</text>
+              <rect x="96" y="80" width="128" height="30" class="dg-fill"/><text x="106" y="99" class="dg-lbl">80.000 ₫</text>
+              <rect x="224" y="80" width="128" height="30" class="dg-fill"/><text x="234" y="99" class="dg-lbl">80.000 ₫</text>
+              <rect x="352" y="80" width="128" height="30" class="dg-fill"/><text x="362" y="99" class="dg-lbl">80.000 ₫</text>
+              <rect x="480" y="80" width="128" height="30" class="dg-fill"/><text x="490" y="99" class="dg-lbl">100.000 ₫</text>
+              <rect x="608" y="80" width="128" height="30" class="dg-fill"/><text x="618" y="99" class="dg-lbl">100.000 ₫</text>
+              <!-- row 19:00 (peak) -->
+              <rect x="24" y="112" width="72" height="30" class="dg-fill dg-stroke"/><text x="34" y="131" class="dg-lbl">19:00</text>
+              <rect x="96" y="112" width="128" height="30" class="dg-fill"/><text x="106" y="131" class="dg-lbl">120.000 ₫</text>
+              <rect x="224" y="112" width="128" height="30" fill="none" class="dg-stroke" stroke-dasharray="4 3"/><text x="234" y="131" class="dg-lbl dg-text-soft">Booked</text>
+              <rect x="352" y="112" width="128" height="30" class="dg-fill"/><text x="362" y="131" class="dg-lbl">120.000 ₫</text>
+              <rect x="480" y="112" width="128" height="30" class="dg-fill"/><text x="490" y="131" class="dg-lbl">150.000 ₫</text>
+              <rect x="608" y="112" width="128" height="30" class="dg-fill"/><text x="618" y="131" class="dg-lbl">150.000 ₫</text>
+              <!-- row 20:00 (peak) -->
+              <rect x="24" y="144" width="72" height="30" class="dg-fill dg-stroke"/><text x="34" y="163" class="dg-lbl">20:00</text>
+              <rect x="96" y="144" width="128" height="30" class="dg-warn"/><text x="106" y="163" class="dg-lbl">Held · other renter</text>
+              <rect x="224" y="144" width="128" height="30" class="dg-fill"/><text x="234" y="163" class="dg-lbl">120.000 ₫</text>
+              <rect x="352" y="144" width="128" height="30" class="dg-fill"/><text x="362" y="163" class="dg-lbl">120.000 ₫</text>
+              <rect x="480" y="144" width="128" height="30" class="dg-fill"/><text x="490" y="163" class="dg-lbl">150.000 ₫</text>
+              <rect x="608" y="144" width="128" height="30" class="dg-fill"/><text x="618" y="163" class="dg-lbl">150.000 ₫</text>
               <!-- selection + book bar -->
-              <text x="20" y="184" class="dg-lbl dg-text-soft">Selected: Mon 14:00 (weekday) · Sat 20:00 (weekend)</text>
-              <rect x="20" y="192" width="250" height="34" rx="4" class="dg-ok"/><text x="145" y="213" text-anchor="middle" class="dg-text">Book — 2 slots · 230.000₫</text>
-              <rect x="20" y="234" width="234" height="30" rx="4" class="dg-warn"/><text x="30" y="254" class="dg-text">Held for you — 09:58 remaining</text>
-              <!-- callouts -->
-              <circle cx="106" cy="85" r="8" class="dg-note"/><text x="106" y="89" text-anchor="middle" class="dg-lbl" fill="var(--paper)">1</text>
-              <circle cx="106" cy="149" r="8" class="dg-note"/><text x="106" y="153" text-anchor="middle" class="dg-lbl" fill="var(--paper)">2</text>
-              <circle cx="14" cy="245" r="8" class="dg-note"/><text x="14" y="249" text-anchor="middle" class="dg-lbl" fill="var(--paper)">3</text>
-              <text x="20" y="300" class="dg-lbl dg-note">① Each free cell shows its tier price (off-peak vs peak, weekday vs weekend) → BR-PRICE-01 / AC-BK-01</text>
-              <text x="20" y="320" class="dg-lbl dg-note">② A slot held by another renter is not selectable — not shown as free → BR-HOLD-02 / AC-BK-03</text>
-              <text x="20" y="340" class="dg-lbl dg-note">③ After Book, a countdown to the hold TTL; price is locked at this moment → BR-HOLD-03 / BR-PRICE-02</text>
+              <text x="24" y="204" class="dg-lbl dg-text-soft">Selected: Mon 14:00 (weekday) · Sat 20:00 (weekend)</text>
+              <rect x="24" y="214" width="260" height="32" rx="3" class="dg-fill dg-accent-stroke" stroke-width="1.5"/><text x="154" y="234" text-anchor="middle" class="dg-lbl">Book — 2 slots · 230.000 ₫</text>
+              <rect x="300" y="214" width="220" height="32" rx="3" class="dg-warn"/><text x="312" y="234" class="dg-lbl">Held for you · ~10 min left</text>
+              <!-- badges -->
+              <circle cx="96" cy="80" r="8" class="dg-note"/><text x="96" y="84" text-anchor="middle" class="dg-lbl" fill="var(--paper)">1</text>
+              <circle cx="96" cy="144" r="8" class="dg-note"/><text x="96" y="148" text-anchor="middle" class="dg-lbl" fill="var(--paper)">2</text>
+              <circle cx="300" cy="214" r="8" class="dg-note"/><text x="300" y="218" text-anchor="middle" class="dg-lbl" fill="var(--paper)">3</text>
             </svg>
             </div>
             <figcaption><span data-lang="en">W1 — slot grid</span><span data-lang="vi">W1 — lưới khung giờ</span></figcaption>
+            <ol class="wf-notes">
+              <li><span data-lang="en">Each free cell shows its tier price — off-peak vs peak, weekday vs weekend — BR-PRICE-01 / AC-BK-01.</span><span data-lang="vi">Mỗi ô còn trống hiện giá theo bậc — thấp điểm vs cao điểm, ngày thường vs cuối tuần — BR-PRICE-01 / AC-BK-01.</span></li>
+              <li><span data-lang="en">A slot held by another renter is not selectable and is never shown as free — BR-HOLD-02 / AC-BK-03.</span><span data-lang="vi">Khung giờ đang có người khác giữ thì không chọn được và không bao giờ hiện là còn trống — BR-HOLD-02 / AC-BK-03.</span></li>
+              <li><span data-lang="en">After "Book", a countdown runs to the hold TTL; the price is locked at that moment — BR-HOLD-03 / BR-PRICE-02.</span><span data-lang="vi">Sau khi bấm "Book", một đồng hồ đếm ngược chạy tới hạn TTL của hold; giá được khoá tại thời điểm đó — BR-HOLD-03 / BR-PRICE-02.</span></li>
+            </ol>
           </figure>
 
           <h4 id="wf-w4"><span data-lang="en">W4 — Owner revenue dashboard</span><span data-lang="vi">W4 — Dashboard doanh thu chủ sân</span></h4>
           <figure class="diagram">
             <div class="diagram-scroll">
-            <svg viewBox="0 0 760 360" role="img" aria-labelledby="w4-t">
+            <svg viewBox="0 0 760 348" role="img" aria-labelledby="w4-t">
               <title id="w4-t">Wireframe W4: an owner dashboard with a period and court selector, four metric cards, a low-utilisation heatmap and a settlement statement table</title>
-              <rect x="0.5" y="0.5" width="759" height="359" class="dg-fill-2 dg-stroke"/>
-              <text x="20" y="28" class="dg-text">Revenue dashboard</text>
-              <rect x="230" y="12" width="162" height="24" rx="4" class="dg-fill dg-stroke"/><text x="240" y="29" class="dg-text">Period: last 30 days</text>
-              <rect x="400" y="12" width="120" height="24" rx="4" class="dg-fill dg-stroke"/><text x="410" y="29" class="dg-text">Court: all</text>
+              <rect x="8" y="8" width="744" height="332" rx="6" class="dg-fill-2 dg-stroke"/>
+              <text x="24" y="40" class="dg-title">Revenue dashboard</text>
+              <rect x="416" y="24" width="152" height="28" rx="3" class="dg-fill dg-stroke"/><text x="428" y="43" class="dg-lbl">Last 30 days</text>
+              <rect x="576" y="24" width="160" height="28" rx="3" class="dg-fill dg-stroke"/><text x="588" y="43" class="dg-lbl">All courts</text>
               <!-- metric cards -->
-              <rect x="20" y="48" width="170" height="66" class="dg-fill dg-stroke"/><text x="30" y="70" class="dg-text-soft">Utilisation</text><text x="30" y="96" class="dg-title dg-text">61%</text>
-              <rect x="200" y="48" width="170" height="66" class="dg-fill dg-stroke"/><text x="210" y="70" class="dg-text-soft">Revenue / slot-hour</text><text x="210" y="96" class="dg-title dg-text">96.000₫</text>
-              <rect x="380" y="48" width="170" height="66" class="dg-fill dg-stroke"/><text x="390" y="70" class="dg-text-soft">Cancel / no-show</text><text x="390" y="96" class="dg-title dg-text">7.2%</text>
-              <rect x="560" y="48" width="180" height="66" class="dg-fill dg-stroke"/><text x="570" y="70" class="dg-text-soft">Repeat rate</text><text x="570" y="96" class="dg-title dg-text">34%</text>
+              <rect x="24" y="64" width="172" height="68" rx="3" class="dg-fill dg-stroke"/><text x="36" y="86" class="dg-lbl dg-text-soft">Utilisation</text><text x="36" y="114" class="dg-title">61%</text>
+              <rect x="204" y="64" width="172" height="68" rx="3" class="dg-fill dg-stroke"/><text x="216" y="86" class="dg-lbl dg-text-soft">Revenue / slot-hour</text><text x="216" y="114" class="dg-title">95.000 ₫</text>
+              <rect x="384" y="64" width="172" height="68" rx="3" class="dg-fill dg-stroke"/><text x="396" y="86" class="dg-lbl dg-text-soft">Cancel / no-show</text><text x="396" y="114" class="dg-title">~7%</text>
+              <rect x="564" y="64" width="172" height="68" rx="3" class="dg-fill dg-stroke"/><text x="576" y="86" class="dg-lbl dg-text-soft">Repeat rate</text><text x="576" y="114" class="dg-title">≈ 1 in 3</text>
               <!-- heatmap -->
-              <text x="20" y="140" class="dg-text-soft">Utilisation by time band — red = low, amber = mid</text>
-              <rect x="20" y="150" width="40" height="24" class="dg-bad"/><rect x="62" y="150" width="40" height="24" class="dg-warn"/><rect x="104" y="150" width="40" height="24" class="dg-fill"/><rect x="146" y="150" width="40" height="24" class="dg-fill"/><rect x="188" y="150" width="40" height="24" class="dg-warn"/><rect x="230" y="150" width="40" height="24" class="dg-fill"/>
-              <text x="20" y="192" class="dg-lbl dg-text-soft">06:00   08:00   10:00   12:00   14:00   16:00 …</text>
+              <text x="24" y="166" class="dg-lbl dg-text-soft">Utilisation by time band</text>
+              <rect x="24" y="174" width="48" height="26" class="dg-bad"/>
+              <rect x="80" y="174" width="48" height="26" class="dg-warn"/>
+              <rect x="136" y="174" width="48" height="26" class="dg-fill"/>
+              <rect x="192" y="174" width="48" height="26" class="dg-fill"/>
+              <rect x="248" y="174" width="48" height="26" class="dg-warn"/>
+              <rect x="304" y="174" width="48" height="26" class="dg-fill"/>
+              <rect x="360" y="174" width="48" height="26" class="dg-bad"/>
+              <text x="48" y="214" text-anchor="middle" class="dg-lbl dg-text-soft">06:00</text>
+              <text x="104" y="214" text-anchor="middle" class="dg-lbl dg-text-soft">08:00</text>
+              <text x="160" y="214" text-anchor="middle" class="dg-lbl dg-text-soft">10:00</text>
+              <text x="216" y="214" text-anchor="middle" class="dg-lbl dg-text-soft">12:00</text>
+              <text x="272" y="214" text-anchor="middle" class="dg-lbl dg-text-soft">14:00</text>
+              <text x="328" y="214" text-anchor="middle" class="dg-lbl dg-text-soft">16:00</text>
+              <text x="384" y="214" text-anchor="middle" class="dg-lbl dg-text-soft">18:00</text>
+              <text x="432" y="192" class="dg-lbl dg-text-soft">red = low · amber = mid · plain = healthy</text>
               <!-- settlement table -->
-              <text x="20" y="224" class="dg-text-soft">Settlement — week of 28/04</text>
-              <rect x="20" y="232" width="720" height="24" class="dg-fill dg-stroke"/><text x="30" y="249" class="dg-text-soft">Booking / refund · court · amount</text>
-              <rect x="20" y="256" width="720" height="22" class="dg-fill-2 dg-stroke"/><text x="30" y="272" class="dg-text">BK-1042 · Sân 5A · +230.000₫</text>
-              <rect x="20" y="278" width="720" height="22" class="dg-fill-2 dg-stroke"/><text x="30" y="294" class="dg-text">RF-88 · Sân 5A · −60.000₫  (renter cancel, 6–24h — 50%)</text>
-              <rect x="20" y="300" width="720" height="22" class="dg-fill dg-stroke"/><text x="30" y="316" class="dg-text">Net transfer (gross − refunds − fee): 1.240.000₫</text>
-              <text x="20" y="346" class="dg-lbl dg-note">Metric definitions &amp; edge cases: §7.10.</text>
+              <text x="24" y="248" class="dg-lbl dg-text-soft">Settlement · week of 28/04</text>
+              <rect x="24" y="256" width="712" height="24" class="dg-fill dg-stroke"/><text x="36" y="272" class="dg-lbl dg-text-soft">Item · court · amount</text>
+              <rect x="24" y="280" width="712" height="22" class="dg-fill-2 dg-stroke"/><text x="36" y="296" class="dg-lbl">BK-1042 · Sân 5A · +230.000 ₫</text>
+              <rect x="24" y="302" width="712" height="22" class="dg-fill-2 dg-stroke"/><text x="36" y="318" class="dg-lbl">RF-88 · Sân 5A · −60.000 ₫ (renter cancel 6–24h → 50%)</text>
+              <rect x="24" y="324" width="712" height="22" class="dg-fill dg-stroke"/><text x="36" y="340" class="dg-lbl">Net transfer (gross − refunds − fee) · ≈ 1.24M ₫</text>
             </svg>
             </div>
             <figcaption><span data-lang="en">W4 — owner revenue dashboard</span><span data-lang="vi">W4 — dashboard doanh thu chủ sân</span></figcaption>
+            <ol class="wf-notes">
+              <li><span data-lang="en">Each metric's exact definition, grain and edge cases (owner-closed slots, no-shows, partial refunds) are specified in §7.10.</span><span data-lang="vi">Định nghĩa chính xác, độ hạt và các edge case của từng chỉ số (khung giờ chủ sân đóng, no-show, hoàn tiền một phần) được đặc tả ở §7.10.</span></li>
+            </ol>
           </figure>
         </div>
 
