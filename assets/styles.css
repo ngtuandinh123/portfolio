@@ -263,6 +263,14 @@ footer .f{font-family:var(--fm); font-size:.74rem; color:var(--ink-soft); displa
 .hero h1{margin-top:1.3rem}
 .hero .role{font-family:var(--fm); font-size:.82rem; color:var(--accent); margin:.8rem 0 0; max-width:44rem}
 .hero .pitch{margin-top:1.15rem}
+.hero-grid{display:grid; gap:1.4rem}
+.hero-main{min-width:0}
+.hero-photo{width:104px; height:104px; object-fit:cover; object-position:center 18%; border-radius:50%; border:1px solid var(--line); background:var(--surface-2)}
+@media (min-width:900px){
+  .hero-grid{grid-template-columns:minmax(0,1fr) 288px; column-gap:clamp(2rem,4vw,3.4rem); align-items:start}
+  .hero-main{grid-column:1; grid-row:1}
+  .hero-photo{grid-column:2; grid-row:1; width:288px; height:auto; aspect-ratio:4 / 5; object-position:center top; border-radius:16px; margin-top:.4rem}
+}
 details.readme{margin-top:1.6rem; border-top:1px solid var(--line); padding-top:1rem}
 details.readme summary{display:flex; align-items:center; gap:.5rem; cursor:pointer; list-style:none; font-family:var(--fm); font-size:.76rem; text-transform:uppercase; letter-spacing:.12em; color:var(--ink-soft)}
 details.readme summary::-webkit-details-marker{display:none}
@@ -301,6 +309,15 @@ details.readme p:first-of-type{margin-top:1rem}
 .item .h{font-family:var(--fh); font-weight:500; font-size:1.05rem; max-width:44rem}
 .item .meta{font-family:var(--fm); font-size:.74rem; color:var(--ink-soft); margin-top:.25rem; max-width:52ch}
 .item p{margin:.5rem 0 0; font-size:.92rem; color:var(--ink-soft); max-width:62ch}
+.item > .kicker{font-size:.68rem; margin-bottom:.35rem}
+/* wide screens: title + dates in a left rail, the description beside it */
+@media (min-width:1180px){
+  #experience .item{display:grid; grid-template-columns:minmax(0,18rem) minmax(0,1fr); column-gap:2.6rem; row-gap:.3rem}
+  #experience .item > .kicker{grid-column:1 / -1; grid-row:1}
+  #experience .item .h{grid-column:1; grid-row:2; margin:0}
+  #experience .item .meta{grid-column:1; grid-row:3; max-width:none}
+  #experience .item p{grid-column:2; grid-row:2 / span 2; margin:0; max-width:38rem}
+}
 
 .hgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem 2rem; margin-top:1.4rem}
 .hgrid .hnum{font-family:var(--fm); font-size:.78rem; color:var(--accent)}
