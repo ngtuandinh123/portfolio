@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=29">
-<script src="assets/app.js?v=29"></script>
+<link rel="stylesheet" href="assets/styles.css?v=30">
+<script src="assets/app.js?v=30"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -154,7 +154,7 @@
           </table>
         </div>
         <div class="note-box">
-          <b><span data-lang="en">A cut I proposed:</span><span data-lang="vi">Một cắt gọt tôi đề xuất:</span></b>
+          <b><span data-lang="en">A cut I proposed:</span><span data-lang="vi">Một phần tôi đề xuất cắt khỏi phase 1:</span></b>
           <span data-lang="en"> drop "an advisor must approve the whole study plan before the student can submit" from phase 1. Only ~2 of 8 programmes require it; forcing it on the other 6 would block them and complicate the state machine. Phase 1 <b>records</b> that the advisor has viewed the plan; mandatory approval is phase 2. BA Lead agreed.</span>
           <span data-lang="vi"> loại "advisor phải duyệt toàn bộ kế hoạch học tập trước khi sinh viên được submit" khỏi phase 1. Chỉ ~2/8 chương trình yêu cầu bước này; đưa vào phase 1 sẽ chặn cả 6 chương trình còn lại và làm phức tạp state machine. Phase 1: hệ thống <b>ghi nhận</b> advisor đã xem; duyệt bắt buộc để phase 2. BA Lead đồng ý.</span>
         </div>
@@ -254,7 +254,7 @@
             <line x1="106" y1="152" x2="120" y2="198" class="dg-accent-stroke" marker-end="url(#a2)"/>
           </svg>
           </div>
-          <figcaption><span data-lang="en">AS-IS registration flow</span><span data-lang="vi">Luồng đăng ký AS-IS</span></figcaption>
+            <figcaption><span data-lang="en">AS-IS registration flow</span><span data-lang="vi">Luồng đăng ký AS-IS</span></figcaption>
         </figure>
         <p class="sub">
           <span data-lang="en">Pain on the flow: no real-time seats · checks depend on the officer's memory · the waitlist has no owner · add/drop is re-keyed manually · no trail · the whole cohort crushes into 2 days.</span>
@@ -345,12 +345,12 @@
               <line x1="300" y1="150" x2="150" y2="190" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="150" y="176" class="dg-lbl dg-text-soft" data-lang="en">within add/drop</text><text x="150" y="176" class="dg-lbl dg-text-soft" data-lang="vi">trong hạn add/drop</text>
               <line x1="290" y1="150" x2="150" y2="260" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="150" y="234" class="dg-lbl dg-text-soft" data-lang="en">after window · approved</text><text x="150" y="234" class="dg-lbl dg-text-soft" data-lang="vi">quá hạn · được duyệt</text>
               <line x1="575" y1="150" x2="575" y2="190" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="581" y="176" class="dg-lbl dg-text-soft" data-lang="en">seat frees</text><text x="581" y="176" class="dg-lbl dg-text-soft" data-lang="vi">có chỗ trống</text>
-              <line x1="540" y1="192" x2="420" y2="150" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="430" y="176" class="dg-lbl dg-text-soft" data-lang="en">claim in time (re-check)</text><text x="430" y="176" class="dg-lbl dg-text-soft" data-lang="vi">nhận kịp hạn (kiểm tra lại)</text>
+              <line x1="540" y1="192" x2="420" y2="150" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="470" y="160" text-anchor="end" class="dg-lbl dg-text-soft" data-lang="en">claim in time (re-check)</text><text x="470" y="160" text-anchor="end" class="dg-lbl dg-text-soft" data-lang="vi">nhận kịp hạn (kiểm tra lại)</text>
               <line x1="575" y1="220" x2="575" y2="260" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="581" y="246" class="dg-lbl dg-text-soft" data-lang="en">deadline passed</text><text x="581" y="246" class="dg-lbl dg-text-soft" data-lang="vi">quá hạn</text>
-              <line x1="540" y1="262" x2="540" y2="150" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="440" y="250" class="dg-lbl dg-text-soft" data-lang="en">→ back of queue (default)</text><text x="440" y="250" class="dg-lbl dg-text-soft" data-lang="vi">→ về cuối hàng (mặc định)</text>
-              <line x1="575" y1="290" x2="575" y2="330" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="558" y="316" class="dg-lbl dg-text-soft" data-lang="en">or removed (config)</text><text x="558" y="316" class="dg-lbl dg-text-soft" data-lang="vi">hoặc bị loại</text>
-              <text x="16" y="316" class="dg-lbl dg-note" data-lang="en">WITHDRAWN signals the Grades/SIS module to record a "W" — the transcript write is out of scope (§1).</text><text x="16" y="316" class="dg-lbl dg-note" data-lang="vi">WITHDRAWN báo cho phân hệ Điểm/SIS ghi "W" — việc ghi vào bảng điểm nằm ngoài scope (§1).</text>
-              <text x="16" y="336" class="dg-lbl dg-note" data-lang="en">Final states are immutable after the drop deadline, except a documented registrar override.</text><text x="16" y="336" class="dg-lbl dg-note" data-lang="vi">Trạng thái cuối là bất biến sau hạn drop, trừ một override có hồ sơ của phòng đào tạo.</text>
+              <line x1="540" y1="262" x2="540" y2="150" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="466" y="238" text-anchor="end" class="dg-lbl dg-text-soft" data-lang="en">→ back of queue (default)</text><text x="466" y="238" text-anchor="end" class="dg-lbl dg-text-soft" data-lang="vi">→ về cuối hàng (mặc định)</text>
+              <line x1="575" y1="290" x2="575" y2="330" class="dg-accent-stroke" marker-end="url(#sm2)"/><text x="560" y="308" text-anchor="end" class="dg-lbl dg-text-soft" data-lang="en">or removed (config)</text><text x="560" y="308" text-anchor="end" class="dg-lbl dg-text-soft" data-lang="vi">hoặc bị loại</text>
+              <text x="16" y="378" class="dg-lbl dg-note" data-lang="en">WITHDRAWN signals the Grades/SIS module to record a "W" — the transcript write is out of scope (§1).</text><text x="16" y="378" class="dg-lbl dg-note" data-lang="vi">WITHDRAWN báo cho phân hệ Điểm/SIS ghi "W" — việc ghi vào bảng điểm nằm ngoài scope (§1).</text>
+              <text x="16" y="398" class="dg-lbl dg-note" data-lang="en">Final states are immutable after the drop deadline, except a documented registrar override.</text><text x="16" y="398" class="dg-lbl dg-note" data-lang="vi">Trạng thái cuối là bất biến sau hạn drop, trừ một override có hồ sơ của phòng đào tạo.</text>
             </svg>
             </div>
             <figcaption><span data-lang="en">Enrolment-record lifecycle — also serves as the TO-BE flow</span><span data-lang="vi">Vòng đời bản ghi đăng ký — đồng thời là luồng TO-BE</span></figcaption>
@@ -403,7 +403,7 @@
         <h2><span data-lang="en">Deliverables (representative samples)</span><span data-lang="vi">Sản phẩm BA (mẫu tiêu biểu)</span></h2>
         <div class="callout" style="margin-top:1rem">
           <span class="ic" aria-hidden="true">▤</span>
-          <span><span data-lang="en">The deliverable samples below are shown in English, as they were produced. Each type shows one complete sample; CS2 is the lighter read of the two case studies.</span><span data-lang="vi">Các sản phẩm mẫu dưới đây trình bày bằng tiếng Anh, đúng như khi thực hiện. Mỗi loại một mẫu hoàn chỉnh; CS2 là bản đọc nhẹ hơn trong hai case study.</span></span>
+          <span><span data-lang="en">Each type shows one complete sample; CS2 is the lighter read of the two case studies.</span><span data-lang="vi">Mỗi loại một mẫu hoàn chỉnh; CS2 là bản đọc nhẹ hơn trong hai case study.</span></span>
         </div>
         <nav class="dsubnav" aria-label="Deliverables index">
           <a href="#e1">7.1 <span data-lang="en">BRD/SRS</span><span data-lang="vi">Trích BRD/SRS</span></a>
@@ -806,7 +806,7 @@
         <p class="kicker">11</p>
         <h2><span data-lang="en">Lessons / what I'd do differently</span><span data-lang="vi">Bài học / điều tôi sẽ làm khác</span></h2>
         <ul class="plain">
-          <li><span data-lang="en"><b>Start the regulation → rules translation in week 1.</b> The hard part wasn't the screens — it was turning regulation prose (with "or", grade thresholds, exceptions) into machine-checkable rules. I did it late and had to redo the BRD several times.</span><span data-lang="vi"><b>Bắt đầu dịch quy chế → rule từ tuần 1.</b> Phần khó nhất không phải màn hình mà là biến văn bản quy chế (có "hoặc", ngưỡng điểm, ngoại lệ) thành luật máy kiểm được. Tôi làm việc này muộn và phải sửa BRD nhiều lần.</span></li>
+          <li><span data-lang="en"><b>Start the regulation → rules translation in week 1.</b> The hard part wasn't the screens — it was turning regulation prose (with "or", grade thresholds, exceptions) into machine-checkable rules. I did it late and had to redo the BRD several times.</span><span data-lang="vi"><b>Bắt đầu dịch quy chế → quy tắc từ tuần 1.</b> Phần khó nhất không phải màn hình mà là biến văn bản quy chế (có "hoặc", ngưỡng điểm, ngoại lệ) thành luật máy kiểm được. Tôi làm việc này muộn và phải sửa BRD nhiều lần.</span></li>
           <li><span data-lang="en"><b>Sit with the developer on concurrency earlier.</b> "50 people hit the last seat" shaped how the whole submit flow is written; it should have been a joint session at the start, not after the flow was drawn.</span><span data-lang="vi"><b>Ngồi với Developer về tương tranh sớm hơn.</b> Bài toán "50 người bấm vào ghế cuối" quyết định cả cách viết luồng submit; lẽ ra nên là buổi làm việc chung ngay đầu, không phải sau khi đã vẽ xong flow.</span></li>
           <li><span data-lang="en"><b>Wireframes must show the waitlist state explicitly.</b> Two of the four catches in §8 came from wireframes not distinguishing "registered" from "waiting".</span><span data-lang="vi"><b>Wireframe phải hiển thị rõ trạng thái waitlist.</b> Hai trong bốn lỗi ở §8 đến từ việc wireframe không phân biệt "đã đăng ký" với "đang chờ".</span></li>
           <li><span data-lang="en"><b>Build a sample dataset to test the rules.</b> The prerequisite tree only revealed contradictions when I tried to configure real rules for a few courses with multi-level "or".</span><span data-lang="vi"><b>Chuẩn hoá bộ dữ liệu mẫu để test rule.</b> Cây tiên quyết chỉ lộ mâu thuẫn khi tôi thử dựng luật thật cho vài học phần có "hoặc" nhiều tầng.</span></li>

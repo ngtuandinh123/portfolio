@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=29">
-<script src="assets/app.js?v=29"></script>
+<link rel="stylesheet" href="assets/styles.css?v=30">
+<script src="assets/app.js?v=30"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -149,7 +149,7 @@
           </table>
         </div>
         <div class="note-box">
-          <b><span data-lang="en">A cut I proposed:</span><span data-lang="vi">Một cắt gọt tôi đề xuất:</span></b>
+          <b><span data-lang="en">A cut I proposed:</span><span data-lang="vi">Một phần tôi đề xuất cắt khỏi phase 1:</span></b>
           <span data-lang="en"> drop "percentage-of-confirmations" approval from phase 1, keep only <b>ANY / ALL</b>. Workshops showed no real case for a percentage mode, while it materially complicates the SLA engine (tracking partial-confirmation progress). Senior BA agreed; logged as a future extension.</span>
           <span data-lang="vi"> loại "phê duyệt theo tỷ lệ % số người xác nhận" khỏi phase 1, chỉ giữ <b>ANY / ALL</b>. Workshop cho thấy chưa có tình huống thực cần cơ chế %, trong khi nó làm phức tạp đáng kể SLA engine. Senior BA đồng ý; ghi lại là hướng mở rộng.</span>
         </div>
@@ -248,7 +248,7 @@
             <line x1="270" y1="199" x2="296" y2="199" class="dg-accent-stroke" marker-end="url(#a1)"/>
           </svg>
           </div>
-          <figcaption><span data-lang="en">AS-IS submission flow</span><span data-lang="vi">Luồng đề trình AS-IS</span></figcaption>
+            <figcaption><span data-lang="en">AS-IS submission flow</span><span data-lang="vi">Luồng đề trình AS-IS</span></figcaption>
         </figure>
         <p class="sub">
           <span data-lang="en">Pain on the flow: no record status · no "current holder" · no SLA clock · no action evidence · scattered signed records · a creator with authority can effectively "approve" their own record.</span>
@@ -292,7 +292,7 @@
 
         <div class="subsec">
           <h3>6.2 · <span data-lang="en">Configurable workflow engine (no hard-coded approvers)</span><span data-lang="vi">Workflow engine cấu hình được</span></h3>
-          <p><span data-lang="en">Every project has a different flow → reviewers / approvers are <b>not</b> fixed in code. The admin builds a sequence of steps; each step has: name · action (Submit / Review / Approve / Request Info / Reject / Complete) · input → output state (approve / request-info / reject) · actor (<b>Permission Group</b> recommended / specific user / Department — system takes the union) · completion mode <b>ANY</b> or <b>ALL</b> · step SLA (working hours; default <b>5 working days</b>) · comment / file required.</span><span data-lang="vi">Mỗi dự án luồng khác nhau → không cố định người kiểm soát / người phê duyệt trong code. Admin cấu hình chuỗi bước tuần tự; mỗi bước có: tên · hành động (Submit / Review / Approve / Request Info / Reject / Complete) · trạng thái vào → ra (approve / request-info / reject) · actor (nên dùng <b>Nhóm quyền</b> / User cụ thể / Phòng ban — hệ thống lấy phép hợp) · chế độ hoàn tất <b>ANY</b> hoặc <b>ALL</b> · SLA bước (theo giờ làm việc; mặc định <b>5 ngày làm việc</b>) · bắt buộc comment / file.</span></p>
+          <p><span data-lang="en">Every project has a different flow → reviewers / approvers are <b>not</b> fixed in code. The admin builds a sequence of steps; each step has: name · action (Submit / Review / Approve / Request Info / Reject / Complete) · input → output state (approve / request-info / reject) · actor (<b>Permission Group</b> recommended / specific user / Department — system takes the union) · completion mode <b>ANY</b> or <b>ALL</b> · step SLA (working hours; default <b>5 working days</b>) · comment / file required.</span><span data-lang="vi">Mỗi dự án luồng khác nhau → không cố định người kiểm soát / người phê duyệt trong code. Admin cấu hình chuỗi bước tuần tự; mỗi bước có: tên · hành động (Submit / Review / Approve / Request Info / Reject / Complete) · trạng thái vào → ra (approve / request-info / reject) · actor (nên dùng <b>Nhóm quyền</b> / User cụ thể / Phòng ban — hệ thống gộp tất cả lại (phép hợp)) · chế độ hoàn tất <b>ANY</b> hoặc <b>ALL</b> · SLA bước (theo giờ làm việc; mặc định <b>5 ngày làm việc</b>) · bắt buộc comment / file.</span></p>
           <p><span data-lang="en"><b>Invalid-config guard</b> (validated before save): no step after Submit; a step with no valid actor; an actor lacking the step's action permission; <b>an Approve step whose only actor is the record's creator</b>; no end state; a loop with no exit.</span><span data-lang="vi"><b>Quy tắc chặn cấu hình sai</b> (validate trước khi lưu): thiếu bước sau Submit; bước không có actor hợp lệ; actor thiếu quyền tương ứng; <b>bước Approve chỉ có duy nhất người tạo hồ sơ làm actor</b>; không có trạng thái kết thúc; vòng lặp không lối thoát.</span></p>
           <p><span data-lang="en"><b>Concurrent actions in a step.</b> In <b>ANY</b> mode the first valid action completes the step; later actions are rejected with <em>"already handled by [name] at [time]"</em>. In <b>ALL</b> mode the system tracks partial confirmations; the step completes only on the last actor, and all partial confirmations are voided if the record returns to <code>NEED_INFO</code>.</span><span data-lang="vi"><b>Thao tác đồng thời trong một bước.</b> Ở chế độ <b>ANY</b>, hành động hợp lệ đầu tiên hoàn tất bước; thao tác đến sau bị từ chối kèm thông báo <em>"đã được [tên] xử lý lúc [giờ]"</em>. Ở chế độ <b>ALL</b>, hệ thống ghi nhận xác nhận từng phần; bước chỉ hoàn tất khi actor cuối cùng xác nhận, và mọi xác nhận từng phần bị huỷ nếu hồ sơ quay về <code>NEED_INFO</code>.</span></p>
           <p><span data-lang="en"><b>Workflow versioning for in-flight records.</b> On Submit the system <b>pins</b> the active <code>workflow_version</code> onto the record. In-flight records keep running on the pinned version even if the admin edits the workflow afterwards; the new version applies only to records submitted after the change. This avoids "editing the workflow jams 40 running records".</span><span data-lang="vi"><b>Workflow versioning cho hồ sơ đang chạy.</b> Khi Submit, hệ thống <b>ghim</b> <code>workflow_version</code> vào hồ sơ. Hồ sơ đang chạy tiếp tục theo version đã ghim dù Admin sửa workflow sau đó; version mới chỉ áp dụng cho hồ sơ Submit sau thời điểm thay đổi. Nhờ vậy tránh được tình huống "sửa workflow làm kẹt 40 hồ sơ đang chạy".</span></p>
@@ -334,14 +334,14 @@
               </g>
               <line x1="360" y1="38" x2="360" y2="68" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="366" y="57" class="dg-lbl dg-text-soft">Submit</text>
               <line x1="285" y1="84" x2="172" y2="84" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="188" y="66" class="dg-lbl dg-text-soft" data-lang="en">Withdraw</text><text x="188" y="66" class="dg-lbl dg-text-soft" data-lang="vi">Rút</text>
-              <line x1="305" y1="98" x2="140" y2="128" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="150" y="112" class="dg-lbl dg-text-soft" data-lang="en">Request info</text><text x="150" y="112" class="dg-lbl dg-text-soft" data-lang="vi">Yêu cầu bổ sung</text>
+              <line x1="305" y1="98" x2="140" y2="128" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="146" y="104" class="dg-lbl dg-text-soft" data-lang="en">Request info</text><text x="146" y="104" class="dg-lbl dg-text-soft" data-lang="vi">Yêu cầu bổ sung</text>
               <line x1="360" y1="98" x2="360" y2="128" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="366" y="117" class="dg-lbl dg-text-soft" data-lang="en">Review OK</text><text x="366" y="117" class="dg-lbl dg-text-soft" data-lang="vi">Kiểm soát đạt</text>
-              <line x1="150" y1="130" x2="290" y2="98" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="150" y="124" class="dg-lbl dg-text-soft" data-lang="en">Resubmit (+ v)</text><text x="150" y="124" class="dg-lbl dg-text-soft" data-lang="vi">Gửi lại (+ v)</text>
+              <line x1="150" y1="130" x2="290" y2="98" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="146" y="128" class="dg-lbl dg-text-soft" data-lang="en">Resubmit (+ v)</text><text x="146" y="128" class="dg-lbl dg-text-soft" data-lang="vi">Gửi lại (+ v)</text>
               <line x1="285" y1="146" x2="172" y2="146" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="182" y="164" class="dg-lbl dg-text-soft" data-lang="en">Request info</text><text x="182" y="164" class="dg-lbl dg-text-soft" data-lang="vi">Yêu cầu bổ sung</text>
               <line x1="435" y1="144" x2="518" y2="144" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="430" y="132" class="dg-lbl dg-text-soft" data-lang="en">Reject + reason</text><text x="430" y="132" class="dg-lbl dg-text-soft" data-lang="vi">Từ chối + lý do</text>
               <line x1="360" y1="158" x2="360" y2="188" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="366" y="177" class="dg-lbl dg-text-soft" data-lang="en">Approve</text><text x="366" y="177" class="dg-lbl dg-text-soft" data-lang="vi">Duyệt</text>
               <line x1="360" y1="218" x2="360" y2="248" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="366" y="237" class="dg-lbl dg-text-soft" data-lang="en">Await signed record</text><text x="366" y="237" class="dg-lbl dg-text-soft" data-lang="vi">Chờ biên bản ký</text>
-              <line x1="435" y1="264" x2="518" y2="264" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="430" y="252" class="dg-lbl dg-text-soft" data-lang="en">&gt; 72 working h</text><text x="430" y="252" class="dg-lbl dg-text-soft" data-lang="vi">&gt; 72 giờ lv</text>
+              <line x1="435" y1="264" x2="518" y2="264" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="430" y="252" class="dg-lbl dg-text-soft" data-lang="en">&gt; 72 working h</text><text x="430" y="252" class="dg-lbl dg-text-soft" data-lang="vi">&gt; 72 giờ làm việc</text>
               <line x1="360" y1="278" x2="360" y2="308" class="dg-accent-stroke" marker-end="url(#s1)"/><text x="366" y="297" class="dg-lbl dg-text-soft" data-lang="en">Upload + confirm</text><text x="366" y="297" class="dg-lbl dg-text-soft" data-lang="vi">Tải lên + xác nhận</text>
               <text x="10" y="366" class="dg-lbl dg-note" data-lang="en">COMPLETED / REJECTED / EXPIRED are immutable — Clone spawns a NEW record (new id, SLA + timeline reset).</text><text x="10" y="366" class="dg-lbl dg-note" data-lang="vi">COMPLETED / REJECTED / EXPIRED là bất biến — Clone tạo một hồ sơ MỚI (id mới, reset SLA + timeline).</text>
             </svg>
@@ -355,7 +355,7 @@
           <h3>6.5 · <span data-lang="en">SLA engine + red alert</span><span data-lang="vi">SLA engine + báo đỏ</span></h3>
           <ul class="plain">
             <li><span data-lang="en">SLA runs <b>in working hours only</b> (08:00–17:00, Mon–Fri); holidays configurable.</span><span data-lang="vi">SLA <b>chỉ chạy trong giờ làm việc</b> (08:00–17:00, T2–T6); ngày nghỉ/lễ cấu hình được.</span></li>
-            <li><span data-lang="en">SLA <b>pauses</b> while the record is in <code>NEED_INFO</code> or <code>DRAFT</code>.</span><span data-lang="vi">SLA <b>pause</b> khi hồ sơ ở <code>NEED_INFO</code> hoặc <code>DRAFT</code>.</span></li>
+            <li><span data-lang="en">SLA <b>pauses</b> while the record is in <code>NEED_INFO</code> or <code>DRAFT</code>.</span><span data-lang="vi">SLA <b>tạm dừng</b> khi hồ sơ ở <code>NEED_INFO</code> hoặc <code>DRAFT</code>.</span></li>
             <li><span data-lang="en">The <b>per-type total SLA</b> (3–14 working days, set by the client) is <b>allocated across the workflow steps</b>; default <b>5 working days per handling step</b>, which the admin reconciles to the type total. Missing a step SLA without Approve/Reject → the record turns Red + escalates.</span><span data-lang="vi"><b>Tổng SLA của một loại đề trình</b> (3–14 ngày làm việc, do chủ đầu tư quy định) được <b>phân bổ cho các bước</b>; mặc định <b>5 ngày làm việc / bước xử lý</b>, Admin điều chỉnh cho khớp SLA của loại. Quá hạn bước mà chưa Approve/Reject → hồ sơ chuyển Đỏ + escalation.</span></li>
             <li><span data-lang="en">Four alert levels: <b>Green</b> (plenty of time) · <b>Yellow</b> (≥ 80% used) · <b>Orange</b> (due today) · <b>Red</b> (overdue → escalation).</span><span data-lang="vi">4 mức cảnh báo: <b>Xanh</b> (còn nhiều thời gian) · <b>Vàng</b> (đã dùng ≥ 80%) · <b>Cam</b> (đến hạn trong ngày) · <b>Đỏ</b> (quá hạn → escalation).</span></li>
             <li><span data-lang="en">Red records: shown red on the dashboard, <b>pinned to the top</b>, notification to the current holder + escalation watchers; the owner sees them on the <b>Red-Alert dashboard</b> if they hold a system-wide View.</span><span data-lang="vi">Hồ sơ đỏ: hiển thị đỏ, <b>ghim lên đầu</b>, notification cho người đang giữ task + người theo dõi escalation; chủ doanh nghiệp thấy trên <b>Dashboard Báo đỏ</b> nếu có quyền View toàn hệ thống.</span></li>
@@ -380,7 +380,7 @@
             </table>
           </div>
           <div class="note-box">
-            <b><span data-lang="en">The &lt;10M threshold vs SoD — resolving the apparent contradiction.</span><span data-lang="vi">Ngưỡng &lt;10tr vs SoD — làm rõ mâu thuẫn biểu kiến.</span></b>
+            <b><span data-lang="en">The &lt;10M threshold vs SoD — resolving the apparent contradiction.</span><span data-lang="vi">Ngưỡng &lt;10tr vs SoD — làm rõ chỗ tưởng như mâu thuẫn.</span></b>
             <span data-lang="en"> SoD (§6.3) blocks <em>a creator pressing Approve on their own record</em>. Below the threshold the workflow is configured with <b>no Approve step at all</b> — not "self-approval", but a business decision to <b>accept the risk</b> on small amounts for speed, bounded by full audit logging + a periodic review report of sub-threshold records. The threshold is a <b>business</b> decision, not a constant in code.</span>
             <span data-lang="vi"> SoD (§6.3) chặn <em>người tạo tự bấm nút Approve hồ sơ của mình</em>. Với hồ sơ dưới ngưỡng, workflow được cấu hình <b>không có bước Approve nào</b> — không phải "tự duyệt", mà là nghiệp vụ <b>chấp nhận rủi ro có chủ đích</b> cho khoản nhỏ, đổi lấy tốc độ, giới hạn bằng audit log đầy đủ + báo cáo rà soát định kỳ các hồ sơ dưới ngưỡng. Ngưỡng là một quyết định <b>nghiệp vụ</b>, không phải hằng số trong code.</span>
           </div>
@@ -426,7 +426,7 @@
         <h2><span data-lang="en">Deliverables (representative samples)</span><span data-lang="vi">Sản phẩm BA (mẫu tiêu biểu)</span></h2>
         <div class="callout" style="margin-top:1rem">
           <span class="ic" aria-hidden="true">▤</span>
-          <span><span data-lang="en">The deliverable samples below are shown in English, as they were produced. Each type shows one complete sample rather than the full set.</span><span data-lang="vi">Các sản phẩm mẫu dưới đây trình bày bằng tiếng Anh, đúng như khi thực hiện. Mỗi loại hiển thị một mẫu hoàn chỉnh thay vì toàn bộ.</span></span>
+          <span><span data-lang="en">Each type shows one complete sample rather than the full set.</span><span data-lang="vi">Mỗi loại hiển thị một mẫu hoàn chỉnh thay vì toàn bộ số đã làm.</span></span>
         </div>
         <nav class="dsubnav" aria-label="Deliverables index">
           <a href="#d1">7.1 <span data-lang="en">BRD/SRS</span><span data-lang="vi">Trích BRD/SRS</span></a>
@@ -756,7 +756,6 @@
               <!-- decision panel -->
               <rect x="456" y="200" width="280" height="124" rx="3" class="dg-fill dg-stroke"/>
               <text x="468" y="221" class="dg-title" data-lang="en">Decision panel</text><text x="468" y="221" class="dg-title" data-lang="vi">Bảng ra quyết định</text>
-              <text x="468" y="237" class="dg-lbl dg-text-soft" data-lang="en">buttons: permission × state × SoD</text><text x="468" y="237" class="dg-lbl dg-text-soft" data-lang="vi">nút: quyền × trạng thái × SoD</text>
               <rect x="468" y="246" width="120" height="30" rx="3" class="dg-fill dg-accent-stroke" stroke-width="1.5"/><text x="528" y="265" text-anchor="middle" class="dg-text" data-lang="en">Approve</text><text x="528" y="265" text-anchor="middle" class="dg-text" data-lang="vi">Duyệt</text>
               <rect x="596" y="246" width="128" height="30" rx="3" class="dg-fill dg-stroke"/><text x="660" y="265" text-anchor="middle" class="dg-text" data-lang="en">Reject *</text><text x="660" y="265" text-anchor="middle" class="dg-text" data-lang="vi">Từ chối *</text>
               <rect x="468" y="286" width="150" height="26" rx="3" class="dg-fill dg-stroke"/><text x="480" y="303" class="dg-lbl" data-lang="en">Request info</text><text x="480" y="303" class="dg-lbl" data-lang="vi">Yêu cầu bổ sung</text>

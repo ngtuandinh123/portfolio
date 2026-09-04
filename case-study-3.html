@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=29">
-<script src="assets/app.js?v=29"></script>
+<link rel="stylesheet" href="assets/styles.css?v=30">
+<script src="assets/app.js?v=30"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -179,7 +179,7 @@
           </table>
         </div>
         <div class="note-box">
-          <b><span data-lang="en">A cut I proposed:</span><span data-lang="vi">Một cắt gọt tôi đề xuất:</span></b>
+          <b><span data-lang="en">A cut I proposed:</span><span data-lang="vi">Một phần tôi đề xuất cắt khỏi phase 1:</span></b>
           <span data-lang="en"> leave "voucher / auto-promotions" out of phase 1. It layers on the tiered-pricing logic and complicates revenue accounting; phase 1 only needs peak/off-peak tiers to shift demand.</span>
           <span data-lang="vi"> để "voucher / khuyến mãi tự động" ra ngoài phase 1. Nó chồng lên logic định giá bậc và làm phức tạp việc tính doanh thu; phase 1 chỉ cần bậc giá cao/thấp điểm là đủ để dịch cầu.</span>
         </div>
@@ -234,7 +234,7 @@
         </div>
         <div class="note-box">
           <span data-lang="en">* The specification was <b>co-produced</b> with a second BA on the team. This was a simulated team project in a course; the RACI reflects roles in the assignment, not a real engagement.</span>
-          <span data-lang="vi">* Phần đặc tả do tôi và một BA khác trong nhóm <b>đồng thực hiện</b>. Đây là dự án mô phỏng theo nhóm trong khoá học; RACI phản ánh vai trò trong bài tập, không phải một engagement thật.</span>
+          <span data-lang="vi">* Phần đặc tả do tôi và một BA khác trong nhóm <b>đồng thực hiện</b>. Đây là dự án mô phỏng theo nhóm trong khoá học; RACI phản ánh vai trò trong bài tập, không phải một dự án thật.</span>
         </div>
       </section>
 
@@ -265,7 +265,7 @@
             <rect x="436" y="16" width="336" height="44" rx="7" class="dg-warn"/><text x="446" y="35" class="dg-text" data-lang="en">Owner checks a notebook / memory,</text><text x="446" y="35" class="dg-text" data-lang="vi">Chủ sân xem sổ / trí nhớ,</text><text x="446" y="51" class="dg-text" data-lang="en">says "keeping it for you" — nothing does</text><text x="446" y="51" class="dg-text" data-lang="vi">nói "để đó cho" — không có gì giữ chỗ</text>
             <line x1="210" y1="38" x2="214" y2="38" class="dg-accent-stroke" marker-end="url(#a3)"/>
             <line x1="412" y1="38" x2="432" y2="38" class="dg-accent-stroke" marker-end="url(#a3)"/>
-            <rect x="150" y="96" width="272" height="38" rx="7" class="dg-fill dg-stroke"/><text x="160" y="119" class="dg-text" data-lang="en">Agree by phone; pay cash / transfer</text><text x="160" y="119" class="dg-text" data-lang="vi">Chốt qua điện thoại; trả tiền mặt / chuyển khoản</text>
+            <rect x="150" y="96" width="272" height="38" rx="7" class="dg-fill dg-stroke"/><text x="160" y="119" class="dg-text" data-lang="en">Agree by phone; pay cash / transfer</text><text x="160" y="119" class="dg-text" data-lang="vi">Chốt qua điện thoại; trả tiền mặt / CK</text>
             <rect x="452" y="96" width="240" height="38" rx="7" class="dg-fill dg-stroke"/><text x="462" y="119" class="dg-text" data-lang="en">Owner writes it in the notebook</text><text x="462" y="119" class="dg-text" data-lang="vi">Chủ sân ghi vào sổ</text>
             <line x1="520" y1="60" x2="300" y2="94" class="dg-accent-stroke" marker-end="url(#a3)"/>
             <line x1="422" y1="115" x2="450" y2="115" class="dg-accent-stroke" marker-end="url(#a3)"/>
@@ -274,7 +274,7 @@
             <text x="600" y="214" text-anchor="middle" class="dg-note dg-lbl" data-lang="en">no hold — race</text><text x="600" y="214" text-anchor="middle" class="dg-note dg-lbl" data-lang="vi">không giữ chỗ — tranh nhau</text>
           </svg>
           </div>
-          <figcaption><span data-lang="en">AS-IS booking flow</span><span data-lang="vi">Luồng đặt sân AS-IS</span></figcaption>
+            <figcaption><span data-lang="en">AS-IS booking flow</span><span data-lang="vi">Luồng đặt sân AS-IS</span></figcaption>
         </figure>
         <p class="sub">
           <span data-lang="en">Pain on the flow: no price shown · no hold mechanism · the owner's notebook double-books · add/drop by more messages · no trail · no data.</span>
@@ -297,7 +297,7 @@
           <h3>6.2 · <span data-lang="en">A hold with a TTL (while waiting for payment)</span><span data-lang="vi">Giữ chỗ có TTL (trong lúc chờ thanh toán)</span></h3>
           <p><span data-lang="en"><b>Problem:</b> both of my process diagrams went straight <em>check availability → pay → update schedule</em>, with <b>nothing holding the slot in between</b>. Two renters both pass the check and both proceed to pay → double-booking.</span><span data-lang="vi"><b>Vấn đề:</b> cả hai sơ đồ quy trình bản đầu đi thẳng <em>kiểm tra còn trống → thanh toán → cập nhật lịch</em>, <b>không có gì giữ chỗ ở giữa</b>. Hai người thuê cùng qua bước kiểm tra và cùng vào thanh toán → trùng chỗ.</span></p>
           <ul class="plain">
-            <li><span data-lang="en">On "Book", the system <b>creates a hold</b> for each slot in the order with a <b>TTL</b> (e.g. 10 minutes) — enough for one wallet payment.</span><span data-lang="vi">Khi bấm "Đặt", hệ thống <b>tạo hold</b> cho từng khung giờ trong đơn với <b>TTL</b> (ví dụ 10 phút) — đủ cho một lần thanh toán ví.</span></li>
+            <li><span data-lang="en">On "Book", the system <b>creates a hold</b> for each slot in the order with a <b>TTL</b> (e.g. 10 minutes) — enough for one wallet payment.</span><span data-lang="vi">Khi bấm "Book", hệ thống <b>tạo hold</b> cho từng khung giờ trong đơn với <b>TTL</b> (ví dụ 10 phút) — đủ cho một lần thanh toán ví.</span></li>
             <li><span data-lang="en">While the hold is active, the slot <b>doesn't show as free</b> to anyone else.</span><span data-lang="vi">Trong lúc hold còn hiệu lực, khung giờ đó <b>không hiện là trống</b> cho người khác.</span></li>
             <li><span data-lang="en">Payment confirmed within the TTL → the hold becomes a confirmed booking. TTL elapses with no confirmation → the hold <b>auto-releases</b>, the slot returns to free.</span><span data-lang="vi">Thanh toán xong trong TTL → hold chuyển thành booking đã xác nhận. Hết TTL mà chưa có xác nhận → hold <b>tự huỷ</b>, khung giờ trả về trống.</span></li>
             <li><span data-lang="en"><b>The gateway's timeout is external</b> — the system can't control the wallet, so a hold + reconciling the transaction status (success / failure / hung) is the safe pattern, not a hard lock waiting indefinitely.</span><span data-lang="vi"><b>Timeout của cổng thanh toán là bên ngoài</b> — hệ thống không điều khiển được ví; nên hold + đối soát trạng thái giao dịch (thành công / thất bại / treo) là cách xử lý an toàn, không phải khoá cứng chờ vô hạn.</span></li>
@@ -329,7 +329,7 @@
               </tbody>
             </table>
           </div>
-          <p><span data-lang="en">Boundaries are inclusive on the upper side and use court-local time: <b>≥ 24h</b> before play → 100%; <b>≥ 6h and &lt; 24h</b> → 50%; <b>&lt; 6h</b> → 0%. Thresholds and rates are <b>platform-level config</b>. An owner closing a booked slot <b>always refunds 100%</b> + notifies the renter (US-R09). A refund signals the payment module to return funds to the original source; <b>the accounting posting is out of scope</b> (§1).</span><span data-lang="vi">Mốc thời gian tính theo giờ địa phương của sân, chặn trên là bao gồm: <b>≥ 24h</b> trước giờ chơi → 100%; <b>≥ 6h và &lt; 24h</b> → 50%; <b>&lt; 6h</b> → 0%. Mốc và tỷ lệ là <b>cấu hình cấp nền tảng</b>. Chủ sân đóng khung giờ đã có booking → <b>luôn hoàn 100%</b> + thông báo (US-R09). Hoàn tiền phát tín hiệu sang module Thanh toán để hoàn về nguồn tiền gốc; <b>việc ghi sổ kế toán ngoài scope</b> (§1).</span></p>
+          <p><span data-lang="en">Boundaries are inclusive on the upper side and use court-local time: <b>≥ 24h</b> before play → 100%; <b>≥ 6h and &lt; 24h</b> → 50%; <b>&lt; 6h</b> → 0%. Thresholds and rates are <b>platform-level config</b>. An owner closing a booked slot <b>always refunds 100%</b> + notifies the renter (US-R09). A refund signals the payment module to return funds to the original source; <b>the accounting posting is out of scope</b> (§1).</span><span data-lang="vi">Mốc thời gian tính theo giờ địa phương của sân; giá trị đúng bằng mốc thì tính theo mức cao hơn: <b>≥ 24h</b> trước giờ chơi → 100%; <b>≥ 6h và &lt; 24h</b> → 50%; <b>&lt; 6h</b> → 0%. Mốc và tỷ lệ là <b>cấu hình cấp nền tảng</b>. Chủ sân đóng khung giờ đã có booking → <b>luôn hoàn 100%</b> + thông báo (US-R09). Hoàn tiền phát tín hiệu sang module Thanh toán để hoàn về nguồn tiền gốc; <b>việc ghi sổ kế toán ngoài scope</b> (§1).</span></p>
         </div>
 
         <div class="subsec">
@@ -411,7 +411,7 @@
         <h2><span data-lang="en">Deliverables (representative samples)</span><span data-lang="vi">Sản phẩm BA (mẫu tiêu biểu)</span></h2>
         <div class="callout" style="margin-top:1rem">
           <span class="ic" aria-hidden="true">▤</span>
-          <span><span data-lang="en">The deliverable samples below are shown in English, as they were produced. Each type shows one representative sample.</span><span data-lang="vi">Các sản phẩm mẫu dưới đây trình bày bằng tiếng Anh, đúng như khi thực hiện. Mỗi loại một mẫu tiêu biểu.</span></span>
+          <span><span data-lang="en">Each type shows one representative sample.</span><span data-lang="vi">Mỗi loại một mẫu tiêu biểu.</span></span>
         </div>
         <nav class="dsubnav" aria-label="Deliverables index">
           <a href="#e1">7.1 <span data-lang="en">BRD extract</span><span data-lang="vi">Trích BRD</span></a>
@@ -522,7 +522,7 @@
               <line x1="578" y1="104" x2="618" y2="76" class="dg-accent-stroke" marker-end="url(#bm3)"/>
               <line x1="700" y1="74" x2="693" y2="318" class="dg-accent-stroke" marker-end="url(#bm3)"/>
               <line x1="604" y1="322" x2="597" y2="248" class="dg-accent-stroke" marker-end="url(#bm3)"/><text x="590" y="288" text-anchor="end" class="dg-lbl dg-text-soft" data-lang="en">gateway result</text><text x="590" y="288" text-anchor="end" class="dg-lbl dg-text-soft" data-lang="vi">kết quả từ cổng</text>
-              <line x1="520" y1="214" x2="420" y2="192" class="dg-accent-stroke" marker-end="url(#bm3)"/><text x="478" y="178" class="dg-lbl dg-text-soft" data-lang="en">success within TTL</text><text x="478" y="178" class="dg-lbl dg-text-soft" data-lang="vi">thành công trong TTL</text><circle cx="470" cy="204" r="8" class="dg-note"/><text x="470" y="208" text-anchor="middle" class="dg-lbl" fill="var(--paper)">3</text>
+              <line x1="520" y1="214" x2="420" y2="192" class="dg-accent-stroke" marker-end="url(#bm3)"/><text x="500" y="176" class="dg-lbl dg-text-soft" data-lang="en">success within TTL</text><text x="500" y="176" class="dg-lbl dg-text-soft" data-lang="vi">thành công trong TTL</text><circle cx="470" cy="204" r="8" class="dg-note"/><text x="470" y="208" text-anchor="middle" class="dg-lbl" fill="var(--paper)">3</text>
               <line x1="520" y1="230" x2="420" y2="268" class="dg-accent-stroke" marker-end="url(#bm3)"/><text x="430" y="236" text-anchor="middle" class="dg-lbl dg-text-soft" data-lang="en">fail / TTL / hung</text><text x="430" y="236" text-anchor="middle" class="dg-lbl dg-text-soft" data-lang="vi">lỗi / hết TTL / treo</text>
               <text x="16" y="400" class="dg-lbl dg-note" data-lang="en">① price locked + held slot hidden from others (BR-PRICE-02 / BR-HOLD-02)</text><text x="16" y="400" class="dg-lbl dg-note" data-lang="vi">① giá được khoá + khung giờ đang giữ bị ẩn với người khác (BR-PRICE-02 / BR-HOLD-02)</text>
               <text x="16" y="416" class="dg-lbl dg-note" data-lang="en">② a lost line is named, the renter drops it and continues (BR-HOLD-05)</text><text x="16" y="416" class="dg-lbl dg-note" data-lang="vi">② dòng bị mất được nêu tên, người thuê bỏ nó và tiếp tục (BR-HOLD-05)</text>
@@ -618,7 +618,7 @@
               <rect x="608" y="112" width="128" height="30" class="dg-fill"/><text x="618" y="131" class="dg-lbl">150.000 ₫</text>
               <!-- row 20:00 (peak) -->
               <rect x="24" y="144" width="72" height="30" class="dg-fill dg-stroke"/><text x="34" y="163" class="dg-lbl">20:00</text>
-              <rect x="96" y="144" width="128" height="30" class="dg-warn"/><text x="106" y="163" class="dg-lbl" data-lang="en">Held · other renter</text><text x="106" y="163" class="dg-lbl" data-lang="vi">Đang giữ · người khác</text>
+              <rect x="96" y="144" width="128" height="30" class="dg-warn"/><text x="106" y="163" class="dg-lbl" data-lang="en">Held · other renter</text><text x="106" y="163" class="dg-lbl" data-lang="vi">Người khác giữ</text>
               <rect x="224" y="144" width="128" height="30" class="dg-fill"/><text x="234" y="163" class="dg-lbl">120.000 ₫</text>
               <rect x="352" y="144" width="128" height="30" class="dg-fill"/><text x="362" y="163" class="dg-lbl">120.000 ₫</text>
               <rect x="480" y="144" width="128" height="30" class="dg-fill"/><text x="490" y="163" class="dg-lbl">150.000 ₫</text>
@@ -897,7 +897,7 @@ GROUP BY ol.court_id;
                 <tr><td>TC-01</td><td><span data-lang="en">Open the grid of a court with peak/off-peak tiers, weekday</span><span data-lang="vi">Mở lưới chọn của một sân có bậc giá cao/thấp điểm, vào ngày thường</span></td><td><span data-lang="en">14:00 = off-peak price, 19:00 = peak price, shown immediately</span><span data-lang="vi">14:00 = giá thấp điểm, 19:00 = giá cao điểm, hiển thị ngay</span></td><td>AC-BK-01</td><td>BR-PRICE-01</td></tr>
                 <tr><td>TC-02</td><td><span data-lang="en">Create a hold, owner edits the tier, renter pays</span><span data-lang="vi">Tạo một hold, chủ sân sửa bậc giá, người thuê thanh toán</span></td><td><span data-lang="en">Order priced at the price locked when the hold was created, not the new one</span><span data-lang="vi">Đơn tính theo giá đã khoá lúc tạo hold, không phải giá mới</span></td><td>AC-BK-02</td><td>BR-PRICE-02</td></tr>
                 <tr><td>TC-03</td><td><span data-lang="en">Hit "Book" on a free slot</span><span data-lang="vi">Bấm "Đặt" trên một khung giờ trống</span></td><td><span data-lang="en">Slot → HELD + a countdown; others don't see it as free</span><span data-lang="vi">Khung giờ → HELD + một đồng hồ đếm ngược; người khác không thấy nó trống</span></td><td>AC-BK-03</td><td>BR-HOLD-02</td></tr>
-                <tr><td>TC-04</td><td><span data-lang="en">20 people hit "Book" for one slot at once</span><span data-lang="vi">20 người cùng bấm "Đặt" cho một khung giờ</span></td><td><span data-lang="en">1 hold succeeds, 19 get "slot just taken"; no 2 active bookings</span><span data-lang="vi">1 hold thành công, 19 người nhận "khung giờ vừa có người đặt"; không có 2 booking hiệu lực</span></td><td>AC-BK-04</td><td>BR-HOLD-01</td></tr>
+                <tr><td>TC-04</td><td><span data-lang="en">20 people hit "Book" for one slot at once</span><span data-lang="vi">20 người cùng bấm "Book" cho một khung giờ</span></td><td><span data-lang="en">1 hold succeeds, 19 get "slot just taken"; no 2 active bookings</span><span data-lang="vi">1 hold thành công, 19 người nhận "khung giờ vừa có người đặt"; không có 2 booking hiệu lực</span></td><td>AC-BK-04</td><td>BR-HOLD-01</td></tr>
                 <tr><td>TC-05</td><td><span data-lang="en">Hold past the 10-minute TTL, unpaid</span><span data-lang="vi">Hold quá TTL 10 phút, chưa thanh toán</span></td><td><span data-lang="en">Order EXPIRED (reason TTL_ELAPSED), slot returns to free, audit log</span><span data-lang="vi">Đơn EXPIRED (lý do TTL_ELAPSED), khung giờ trở lại trống, ghi audit log</span></td><td>AC-BK-05</td><td>BR-HOLD-03</td></tr>
                 <tr><td>TC-06</td><td><span data-lang="en">Gateway reports failure</span><span data-lang="vi">Cổng thanh toán báo lỗi</span></td><td><span data-lang="en">Order EXPIRED (reason GATEWAY_FAILED), holds released, retry allowed</span><span data-lang="vi">Đơn EXPIRED (lý do GATEWAY_FAILED), các hold được nhả, cho phép thử lại</span></td><td>AC-BK-06</td><td>BR-HOLD-06</td></tr>
                 <tr><td>TC-07</td><td><span data-lang="en">3-line order, 1 line lost to another renter before submit</span><span data-lang="vi">Đơn 3 dòng, 1 dòng bị người thuê khác lấy mất trước khi submit</span></td><td><span data-lang="en">The system names that line; drop it, the other 2 continue</span><span data-lang="vi">Hệ thống chỉ rõ dòng đó; bỏ dòng, 2 dòng còn lại tiếp tục</span></td><td>AC-BK-07</td><td>BR-HOLD-05</td></tr>
