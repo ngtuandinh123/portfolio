@@ -4,22 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Court Booking — Pricing, Holds &amp; Refunds — Case Study</title>
-<meta name="description" content="Case study: peak/off-peak pricing, safe seat holds while an external wallet decides, a time-tiered refund policy, and an owner metric spec with SQL — for a two-sided sports-court booking platform. Reconstruction of a BA training project.">
+<meta name="description" content="Case study: peak/off-peak pricing, safe seat holds while an external wallet decides, a time-tiered refund policy, and an owner metric spec with SQL — for a two-sided sports-court booking platform. Reconstruction of a BA capstone project.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nguyễn Tuấn Định — BA Portfolio">
 <meta property="og:title" content="Court Booking — Pricing, Holds &amp; Refunds — Case Study">
-<meta property="og:description" content="Case study: peak/off-peak pricing, safe seat holds while an external wallet decides, a time-tiered refund policy, and an owner metric spec with SQL. Reconstruction of a BA training project.">
+<meta property="og:description" content="Case study: peak/off-peak pricing, safe seat holds while an external wallet decides, a time-tiered refund policy, and an owner metric spec with SQL. Reconstruction of a BA capstone project.">
 <meta property="og:url" content="https://ngtuandinh123.github.io/portfolio/case-study-3.html">
 <meta property="og:image" content="https://ngtuandinh123.github.io/portfolio/assets/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Court Booking — Pricing, Holds &amp; Refunds — Case Study">
-<meta name="twitter:description" content="Case study: peak/off-peak pricing, safe seat holds while an external wallet decides, a time-tiered refund policy, and an owner metric spec with SQL. Reconstruction of a BA training project.">
+<meta name="twitter:description" content="Case study: peak/off-peak pricing, safe seat holds while an external wallet decides, a time-tiered refund policy, and an owner metric spec with SQL. Reconstruction of a BA capstone project.">
 <meta name="twitter:image" content="https://ngtuandinh123.github.io/portfolio/assets/og-card.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=32">
-<script src="assets/app.js?v=32"></script>
+<link rel="stylesheet" href="assets/styles.css?v=33">
+<script src="assets/app.js?v=33"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -82,9 +82,9 @@
             <li><b><span data-lang="en">Context</span><span data-lang="vi">Bối cảnh</span>:</b>
               <span data-lang="en"> a two-sided sports-court booking platform (<b>renters</b> and <b>court owners</b>), replacing the manual find–phone–confirm process that runs through Facebook/Zalo groups.</span>
               <span data-lang="vi"> một nền tảng đặt sân thể thao trực tuyến (hai phía: <b>người thuê</b> và <b>chủ sân</b>), thay quy trình tìm–gọi–chốt thủ công qua nhóm Facebook/Zalo.</span></li>
-            <li><b><span data-lang="en">This is a reconstruction of my MindX BA project</span><span data-lang="vi">Đây là bản dựng lại bài tập BA của tôi (MindX)</span>:</b>
-              <span data-lang="en"> An end-of-course project — no real client. I co-led the original analysis on the team; I've hardened it here with the artefacts the first version didn't have.</span>
-              <span data-lang="vi"> bài tập cuối khoá — không có khách hàng thật. Phần phân tích gốc do tôi cùng phụ trách trong nhóm; tôi làm cứng lại nó ở đây bằng các artifact bản đầu chưa có.</span></li>
+            <li><b><span data-lang="en">This is a reconstruction of my MindX BA project</span><span data-lang="vi">Đây là bản dựng lại đồ án BA của tôi (MindX)</span>:</b>
+              <span data-lang="en"> A capstone project — a course brief, not a client engagement. The original analysis was co-led with a second analyst; I've hardened it here with the artefacts the first version didn't have.</span>
+              <span data-lang="vi"> đồ án cuối khoá — đề bài của khoá học, không phải hợp đồng khách hàng. Phần phân tích gốc được cùng phụ trách với một BA khác; tôi làm cứng lại nó ở đây bằng các artifact bản đầu chưa có.</span></li>
             <li><b><span data-lang="en">Three design decisions that mattered most</span><span data-lang="vi">3 quyết định thiết kế quan trọng nhất</span>:</b>
               <span data-lang="en"> <b>peak/off-peak pricing tiers</b> (a lever to shift demand off dead hours) · a <b>hold with a TTL</b> while the external wallet decides (a timeout you don't control) · a <b>time-tiered cancellation/refund policy</b> + owner settlement.</span>
               <span data-lang="vi"> <b>định giá theo bậc cao/thấp điểm</b> (để dịch cầu ra khỏi giờ vắng) · <b>giữ chỗ có TTL (thời hạn giữ chỗ)</b> trong lúc chờ ví điện tử phản hồi (timeout không do mình kiểm soát) · <b>chính sách huỷ/hoàn tiền theo mốc thời gian</b> + đối soát tiền về chủ sân.</span></li>
@@ -110,7 +110,7 @@
           <dt><span data-lang="en">Context</span><span data-lang="vi">Bối cảnh</span></dt>
           <dd><span data-lang="en">A two-sided online court-booking platform in Vietnam: <b>renters</b> search and book; <b>owners</b> list courts, manage schedules and see revenue. Replacing a manual process — finding courts in Facebook/Zalo groups, phoning/texting the owner, confirming by SMS, paying cash or bank transfer, the owner writing bookings in a notebook.</span><span data-lang="vi">Một nền tảng đặt sân thể thao trực tuyến tại Việt Nam, hai phía: <b>người thuê</b> tìm và đặt sân; <b>chủ sân</b> đăng sân, quản lý lịch và xem doanh thu. Thay quy trình thủ công: tìm sân qua nhóm Facebook/Zalo, gọi điện/nhắn tin cho chủ sân, xác nhận bằng SMS, trả tiền mặt hoặc chuyển khoản, chủ sân ghi lịch vào sổ.</span></dd>
           <dt><span data-lang="en">Source</span><span data-lang="vi">Nguồn</span></dt>
-          <dd><span data-lang="en">A BA training end-of-course project (MindX) — a <b>simulated project</b>, no real client. I was a BA on the team and <b>co-led</b> the original BA analysis (BRD, functional requirements, user stories, proposed-process BPMN, FDD) with a second BA.</span><span data-lang="vi">Bài tập cuối khoá chương trình đào tạo BA (MindX) — <b>dự án mô phỏng</b>, không có khách hàng thật. Tôi là BA của nhóm, <b>cùng phụ trách</b> phần phân tích nghiệp vụ gốc (BRD, functional requirements, user story, BPMN đề xuất, FDD) với một BA khác trong nhóm.</span></dd>
+          <dd><span data-lang="en">A capstone project on the MindX BA programme — a <b>simulated project</b>, a course brief rather than a client engagement. I was a BA on the team and <b>co-led</b> the original BA analysis (BRD, functional requirements, user stories, proposed-process BPMN, FDD) with a second BA.</span><span data-lang="vi">Đồ án cuối khoá chương trình BA (MindX) — <b>dự án mô phỏng</b>, đề bài của khoá học chứ không phải hợp đồng khách hàng. Tôi là BA của nhóm và <b>cùng phụ trách</b> phần phân tích nghiệp vụ gốc (BRD, functional requirements, user story, BPMN đề xuất, FDD) với một BA khác trong nhóm.</span></dd>
           <dt><span data-lang="en">This case study</span><span data-lang="vi">Bản case study này</span></dt>
           <dd><span data-lang="en"><b>A reconstruction</b>: I keep the original analysis and add what the first version lacked — business rules, a state machine, an ERD, a cancellation/refund policy, a report spec + SQL.</span><span data-lang="vi"><b>Bản dựng lại</b>: tôi giữ phần phân tích gốc và bổ sung những gì bản đầu còn thiếu — business rules, state machine, ERD, chính sách huỷ/hoàn tiền, đặc tả báo cáo + SQL.</span></dd>
           <dt><span data-lang="en">Duration</span><span data-lang="vi">Thời lượng</span></dt>
@@ -233,8 +233,8 @@
           </table>
         </div>
         <div class="note-box">
-          <span data-lang="en">* The specification was <b>co-produced</b> with a second BA on the team. This was a simulated team project in a course; the RACI reflects roles in the assignment, not a real engagement.</span>
-          <span data-lang="vi">* Phần đặc tả do tôi và một BA khác trong nhóm <b>đồng thực hiện</b>. Đây là dự án mô phỏng theo nhóm trong khoá học; RACI phản ánh vai trò trong bài tập, không phải một dự án thật.</span>
+          <span data-lang="en">* The specification was <b>co-produced</b> with a second BA on the team. This was a simulated team project on a course; the RACI reflects roles in the assignment, not a client engagement.</span>
+          <span data-lang="vi">* Phần đặc tả do tôi và một BA khác trong nhóm <b>đồng thực hiện</b>. Đây là dự án mô phỏng theo nhóm trong khoá học; RACI phản ánh vai trò trong đồ án, không phải một hợp đồng khách hàng.</span>
         </div>
       </section>
 
@@ -947,9 +947,9 @@ GROUP BY ol.court_id;
       <section class="sec" id="outcome">
         <p class="kicker">9</p>
         <h2><span data-lang="en">Outcome</span><span data-lang="vi">Kết quả</span></h2>
-        <h3><span data-lang="en">Delivered <em>(training project — end-of-course + this hardening pass)</em></span><span data-lang="vi">Đã hoàn thành <em>(bài tập cuối khoá + vòng làm cứng này)</em></span></h3>
+        <h3><span data-lang="en">Delivered <em>(capstone submission + this hardening pass)</em></span><span data-lang="vi">Đã hoàn thành <em>(sản phẩm nộp cuối khoá + vòng làm cứng này)</em></span></h3>
         <ul class="plain">
-          <li><span data-lang="en">The original BA analysis — BRD, 12 functional requirements, user stories, proposed-process BPMN, FDD — <b>submitted as the end-of-course deliverable</b>.</span><span data-lang="vi">Phần phân tích nghiệp vụ gốc — BRD, 12 functional requirement, user story, BPMN quy trình đề xuất, FDD — <b>nộp làm bài tập cuối khoá</b>.</span></li>
+          <li><span data-lang="en">The original BA analysis — BRD, 12 functional requirements, user stories, proposed-process BPMN, FDD — <b>submitted as the capstone deliverable</b>.</span><span data-lang="vi">Phần phân tích nghiệp vụ gốc — BRD, 12 functional requirement, user story, BPMN quy trình đề xuất, FDD — <b>nộp làm sản phẩm cuối khoá</b>.</span></li>
           <li><span data-lang="en"><b>5 inconsistencies found in my own first BRD</b> and each resolved (§8) — the core evidence of this reconstruction.</span><span data-lang="vi"><b>5 điểm không nhất quán phát hiện trong chính bản BRD đầu của tôi</b>, mỗi điểm đều được xử lý (§8) — bằng chứng cốt lõi của bản dựng lại này.</span></li>
           <li><span data-lang="en">Hardening pass added: <b>18 business rules, a state machine, an ERD, a time-tiered cancellation/refund policy, and a report/metric spec with runnable PostgreSQL</b>.</span><span data-lang="vi">Vòng làm cứng bổ sung: <b>18 quy tắc nghiệp vụ, một state machine, một ERD, chính sách huỷ/hoàn tiền theo mốc thời gian, và đặc tả báo cáo/chỉ số kèm PostgreSQL chạy được</b>.</span></li>
           <li><span data-lang="en"><b>16 acceptance criteria + 14 UAT cases + a refund matrix</b> produced against the rules.</span><span data-lang="vi"><b>16 acceptance criteria + 14 test case UAT + một refund matrix</b> viết theo các quy tắc.</span></li>
@@ -1007,7 +1007,7 @@ GROUP BY ol.court_id;
       <span><span data-lang="en">Nguyen Tuan Dinh</span><span data-lang="vi">Nguyễn Tuấn Định</span></span>
       <span data-contact-item="email"><a data-contact="email">email</a></span>
       <span><a href="index.html"><span data-lang="en">Back to portfolio</span><span data-lang="vi">Về trang chính</span></a></span>
-      <span><span data-lang="en">Training project · anonymised · figures marked (target) are design targets.</span><span data-lang="vi">Bài tập cuối khoá · đã ẩn danh · số liệu gắn nhãn (target) là mục tiêu thiết kế.</span></span>
+      <span><span data-lang="en">Capstone project · anonymised · figures marked (target) are design targets.</span><span data-lang="vi">Đồ án cuối khoá · đã ẩn danh · số liệu gắn nhãn (target) là mục tiêu thiết kế.</span></span>
     </div>
   </div>
 </footer>

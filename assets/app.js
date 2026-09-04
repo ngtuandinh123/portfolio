@@ -12,7 +12,7 @@
      =========================================================== */
   var CONTACT = {
     email:    "ngtuandinh2004@gmail.com",
-    phone:    "",   // e.g. "0869 159 656"  — leave "" to hide the phone line
+    phone:    "0869 159 656",   // leave "" to hide the phone line
     linkedin: "https://www.linkedin.com/in/định-nguyễn-tuấn-1a7004431/",   // full URL, e.g. "https://www.linkedin.com/in/your-handle"
     github:   "https://github.com/ngtuandinh123",
     cv:       "assets/cv.pdf"   // link to your CV PDF
@@ -65,7 +65,8 @@
         if (el.tagName === 'A') el.setAttribute('href', 'mailto:' + val);
         if (leaf) el.textContent = val;
       } else if (key === 'phone') {
-        el.textContent = val;
+        if (el.tagName === 'A') el.setAttribute('href', 'tel:' + val.replace(/[^\d+]/g, ''));
+        if (leaf) el.textContent = val;
       } else { // linkedin, github, cv
         if (el.tagName === 'A') {
           el.setAttribute('href', val);
