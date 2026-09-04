@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=26">
-<script src="assets/app.js?v=26"></script>
+<link rel="stylesheet" href="assets/styles.css?v=27">
+<script src="assets/app.js?v=27"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -97,7 +97,7 @@
           </ul>
           <p class="read-one">
             <span data-lang="en">If you read one section, read <a href="#catches">§8 — Consistency catches</a>: four inconsistencies I caught cross-checking the regulation ↔ wireframes ↔ the rule model.</span>
-            <span data-lang="vi">Nếu chỉ đọc một mục: đọc <a href="#catches">§8 — Consistency catches</a> (bốn điểm không nhất quán tôi phát hiện khi rà soát chéo quy chế ↔ wireframe ↔ mô hình rule).</span>
+            <span data-lang="vi">Nếu chỉ đọc một mục: đọc <a href="#catches">§8 — Nững chỗ tài liệu tự mâu thuẫn</a> (bốn điểm tôi phát hiện khi rà soát chéo quy chế ↔ wireframe ↔ mô hình rule).</span>
           </p>
         </div>
       </section>
@@ -166,15 +166,15 @@
         <h2><span data-lang="en">The problem</span><span data-lang="vi">Vấn đề</span></h2>
         <p>
           <span data-lang="en">Registration runs on an Excel file the registrar holds; students send their picks by email or queue at the office. Discovery surfaced <b>7 pain points</b>:</span>
-          <span data-lang="vi">Đăng ký học phần đang chạy trên một file Excel do phòng đào tạo giữ; sinh viên gửi lựa chọn qua email hoặc xếp hàng ở văn phòng. Qua discovery, tôi ghi nhận <b>7 pain point</b>:</span>
+          <span data-lang="vi">Đăng ký học phần đang chạy trên một file Excel do phòng đào tạo giữ; sinh viên gửi lựa chọn qua email hoặc xếp hàng ở văn phòng. Qua giai đoạn khảo sát, tôi ghi nhận <b>7 điểm nghẽn</b>:</span>
         </p>
         <ol class="steps">
           <li><span data-lang="en"><b>"First email wins."</b> Nobody sees remaining seats in real time; sections fill while students keep sending requests.</span><span data-lang="vi"><b>"Email đến trước được trước"</b> — không ai thấy số chỗ còn lại theo thời gian thực; section hết chỗ mà sinh viên vẫn gửi đăng ký.</span></li>
-          <li><span data-lang="en"><b>Prerequisites checked by hand</b> against transcripts → misses happen; students end up in courses they're not eligible for, found weeks later.</span><span data-lang="vi"><b>Tiên quyết kiểm tra tay</b> đối chiếu bảng điểm → bỏ sót; sinh viên bị xếp vào học phần chưa đủ điều kiện, phát hiện sau vài tuần.</span></li>
+          <li><span data-lang="en"><b>Prerequisites checked by hand</b> against transcripts → misses happen; students end up in courses they're not eligible for, found weeks later.</span><span data-lang="vi"><b>Điều kiện tiên quyết phải đối chiếu bảng điểm bằng tay</b> nên dễ bỏ sót; sinh viên bị xếp vào học phần chưa đủ điều kiện, vài tuần sau mới phát hiện.</span></li>
           <li><span data-lang="en"><b>No conflict check</b> → students end up with two classes at the same time, or a clash with a fixed cohort block.</span><span data-lang="vi"><b>Không kiểm tra trùng lịch</b> → sinh viên có 2 section cùng giờ, hoặc trùng với khối giờ cố định của khoá.</span></li>
           <li><span data-lang="en"><b>The waitlist is a note in the Excel file</b> — when a seat frees up, nobody is systematically notified; "who's next" is unclear and unfair.</span><span data-lang="vi"><b>Waitlist chỉ là một dòng ghi chú trong Excel</b> — khi có chỗ trống, không có cơ chế báo cho ai; "ai được ưu tiên tiếp theo" không rõ ràng và thiếu công bằng.</span></li>
           <li><span data-lang="en"><b>Add/drop is more email</b> — the registrar re-keys everything into the Excel.</span><span data-lang="vi"><b>Add/drop lại là email</b> — phòng đào tạo nhập lại toàn bộ vào Excel.</span></li>
-          <li><span data-lang="en"><b>Credit caps/floors and academic standing (warning, probation)</b> are applied inconsistently between staff.</span><span data-lang="vi"><b>Trần / sàn tín chỉ và tình trạng học vụ (cảnh báo, thử thách)</b> áp dụng không đồng nhất giữa các cán bộ.</span></li>
+          <li><span data-lang="en"><b>Credit caps/floors and academic standing (warning, probation)</b> are applied inconsistently between staff.</span><span data-lang="vi"><b>Trần / sàn tín chỉ và tình trạng học vụ (cảnh báo, thử thách)</b> mỗi cán bộ lại áp dụng một kiểu.</span></li>
           <li><span data-lang="en"><b>No trail</b> of who registered what when, or who granted whom a prerequisite waiver.</span><span data-lang="vi"><b>Không có dấu vết</b> ai đăng ký gì lúc nào, ai đã cấp ngoại lệ tiên quyết cho ai.</span></li>
         </ol>
         <p>
@@ -224,7 +224,7 @@
           <li><span data-lang="en">I read the current state — the registration Excel files for the last two terms, and the <b>academic regulation</b> (where the rules live as prose), and the term calendar.</span><span data-lang="vi">Tôi đọc hiện trạng — các file Excel đăng ký của 2 kỳ gần nhất, và <b>quy chế đào tạo</b> (nơi các luật đang nằm ở dạng văn bản), lịch học kỳ.</span></li>
           <li><span data-lang="en">I built an elicitation bank for the registration flow: priority groups &amp; window order, hold types, credit cap/floor by academic standing, how in-progress courses satisfy prerequisites, waitlist rules, the add/drop calendar, retakes.</span><span data-lang="vi">Tôi xây bộ câu hỏi elicitation cho luồng đăng ký: nhóm ưu tiên &amp; thứ tự mở cửa sổ, các loại "hold", trần/sàn tín chỉ theo tình trạng học vụ, cách xử lý tiên quyết với học phần đang học, quy tắc waitlist, lịch add/drop, cách xử lý học lại.</span></li>
           <li><span data-lang="en">I ran a <b>regulation → rules</b> workshop with the registrar + programme head — turning each clause of prose into a machine-checkable rule with an example and an exception.</span><span data-lang="vi">Tôi chạy workshop chuyển quy chế → rule với phòng đào tạo + trưởng chương trình — biến từng điều khoản văn bản thành luật máy kiểm được, có ví dụ và ngoại lệ.</span></li>
-          <li><span data-lang="en">I interviewed advisors and a group of students, walking a past registration cycle to find the real pain.</span><span data-lang="vi">Tôi phỏng vấn cố vấn học tập và một nhóm sinh viên, đi lại một chu kỳ đăng ký cũ để tìm điểm đau thực.</span></li>
+          <li><span data-lang="en">I interviewed advisors and a group of students, walking a past registration cycle to find the real pain.</span><span data-lang="vi">Tôi phỏng vấn cố vấn học tập và một nhóm sinh viên, đi lại một chu kỳ đăng ký cũ để tìm điểm nghẽn thực.</span></li>
           <li><span data-lang="en">I modelled AS-IS → identified pain → designed TO-BE, then cross-reviewed <b>seat allocation under peak load</b> with a developer (§6.7) and consistency with the BA Lead (§8) before finalising.</span><span data-lang="vi">Tôi mô hình hoá AS-IS → xác định pain → thiết kế TO-BE, rồi rà soát chéo với Developer về <b>cấp phát chỗ khi tải cao</b> (§6.7) và với BA Lead về tính nhất quán (§8) trước khi chốt.</span></li>
         </ol>
       </section>
@@ -258,7 +258,7 @@
         </figure>
         <p class="sub">
           <span data-lang="en">Pain on the flow: no real-time seats · checks depend on the officer's memory · the waitlist has no owner · add/drop is re-keyed manually · no trail · the whole cohort crushes into 2 days.</span>
-          <span data-lang="vi">Điểm đau trên luồng: không có số chỗ real-time · kiểm tra điều kiện phụ thuộc trí nhớ cán bộ · waitlist không có chủ · add/drop nhập lại thủ công · không dấu vết · tải dồn vào 2 ngày.</span>
+          <span data-lang="vi">Điểm nghẽn trên luồng: không có số chỗ real-time · kiểm tra điều kiện phụ thuộc trí nhớ cán bộ · waitlist không có chủ · add/drop nhập lại thủ công · không dấu vết · tải dồn vào 2 ngày.</span>
         </p>
       </section>
 
@@ -755,7 +755,7 @@
       <!-- ===================== 8. CONSISTENCY CATCHES ===================== -->
       <section class="sec" id="catches">
         <p class="kicker">8</p>
-        <h2><span data-lang="en">Consistency catches</span><span data-lang="vi">Điểm không nhất quán tôi phát hiện</span></h2>
+        <h2><span data-lang="en">Consistency catches</span><span data-lang="vi">Nững chỗ tài liệu tự mâu thuẫn</span></h2>
         <p class="sub"><span data-lang="en">Four inconsistencies I caught cross-checking the <b>regulation ↔ wireframes ↔ the rule model</b>, and how each was resolved.</span><span data-lang="vi">Bốn điểm không nhất quán tôi phát hiện khi rà soát chéo <b>quy chế ↔ wireframe ↔ mô hình rule</b>, và cách xử lý.</span></p>
         <ol class="steps">
           <li><span data-lang="en">The first M1 wireframe left "Add to plan" looking normal for a <b>full section</b> — a student would think they'd registered when they'd been silently waitlisted. → Changed to an explicit <b>"Join waitlist (position ~N)"</b> button; blocked silent waitlisting; added a confirmation step on M4.</span><span data-lang="vi">Wireframe M1 bản đầu để nút "Thêm vào kế hoạch" sáng bình thường cho section đã đầy — sinh viên tưởng đã đăng ký, thực ra bị đưa vào waitlist âm thầm. → Đổi thành nút <b>"Vào waitlist (vị trí ~N)"</b> rõ ràng; chặn waitlist ngầm; thêm bước xác nhận ở M4.</span></li>
@@ -769,12 +769,12 @@
       <section class="sec" id="outcome">
         <p class="kicker">9</p>
         <h2><span data-lang="en">Outcome</span><span data-lang="vi">Kết quả</span></h2>
-        <h3><span data-lang="en">Delivered &amp; verified at hand-off</span><span data-lang="vi">Đã bàn giao &amp; nghiệm thu khi kết thúc phần việc</span></h3>
+        <h3><span data-lang="en">Delivered &amp; verified at hand-off</span><span data-lang="vi">Bàn giao &amp; nghiệm thu</span></h3>
         <ul class="plain">
           <li><span data-lang="en">Full specification of the course-registration + waitlist module <b>accepted under BA Lead review</b>.</span><span data-lang="vi">Đặc tả đầy đủ phân hệ đăng ký học phần + waitlist <b>được duyệt qua rà soát của BA Lead</b>.</span></li>
           <li><span data-lang="en"><b>19 business rules</b> catalogued and cross-referenced to 20 acceptance criteria and the UAT cases.</span><span data-lang="vi"><b>19 quy tắc nghiệp vụ</b> được lập danh mục và truy vết chéo tới 20 acceptance criteria và các test case UAT.</span></li>
           <li><span data-lang="en">The concurrency requirement — <em>0 oversold sections, even under simultaneous submits</em> — specified as a testable rule (BR-SEAT-01) and its mechanism <b>agreed with the developer</b> (§6.7).</span><span data-lang="vi">Yêu cầu về tương tranh — <em>0 section vượt sức chứa, kể cả khi nhiều người submit đồng thời</em> — được đặc tả thành một quy tắc kiểm được (BR-SEAT-01) và cơ chế <b>thống nhất với developer</b> (§6.7).</span></li>
-          <li><span data-lang="en">The prerequisite expression model + evaluation rules specified end to end (§7.4).</span><span data-lang="vi">Mô hình biểu thức tiên quyết + quy tắc đánh giá được đặc tả đầu-cuối (§7.4).</span></li>
+          <li><span data-lang="en">The prerequisite expression model + evaluation rules specified end to end (§7.4).</span><span data-lang="vi">Mô hình biểu thức tiên quyết + quy tắc đánh giá được đặc tả trọn vẹn (§7.4).</span></li>
           <li><span data-lang="en">~28 UAT test cases + a requirement traceability matrix <b>handed over</b>.</span><span data-lang="vi">~28 test case UAT + một ma trận truy vết yêu cầu <b>được bàn giao</b>.</span></li>
         </ul>
         <h3><span data-lang="en">Projected targets <em>(design — not yet measured)</em></span><span data-lang="vi">Mục tiêu dự kiến <em>(thiết kế — chưa đo thực tế)</em></span></h3>
@@ -806,7 +806,7 @@
         <h2><span data-lang="en">Lessons / what I'd do differently</span><span data-lang="vi">Bài học / điều tôi sẽ làm khác</span></h2>
         <ul class="plain">
           <li><span data-lang="en"><b>Start the regulation → rules translation in week 1.</b> The hard part wasn't the screens — it was turning regulation prose (with "or", grade thresholds, exceptions) into machine-checkable rules. I did it late and had to redo the BRD several times.</span><span data-lang="vi"><b>Bắt đầu dịch quy chế → rule từ tuần 1.</b> Phần khó nhất không phải màn hình mà là biến văn bản quy chế (có "hoặc", ngưỡng điểm, ngoại lệ) thành luật máy kiểm được. Tôi làm việc này muộn và phải sửa BRD nhiều lần.</span></li>
-          <li><span data-lang="en"><b>Sit with the developer on concurrency earlier.</b> "50 people hit the last seat" shaped how the whole submit flow is written; it should have been a joint session at the start, not after the flow was drawn.</span><span data-lang="vi"><b>Ngồi với Developer về concurrency sớm hơn.</b> Bài toán "50 người bấm vào ghế cuối" quyết định cả cách viết luồng submit; lẽ ra nên là buổi làm việc chung ngay đầu, không phải sau khi đã vẽ xong flow.</span></li>
+          <li><span data-lang="en"><b>Sit with the developer on concurrency earlier.</b> "50 people hit the last seat" shaped how the whole submit flow is written; it should have been a joint session at the start, not after the flow was drawn.</span><span data-lang="vi"><b>Ngồi với Developer về tương tranh sớm hơn.</b> Bài toán "50 người bấm vào ghế cuối" quyết định cả cách viết luồng submit; lẽ ra nên là buổi làm việc chung ngay đầu, không phải sau khi đã vẽ xong flow.</span></li>
           <li><span data-lang="en"><b>Wireframes must show the waitlist state explicitly.</b> Two of the four catches in §8 came from wireframes not distinguishing "registered" from "waiting".</span><span data-lang="vi"><b>Wireframe phải hiển thị rõ trạng thái waitlist.</b> Hai trong bốn lỗi ở §8 đến từ việc wireframe không phân biệt "đã đăng ký" với "đang chờ".</span></li>
           <li><span data-lang="en"><b>Build a sample dataset to test the rules.</b> The prerequisite tree only revealed contradictions when I tried to configure real rules for a few courses with multi-level "or".</span><span data-lang="vi"><b>Chuẩn hoá bộ dữ liệu mẫu để test rule.</b> Cây tiên quyết chỉ lộ mâu thuẫn khi tôi thử dựng luật thật cho vài học phần có "hoặc" nhiều tầng.</span></li>
         </ul>

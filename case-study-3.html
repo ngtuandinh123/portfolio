@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=26">
-<script src="assets/app.js?v=26"></script>
+<link rel="stylesheet" href="assets/styles.css?v=27">
+<script src="assets/app.js?v=27"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -97,7 +97,7 @@
           </ul>
           <p class="read-one">
             <span data-lang="en">If you read one section, read <a href="#catches">§8 — Consistency catches</a>: five inconsistencies I found in my own first BRD.</span>
-            <span data-lang="vi">Nếu chỉ đọc một mục: đọc <a href="#catches">§8 — Consistency catches</a> (năm điểm không nhất quán tôi phát hiện trong chính bản BRD đầu của mình).</span>
+            <span data-lang="vi">Nếu chỉ đọc một mục: đọc <a href="#catches">§8 — Nững chỗ tài liệu tự mâu thuẫn</a> (năm điểm tôi phát hiện trong chính bản BRD đầu của mình).</span>
           </p>
         </div>
       </section>
@@ -191,7 +191,7 @@
         <h2><span data-lang="en">The problem</span><span data-lang="vi">Vấn đề</span></h2>
         <p>
           <span data-lang="en">Finding and booking a court runs manually and in fragments. From the two surveys (renter + owner) and the present-state description, <b>7 pain points</b>:</span>
-          <span data-lang="vi">Việc tìm và đặt sân đang chạy thủ công, phân mảnh. Từ khảo sát (2 form: người thuê + chủ sân) và mô tả hiện trạng, tôi ghi nhận <b>7 pain point</b>:</span>
+          <span data-lang="vi">Việc tìm và đặt sân đang chạy thủ công, phân mảnh. Từ khảo sát (2 form: người thuê + chủ sân) và mô tả hiện trạng, tôi ghi nhận <b>7 điểm nghẽn</b>:</span>
         </p>
         <ol class="steps">
           <li><span data-lang="en"><b>Finding courts through informal channels</b> — asking friends, scrolling Facebook/Zalo groups; the info is incomplete and out of date.</span><span data-lang="vi"><b>Tìm sân qua kênh không chính thức</b> — hỏi bạn bè, dò nhóm Facebook/Zalo; thông tin không đầy đủ, không cập nhật.</span></li>
@@ -278,7 +278,7 @@
         </figure>
         <p class="sub">
           <span data-lang="en">Pain on the flow: no price shown · no hold mechanism · the owner's notebook double-books · add/drop by more messages · no trail · no data.</span>
-          <span data-lang="vi">Điểm đau: không thấy giá trước · không có cơ chế giữ chỗ · chủ sân ghi tay dễ trùng/quên · huỷ/đổi lại nhắn tin · không dấu vết · không số liệu.</span>
+          <span data-lang="vi">Điểm nghẽn: không thấy giá trước · không có cơ chế giữ chỗ · chủ sân ghi tay dễ trùng/quên · huỷ/đổi lại nhắn tin · không dấu vết · không số liệu.</span>
         </p>
       </section>
 
@@ -333,7 +333,7 @@
         </div>
 
         <div class="subsec">
-          <h3>6.5 · <span data-lang="en">Booking state machine</span><span data-lang="vi">Booking state machine</span></h3>
+          <h3>6.5 · <span data-lang="en">Booking state machine</span><span data-lang="vi">State machine đặt sân</span></h3>
           <figure class="diagram">
             <div class="diagram-scroll">
             <svg viewBox="0 0 760 426" role="img" aria-labelledby="s3-t">
@@ -931,7 +931,7 @@ GROUP BY ol.court_id;
       <!-- ===================== 8. CONSISTENCY CATCHES ===================== -->
       <section class="sec" id="catches">
         <p class="kicker">8</p>
-        <h2><span data-lang="en">Consistency catches</span><span data-lang="vi">Điểm không nhất quán tôi phát hiện</span></h2>
+        <h2><span data-lang="en">Consistency catches</span><span data-lang="vi">Nững chỗ tài liệu tự mâu thuẫn</span></h2>
         <p class="sub"><span data-lang="en">Five inconsistencies I found when I re-read <b>my own first BRD</b>, and how the reconstruction fixes each.</span><span data-lang="vi">Năm điểm không nhất quán tôi phát hiện khi rà lại <b>chính bản BRD đầu của mình</b>, và cách xử lý ở bản dựng lại.</span></p>
         <ol class="steps">
           <li><span data-lang="en"><b>Flat 100,000đ pricing vs the claim that utilisation rises to 75–90%.</b> No price lever, so demand can't shift off the dead hours. → Added <b>peak/off-peak tiers</b> (§6.1, BR-PRICE); restated the utilisation driver as a target <em>dependent on the pricing lever</em>, not a fixed number.</span><span data-lang="vi"><b>Giá phẳng 100.000đ mọi khung giờ vs claim hiệu suất tăng lên 75–90%.</b> Không có đòn bẩy giá thì không dịch được cầu. → Thêm <b>bậc giá cao/thấp điểm</b> (§6.1, BR-PRICE); phát biểu lại business driver hiệu suất là <em>mục tiêu phụ thuộc đòn bẩy giá</em>, không phải một con số cố định.</span></li>

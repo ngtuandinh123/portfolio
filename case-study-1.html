@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=26">
-<script src="assets/app.js?v=26"></script>
+<link rel="stylesheet" href="assets/styles.css?v=27">
+<script src="assets/app.js?v=27"></script>
 </head>
 <body>
 <a class="skip" href="#main"><span data-lang="en">Skip to content</span><span data-lang="vi">Tới nội dung chính</span></a>
@@ -70,7 +70,7 @@
       <h1><span data-lang="en">Access Control &amp; Approval Workflow</span><span data-lang="vi">Phân quyền &amp; Luồng phê duyệt đề trình</span></h1>
       <p class="lead" style="margin-top:.8rem">
         <span data-lang="en">A per-project PBAC permission model and a configurable multi-level submission / approval engine for a multi-discipline construction company rolling out an ERP on Odoo.</span>
-        <span data-lang="vi">Mô hình phân quyền PBAC (phân quyền theo từng dự án) theo từng dự án và workflow phê duyệt đề trình nhiều cấp, cấu hình được, cho một doanh nghiệp xây dựng đa lĩnh vực triển khai ERP nền Odoo.</span>
+        <span data-lang="vi">Mô hình phân quyền PBAC (phân quyền theo từng dự án) và workflow phê duyệt đề trình nhiều cấp, cấu hình được, cho một doanh nghiệp xây dựng đa lĩnh vực triển khai ERP nền Odoo.</span>
       </p>
 
 
@@ -97,7 +97,7 @@
           </ul>
           <p class="read-one">
             <span data-lang="en">If you read one section, read <a href="#catches">§8 — Consistency catches</a>: four inconsistencies I caught by cross-checking requirements ↔ wireframes ↔ the permission model.</span>
-            <span data-lang="vi">Nếu chỉ đọc một mục: đọc <a href="#catches">§8 — Consistency catches</a> (bốn điểm không nhất quán tôi phát hiện khi rà soát chéo yêu cầu ↔ wireframe ↔ mô hình phân quyền).</span>
+            <span data-lang="vi">Nếu chỉ đọc một mục: đọc <a href="#catches">§8 — Nững chỗ tài liệu tự mâu thuẫn</a> (bốn điểm tôi phát hiện khi rà soát chéo yêu cầu ↔ wireframe ↔ mô hình phân quyền).</span>
           </p>
         </div>
       </section>
@@ -161,7 +161,7 @@
         <h2><span data-lang="en">The problem</span><span data-lang="vi">Vấn đề</span></h2>
         <p>
           <span data-lang="en">Records moving between site and office (material requests, shop drawings, method statements, payment requests, equipment-transfer requests) run on Word/Excel + Zalo/email + printed signatures. Discovery surfaced <b>7 pain points</b>:</span>
-          <span data-lang="vi">Việc luân chuyển hồ sơ giữa công trường và văn phòng (đề nghị mua/cấp vật tư, shop drawing, biện pháp thi công, đề nghị thanh toán, đề nghị điều chuyển thiết bị) đang chạy trên Word/Excel + Zalo/email + bản in ký tay. Qua discovery, tôi ghi nhận <b>7 pain point</b>:</span>
+          <span data-lang="vi">Việc luân chuyển hồ sơ giữa công trường và văn phòng (đề nghị mua/cấp vật tư, shop drawing, biện pháp thi công, đề nghị thanh toán, đề nghị điều chuyển thiết bị) đang chạy trên Word/Excel + Zalo/email + bản in ký tay. Qua giai đoạn khảo sát, tôi ghi nhận <b>7 điểm nghẽn</b>:</span>
         </p>
         <ol class="steps">
           <li><span data-lang="en"><b>Records stall.</b> No SLA, no reminders; a record takes ~7–21 days, occasionally &gt; 30 <em>(interview estimate — not measured)</em>.</span><span data-lang="vi"><b>Hồ sơ bị "ngâm".</b> Không có SLA, không ai bị nhắc; một hồ sơ mất ~7–21 ngày, cá biệt &gt; 30 ngày <em>(ước lượng từ phỏng vấn — chưa đo)</em>.</span></li>
@@ -252,7 +252,7 @@
         </figure>
         <p class="sub">
           <span data-lang="en">Pain on the flow: no record status · no "current holder" · no SLA clock · no action evidence · scattered signed records · a creator with authority can effectively "approve" their own record.</span>
-          <span data-lang="vi">Điểm đau trên luồng: không có trạng thái hồ sơ · không có "người đang giữ" · không có đồng hồ SLA · không có bằng chứng thao tác · biên bản phân tán · người tạo có thẩm quyền có thể tự "duyệt" hồ sơ của mình.</span>
+          <span data-lang="vi">Điểm nghẽn trên luồng: không có trạng thái hồ sơ · không có "người đang giữ" · không có đồng hồ SLA · không có bằng chứng thao tác · biên bản phân tán · người tạo có thẩm quyền có thể tự "duyệt" hồ sơ của mình.</span>
         </p>
       </section>
 
@@ -362,7 +362,7 @@
         </div>
 
         <div class="subsec">
-          <h3>6.6 · <span data-lang="en">Versioning + audit trail</span><span data-lang="vi">Versioning + audit trail</span></h3>
+          <h3>6.6 · <span data-lang="en">Versioning + audit trail</span><span data-lang="vi">Đánh version + audit trail</span></h3>
           <p><span data-lang="en">Every resubmit from <code>NEED_INFO</code> creates a <b>new version</b>; <b>Version Compare</b> shows added / removed / changed content and new files. <b>Every action</b> (View, Submit, Review, Request Info, Re-submit, Approve, Reject, Upload, Complete, Clone, SLA breached, Notification) <b>and every workflow-config change</b> is logged with actor, target, action, time, <b>old → new value</b>, IP/device.</span><span data-lang="vi">Mỗi lần gửi lại từ <code>NEED_INFO</code> tạo <b>version mới</b>; <b>Version Compare</b> hiển thị phần thêm / xoá / sửa và file bổ sung. <b>Mọi hành động</b> (View, Submit, Review, Request Info, Re-submit, Approve, Reject, Upload, Complete, Clone, quá hạn SLA, Notification) và <b>mọi thay đổi cấu hình workflow</b> đều được ghi log với: người thực hiện, đối tượng, hành động, thời gian, <b>giá trị cũ → mới</b>, IP/thiết bị.</span></p>
         </div>
 
@@ -841,7 +841,7 @@
       <!-- ===================== 8. CONSISTENCY CATCHES ===================== -->
       <section class="sec" id="catches">
         <p class="kicker">8</p>
-        <h2><span data-lang="en">Consistency catches</span><span data-lang="vi">Điểm không nhất quán tôi phát hiện</span></h2>
+        <h2><span data-lang="en">Consistency catches</span><span data-lang="vi">Nững chỗ tài liệu tự mâu thuẫn</span></h2>
         <p class="sub"><span data-lang="en">Four inconsistencies I caught by cross-checking requirements ↔ wireframes ↔ the permission model, and how each was resolved.</span><span data-lang="vi">Bốn điểm không nhất quán tôi bắt được khi rà soát chéo yêu cầu ↔ wireframe ↔ mô hình phân quyền, và cách xử lý từng điểm.</span></p>
         <ol class="steps">
           <li><span data-lang="en">The first M3 wireframe showed an <b>"Edit record" button at <code>PENDING_REVIEW</code></b> for the creator — contradicting BR-SUB-05 (Submit Lock). → Removed it; Edit only at <code>DRAFT</code> and <code>NEED_INFO</code>. Added an <b>Action Visibility Rule</b> table stating the display condition for every button (all of: permission + scope + state + SoD + not immutable).</span><span data-lang="vi">Wireframe M3 bản đầu hiển thị nút <b>"Sửa hồ sơ" ở trạng thái <code>PENDING_REVIEW</code></b> cho người tạo — mâu thuẫn BR-SUB-05 (Submit Lock). → Gỡ nút đó; chỉ cho "Sửa" ở <code>DRAFT</code> và <code>NEED_INFO</code>. Bổ sung một bảng <b>Action Visibility Rule</b> ghi điều kiện hiển thị cho từng nút (đủ tất cả: có quyền + trong scope + đúng trạng thái + không vi phạm SoD + hồ sơ chưa bất biến).</span></li>
@@ -855,7 +855,7 @@
       <section class="sec" id="outcome">
         <p class="kicker">9</p>
         <h2><span data-lang="en">Outcome</span><span data-lang="vi">Kết quả</span></h2>
-        <h3><span data-lang="en">Delivered &amp; verified at hand-off</span><span data-lang="vi">Đã bàn giao &amp; nghiệm thu khi kết thúc phần việc</span></h3>
+        <h3><span data-lang="en">Delivered &amp; verified at hand-off</span><span data-lang="vi">Bàn giao &amp; nghiệm thu</span></h3>
         <ul class="plain">
           <li><span data-lang="en">Full specification of the two modules in my scope — User &amp; Role Permissions and the Submission / Approval workflow — <b>accepted under Senior BA review</b>.</span><span data-lang="vi">Đặc tả đầy đủ hai phân hệ thuộc scope của tôi — Phân quyền Người dùng &amp; Vai trò và workflow Đề trình / Phê duyệt — <b>được duyệt qua rà soát của Senior BA</b>.</span></li>
           <li><span data-lang="en"><b>29 business rules</b> catalogued and cross-referenced to acceptance criteria and UAT cases.</span><span data-lang="vi"><b>29 quy tắc nghiệp vụ</b> được lập danh mục và truy vết chéo tới acceptance criteria và test case UAT.</span></li>
